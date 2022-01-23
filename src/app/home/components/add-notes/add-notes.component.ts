@@ -19,6 +19,7 @@ export class AddNotesComponent implements OnInit {
   allCategories: any = [];
   categories: any = [];
   difficultyValue: any =  1;
+  answerText: any = "";
   constructor(private datacontextService: DatacontextService, private commonNotificationService: CommonNotificationService) {}
 
   ngOnInit() {
@@ -46,6 +47,7 @@ export class AddNotesComponent implements OnInit {
     if(this.editNoteData){
       this.difficultyValue = this.editNoteData.diff;
       this.links = this.editNoteData.links;
+      this.answerText = this.editNoteData.ans;
       this.addNoteForm = new FormGroup({
         subject: new FormControl(this.editNoteData.subject),
         ques: new FormControl(this.editNoteData.ques),
@@ -71,11 +73,13 @@ export class AddNotesComponent implements OnInit {
     this.addNoteForm.reset();
     this.difficultyValue = 1;
     this.links = [];
+    this.answerText = "";
   }
 
   onNoteSubmit() {
     this.addNoteForm.controls.diff.setValue(this.difficultyValue);
     this.addNoteForm.controls.links.setValue(this.links);
+    this.addNoteForm.controls.ans.setValue(this.answerText);
     console.log("onNoteSubmit :: payload :: ", this.addNoteForm.value);
     this.editNoteData ? this.editNote() : this.addNewNote();
   }
@@ -138,6 +142,11 @@ export class AddNotesComponent implements OnInit {
 
   onCloseClk(){
     this.closeBtnClk.emit(true);
+  }
+
+  onAnswerTextChange(e){
+    console.log("onAnswerTextChange :: e ::", e);
+    this.answerText = e;
   }
   
 }

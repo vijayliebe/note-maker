@@ -24,7 +24,8 @@
             "tsConfig": "src/tsconfig.app.json",
             "assets": [
               "src/favicon.ico",
-              "src/assets"
+              "src/assets",
+              { "glob": "worker-json.js", "input": "./node_modules/ace-builds/src-min/", "output": "/" }
             ],
             "styles": [
               {
@@ -32,7 +33,12 @@
               },
               "src/styles.scss"
             ],
-            "scripts": []
+            "scripts": [
+              "node_modules/ace-builds/src-min/ace.js",
+              "node_modules/ace-builds/src-min/mode-json.js",
+              "node_modules/ace-builds/src-min/theme-chrome.js",
+              { "bundleName": "worker-json", "input": "node_modules/ace-builds/src-min/worker-json.js" }
+            ]
           },
           "configurations": {
             "production": {

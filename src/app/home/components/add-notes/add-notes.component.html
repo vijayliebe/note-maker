@@ -2,7 +2,7 @@
   <button class="floating-close-button" (click)="onCloseClk()">
     <i class="material-icons">close</i>
   </button>
-  <mat-card style="padding-top:3em; padding-bottom:8em; height: calc(100vh - 3em);" *ngIf="addNoteForm">
+  <mat-card style="padding-top:3em; padding-bottom:8em; height: calc(100vh - 3em); overflow-y: scroll;" *ngIf="addNoteForm">
     <form
       class="add-note-form"
       [formGroup]="addNoteForm"
@@ -149,7 +149,20 @@
             rows="3"
             matInput
             placeholder="Provide answer"
+            style="visibility: hidden; position: absolute;"
           ></textarea>
+          <div
+              ace-editor
+              [(text)]="answerText"
+              [mode]="'javascript'"
+              [theme]="'eclipse'"
+              [options]="options"
+              [readOnly]="false"
+              [autoUpdateContent]="true"
+              [durationBeforeCallback]="1000"
+              (textChanged)="onAnswerTextChange($event)"
+              style="min-height: 250px; width: 100%; overflow: auto"
+            ></div>
         </mat-form-field>
       </div>
 

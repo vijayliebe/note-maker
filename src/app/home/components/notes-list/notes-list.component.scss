@@ -1,5 +1,5 @@
 .add-note-fix {
-    width: 30%;
+    width: 50%;
     height: calc(100vh - 3em);
     top: 3em;
     position: fixed;
@@ -7,10 +7,47 @@
 }
 .noteListCont{
     position: relative;
+    padding-bottom: 2em;
 }
 .note-action-btns{
     position: absolute;
     top: 1em;
     right: 2em;
     z-index: 2;
+}
+
+.note-info{
+    position: absolute;
+    bottom: 3em;
+    right: 3em;
+    z-index: 2;
+    text-align: center;
+
+    .info{
+        margin-bottom: 5px;
+    }
+}
+
+.diff-level{
+    margin: auto;
+    font-size: 16px;
+    font-weight: bold;
+    border-radius: 50%;
+    text-align: center;
+    background: #ccc;
+    width: 30px;
+    height: 30px;
+    padding: 5px;
+}
+
+.note-cate{
+    margin: auto;
+    font-size: 16px;
+    font-weight: bold;
+    border-radius: 10px;
+    text-align: center;
+    background: #ccc;
+    width: 80px;
+    height: 30px;
+    padding: 5px;
 }
