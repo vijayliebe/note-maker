@@ -1,0 +1,194 @@
+// Full screen dialog
+
+// .mat-dialog-content {
+//   max-height: initial !important;
+//   overflow: initial !important;
+// }
+
+.mat-dialog-container {
+  padding: 0 !important;
+}
+
+.generic-dialog-container-sm {
+  width: 326px;
+
+  .generic-dialog {
+    padding: 27px;
+
+    .mat-dialog-title {
+      font-family: 'Open Sans';
+      font-size: 22px;
+      font-weight: normal;
+      font-style: normal;
+      font-stretch: normal;
+      line-height: normal;
+      letter-spacing: 0.3px;
+      color: rgba(0, 0, 0, 0.87);
+      margin-bottom: 0;
+    }
+
+    .mat-dialog-content {
+      p {
+        font-family: 'Open Sans';
+        font-size: 14px;
+        font-weight: normal;
+        font-style: normal;
+        font-stretch: normal;
+        line-height: 1.79;
+        letter-spacing: 0.1px;
+        color: rgba(0, 0, 0, 0.7);
+        margin-bottom: 35px;
+        word-break: break-word;
+      }
+    }
+
+    .mat-dialog-actions {
+      justify-content: flex-end;
+      color: #0277bd;
+      padding-bottom: 20px;
+
+      .mat-button {
+        font-family: Karla;
+        font-weight: 700;
+        text-transform: uppercase;
+      }
+    }
+  }
+}
+
+.sidebar-dialog-container {
+  height: 100vh;
+  width: 400px;
+  max-width: 50vw !important;
+  right: 0px;
+  top: 0px;
+  position: fixed !important;
+
+  &.max-width {
+    width: 95vw !important;
+    max-width: 95vw !important;
+
+    &.web-view {
+      width: 95vw !important;
+      max-width: 95vw !important;
+    }
+  }
+
+  &.no-padding{
+    .mat-dialog-container {
+      padding: 0px !important;
+    }
+  }
+  
+  .mat-dialog-container {
+    background-color: #f5f8f8;
+    border-radius: 0px;
+    padding: 18px !important;
+
+    .floating-close-button {
+      width: 30px;
+      height: 30px;
+      background-color: #b0bec5;
+      border-radius: 50%;
+      outline: none;
+      border: none;
+      position: absolute;
+      right: 12px;
+      top: 5px;
+      cursor: pointer;
+      z-index: 99999999;
+    }
+  }
+
+  .mat-dialog-content {
+    height: calc(100vh - 228px) !important;
+    max-height: calc(100vh - 228px) !important;
+  }
+}
+
+.full-screen-dialog-container {
+  .mat-dialog-container {
+    border-radius: 0 !important;
+  }
+
+  .mat-dialog-content {
+    height: calc(100vh - 228px) !important;
+    max-height: calc(100vh - 228px) !important;
+  }
+
+  width: 100vw;
+  height: 100vh;
+  max-width: 100vw !important;
+
+  .full-screen-dialog {
+    height: 100%;
+    padding: 21px 38px 38px 38px;
+
+    .mat-dialog-actions {
+      position: absolute;
+      bottom: 22px;
+      display: initial !important;
+      align-items: initial !important;
+      margin-bottom: 0 !important;
+    }
+
+    .floating-close-button {
+      width: 50px;
+      height: 50px;
+      background-color: #b0bec5;
+      border-radius: 50%;
+      outline: none;
+      border: none;
+      position: absolute;
+      right: 22px;
+      top: 34px;
+      cursor: pointer;
+      z-index: 99999999;
+    }
+
+    .mat-dialog-title {
+      font-size: 32px;
+      font-weight: 300;
+      font-style: normal;
+      font-stretch: normal;
+      line-height: normal;
+      letter-spacing: 1px;
+      color: #35454d;
+      margin-bottom: 35px;
+      margin-top: 20px;
+    }
+
+    .common-dialog-form {
+      display: flex;
+      flex-direction: column;
+
+      .medium {
+        width: 400px;
+      }
+
+      .large {
+        width: 700px;
+      }
+    }
+  }
+}
+
+.tg-dialog-container {
+  width: 450px;
+
+  .mat-dialog-actions {
+    justify-content: flex-end;
+    color: #0277bd;
+    padding-bottom: 20px;
+
+    .mat-button {
+      font-family: Karla;
+      font-weight: 700;
+      text-transform: uppercase;
+    }
+  }
+}
+
+.full-screen-dialog.analytics.prompts-analytics {
+  background-color: #eeeeee;
+}

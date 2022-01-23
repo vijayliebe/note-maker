@@ -1,0 +1,16 @@
+.add-note-fix {
+    width: 30%;
+    height: calc(100vh - 3em);
+    top: 3em;
+    position: fixed;
+    right: -2em;
+}
+.noteListCont{
+    position: relative;
+}
+.note-action-btns{
+    position: absolute;
+    top: 1em;
+    right: 2em;
+    z-index: 2;
+}

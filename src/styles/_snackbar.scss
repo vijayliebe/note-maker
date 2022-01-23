@@ -1,0 +1,26 @@
+.mat-snack-bar-container {
+  &.default {
+    background-color: #333;
+  }
+
+  &.error {
+    background-color: #D93749;
+  }
+
+  &.success {
+    background-color: #4caf50;
+  }
+
+  &.warn {
+    background-color: #ffedb8;
+  }
+
+
+  .mat-simple-snackbar {
+    span {
+      color: #fff;
+      font-family: 'Open Sans';
+      word-break: break-word;
+    }
+  }
+}

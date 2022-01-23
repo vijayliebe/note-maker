@@ -1,0 +1,39 @@
+.dash-cont {
+    padding: 2em 2em;
+
+    #pageHeading {
+        margin-bottom: 1em;
+        letter-spacing: .02em;
+        font-size: 1.4rem;
+        font-weight: 300;
+        color: #343a40;
+    }
+
+    .app-cell {
+        display: inline-block;
+        margin-right: 0.5%;
+        margin-bottom: 0.5%;
+        border: 1px solid #eeeeee;
+        background-color: #ffffff;
+        width: calc(97%/4);
+        padding: 2em 1em;
+        cursor: pointer;
+        position: relative;
+
+        &:hover {
+            background-color: #fbf9fc;
+
+            .setting-icon {
+                display: block;
+            }
+        }
+    }
+
+    .add-note-fix {
+        width: 30%;
+        height: calc(100vh - 3em);
+        top: 3em;
+        position: absolute;
+        right: -2em;
+    }
+}

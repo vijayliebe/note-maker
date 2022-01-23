@@ -1,0 +1,229 @@
+.cursor-pointer {
+  cursor: pointer;
+}
+
+.pointer-events-none {
+  pointer-events: none;
+}
+
+.no-records-message {
+  margin-left: 4px;
+  font-family: 'Open Sans';
+  font-size: 12px;
+  font-weight: normal;
+  font-style: italic;
+  font-stretch: normal;
+  line-height: normal;
+  letter-spacing: normal;
+  color: #607d8b;
+}
+
+.disableTableRow {
+  pointer-events: none;
+  opacity: 0.5;
+}
+
+.visibility-hidden {
+  visibility: hidden !important;
+}
+
+.blue-txt {
+  color: #03a9f4;
+  font-weight: 400;
+}
+
+.disableResize {
+  resize: none;
+}
+
+.error-text {
+  display: inline-block;
+  margin-left: 20px;
+  font-size: 12px;
+  color: red;
+}
+
+.premium-tag {
+  position: absolute;
+  top: 12px;
+  right: 12px;
+  height: 20px;
+  width: auto;
+}
+
+.color-bar {
+  left: 35%;
+  bottom: 0.2em;
+  position: absolute;
+  height: 3px;
+  width: 16px;
+}
+
+/* blank page - start */
+// styles for a blank landing page when no list data is present
+.blank-page {
+  // .img {}
+
+  .header {
+    font-size: 32px;
+    font-weight: 300;
+    letter-spacing: 1px;
+    color: #35454d;
+  }
+
+  .sub-header {
+    font-size: 16px;
+    letter-spacing: 0.5px;
+    color: #35454d;
+  }
+
+  .hint-text {
+    position: absolute;
+    font-family: BradleyHandITCTT;
+    font-size: 12px;
+    font-weight: bold;
+    letter-spacing: 0.4px;
+    color: #014666;
+  }
+
+  .hint-arrow {
+    position: absolute;
+    top: -80px;
+    right: 30px;
+  }
+}
+
+/* blank page - end */
+
+/* angular material css override - start */
+.mat-menu-item {
+  font-weight: 300;
+  font-family: 'Open Sans' !important;
+}
+
+.mat-tab-label,
+.mat-tab-link {
+  font-family: 'Karla' !important;
+}
+
+.mat-pseudo-checkbox::after {
+  box-sizing: unset !important;
+}
+
+.mat-form-field-disabled {
+  opacity: 0.5 !important;
+}
+
+.mat-form-field-appearance-legacy.mat-form-field-disabled .mat-form-field-underline {
+  background-color: rgba(0, 0, 0, 0.12) !important;
+  background-image: none;
+}
+
+.hide-underline .mat-form-field-underline {
+  visibility: hidden !important;
+}
+
+.mat-accent .mat-slider-track-fill,
+.mat-accent .mat-slider-thumb,
+.mat-accent .mat-slider-thumb-label {
+  background-color: #014666 !important;
+}
+
+/* input box */
+/* .mat-form-field {
+  font-size: 14px !important;
+}
+
+.mat-form-field-label {
+  font-size: 16px !important;
+} */
+
+input.mat-input-element {
+  height: 1.2em;
+}
+
+.mat-form-field-appearance-outline .mat-form-field-infix {
+  padding: 0.77em 0 0.77em 0;
+}
+
+.mat-form-field[appearance=outline] .mat-form-field-wrapper {
+  margin-bottom: 25px !important;
+}
+
+.mat-form-field .mat-form-field-wrapper {
+  margin-bottom: 45px !important;
+}
+
+.mat-form-field-subscript-wrapper {
+  top: calc(100% - 2em);
+}
+
+.mat-form-field-appearance-outline .mat-form-field-outline-thick {
+  color: rgba(0, 0, 0, 0.12);
+}
+
+.mat-form-field-appearance-outline .mat-form-field-outline-thick .mat-form-field-outline-end,
+.mat-form-field-appearance-outline .mat-form-field-outline-thick .mat-form-field-outline-gap,
+.mat-form-field-appearance-outline .mat-form-field-outline-thick .mat-form-field-outline-start {
+  border-width: 1px !important;
+}
+
+.mat-form-field {
+  font-family: 'Open Sans' !important;
+  line-height: 1.20 !important;
+}
+
+/* slider */
+.mat-slider:not(.mat-slider-disabled).cdk-focused.mat-slider-thumb-label-showing .mat-slider-thumb {
+  transform: scale(0.5) !important;
+}
+
+.mat-slider-thumb-label-text {
+  font-family: 'Open Sans' !important;
+}
+
+.absolute-center {
+  position: absolute !important;
+  top: 50% !important;
+  left: 50% !important;
+  transform: translate(-50%, -50%) !important;
+}
+
+.no-pointer-events {
+  pointer-events: none !important;
+}
+
+.dim-border {
+  display: block;
+  height: 2px;
+  border: 0;
+  border-top: 2px solid #dfdfdf;
+  margin: 2em 0;
+  padding: 0;
+}
+
+.mat-tab-label.mat-tab-disabled {
+  opacity: 0.4 !important;
+}
+/* angular material css override - end */
+
+/* freshchat */
+#fc_frame {
+  display: none;
+}
+
+.mat-fonts-wrapper {
+  .default {
+    height: 80px !important;
+    border-bottom: solid 1px #dfdfdf !important;
+    .description {
+      font-size: 12px !important;
+      margin-top: -23px !important;
+    }
+  }
+}
+
+
+.json-formatter-string{
+  white-space: normal !important;
+}

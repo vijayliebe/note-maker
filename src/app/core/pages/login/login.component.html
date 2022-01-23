@@ -1,0 +1,60 @@
+<div class="login-cont">
+  <div class="text-center" style="height: 5vh;">
+    <!-- <img _ngcontent-c12="" alt="Home" class="logo" src="./assets/logos/login.png"> -->
+  </div>
+  <form class="login-form" [formGroup]="loginForm" (ngSubmit)="onLoginSubmit()">
+    <div class="col-12">
+      <mat-form-field
+        class="col-12"
+        appearance="outline"
+        [floatLabel]="'always'"
+        [hideRequiredMarker]="true"
+      >
+        <mat-label>Email Id</mat-label>
+        <input
+          matInput
+          formControlName="email"
+          [type]="'email'"
+          placeholder="Enter email id"
+          required
+          email
+        />
+        <mat-error *ngIf="loginForm.controls.email.invalid"
+          >Email is required</mat-error
+        >
+      </mat-form-field>
+    </div>
+
+    <div class="col-12">
+      <mat-form-field
+        class="col-12"
+        appearance="outline"
+        [floatLabel]="'always'"
+        [hideRequiredMarker]="true"
+      >
+        <mat-label>Password</mat-label>
+        <input
+          matInput
+          formControlName="password"
+          [type]="hidePassword ? 'password' : 'text'"
+          placeholder="Enter password"
+          required
+        />
+        <span matSuffix (click)="hidePassword = !hidePassword">
+          <mat-icon class="cursor-pointer" style="color: #01354d;">{{
+            hidePassword ? "visibility_off" : "visibility"
+          }}</mat-icon>
+        </span>
+        <mat-error *ngIf="loginForm.controls.password.invalid"
+          >Password is required</mat-error
+        >
+      </mat-form-field>
+    </div>
+
+    <div class="login-submit">
+      <button class="app-primary-btn" mat-flat-button color="primary">
+        SIGN IN
+      </button>
+    </div>
+  </form>
+</div>

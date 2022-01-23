@@ -1,0 +1,59 @@
+<div class="notes-list-cont">
+  <button
+  class="app-primary-btn"
+  style="position: absolute; top: 7em; right: 2.2em;"
+  mat-flat-button
+  color="primary"
+  (click)="addNote()"
+>
+  ADD
+</button>
+  <div class="noteListCont col-12 row p-0 m-0">
+    <div class="" [ngClass]="{'col-9' : addNoteFlag, 'col-12 p-0 m-0' : !addNoteFlag}" style="overflow-y: scroll; height: calc(100vh - 5em);">
+      <mat-card
+        *ngFor="let note of notes; index as i"
+        style="margin-bottom: 1em; padding-bottom: 2em"
+      >
+        <div class="note-action-btns">
+          <i class="material-icons cursor-pointer mr-1"  (click)="editNote(note, i)" matTooltip="Edit Note">edit</i> 
+          <i class="material-icons cursor-pointer"  (click)="dltNote(note.id)" matTooltip="Delete Note">delete</i> 
+        </div>
+      
+        <div class="col-12">
+          <div class="col-12 row mb-4">
+            <div class="col-6">
+              <span class="text-bold">Difficulty : </span> {{ note.diff }}
+            </div>
+            <div class="col-6">
+              <span class="text-bold">Category : </span> {{ note.cate }}
+            </div>
+          </div>
+
+          <div class="col-12 mb-4">
+            <span class="text-bold">{{ i + 1 }}.Ques : </span> {{ note.ques }}
+          </div>
+
+          <div class="col-12 mb-4">
+            <span class="text-bold">Ans. </span>
+
+            <pre>
+              <code [innerHTML]="note.ans"></code>
+            </pre>
+          </div>
+
+          <div class="col-12 mb-4">
+            <span class="text-bold">Links : </span>
+            <div class="mb-1" *ngFor="let link of note.links; index as i">
+              <a href="{{ link.name }}" target="_blank">{{ link.name }}</a>
+            </div>
+          </div>
+        </div>
+      </mat-card>
+    </div>
+    <div class="col-3" *ngIf="addNoteFlag">
+      <div class="add-note-fix">
+        <app-add-notes (closeBtnClk)="closeBtnClk($event)" (addEditBtnClk)=(addEditBtnClk($event)) [editNoteData]="editNoteData"></app-add-notes>
+      </div>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,189 @@
+<div class="page-cont add-notes-cont">
+  <button class="floating-close-button" (click)="onCloseClk()">
+    <i class="material-icons">close</i>
+  </button>
+  <mat-card style="padding-top:3em; padding-bottom:8em; height: calc(100vh - 3em);" *ngIf="addNoteForm">
+    <form
+      class="add-note-form"
+      [formGroup]="addNoteForm"
+      (ngSubmit)="onNoteSubmit()"
+    >
+      <!-- <div class="col-12 row" style="margin: 0; padding: 0;">
+        <div class="col-4">
+          <mat-form-field class="col-12" appearance="fill">
+            <mat-label>Subject</mat-label>
+            <mat-select
+              formControlName="subject"
+              (selectionChange)="onSubjectSelect($event)"
+            >
+              <mat-option
+                *ngFor="let sub of subjects"
+                [value]="sub.key"
+                default
+                >{{ sub.name }}</mat-option
+              >
+            </mat-select>
+          </mat-form-field>
+        </div>
+
+        <div class="col-4" style="margin-bottom: 1em; padding: 0 2em">
+          <div class="col-12 customInputBox">
+            <div class="customInputBoxTitle">
+              Difficulty Level ({{ difficultyValue }})
+            </div>
+            <mat-slider
+              class="col-12"
+              [max]="5"
+              [min]="1"
+              [step]="true"
+              [thumbLabel]="true"
+              [tickInterval]="1"
+              [(ngModel)]="difficultyValue"
+              aria-labelledby="example-name-label"
+            >
+            </mat-slider>
+          </div>
+        </div>
+
+        <div class="col-4">
+          <mat-form-field
+            class="col-12"
+            appearance="outline"
+            [floatLabel]="'always'"
+          >
+            <mat-label>Category</mat-label>
+            <mat-select formControlName="cate">
+              <mat-option value="">Select</mat-option>
+              <mat-option *ngFor="let cat of categories" [value]="cat.key">{{
+                cat.name
+              }}</mat-option>
+            </mat-select>
+          </mat-form-field>
+        </div>
+      </div> -->
+
+
+      <div class="col-12">
+        <mat-form-field class="col-12" appearance="fill">
+          <mat-label>Subject</mat-label>
+          <mat-select
+            formControlName="subject"
+            (selectionChange)="onSubjectSelect($event)"
+          >
+            <mat-option
+              *ngFor="let sub of subjects"
+              [value]="sub.key"
+              default
+              >{{ sub.name }}</mat-option
+            >
+          </mat-select>
+        </mat-form-field>
+      </div>
+
+      <div class="col-12" style="margin-bottom: 1em; padding: 0 2em">
+        <div class="col-12 customInputBox">
+          <div class="customInputBoxTitle">
+            Difficulty Level ({{ this.difficultyValue }})
+          </div>
+          <mat-slider
+            class="col-12"
+            [max]="5"
+            [min]="1"
+            [step]="true"
+            [thumbLabel]="true"
+            [tickInterval]="1"
+            [(ngModel)]="difficultyValue"
+            [ngModelOptions]="{standalone: true}"
+            aria-labelledby="example-name-label"
+          >
+          </mat-slider>
+        </div>
+      </div>
+
+      <div class="col-12">
+        <mat-form-field
+          class="col-12"
+          appearance="outline"
+          [floatLabel]="'always'"
+        >
+          <mat-label>Category</mat-label>
+          <mat-select formControlName="cate">
+            <mat-option value="">Select</mat-option>
+            <mat-option *ngFor="let cat of categories" [value]="cat.key">{{
+              cat.name
+            }}</mat-option>
+          </mat-select>
+        </mat-form-field>
+      </div>
+
+
+      <div class="col-12">
+        <mat-form-field
+          class="col-12"
+          appearance="outline"
+          [floatLabel]="'always'"
+          [hideRequiredMarker]="true"
+        >
+          <mat-label>Ques.</mat-label>
+          <textarea
+            formControlName="ques"
+            rows="2"
+            matInput
+            placeholder="Question?"
+          ></textarea>
+
+        </mat-form-field>
+      </div>
+
+    
+      <div class="col-12">
+        <mat-form-field
+          class="col-12"
+          appearance="outline"
+          [floatLabel]="'always'"
+          [hideRequiredMarker]="true"
+        >
+          <mat-label>Answer</mat-label>
+          <textarea
+            formControlName="ans"
+            rows="3"
+            matInput
+            placeholder="Provide answer"
+          ></textarea>
+        </mat-form-field>
+      </div>
+
+      <div class="col-12" style="margin-bottom: 1em; padding: 0 2em">
+        <div class="col-12 customInputBox">
+          <div class="customInputBoxTitle">Links</div>
+          <mat-form-field class="col-12">
+            <mat-chip-list #linkList>
+              <mat-chip
+                *ngFor="let link of links"
+                [selectable]="selectable"
+                [removable]="removable"
+                (removed)="remove(link)"
+              >
+                {{ link.name }}
+                <mat-icon matChipRemove *ngIf="removable">cancel</mat-icon>
+              </mat-chip>
+              <input
+                placeholder="New link..."
+                [matChipInputFor]="linkList"
+                [matChipInputSeparatorKeyCodes]="separatorKeysCodes"
+                [matChipInputAddOnBlur]="addOnBlur"
+                (matChipInputTokenEnd)="add($event)"
+              />
+            </mat-chip-list>
+          </mat-form-field>
+        </div>
+      </div>
+
+      <div class="login-submit float-right mr-5 mt-5">
+        <button class="app-primary-btn" mat-flat-button color="primary">
+          SAVE
+        </button>
+      </div>
+    </form>
+  </mat-card>
+</div>

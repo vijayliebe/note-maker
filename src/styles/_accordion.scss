@@ -1,0 +1,90 @@
+.mat-accordion {
+
+  .mat-expansion-panel {
+    box-shadow: none;
+    border-top: solid 1px #dfdfdf;
+    border-left: solid 1px #dfdfdf;
+    border-right: solid 1px #dfdfdf;
+    border-radius: 0;
+    margin: 0;
+
+    &:last-child {
+      border-bottom: solid 1px #dfdfdf;
+      border-radius: 0 0 2px 2px;
+    }
+  }
+
+  ::ng-deep {
+    .mat-expansion-indicator {
+      position: absolute;
+      right: 25px;
+      bottom: 26px;
+    }
+  }
+
+  .title {
+    .mat-expansion-panel-header {
+      height: 40px !important;
+    }
+  }
+
+  .mat-expansion-panel-header {
+    position: relative !important;
+    height: 62px !important;
+  }
+
+  .mat-expansion-panel.mat-expanded {
+    width: calc(100% + 10px);
+    margin-left: -5px;
+    box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.16);
+
+    .mat-expansion-panel-header {
+      padding: 0 29px;
+    }
+
+    ::ng-deep {
+      .mat-expansion-indicator {
+        bottom: 17px;
+      }
+    }
+  }
+
+  .mat-expansion-panel-header.mat-expanded {
+    border-bottom: solid 1px #dfdfdf;
+  }
+
+  .title {
+    border-radius: 2px 2px 0 0;
+    background-color: #f5f5f5;
+
+    .mat-expansion-panel-header-title,
+    .mat-expansion-panel-header-description {
+      font-family: 'Open Sans';
+      font-size: 12px;
+      font-weight: 600;
+      font-style: normal;
+      font-stretch: normal;
+      letter-spacing: normal;
+      color: #5b5b5b;
+    }
+  }
+
+  .mat-expansion-panel-header-title,
+  .mat-expansion-panel-header-description {
+    font-family: 'Open Sans';
+    font-size: 14px;
+    font-weight: normal;
+    font-style: normal;
+    font-stretch: normal;
+    letter-spacing: normal;
+    color: #5b5b5b;
+  }
+
+  .mat-expansion-panel-header-title {
+    width: 40% !important;
+  }
+
+  .mat-expansion-panel-header-description {
+    width: 20% !important;
+  }
+}

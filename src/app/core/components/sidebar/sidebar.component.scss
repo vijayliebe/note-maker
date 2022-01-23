@@ -1,0 +1,45 @@
+.sidebar-cont {
+    height: calc(100vh - 9vh);
+    position: absolute;
+    background: #fafafa;
+    box-shadow: 0 2px 2px 0 rgba(0, 0, 0, .14), 0 3px 1px -2px rgba(0, 0, 0, .2), 0 1px 5px 0 rgba(0, 0, 0, .12);
+    box-sizing: border-box;
+    transform-style: preserve-3d;
+    will-change: transform;
+    transition-duration: .2s;
+    transition-timing-function: cubic-bezier(.4, 0, .2, 1);
+    transition-property: transform;
+    color: #424242;
+    overflow: visible;
+    overflow-y: auto;
+    z-index: 5;
+    width: 240px;
+    display: flex;
+    flex-direction: column;
+    flex-wrap: nowrap;
+
+    .title {
+        font-family: Roboto, Helvetica, Arial, sans-serif;
+        font-size: 20px;
+        letter-spacing: .02em;
+        font-weight: 400;
+        box-sizing: border-box;
+        padding-left: 20px;
+    line-height: 48px;
+    }
+
+    .app {
+        cursor: pointer;
+        line-height: 2em;
+        padding: 10px 40px;
+        outline: 0;
+        color: #495057 !important;
+        display: block;
+        flex-shrink: 0;
+        margin: 0;
+
+        &:hover{
+            background:#ccc;
+        }
+    }
+}

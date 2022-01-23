@@ -1,0 +1,49 @@
+.header-cont {
+    height: 5em;
+    box-shadow: 1px 1px 1px #ccc;
+    margin: 0;
+    padding: 1em 1em;
+    background: #fff;
+
+    .left {
+        padding-left: 0 !important;
+
+        .side-menu-logo {
+            cursor: pointer;
+            position: relative;
+            color: #017CAD;
+            &:hover{
+                color: #fff;
+                background: #017CAD;
+            }
+            .material-icons {
+                transform: translate(-50%, -50%);
+                top: 50%;
+                position: absolute;
+                left: 50%;
+            }
+        }
+
+        .logo-small {
+            margin-left: 1em;
+            padding-top: 1.6em;
+            width: 54px;
+        }
+
+        .app-name {
+            margin-top: 1.3em;
+            margin-left: 0.5em;
+            letter-spacing: 1px;
+            color: #343a40;
+            padding: 4px 0 0 8px;
+            font-size: 19px;
+            font-family: CiscoSans, Arial, sans-serif;
+            font-weight: 300;
+        }
+
+    }
+
+    .right {
+        padding-top: 1.3em;
+    }
+}

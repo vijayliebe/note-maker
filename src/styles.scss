@@ -1,0 +1,53 @@
+@import 'styles/theme';
+@import 'styles/material-buttons';
+@import 'styles/bootstrap-grid';
+@import 'styles/spacing';
+@import 'styles/sizing';
+@import 'styles/float';
+@import 'styles/text';
+@import 'styles/align';
+@import 'styles/misc';
+@import 'styles/dialog';
+@import 'styles/loader';
+@import 'styles/tooltip';
+@import 'styles/scrollbar';
+@import 'styles/snackbar';
+@import 'styles/button-group';
+@import 'styles/accordion';
+
+/* You can add global styles to this file, and also import other style files */
+
+html,
+body {
+  height: 100%;
+  background-color: #f2f2f2;
+  margin: 0;
+  font-family: "Open Sans", "Helvetica Neue", sans-serif;
+
+  *:focus {
+    outline: none;
+  }
+  overflow: hidden !important;
+
+}
+
+.page-cont{
+  padding: 2em 2em;
+}
+
+.customInputBox{
+  position: relative;
+    border: 1px solid #ccc;
+    padding: 7px 12px;
+    border-radius: 5px;
+
+  .customInputBoxTitle{
+    font-size: 0.75em;
+    top: -13px;
+    position: absolute;
+    background: #fff;
+    padding: 5px;
+    z-index: 2;
+    color: rgba(0, 0, 0, 0.6);
+  }
+}

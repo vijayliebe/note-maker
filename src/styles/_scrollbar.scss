@@ -1,0 +1,27 @@
+/*
+  Custom scrollbar. 
+  [Usage]: use class scrollable-container for elemnt wrapping the scrollable content
+*/
+
+/* Turn on custom 7px wide scrollbar */
+.scrollable-container::-webkit-scrollbar {
+  width: 7px;
+  background-color: rgba(0, 0, 0, 0);
+  -webkit-border-radius: 100px;
+}
+
+/* hover effect for both scrollbar area, and scrollbar 'thumb' */
+.scrollable-container::-webkit-scrollbar:hover {
+  background-color: rgba(0, 0, 0, 0.09);
+}
+
+/* The scrollbar 'thumb' */
+.scrollable-container::-webkit-scrollbar-thumb:vertical {
+  background: rgba(0, 0, 0, 0.5);
+  -webkit-border-radius: 100px;
+}
+
+.scrollable-container::-webkit-scrollbar-thumb:vertical:active {
+  background: rgba(0, 0, 0, 0.61);
+  -webkit-border-radius: 100px;
+}

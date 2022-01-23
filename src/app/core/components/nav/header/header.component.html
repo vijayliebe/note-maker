@@ -1,0 +1,29 @@
+<div class="header-cont row col-lg-12 p-0">
+  <div class="left col-lg-6 row">
+    <!-- <div class="col-sm-1 side-menu-logo" (click)="toggleSideBar()">
+      <i class="material-icons">menu</i>
+    </div> -->
+    <span class="">
+      <!-- <a routerlink="/home" href="#/home">
+        <img
+          _ngcontent-c2=""
+          alt="Home"
+          class="logo-small"
+          src="./assets/logos/home.png"
+        />
+      </a> -->
+    </span>
+    <span class="app-name ml-4">NOTES MAKER</span>
+  </div>
+  <div class="right col-lg-6">
+    <button class="float-right" mat-mini-fab color="#343a3f" [matMenuTriggerFor]="menu">
+      <mat-icon class="mat-icon material-icons" role="img" aria-hidden="true">person</mat-icon>
+    </button>
+    <mat-menu #menu="matMenu">
+      <button mat-menu-item>Profile</button>
+      <button mat-menu-item (click)="logout()">Logout</button>
+    </mat-menu>
+  </div>
+</div>
+
+<app-sidebar *ngIf="displaySidebar"></app-sidebar>

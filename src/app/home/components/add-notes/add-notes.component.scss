@@ -1,0 +1,22 @@
+
+::ng-deep.add-notes-cont{
+    .mat-form-field .mat-form-field-wrapper {
+        margin-bottom: 0 !important;
+    }
+
+    .floating-close-button {
+        width: 30px;
+        height: 30px;
+        background-color: #fff;
+        border-radius: 50%;
+        outline: none;
+        border: none;
+        position: absolute;
+        right: 3em;
+        top: 3em;
+        cursor: pointer;
+        z-index: 99999999;
+      }
+}
+
+

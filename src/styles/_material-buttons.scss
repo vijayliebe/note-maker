@@ -1,0 +1,252 @@
+/*
+***** override material buttons css *****
+Use following class for :-
+
+Type              :  class Name
+----------------  : ---------------
+Primary Btn       : app-primary-btn
+Secondary Btn     : app-secondary-btn
+Outlined Btn      : app-outlined-btn
+small Btn         : app-small-btn
+Main action Btn   : app-main-action-btn
+Link Btn          : app-link-btn
+
+Eg: <button class="app-primary-btn" mat-flat-button>Update Changes</button>
+    <button class="app-secondary-btn" mat-flat-button>Update Changes</button>
+*/
+
+$primary_btn_color :#26be1f;
+$primary_btn_color_hover :#20a01a;
+$secondary_btn_color :#617e8c;
+$secondary_btn_color_hover :#4f6773;
+$primary_small_partial_color :#039be5;
+$primary_small_partial_color_hover :#0288d1;
+$primary_main_action_color :#039be5;
+$primary_main_action_color_hover :#0288d1;
+$disabled_btn_bg : #cfd8dc;
+
+
+.app-primary-btn {
+  font-family: Karla;
+  padding-right: 2.5em ! important;
+  padding-left: 2.5em ! important;
+  height: 38.5px ! important;
+  background-color: $primary_btn_color;
+  border-color: $primary_btn_color;
+  color: #fff;
+
+  &:hover {
+    background-color: $primary_btn_color_hover;
+    border-color: $primary_btn_color_hover;
+  }
+
+  &[disabled], &.disabled {
+    background-color: $disabled_btn_bg ! important;
+    border-color: $disabled_btn_bg ! important;
+    color: #fff ! important;
+    pointer-events: none;
+  }
+}
+
+.app-primary-blue-btn {
+  font-family: Karla;
+  padding-right: 1.5em ! important;
+  padding-left: 1.5em ! important;
+  height: 52px ! important;
+  background-color: $primary_main_action_color;
+  border-color: $primary_main_action_color;
+  color: #fff;
+  border-radius: 26px !important;
+
+  &:hover {
+    background-color: $primary_main_action_color_hover;
+    border-color: $primary_main_action_color_hover;
+  }
+
+  &[disabled], &.disabled {
+    background-color: $disabled_btn_bg ! important;
+    border-color: $disabled_btn_bg ! important;
+    color: #fff ! important;
+    pointer-events: none;
+  }
+}
+
+.app-secondary-btn {
+  font-family: 'Karla';
+  padding-right: 2.5em ! important;
+  padding-left: 2.5em ! important;
+  height: 38.5px ! important;
+  background-color: $secondary_btn_color;
+  border-color: $secondary_btn_color;
+  color: #fff;
+
+  &:hover {
+    background-color: $secondary_btn_color_hover;
+    border-color: $secondary_btn_color_hover;
+  }
+
+  &[disabled] {
+    background-color: $disabled_btn_bg ! important;
+    border-color: $disabled_btn_bg ! important;
+    color: #fff ! important;
+  }
+}
+
+.app-outlined-btn {
+  font-family: 'Karla';
+  height: 32px ! important;
+  min-width: 160px ! important;
+  background-color: transparent;
+  border: 1px solid #ccc ! important;
+  font-size: 12px;
+  letter-spacing: 0.9px;
+  text-align: center;
+  color: #90a4ae;
+  line-height: normal ! important;
+
+  &:hover {
+    background-color: #eff0f0 !important;
+    border-color: #90a4ae !important;
+  }
+
+  &[disabled] {
+    background-color: #fff ! important;
+    border-color: $disabled_btn_bg ! important;
+  }
+}
+
+.app-outlined-blue-btn{
+  font-family: 'Karla';
+  height: 32px ! important;
+  min-width: 160px ! important;
+  background-color: #ffffff;
+  border: 1px solid #03a9f4 ! important;
+  font-size: 12px;
+  letter-spacing: 0.9px;
+  text-align: center;
+  color: #03a9f4;
+  line-height: normal ! important;
+
+  &:hover {
+    background-color: #eff0f0 !important;
+    border-color: #90a4ae !important;
+  }
+
+  &[disabled] {
+    background-color: #fff ! important;
+    border-color: $disabled_btn_bg ! important;
+  }
+}
+
+.app-small-btn {
+  font-family: 'Karla';
+  height: 30px;
+  min-width: 185.3px;
+  background-color: $primary_small_partial_color;
+  border-color: $primary_small_partial_color;
+  font-size: 12px;
+  color: #fff;
+  line-height: normal ! important;
+
+  &:hover {
+    background-color: $primary_small_partial_color_hover;
+    border-color: $primary_small_partial_color_hover;
+  }
+
+  &[disabled] {
+    background-color: $disabled_btn_bg ! important;
+    border-color: $disabled_btn_bg ! important;
+    color: #fff ! important;
+  }
+}
+
+.app-main-action-btn {
+  font-family: 'Karla';
+  background-color: $primary_main_action_color ! important;
+  font-weight: 400;
+
+  &:hover {
+    background-color: $primary_main_action_color_hover ! important;
+    border-color: $primary_main_action_color_hover ! important;
+  }
+
+  &[disabled] {
+    background-color: $disabled_btn_bg ! important;
+    border-color: $disabled_btn_bg ! important;
+    color: #fff ! important;
+  }
+}
+
+.app-secondary-action-btn {
+  font-family: 'Karla';
+  background-color: $secondary_btn_color ! important;
+  font-weight: 400;
+
+  &:hover {
+    background-color: $secondary_btn_color_hover ! important;
+    border-color: $secondary_btn_color_hover ! important;
+  }
+
+  &[disabled] {
+    background-color: $disabled_btn_bg ! important;
+    border-color: $disabled_btn_bg ! important;
+    color: #fff ! important;
+  }
+}
+
+.app-link-btn {
+  background: transparent;
+  display: inline-block;
+  padding: 0 !important;
+  border:none !important;
+  font-size: 12px;
+  line-height: 2.92;
+  color: #039be5;
+  font-weight: normal;
+  font-family: 'Karla';
+  border-radius: 0 !important;
+  border-bottom: 1px solid #039be5 !important;
+  line-height: 20px !important;
+  .mat-button-focus-overlay {
+    background-color: transparent ! important;
+  }
+
+  &:hover {
+    color: #0272a6;
+    border-bottom: 1px solid #0272a6 !important;
+  }
+
+  &[disabled], &.disabled {
+    border-bottom: 1px solid $disabled_btn_bg !important;
+    color: $disabled_btn_bg ! important;
+    pointer-events: none;
+  }
+}
+
+.app-rounded-icon-btn {
+  font-family: 'Karla';
+  background: transparent;
+  padding: 0;
+  outline: none;
+  border: none;
+  height: 30px;
+  width: 30px;
+  border-radius: 50%;
+  float: right;
+  margin-right: 11px;
+  cursor: pointer;
+
+  i,
+  .svg-icon-sprite {
+    color: #9b9b9b !important;
+  }
+
+  &:hover {
+    background-color: rgba(207, 216, 220, 0.8);
+
+    i,
+    .svg-icon-sprite {
+      color: #039be5 !important;
+    }
+  }
+}
