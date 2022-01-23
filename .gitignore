@@ -33,5 +33,6 @@ npm-debug*
 Thumbs.db
 
 package-lock.json
+
 .history
 
