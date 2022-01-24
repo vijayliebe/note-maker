@@ -90,30 +90,6 @@
       "diff": 1,
       "cate": "str",
       "id": 6
-    },
-    {
-      "subject": "algo",
-      "ques": "Hello world",
-      "links": [],
-      "tags": [
-        {
-          "name": "a"
-        },
-        {
-          "name": "v"
-        },
-        {
-          "name": "t"
-        },
-        {
-          "name": "4"
-        }
-      ],
-      "ans": "\nconst sayHello = () => {\n  console.log(\"Hello World!\");\n}\n\n\nsayHello();",
-      "diff": 1,
-      "imp": 1,
-      "cate": "str",
-      "id": 7
     }
   ]
 }

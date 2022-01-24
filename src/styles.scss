@@ -27,21 +27,22 @@ body {
   *:focus {
     outline: none;
   }
-  // overflow: hidden !important;
+
+  overflow: hidden !important;
 
 }
 
-.page-cont{
+.page-cont {
   padding: 2em 2em;
 }
 
-.customInputBox{
+.customInputBox {
   position: relative;
-    border: 1px solid #ccc;
-    padding: 7px 12px;
-    border-radius: 5px;
+  border: 1px solid #ccc;
+  padding: 7px 12px;
+  border-radius: 5px;
 
-  .customInputBoxTitle{
+  .customInputBoxTitle {
     font-size: 0.75em;
     top: -13px;
     position: absolute;
@@ -52,8 +53,16 @@ body {
   }
 }
 
+.heading1 {
+  margin-bottom: 1em;
+  letter-spacing: .02em;
+  font-size: 1.4rem;
+  font-weight: 300;
+  color: #343a40;
+}
 
-code, pre {
+code,
+pre {
   background-color: #f4f4f4;
 }
 
@@ -79,7 +88,7 @@ pre code {
 code {
   -webkit-box-decoration-break: clone;
   box-decoration-break: clone;
-  font-family: consolas,"Liberation Mono",courier,monospace;
+  font-family: consolas, "Liberation Mono", courier, monospace;
   padding: 0 3px;
   white-space: nowrap;
   word-wrap: break-word;

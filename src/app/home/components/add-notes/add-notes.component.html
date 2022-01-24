@@ -3,6 +3,8 @@
     <i class="material-icons">close</i>
   </button>
   <mat-card style="padding-top:3em; padding-bottom:8em; height: calc(100vh - 3em); overflow-y: scroll;" *ngIf="addNoteForm">
+    <div  class="heading1" >{{editNoteData ? 'Edit' : 'Add'}}</div>
+
     <form
       class="add-note-form"
       [formGroup]="addNoteForm"
@@ -240,7 +242,7 @@
 
       <div class="login-submit float-right mr-5 mt-5">
         <button class="app-primary-btn" mat-flat-button color="primary">
-          SAVE
+          {{editNoteData ? 'UPDATE' : 'SAVE'}}
         </button>
       </div>
     </form>
