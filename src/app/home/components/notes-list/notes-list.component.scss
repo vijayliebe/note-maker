@@ -1,3 +1,8 @@
+$tag-bg:#07abec;
+$cat-bg:#eee;
+$imp-bg:#26be1f;
+$diff-bg:red;
+
 .add-note-fix {
     width: 50%;
     height: calc(100vh - 3em);
@@ -18,8 +23,19 @@
 
 .note-info{
     position: absolute;
-    bottom: 3em;
+    top: 4.5em;
     right: 3em;
+    z-index: 2;
+    text-align: center;
+
+    .info{
+        margin-bottom: 5px;
+    }
+}
+.note-links{
+    position: absolute;
+    top: 12em;
+    right:4em;
     z-index: 2;
     text-align: center;
 
@@ -34,7 +50,21 @@
     font-weight: bold;
     border-radius: 50%;
     text-align: center;
-    background: #ccc;
+    color: #fff;
+    background: $diff-bg;
+    width: 30px;
+    height: 30px;
+    padding: 5px;
+}
+
+.imp-level{
+    margin: auto;
+    font-size: 16px;
+    font-weight: bold;
+    border-radius: 50%;
+    text-align: center;
+    color: #fff;
+    background: $imp-bg;
     width: 30px;
     height: 30px;
     padding: 5px;
@@ -46,8 +76,22 @@
     font-weight: bold;
     border-radius: 10px;
     text-align: center;
-    background: #ccc;
+    // color: #fff;
+    background: $cat-bg;
     width: 80px;
+    height: 30px;
+    padding: 5px;
+}
+
+.note-tag{
+    margin: auto;
+    font-size: 16px;
+    font-weight: bold;
+    border-radius: 10px;
+    text-align: center;
+    color: #fff;
+    background: $tag-bg;
+    width: 10em;
     height: 30px;
     padding: 5px;
 }

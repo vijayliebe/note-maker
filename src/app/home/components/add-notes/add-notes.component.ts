@@ -19,6 +19,7 @@ export class AddNotesComponent implements OnInit {
   allCategories: any = [];
   categories: any = [];
   difficultyValue: any =  1;
+  impValue: any =  1;
   answerText: any = "";
   constructor(private datacontextService: DatacontextService, private commonNotificationService: CommonNotificationService) {}
 
@@ -45,15 +46,19 @@ export class AddNotesComponent implements OnInit {
   }
   createNoteForm(){
     if(this.editNoteData){
-      this.difficultyValue = this.editNoteData.diff;
-      this.links = this.editNoteData.links;
+      this.difficultyValue = this.editNoteData.diff || 1;
+      this.impValue = this.editNoteData.imp || 1;
+      this.links = this.editNoteData.links || [];
+      this.tags = this.editNoteData.tags || [];
       this.answerText = this.editNoteData.ans;
       this.addNoteForm = new FormGroup({
         subject: new FormControl(this.editNoteData.subject),
         ques: new FormControl(this.editNoteData.ques),
         links: new FormControl(""),
+        tags: new FormControl(""),
         ans: new FormControl(this.editNoteData.ans),
         diff: new FormControl(""),
+        imp: new FormControl(""),
         cate: new FormControl(this.editNoteData.cate),
       });
     } else {
@@ -61,8 +66,10 @@ export class AddNotesComponent implements OnInit {
         subject: new FormControl("algo"),
         ques: new FormControl(""),
         links: new FormControl(""),
+        tags: new FormControl(""),
         ans: new FormControl(""),
         diff: new FormControl(""),
+        imp: new FormControl(""),
         cate: new FormControl(""),
       });
     }
@@ -72,13 +79,17 @@ export class AddNotesComponent implements OnInit {
   resetForm(){
     this.addNoteForm.reset();
     this.difficultyValue = 1;
+    this.impValue = 1;
     this.links = [];
+    this.tags = [];
     this.answerText = "";
   }
 
   onNoteSubmit() {
     this.addNoteForm.controls.diff.setValue(this.difficultyValue);
+    this.addNoteForm.controls.imp.setValue(this.impValue);
     this.addNoteForm.controls.links.setValue(this.links);
+    this.addNoteForm.controls.tags.setValue(this.tags);
     this.addNoteForm.controls.ans.setValue(this.answerText);
     console.log("onNoteSubmit :: payload :: ", this.addNoteForm.value);
     this.editNoteData ? this.editNote() : this.addNewNote();
@@ -112,14 +123,15 @@ export class AddNotesComponent implements OnInit {
   addOnBlur = true;
   readonly separatorKeysCodes: number[] = [ENTER, COMMA];
   links: any = [];
+  tags: any = [];
 
-  add(event: MatChipInputEvent): void {
+  add(event: MatChipInputEvent, collection): void {
     const input = event.input;
     const value = event.value;
 
-    // Add our fruit
+    // Add 
     if ((value || "").trim()) {
-      this.links.push({ name: value.trim() });
+      this[collection].push({ name: value.trim() });
     }
 
     // Reset the input value
@@ -128,11 +140,11 @@ export class AddNotesComponent implements OnInit {
     }
   }
 
-  remove(link: any): void {
-    const index = this.links.indexOf(link);
+  remove(link: any, collection): void {
+    const index = this[collection].indexOf(link);
 
     if (index >= 0) {
-      this.links.splice(index, 1);
+      this[collection].splice(index, 1);
     }
   }
 

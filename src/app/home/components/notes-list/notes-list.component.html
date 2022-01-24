@@ -35,8 +35,16 @@
         </div>
 
         <div class="note-info">
+          <div class="info imp-level" *ngIf="note.imp">{{ note.imp }}</div>
           <div class="info diff-level">{{ note.diff }}</div>
-          <div class="info note-cate">{{ note.cate }}</div>
+          <div class="info note-cate" *ngIf="note.cate">{{ note.cate }}</div>
+        </div>
+
+        <div class="note-links">
+          <div class="mb-1" *ngFor="let link of note.links; index as i">
+            <a href="{{ link.name }}" target="_blank" title="{{ link.name }}">Link {{ i+ 1 }}</a>
+          </div>
+          
         </div>
 
         <div class="col-11">
@@ -45,27 +53,30 @@
           </div>
 
           <div class="col-12 mb-4">
-            <span class="text-bold">Ans. </span>
-
+            <!-- <span class="text-bold">Ans. </span> -->
+            <!-- [theme]="'eclipse'" -->
             <div
               ace-editor
               [(text)]="note.ans"
               [mode]="'javascript'"
-              [theme]="'eclipse'"
               [options]="options"
               [readOnly]="true"
               [autoUpdateContent]="true"
               [durationBeforeCallback]="1000"
               (textChanged)="onChange($event)"
-              style="min-height: 250px; width: 100%; overflow: auto"
+              style="min-height: 250px; width: 100%; overflow-y: auto"
             ></div>
+            <!-- <pre class="brush: js notranslate">
+            <code>{{note.ans}}</code>
+            </pre> -->
           </div>
 
-          <div class="col-12 mb-4" *ngIf="note.links && note.links.length">
-            <span class="text-bold">Links : </span>
-            <div class="mb-1" *ngFor="let link of note.links; index as i">
-              <a href="{{ link.name }}" target="_blank">{{ link.name }}</a>
-            </div>
+          <div class="col-12 mb-4" *ngIf="note.tags && note.tags.length">
+            <span class="text-bold">Tags : </span>
+            <mat-chip-list style="display: inline-block;">
+              <mat-chip color="primary" selected *ngFor="let tag of note.tags">{{ tag.name }}</mat-chip>
+            </mat-chip-list>
+            <!-- <div class="info note-tag" *ngFor="let tag of note.tags">{{ tag.name }}</div> -->
           </div>
         </div>
       </mat-card>

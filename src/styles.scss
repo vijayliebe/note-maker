@@ -27,7 +27,7 @@ body {
   *:focus {
     outline: none;
   }
-  overflow: hidden !important;
+  // overflow: hidden !important;
 
 }
 
@@ -50,4 +50,37 @@ body {
     z-index: 2;
     color: rgba(0, 0, 0, 0.6);
   }
+}
+
+
+code, pre {
+  background-color: #f4f4f4;
+}
+
+pre {
+  border-left: 6px solid #005282;
+  font-size: 1rem;
+  line-height: 1.4;
+  margin: 0 0 24px;
+  max-width: 100%;
+  overflow: auto;
+  padding: 24px;
+  width: 100%;
+}
+
+.notranslate code {
+  background-color: transparent;
+}
+
+pre code {
+  white-space: pre;
+}
+
+code {
+  -webkit-box-decoration-break: clone;
+  box-decoration-break: clone;
+  font-family: consolas,"Liberation Mono",courier,monospace;
+  padding: 0 3px;
+  white-space: nowrap;
+  word-wrap: break-word;
 }
