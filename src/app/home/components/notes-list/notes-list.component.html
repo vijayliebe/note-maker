@@ -1,4 +1,47 @@
 <div class="notes-list-cont">
+  <div class="filters">
+    <div class="filter tag-filter">
+      <mat-form-field appearance="fill">
+        <mat-label>Tags</mat-label>
+        <mat-select [formControl]="selectedTags" multiple>
+          <mat-option *ngFor="let tag of uniqueTags" [value]="tag" (click)="onTagSelect($event)">{{tag}}</mat-option>
+        </mat-select>
+      </mat-form-field>
+    </div>
+
+    <div class="filter imp-filter">
+      <mat-form-field appearance="fill">
+        <mat-label>Importance Level</mat-label>
+        <mat-select [formControl]="selectedImp" multiple>
+          <mat-option *ngFor="let l of levels" [value]="l" (click)="onImpSelect($event)">{{l}}</mat-option>
+        </mat-select>
+      </mat-form-field>
+    </div>
+
+    <div class="filter diff-filter">
+      <mat-form-field appearance="fill">
+        <mat-label>Difficulty Level</mat-label>
+        <mat-select [formControl]="selectedDiff" multiple>
+          <mat-option *ngFor="let l of levels" [value]="l" (click)="onDiffSelect($event)">{{l}}</mat-option>
+        </mat-select>
+      </mat-form-field>
+    </div>
+
+    <div class="filter sorting ml-5" >
+      <mat-form-field appearance="fill">
+        <mat-label>Sort By</mat-label>
+        <mat-select [formControl]="selectedSort">
+          <mat-option [value]="">Select</mat-option>
+          <mat-option *ngFor="let s of sorting" [value]="s.key" (click)="onSortSelect($event)">{{s.name}}</mat-option>
+        </mat-select>
+      </mat-form-field>
+    </div>
+
+  </div>
+
+
+
+
   <button
     class="app-primary-btn"
     style="position: absolute; top: 7em; right: 2.2em"
