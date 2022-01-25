@@ -3,7 +3,7 @@
   "version": "0.0.0",
   "scripts": {
     "ng": "ng",
-    "start": "ng serve --proxy-config proxy.config.json --port=4400 --disable-host-check",
+    "start": "ng serve --proxy-config proxy.config.json --port=4400 --host 0.0.0.0 --disable-host-check",
     "build": "ng build",
     "start:api": "json-server --watch notesDb/db.json --routes notesDb/routes.json",
     "test": "ng test",

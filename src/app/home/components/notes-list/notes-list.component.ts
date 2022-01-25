@@ -28,7 +28,8 @@ export class NotesListComponent implements OnInit {
   selectedTags = new FormControl();
   selectedImp = new FormControl();
   selectedDiff = new FormControl();
-  selectedSubjects = new FormControl();
+  //selectedSubjects = new FormControl();
+  selectedSubjects = new FormControl(["algo"]);
   selectedCate = new FormControl();
   
   uniqueTags: any = [];
@@ -183,7 +184,7 @@ export class NotesListComponent implements OnInit {
     this.onFilter();
   }
 
-  onFilter(){
+  onFilter2(){
     let isValueProvided = false;
     const selectedSubjects = this.selectedSubjects.value;
     const selectedCate = this.selectedCate.value;
@@ -271,6 +272,81 @@ export class NotesListComponent implements OnInit {
 
     
     this.notes = (Object.values(noteIdMap).length || isValueProvided) ? Object.values(noteIdMap) : this.originalData;
+  
+    if(selectedSort){
+      let copyNotes = JSON.parse(JSON.stringify(this.notes));
+
+      this.notes = copyNotes.sort((a, b)=>{
+        return a[selectedSort] - b[selectedSort];
+      });      
+    }
+  }
+
+  onFilter(){
+    const selectedSubjects = this.selectedSubjects.value;
+    const selectedCate = this.selectedCate.value;
+    const selectedTags = this.selectedTags.value;
+    const selectedImp = this.selectedImp.value;
+    const selectedDiff = this.selectedDiff.value;
+    const selectedSort = this.selectedSort.value;
+    
+
+    let dataCopy = JSON.parse(JSON.stringify(this.originalData));
+
+    if(selectedSubjects && selectedSubjects.length){
+      /* update categories as per subject selected - start */
+      this.categories = this.allCategories[selectedSubjects];
+      /* update categories as per subject selected - end */
+
+      dataCopy = dataCopy.filter((data)=>{
+        if(selectedSubjects.includes(data.subject)){
+          return data;
+        }
+      });
+    }
+
+    if(selectedCate && selectedCate.length){
+
+      dataCopy = dataCopy.filter((data)=>{
+        if(selectedCate.includes(data.cate)){
+          return data;
+        }
+      });
+    }
+
+    if(selectedTags && selectedTags.length){
+      dataCopy = dataCopy.filter((data)=>{
+        let dataMap = {};
+        for(let tag of data.tags){
+          if(selectedTags.includes(tag.name)){
+            dataMap[data.id] = data;
+          }
+        }
+        let values = Object.values(dataMap);
+        if(values.length){
+          return values;
+        }
+      });
+    }
+
+    if (selectedImp && selectedImp.length) {
+      dataCopy = dataCopy.filter((data)=>{
+        if(selectedImp.includes(String(data.imp))){
+          return data;
+        }
+      });
+    }
+
+    if(selectedDiff && selectedDiff.length){
+      dataCopy = dataCopy.filter((data)=>{
+        if(selectedDiff.includes(String(data.diff))){
+          return data;
+        }
+      });
+    }
+
+    
+    this.notes = dataCopy;
   
     if(selectedSort){
       let copyNotes = JSON.parse(JSON.stringify(this.notes));

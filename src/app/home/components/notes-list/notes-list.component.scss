@@ -97,7 +97,10 @@ $diff-bg:red;
 }
 
 .filters{
-
+    left: 14%;
+    top: 9.5%;
+    position: fixed;
+    width: 80%;
     .filter{
         display: inline-block;
         margin-right: 10px;

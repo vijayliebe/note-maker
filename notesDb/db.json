@@ -93,6 +93,25 @@
       "imp": 1,
       "cate": "str",
       "id": 6
+    },
+    {
+      "subject": "algo",
+      "ques": "RANDOMLY Reorder Array in O(N)",
+      "links": [
+        {
+          "name": "https://www.youtube.com/watch?v=CoI4S7z1E1Y&ab_channel=CSDojo"
+        }
+      ],
+      "tags": [
+        {
+          "name": "Lynda"
+        }
+      ],
+      "ans": "const reorder = (arr) => {\n    for(let i=arr.length; i>0; i--){\n    \tconst randomIdx = Math.floor(Math.random() * i);\n    \t// swap\n    \tlet temp = arr[randomIdx];\n    \tarr[randomIdx] = arr[i-1];\n    \tarr[i-1] = temp;\n    }\n    return arr;\n}\n\nconsole.log(reorder([1,0,3,9,2]));",
+      "diff": 1,
+      "imp": 3,
+      "cate": "arr",
+      "id": 7
     }
   ]
 }
