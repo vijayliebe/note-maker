@@ -18,6 +18,9 @@ import { CommonNotificationService } from "src/app/shared/services/common-notifi
 })
 export class NotesListComponent implements OnInit {
   originalData: any;
+  subjects: any = [];
+  allCategories: any = {};
+  categories: any = [];
   notesMap: any = {};
   sorting: any = [{"name": "Importance", "key": "imp"}, {"name": "Difficulty", "key": "diff"}];
   levels: any = ["1","2","3","4","5"];
@@ -25,6 +28,9 @@ export class NotesListComponent implements OnInit {
   selectedTags = new FormControl();
   selectedImp = new FormControl();
   selectedDiff = new FormControl();
+  selectedSubjects = new FormControl();
+  selectedCate = new FormControl();
+  
   uniqueTags: any = [];
   addNoteFlag : boolean = false;
   @Input() subjectName: any;
@@ -36,6 +42,8 @@ export class NotesListComponent implements OnInit {
 
   ngOnInit() {
    this.getNoteList();
+   this.getSubjects();
+   this.getCategories();
   }
 
   getNoteList(){
@@ -46,6 +54,29 @@ export class NotesListComponent implements OnInit {
       this.prepareNoteMap(this.originalData || []);
       this.prepareUniqueTags(this.originalData || []);
     }); 
+  }
+
+  getSubjects(){
+    this.datacontextService.notesService
+      .getSubjects()
+      .subscribe((data: any) => {
+        if (!data.is_error) {
+        }
+        console.log("getSubjects ::", data);
+        this.subjects = data;
+      });
+  }
+
+  getCategories(){
+    this.datacontextService.notesService
+      .getCategories()
+      .subscribe((data: any) => {
+        if (!data.is_error) {
+        }
+        console.log("getCategories ::", data);
+        this.allCategories = data;
+        this.categories = this.allCategories["algo"];
+      });
   }
 
   prepareNoteMap(noteList){
@@ -154,13 +185,48 @@ export class NotesListComponent implements OnInit {
 
   onFilter(){
     let isValueProvided = false;
+    const selectedSubjects = this.selectedSubjects.value;
+    const selectedCate = this.selectedCate.value;
     const selectedTags = this.selectedTags.value;
     const selectedImp = this.selectedImp.value;
     const selectedDiff = this.selectedDiff.value;
     const selectedSort = this.selectedSort.value;
+    
 
     const dataCopy = JSON.parse(JSON.stringify(this.notesMap));
     let noteIdMap = {};
+    if(selectedSubjects && selectedSubjects.length){
+      /* update categories as per subject selected - start */
+      this.categories = this.allCategories[selectedSubjects];
+      /* update categories as per subject selected - end */
+
+      isValueProvided = true;
+      let sub = Object.keys(dataCopy.sub);
+      for(let i = 0; i < sub.length; i++){
+        let su = sub[i];
+        if(selectedSubjects.includes(su)){
+          let notes = dataCopy.sub[su];
+          for(let n of notes){
+            noteIdMap[n.id] = n;
+          }          
+        }
+      }
+    }
+
+    if(selectedCate && selectedCate.length){
+      isValueProvided = true;
+      let cate = Object.keys(dataCopy.cate);
+      for(let i = 0; i < cate.length; i++){
+        let cat = cate[i];
+        if(selectedCate.includes(cat)){
+          let notes = dataCopy.cate[cat];
+          for(let n of notes){
+            noteIdMap[n.id] = n;
+          }          
+        }
+      }
+    }
+
     if(selectedTags && selectedTags.length){
       isValueProvided = true;
       let tags = Object.keys(dataCopy.tag);
@@ -170,9 +236,7 @@ export class NotesListComponent implements OnInit {
           let notes = dataCopy.tag[tag];
           for(let n of notes){
             noteIdMap[n.id] = n;
-          }
-          
-          // notes = [...notes, ...dataCopy.tag[tag]];
+          }          
         }
       }
     }
@@ -187,7 +251,6 @@ export class NotesListComponent implements OnInit {
           for(let n of notes){
             noteIdMap[n.id] = n;
           }
-          //notes = [...notes, ...dataCopy.imp[imp]];
         }
       }
     }
@@ -202,13 +265,20 @@ export class NotesListComponent implements OnInit {
           for(let n of notes){
             noteIdMap[n.id] = n;
           }
-          //notes = [...notes, ...dataCopy.diff[diff]];
         }
       }
-      
     }
 
+    
     this.notes = (Object.values(noteIdMap).length || isValueProvided) ? Object.values(noteIdMap) : this.originalData;
+  
+    if(selectedSort){
+      let copyNotes = JSON.parse(JSON.stringify(this.notes));
+
+      this.notes = copyNotes.sort((a, b)=>{
+        return a[selectedSort] - b[selectedSort];
+      });      
+    }
   }
 
 }
