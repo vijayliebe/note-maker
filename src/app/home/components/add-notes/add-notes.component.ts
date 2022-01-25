@@ -149,7 +149,7 @@ export class AddNotesComponent implements OnInit {
   }
 
   onSubjectSelect(){
-    this.categories = this.allCategories[this.addNoteForm.value.subject]
+    this.categories = this.allCategories[this.addNoteForm.value.subject];
   }
 
   onCloseClk(){
