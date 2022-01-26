@@ -1,10 +1,12 @@
-import { Component, OnInit, Input, Output, EventEmitter } from "@angular/core";
+import { Component, OnInit, Input, Output, EventEmitter, ViewChild, ElementRef } from "@angular/core";
 import { FormGroup, FormControl } from "@angular/forms";
 import { DatacontextService } from "src/app/data/datacontext.service";
 import { COMMA, ENTER } from "@angular/cdk/keycodes";
 import { MatChipInputEvent } from "@angular/material";
 import { CommonNotificationService } from "src/app/shared/services/common-notification/common-notification.service";
-
+import {MatAutocompleteSelectedEvent} from '@angular/material/autocomplete';
+import {Observable} from 'rxjs';
+import {map, startWith} from 'rxjs/operators';
 @Component({
   selector: "app-add-notes",
   templateUrl: "./add-notes.component.html",
@@ -12,6 +14,7 @@ import { CommonNotificationService } from "src/app/shared/services/common-notifi
 })
 export class AddNotesComponent implements OnInit {
   @Input() editNoteData: any; 
+  @Input() uniqueTags: any; 
   @Output() closeBtnClk = new EventEmitter<any>();
   @Output() addEditBtnClk = new EventEmitter<any>();
   addNoteForm: any;
@@ -21,6 +24,11 @@ export class AddNotesComponent implements OnInit {
   difficultyValue: any =  1;
   impValue: any =  1;
   answerText: any = "";
+  tagControl = new FormControl();
+  tagOptions: Observable<string[]>;
+
+  @ViewChild('tagInput') tagInput: ElementRef<HTMLInputElement>;
+
   constructor(private datacontextService: DatacontextService, private commonNotificationService: CommonNotificationService) {}
 
   ngOnInit() {
@@ -43,6 +51,16 @@ export class AddNotesComponent implements OnInit {
         this.allCategories = data;
         this.categories = this.allCategories["algo"];
       });
+
+      this.tagOptions = this.tagControl.valueChanges.pipe(
+        startWith(''),
+        map(value => this._filter(value)),
+      );
+
+      this.tagOptions = this.tagControl.valueChanges.pipe(
+        startWith(null),
+        map((tag: string | null) => (tag ? this._filter(tag) : this.uniqueTags.slice())),
+      );
   }
   createNoteForm(){
     if(this.editNoteData){
@@ -53,6 +71,7 @@ export class AddNotesComponent implements OnInit {
       this.answerText = this.editNoteData.ans;
       this.addNoteForm = new FormGroup({
         subject: new FormControl(this.editNoteData.subject),
+        title: new FormControl(this.editNoteData.title),
         ques: new FormControl(this.editNoteData.ques),
         links: new FormControl(""),
         tags: new FormControl(""),
@@ -64,6 +83,7 @@ export class AddNotesComponent implements OnInit {
     } else {
       this.addNoteForm = new FormGroup({
         subject: new FormControl("algo"),
+        title: new FormControl(""),
         ques: new FormControl(""),
         links: new FormControl(""),
         tags: new FormControl(""),
@@ -160,5 +180,18 @@ export class AddNotesComponent implements OnInit {
     console.log("onAnswerTextChange :: e ::", e);
     this.answerText = e;
   }
+
+  selected(event: MatAutocompleteSelectedEvent): void {
+    this.tags.push({"name": event.option.viewValue});
+    this.tagInput.nativeElement.value = '';
+    this.tagControl.setValue(null);
+  }
+
+  private _filter(value: string): string[] {
+    const filterValue = value.toLowerCase();
+
+    return this.uniqueTags.filter(option => option.toLowerCase().includes(filterValue));
+  }
+
   
 }

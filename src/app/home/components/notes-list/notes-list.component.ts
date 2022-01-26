@@ -17,6 +17,8 @@ import { CommonNotificationService } from "src/app/shared/services/common-notifi
   styleUrls: ['./notes-list.component.scss']
 })
 export class NotesListComponent implements OnInit {
+  isFilterApplied: boolean = false;
+  isclassicTheme: boolean = false;
   originalData: any;
   subjects: any = [];
   allCategories: any = {};
@@ -54,6 +56,8 @@ export class NotesListComponent implements OnInit {
       this.originalData = JSON.parse(JSON.stringify(this.notes));
       this.prepareNoteMap(this.originalData || []);
       this.prepareUniqueTags(this.originalData || []);
+
+      if(this.isFilterApplied) this.onFilter();
     }); 
   }
 
@@ -283,6 +287,7 @@ export class NotesListComponent implements OnInit {
   }
 
   onFilter(){
+    this.isFilterApplied = true;
     const selectedSubjects = this.selectedSubjects.value;
     const selectedCate = this.selectedCate.value;
     const selectedTags = this.selectedTags.value;
@@ -308,9 +313,17 @@ export class NotesListComponent implements OnInit {
     if(selectedCate && selectedCate.length){
 
       dataCopy = dataCopy.filter((data)=>{
-        if(selectedCate.includes(data.cate)){
-          return data;
+        let dataMap = {};
+        for(let cat of data.cate){
+          if(selectedCate.includes(cat)){
+            dataMap[data.id] = data;
+          }
         }
+        let values = Object.values(dataMap);
+        if(values.length){
+          return values;
+        }
+
       });
     }
 
@@ -357,4 +370,12 @@ export class NotesListComponent implements OnInit {
     }
   }
 
+  onClassicThemeChange(e, idx){
+    console.log("onClassicThemeChange :: e ::", e.checked);
+    this.notes[idx]['classicTheme'] = e.checked;
+  }
+
+  displayCate(categories){
+    return categories.join(' | ');
+  }
 }

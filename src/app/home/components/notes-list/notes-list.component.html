@@ -55,6 +55,8 @@
       </mat-form-field>
     </div>
 
+    <mat-slide-toggle class="mb-3"  style="vertical-align: middle;"  [(ngModel)]="isclassicTheme">Classic</mat-slide-toggle>
+
   </div>
 
 
@@ -81,6 +83,8 @@
         style="margin-bottom: 1em; padding-bottom: 2em"
       >
         <div class="note-action-btns">
+          <mat-slide-toggle class="mr-3"  style="vertical-align: top;" (change)="onClassicThemeChange($event, i)">Classic</mat-slide-toggle>
+
           <i
             class="material-icons cursor-pointer mr-1"
             (click)="editNote(note, i)"
@@ -98,7 +102,7 @@
         <div class="note-info">
           <div class="info imp-level" *ngIf="note.imp">{{ note.imp }}</div>
           <div class="info diff-level">{{ note.diff }}</div>
-          <div class="info note-cate" *ngIf="note.cate">{{ note.cate }}</div>
+          <div class="info note-cate" *ngIf="note.cate">{{ displayCate(note.cate) }}</div>
         </div>
 
         <div class="note-links">
@@ -110,26 +114,32 @@
 
         <div class="col-11">
           <div class="col-12 mb-4">
-            <span class="text-bold">{{ i + 1 }}. </span> {{ note.ques }}
+            <span class="text-bold">{{ i + 1 }}. </span> 
+            <span class="text-bold" *ngIf="note.title">{{note.title}} : </span> 
+            {{ note.ques }}
           </div>
 
           <div class="col-12 mb-4">
             <!-- <span class="text-bold">Ans. </span> -->
             <!-- [theme]="'eclipse'" -->
+            
             <div
+              *ngIf="!note.classicTheme && !isclassicTheme"
               ace-editor
               [(text)]="note.ans"
               [mode]="'javascript'"
               [options]="options"
-              [readOnly]="true"
+              [readOnly]="true" 
               [autoUpdateContent]="true"
               [durationBeforeCallback]="1000"
               (textChanged)="onChange($event)"
               style="min-height: 250px; width: 100%; overflow-y: auto"
             ></div>
-            <!-- <pre class="brush: js notranslate">
+
+            <pre class="brush: js notranslate" *ngIf="note.classicTheme || isclassicTheme">
             <code>{{note.ans}}</code>
-            </pre> -->
+            </pre>
+
           </div>
 
           <div class="col-12 mb-4" *ngIf="note.tags && note.tags.length">
@@ -148,6 +158,7 @@
         (closeBtnClk)="closeBtnClk($event)"
         (addEditBtnClk)="addEditBtnClk($event)"
         [editNoteData]="editNoteData"
+        [uniqueTags] = "uniqueTags"
       ></app-add-notes>
     </div>
   </div>
