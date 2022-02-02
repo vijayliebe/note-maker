@@ -1,5 +1,7 @@
 <div class="notes-list-cont">
-  <div class="filters">
+  <mat-slide-toggle class="mb-3"  style="right: 9em; top: -3em; position: absolute;"  [(ngModel)]="showFilters">Filters</mat-slide-toggle>
+
+  <div class="filters" *ngIf="showFilters">
     <div class="filter subject-filter">
       <mat-form-field appearance="fill">
         <mat-label>Subjects</mat-label>
@@ -64,7 +66,7 @@
 
   <button
     class="app-primary-btn"
-    style="position: absolute; top: 7em; right: 2.2em"
+    style="position: absolute; top: -4em; right: 0"
     mat-flat-button
     color="primary"
     (click)="addNote()"
@@ -112,7 +114,7 @@
           
         </div>
 
-        <div class="col-11">
+        <div class="col-10">
           <div class="col-12 mb-4">
             <span class="text-bold">{{ i + 1 }}. </span> 
             <span class="text-bold" *ngIf="note.title">{{note.title}} : </span> 

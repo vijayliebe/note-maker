@@ -20,7 +20,10 @@ export class HttpConfigInterceptor implements HttpInterceptor {
   intercept(request: HttpRequest<any>, next: HttpHandler): Observable<HttpEvent<any>> {
     const _this = this;
     const token: string = localStorage.getItem('token');
-    request = request.clone({ url: "/api/v0/notes" + request.url });
+
+    if(!request.url.includes("assets")){
+      request = request.clone({ url: "/api/v0/notes" + request.url });
+    }
     if (token) {
       request = request.clone({ headers: request.headers.set('Authorization', 'Bearer ' + token) });
     }

@@ -6,36 +6,70 @@ import { map } from 'rxjs/operators';
   providedIn: 'root'
 })
 export class NotesService {
+  mainUrl: any =  '/assets/db/db.json';
+  _data: any;
+  constructor(private http: HttpClient) {}
 
-  constructor(private http: HttpClient) { }
-
-  getSubjects(params?){
-    const url =  '/subjects';
-    return this.http.get<any>(url, {'params': params}).pipe(
-      map((res: Response) => {
-        const body = res;
-        return body || {};
-      })
-    );
+  fetchDbData(){
+    if(window.location.href.includes("4400")){ // If local, don't fetch Db
+      return of({});
+    } else {
+      return this.http.get<any>(this.mainUrl, {'params': {}}).pipe(
+        map((res: Response) => {
+          const body = res;
+          console.log("mainUrl :: body ::", body);
+          this._data = body;
+        })
+      );
+    }
   }
+  getSubjects(params?){
+    console.log("***getSubjects");
+    if(this._data){
+      return of(this._data.subjects);
+    } else {
+      const url =  '/subjects';
+      return this.http.get<any>(url, {'params': params}).pipe(
+        map((res: Response) => {
+          const body = res;
+          return body || {};
+        })
+      );
+    }
+  }
+
   getCategories(params?){
-    const url =  '/categories';
-    return this.http.get<any>(url, {'params': params}).pipe(
-      map((res: Response) => {
-        const body = res;
-        return body || {};
-      })
-    );
+    console.log("***getCategories");
+    if(this._data){
+      return of(this._data.categories);
+    } else {
+      const url =  '/categories';
+      return this.http.get<any>(url, {'params': params}).pipe(
+        map((res: Response) => {
+          const body = res;
+          return body || {};
+        })
+      );
+    }
+    
   }
 
   getNote(subject, params?){
-    const url =  `/${subject}`;
-    return this.http.get<any>(url, {'params': params}).pipe(
-      map((res: Response) => {
-        const body = res;
-        return body || {};
-      })
-    );
+    console.log("***getNote");
+
+    if(this._data){
+      return of(this._data[subject]);
+    } else {
+      const url =  `/${subject}`;
+      return this.http.get<any>(url, {'params': params}).pipe(
+        map((res: Response) => {
+          const body = res;
+          return body || {};
+        })
+      );
+    }
+
+    
   }
 
   createNote(payload){

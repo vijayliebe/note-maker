@@ -2,7 +2,9 @@ $tag-bg:#07abec;
 $cat-bg:#eee;
 $imp-bg:#26be1f;
 $diff-bg:red;
-
+.notes-list-cont{
+    position: relative;
+}
 .add-note-fix {
     width: 50%;
     height: calc(100vh - 3em);

@@ -17,6 +17,7 @@ import { CommonNotificationService } from "src/app/shared/services/common-notifi
   styleUrls: ['./notes-list.component.scss']
 })
 export class NotesListComponent implements OnInit {
+  showFilters: boolean = false;
   isFilterApplied: boolean = false;
   isclassicTheme: boolean = false;
   originalData: any;
@@ -44,9 +45,11 @@ export class NotesListComponent implements OnInit {
     public dialog: MatDialog) { }
 
   ngOnInit() {
-   this.getNoteList();
-   this.getSubjects();
-   this.getCategories();
+   this.datacontextService.notesService.fetchDbData().subscribe((res) => {
+    this.getNoteList();
+    this.getSubjects();
+    this.getCategories();
+   });
   }
 
   getNoteList(){
