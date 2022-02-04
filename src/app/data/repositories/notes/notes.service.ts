@@ -10,7 +10,7 @@ export class NotesService {
   _data: any;
   constructor(private http: HttpClient) {}
 
-  fetchDbData(){
+  fetchDbData(): any{
     if(window.location.href.includes("4400")){ // If local, don't fetch Db
       return of({});
     } else {
@@ -23,6 +23,7 @@ export class NotesService {
       );
     }
   }
+
   getSubjects(params?){
     console.log("***getSubjects");
     if(this._data){

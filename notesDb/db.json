@@ -11,6 +11,11 @@
       "id": 1,
       "name": "Algorithm",
       "key": "algo"
+    },
+    {
+      "id": 2,
+      "name": "Shell Scripting",
+      "key": "shell"
     }
   ],
   "categories": {
@@ -79,6 +84,13 @@
         "id": "10",
         "name": "Syllabus",
         "key": "syllabus"
+      }
+    ],
+    "shell": [
+      {
+        "id": "1",
+        "name": "Disk",
+        "key": "disk"
       }
     ]
   },
@@ -544,6 +556,33 @@
         "dynamic"
       ],
       "id": 27
+    }
+  ],
+  "shell": [
+    {
+      "subject": "shell",
+      "title": "Check Disk Space",
+      "ques": "How to Check Disk Space in Linux?",
+      "links": [
+        {
+          "name": "https://phoenixnap.com/kb/linux-check-disk-space"
+        }
+      ],
+      "tags": [
+        {
+          "name": "General"
+        },
+        {
+          "name": "linux"
+        }
+      ],
+      "ans": "\n/*\nThe df command stands for disk free, and it shows you the amount of space taken up by \ndifferent drives. By default, df displays values in 1-kilobyte blocks.\n*/\ndf\n\n\n/* Display Usage in Megabytes and Gigabytes */\ndf -h\n\n/* Understanding the Output Format */\n\nFilesystem         Size      Used     Avail    Use%    Mounted on\n\nudev               210M        0        210M     0%       /dev\n\ntmpfs              49M       1004K      48M      3%       /run\n\n/dev/sda2          7.9G       4.3G      3.2G     58%      /\n\nYour output may have more entries. The columns should be self-explanatory:-\n\nFilesystem – This is the name of each particular drive. This includes physical hard drives, \nlogical (partitioned) drives, and virtual or temporary drives.\nSize – The size of the filesystem.\nUsed – Amount of space used on each filesystem.\nAvail – The amount of unused (free) space on the filesystem.\nUse% – Shows the percent of the disk used.\nMounted on – This is the directory where the file system is located. This is also sometimes \ncalled a mount point.\n\nThe list of filesystems includes your physical hard drive, as well as virtual hard drives:-\n\n/dev/sda2 – This is your physical hard drive. It may be listed as /sda1, /sda0, or you may even have more than one. /dev stands for device.\nudev – This is a virtual directory for the /dev directory. This is part of the Linux operating \nsystem.\ntmpfs – You may have several of these. These are used by /run and other Linux processes as \ntemporary filesystems for running the operating system. For example, the tmpfs /run/lock is \nused to create lockfiles. These are the files that prevent multiple users from changing the \nsame file at the same time.\n\n\n/* Display a Specific File System */\ndf -h /dev/sda2\ndf -h /\n\n/* Display File Systems by Type */\ndf -ht ext4\n\n/* Display Size in 1000 Instead of 1024 */\ndu -H\n\n/*\nCheck Disk Space in Linux With du Command\nThe du command displays disk usage\n*/\ndu\ndu -h\ndu -hs\ndu -hs /etc\nsudo du -hs /etc\n\n\n/* HELP */\ndf --help or du --help.\n",
+      "diff": 1,
+      "imp": 1,
+      "cate": [
+        "disk"
+      ],
+      "id": 1
     }
   ]
 }

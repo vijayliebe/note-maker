@@ -32,7 +32,7 @@ export class NotesListComponent implements OnInit {
   selectedImp = new FormControl();
   selectedDiff = new FormControl();
   //selectedSubjects = new FormControl();
-  selectedSubjects = new FormControl(["algo"]);
+  selectedSubjects = new FormControl("algo");
   selectedCate = new FormControl();
   
   uniqueTags: any = [];
@@ -45,13 +45,18 @@ export class NotesListComponent implements OnInit {
     public dialog: MatDialog) { }
 
   ngOnInit() {
-   this.datacontextService.notesService.fetchDbData().subscribe((res) => {
+   this.datacontextService.notesService.fetchDbData().subscribe((res: any) => {
     this.getNoteList();
     this.getSubjects();
     this.getCategories();
    });
   }
 
+  onSubjectChange(){
+    this.subjectName = this.selectedSubjects.value;
+    this.ngOnInit();
+  }
+  
   getNoteList(){
     this.datacontextService.notesService.getNote(this.subjectName).subscribe((res)=>{
       console.log("getNote ::", res);
@@ -83,7 +88,7 @@ export class NotesListComponent implements OnInit {
         }
         console.log("getCategories ::", data);
         this.allCategories = data;
-        this.categories = this.allCategories["algo"];
+        this.categories = this.allCategories[this.subjectName];
       });
   }
 
@@ -171,127 +176,9 @@ export class NotesListComponent implements OnInit {
     });
   }
 
-  onTagSelect(e){
-    console.log("onTagSelect :: selectedTags ::", this.selectedTags.value);
-    this.onFilter();
-  }
-
-  onImpSelect(e){
-    console.log("onImpSelect :: selectedImp ::", this.selectedImp.value);
-    this.onFilter();
-  }
-
-  onDiffSelect(e){
-    console.log("onDiffSelect :: selectedDiff ::", this.selectedDiff.value);
-    this.onFilter();
-  }
-
-  onSortSelect(e){
-    console.log("onSortSelect :: selectedSort ::", this.selectedSort.value);
-    this.onFilter();
-  }
-
-  onFilter2(){
-    let isValueProvided = false;
-    const selectedSubjects = this.selectedSubjects.value;
-    const selectedCate = this.selectedCate.value;
-    const selectedTags = this.selectedTags.value;
-    const selectedImp = this.selectedImp.value;
-    const selectedDiff = this.selectedDiff.value;
-    const selectedSort = this.selectedSort.value;
-    
-
-    const dataCopy = JSON.parse(JSON.stringify(this.notesMap));
-    let noteIdMap = {};
-    if(selectedSubjects && selectedSubjects.length){
-      /* update categories as per subject selected - start */
-      this.categories = this.allCategories[selectedSubjects];
-      /* update categories as per subject selected - end */
-
-      isValueProvided = true;
-      let sub = Object.keys(dataCopy.sub);
-      for(let i = 0; i < sub.length; i++){
-        let su = sub[i];
-        if(selectedSubjects.includes(su)){
-          let notes = dataCopy.sub[su];
-          for(let n of notes){
-            noteIdMap[n.id] = n;
-          }          
-        }
-      }
-    }
-
-    if(selectedCate && selectedCate.length){
-      isValueProvided = true;
-      let cate = Object.keys(dataCopy.cate);
-      for(let i = 0; i < cate.length; i++){
-        let cat = cate[i];
-        if(selectedCate.includes(cat)){
-          let notes = dataCopy.cate[cat];
-          for(let n of notes){
-            noteIdMap[n.id] = n;
-          }          
-        }
-      }
-    }
-
-    if(selectedTags && selectedTags.length){
-      isValueProvided = true;
-      let tags = Object.keys(dataCopy.tag);
-      for(let i = 0; i < tags.length; i++){
-        let tag = tags[i];
-        if(selectedTags.includes(tag)){
-          let notes = dataCopy.tag[tag];
-          for(let n of notes){
-            noteIdMap[n.id] = n;
-          }          
-        }
-      }
-    }
-
-    if (selectedImp && selectedImp.length) {
-      isValueProvided = true;
-      const imp: any = Object.keys(dataCopy.imp);
-
-      for(let im of imp){
-        if (selectedImp.includes(im)) {
-          let notes = dataCopy.imp[im];
-          for(let n of notes){
-            noteIdMap[n.id] = n;
-          }
-        }
-      }
-    }
-
-    if(selectedDiff && selectedDiff.length){
-      isValueProvided = true;
-      const diff: any = Object.keys(dataCopy.diff);
-
-      for(let di of diff){
-        if (selectedDiff.includes(di)) {
-          let notes = dataCopy.diff[di];
-          for(let n of notes){
-            noteIdMap[n.id] = n;
-          }
-        }
-      }
-    }
-
-    
-    this.notes = (Object.values(noteIdMap).length || isValueProvided) ? Object.values(noteIdMap) : this.originalData;
-  
-    if(selectedSort){
-      let copyNotes = JSON.parse(JSON.stringify(this.notes));
-
-      this.notes = copyNotes.sort((a, b)=>{
-        return a[selectedSort] - b[selectedSort];
-      });      
-    }
-  }
-
   onFilter(){
     this.isFilterApplied = true;
-    const selectedSubjects = this.selectedSubjects.value;
+    // const selectedSubjects = this.selectedSubjects.value;
     const selectedCate = this.selectedCate.value;
     const selectedTags = this.selectedTags.value;
     const selectedImp = this.selectedImp.value;
@@ -301,17 +188,18 @@ export class NotesListComponent implements OnInit {
 
     let dataCopy = JSON.parse(JSON.stringify(this.originalData));
 
-    if(selectedSubjects && selectedSubjects.length){
-      /* update categories as per subject selected - start */
-      this.categories = this.allCategories[selectedSubjects];
-      /* update categories as per subject selected - end */
-
-      dataCopy = dataCopy.filter((data)=>{
-        if(selectedSubjects.includes(data.subject)){
-          return data;
-        }
-      });
-    }
+    /* 
+      if(selectedSubjects && selectedSubjects.length){
+        // update categories as per subject selected - start 
+        this.categories = this.allCategories[selectedSubjects];
+        // update categories as per subject selected - end 
+        dataCopy = dataCopy.filter((data)=>{
+          if(selectedSubjects.includes(data.subject)){
+            return data;
+          }
+        });
+      } 
+    */
 
     if(selectedCate && selectedCate.length){
 
