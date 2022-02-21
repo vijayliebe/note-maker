@@ -233,7 +233,7 @@
           "name": "Interview Cake"
         }
       ],
-      "ans": "\nfunction reverse(arrayOfChars) {\n  let leftIndex = 0;\n  let rightIndex = arrayOfChars.length - 1;\n  while (leftIndex < rightIndex) {\n    // Swap characters\n    const temp = arrayOfChars[leftIndex];\n    arrayOfChars[leftIndex] = arrayOfChars[rightIndex];\n    arrayOfChars[rightIndex] = temp;\n    // Move towards middle leftIndex++; rightIndex--;\n  }\n}",
+      "ans": "\nfunction reverse(arrayOfChars) {\n  let leftIndex = 0;\n  let rightIndex = arrayOfChars.length - 1;\n  while (leftIndex < rightIndex) {\n    // Swap characters\n    const temp = arrayOfChars[leftIndex];\n    arrayOfChars[leftIndex] = arrayOfChars[rightIndex];\n    arrayOfChars[rightIndex] = temp;\n    // Move towards middle leftIndex++; rightIndex--;\n  }\n}\n\n\n// OR\n\nconst reverse2 = (arrayOfChars) => {\n   let s = 0;\n   let m = Math.ceil(arrayOfChars.length / 2);\n\n   while(s < m){\n      let e = (arrayOfChars.length - 1) - s;\n      [arrayOfChars[s], arrayOfChars[e]] = [arrayOfChars[e], arrayOfChars[s]];\n      s = s + 1;\n   }\n   return arrayOfChars;\n}",
       "diff": 1,
       "imp": 1,
       "cate": [
@@ -556,6 +556,152 @@
         "dynamic"
       ],
       "id": 27
+    },
+    {
+      "subject": "algo",
+      "title": "Binary Search",
+      "ques": "",
+      "links": [],
+      "tags": [
+        {
+          "name": "General"
+        }
+      ],
+      "ans": "  function binarySearch(key, inputArray) {\r\n      var low  = 0,\r\n          high = inputArray.length - 1,\r\n          mid;\r\n\r\n      while (low <= high) {\r\n          mid = low + (high - low) / 2;\r\n          if ((mid % 1) > 0) { mid = Math.ceil(mid); }\r\n\r\n          if (key < inputArray[mid]) { high = mid - 1; }\r\n          else if (key > inputArray[mid]) { low = mid + 1; }\r\n          else { return mid; }\r\n      }\r\n\r\n      return null;\r\n  }\r\n\r\n  // run the binary search\r\n  binarySearch(3, [1,2,4]); //returns null\r\n  binarySearch(3, [2,3,5]); //returns 1",
+      "diff": 1,
+      "imp": 1,
+      "cate": [
+        "search"
+      ],
+      "id": 28
+    },
+    {
+      "subject": "algo",
+      "title": "Merge Sort",
+      "ques": "",
+      "links": [
+        {
+          "name": "https://stackabuse.com/merge-sort-in-javascript/"
+        }
+      ],
+      "tags": [
+        {
+          "name": "General"
+        }
+      ],
+      "ans": "function mergeSort(array) {\n  const half = array.length / 2\n  \n  // Base case or terminating case\n  if(array.length < 2){\n    return array \n  }\n  \n  const left = array.splice(0, half)\n  return merge(mergeSort(left),mergeSort(array))\n}\n\nfunction merge(left, right) {\n    let arr = []\n    // Break out of loop if any one of the array gets empty\n    while (left.length && right.length) {\n        // Pick the smaller among the smallest element of left and right sub arrays \n        if (left[0] < right[0]) {\n            arr.push(left.shift())  \n        } else {\n            arr.push(right.shift()) \n        }\n    }\n    \n    // Concatenating the leftover elements\n    // (in case we didn't go through the entire left or right array)\n    return [ ...arr, ...left, ...right ]\n}",
+      "diff": 1,
+      "imp": 1,
+      "cate": [
+        "sort"
+      ],
+      "id": 29
+    },
+    {
+      "subject": "algo",
+      "title": "All possible permutation of number",
+      "ques": "",
+      "links": [
+        {
+          "name": "https://medium.com/weekly-webtips/step-by-step-guide-to-array-permutation-using-recursion-in-javascript-4e76188b88ff"
+        }
+      ],
+      "tags": [
+        {
+          "name": "General"
+        }
+      ],
+      "ans": "var permArr = [],\n  usedChars = [];\n\nfunction permute(input) {\n  var i, ch;\n  for (i = 0; i < input.length; i++) {\n    ch = input.splice(i, 1)[0];\n    usedChars.push(ch);\n    if (input.length == 0) {\n      permArr.push(usedChars.slice());\n    }\n    permute(input);\n    input.splice(i, 0, ch);\n    usedChars.pop();\n  }\n  return permArr\n};\n\n\nconsole.log(permute([5, 3, 7, 1]));",
+      "diff": 1,
+      "imp": 1,
+      "cate": [
+        "str",
+        "arr"
+      ],
+      "id": 30
+    },
+    {
+      "subject": "algo",
+      "title": "Array Rotation",
+      "ques": "",
+      "links": [],
+      "tags": [
+        {
+          "name": "General"
+        }
+      ],
+      "ans": "function rotatedArray(arr, times){\n   times = times % arr.length;\n   for(var i=arr.length -1; i>arr.length - 1 - times; i--){\n       var pop = arr.pop();\n       arr.unshift(pop);\n   }\n   return arr;\n}\n\n\nfunction reverseArray(arr, startIndex, EndIndex){\n  /* if(startIndex === EndIndex){\n       return \"Not valid start and end Index\";\n   }*/\n\n\n   while(startIndex < EndIndex){\n       var temp = arr[startIndex];\n       arr[startIndex]  = arr[EndIndex];\n       arr[EndIndex] = temp;\n\n\n       startIndex = startIndex + 1;\n       EndIndex = EndIndex - 1;\n  }\n\n\n   return arr;\n\n\n}\n\n\nfunction rotatedArray2(arr, times){\n    times = times % arr.length;\n   var splitArrayIndex = arr.length - times - 1;\n\n\n   arr = reverseArray(arr, 0,splitArrayIndex);\n   arr = reverseArray(arr, splitArrayIndex + 1, arr.length - 1);\n   arr = reverseArray(arr, 0, arr.length - 1);\n\n\n   return arr;\n}\n\n\n\n\nvar arr = [1,2,3,4,5, 6,7,8];\nrotatedArray(arr, 3);\n\n\nvar arr = [1,2,3,4,5, 6,7,8];\nreverseArray(arr, 5,7);",
+      "diff": 1,
+      "imp": 1,
+      "cate": [
+        "arr"
+      ],
+      "id": 31
+    },
+    {
+      "subject": "algo",
+      "title": "Segregate 0's, 1's and 2's together in an array[O(n)](Dutch National Flag Problem)",
+      "ques": "",
+      "links": [
+        {
+          "name": "https://www.youtube.com/watch?v=BOt1DAvR0zI&ab_channel=VivekanandKhyade-AlgorithmEveryDay"
+        }
+      ],
+      "tags": [
+        {
+          "name": "Dutch National Flag Problem"
+        },
+        {
+          "name": "youtube"
+        }
+      ],
+      "ans": "",
+      "diff": 1,
+      "imp": 1,
+      "cate": [
+        "arr"
+      ],
+      "id": 32
+    },
+    {
+      "subject": "algo",
+      "title": "Find the missing number in the increasing sequence",
+      "ques": "",
+      "links": [
+        {
+          "name": "https://www.youtube.com/watch?v=yxYCiBja8_s&ab_channel=IDeserve"
+        }
+      ],
+      "tags": [
+        {
+          "name": "ideserve"
+        }
+      ],
+      "ans": "// total = n*(n+1)/2",
+      "diff": 1,
+      "imp": 1,
+      "cate": [
+        "arr"
+      ],
+      "id": 33
+    },
+    {
+      "subject": "algo",
+      "title": "Remove duplicate in Array in single loop",
+      "ques": "",
+      "links": [],
+      "tags": [
+        {
+          "name": "Duplicate inArray"
+        }
+      ],
+      "ans": "var t1 = [1,2,3,2,3];\n\nfunction duplicateInArray(){\n  for(var i=0; i<t1.length; i++){\n    if(t1[Math.abs(t1[i])] > 0){\n      t1[Math.abs(t1[i])] = -t1[Math.abs(t1[i])];\n    }else{\n      console.log('Element '+Math.abs(t1[i])+' duplicate at '+i);\n    }\n  }\n}",
+      "diff": 1,
+      "imp": 1,
+      "cate": [
+        "arr"
+      ],
+      "id": 34
     }
   ],
   "shell": [
