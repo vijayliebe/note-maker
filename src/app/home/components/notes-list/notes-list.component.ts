@@ -40,6 +40,7 @@ export class NotesListComponent implements OnInit {
   @Input() subjectName: any;
   notes: any = [];
   editNoteData: any;
+  randomNote: any;
   constructor(private datacontextService: DatacontextService, 
     private commonNotificationService: CommonNotificationService,
     public dialog: MatDialog) { }
@@ -269,4 +270,14 @@ export class NotesListComponent implements OnInit {
   displayCate(categories){
     return categories.join(' | ');
   }
+
+  getRandomNote(){
+    let rIdx = Math.floor(Math.random() * this.originalData.length);
+    this.randomNote = this.originalData[rIdx];
+    this.randomNote.random = true;
+    this.randomNote.color = '#'+(Math.random().toString(16)+'00000').slice(2,8);
+    this.notes.splice(0, (this.notes[0].random ? 1 : 0),this.randomNote);
+  }
+
+
 }

@@ -1,5 +1,15 @@
 <div class="notes-list-cont">
-  <mat-slide-toggle class="mb-3"  style="right: 9em; top: -3em; position: absolute;"  [(ngModel)]="showFilters">Filters</mat-slide-toggle>
+  <mat-slide-toggle class="mb-3"  style="right: 16em; top: -3em; position: absolute;"  [(ngModel)]="showFilters">Filters</mat-slide-toggle>
+
+  <button
+    class="app-primary-btn"
+    style="position: absolute; top: -4em; right: 8em"
+    mat-flat-button
+    color="primary"
+    (click)="getRandomNote()"
+  >
+    RANDOM
+  </button>
 
   <div class="filters" *ngIf="showFilters">
     <div class="filter subject-filter">
@@ -83,6 +93,8 @@
       <mat-card
         *ngFor="let note of notes; index as i"
         style="margin-bottom: 1em; padding-bottom: 2em"
+        [ngStyle]="{'background': note.random ? note.color : '#fff'}"
+
       >
         <div class="note-action-btns">
           <mat-slide-toggle class="mr-3"  style="vertical-align: top;" (change)="onClassicThemeChange($event, i)">Classic</mat-slide-toggle>
