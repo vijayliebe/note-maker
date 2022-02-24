@@ -73,6 +73,16 @@ export class NotesService {
     
   }
 
+  createCategory(payload){
+    const url =  `/categories`
+    return this.http.post<any>(url, payload).pipe(
+      map((res: Response) => {
+        const body = res;
+        return body || {};
+      })
+    );
+  }
+
   createNote(payload){
     const url =  `/${payload.subject}`;
     return this.http.post<any>(url, payload).pipe(

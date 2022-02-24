@@ -14,86 +14,166 @@
     },
     {
       "id": 2,
+      "name": "Javascript",
+      "key": "js"
+    },
+    {
+      "id": 3,
+      "name": "ES6",
+      "key": "es6"
+    },
+    {
+      "id": 4,
+      "name": "Typescript",
+      "key": "ts"
+    },
+    {
+      "id": 5,
+      "name": "HTML",
+      "key": "html"
+    },
+    {
+      "id": 6,
+      "name": "CSS",
+      "key": "css"
+    },
+    {
+      "id": 7,
+      "name": "Angular",
+      "key": "ng"
+    },
+    {
+      "id": 8,
+      "name": "React",
+      "key": "react"
+    },
+    {
+      "id": 9,
+      "name": "Redux",
+      "key": "redux"
+    },
+    {
+      "id": 10,
+      "name": "Performance",
+      "key": "performance"
+    },
+    {
+      "id": 11,
+      "name": "System Design",
+      "key": "sd"
+    },
+    {
+      "id": 12,
       "name": "Shell Scripting",
       "key": "shell"
+    },
+    {
+      "id": 13,
+      "name": "GIT",
+      "key": "git"
+    },
+    {
+      "id": 14,
+      "name": "Python",
+      "key": "py"
+    },
+    {
+      "id": 13,
+      "name": "Java",
+      "key": "java"
+    },
+    {
+      "id": 15,
+      "name": "Others",
+      "key": "oth"
     }
   ],
-  "categories": {
-    "algo": [
-      {
-        "id": "1",
-        "name": "String",
-        "key": "str"
-      },
-      {
-        "id": "2",
-        "name": "Array",
-        "key": "arr"
-      },
-      {
-        "id": "3",
-        "name": "Object|Hash|Mapping",
-        "key": "obj"
-      },
-      {
-        "id": "4",
-        "name": "Search",
-        "key": "search"
-      },
-      {
-        "id": "5",
-        "name": "Sorting",
-        "key": "sort"
-      },
-      {
-        "id": "51",
-        "name": "Logarithms",
-        "key": "log"
-      },
-      {
-        "id": "6",
-        "name": "Greedy",
-        "key": "greed"
-      },
-      {
-        "id": "61",
-        "name": "Dynamic",
-        "key": "dynamic"
-      },
-      {
-        "id": "62",
-        "name": "Recursion",
-        "key": "recursion"
-      },
-      {
-        "id": "7",
-        "name": "Tree",
-        "key": "tree"
-      },
-      {
-        "id": "8",
-        "name": "Date & Time",
-        "key": "datetime"
-      },
-      {
-        "id": "9",
-        "name": "Queue & Stack",
-        "key": "queueStack"
-      },
-      {
-        "id": "10",
-        "name": "Syllabus",
-        "key": "syllabus"
-      }
-    ],
-    "shell": [
-      {
-        "id": "1",
-        "name": "Disk",
-        "key": "disk"
-      }
-    ]
-  },
+  "categories": [
+    {
+      "id": "1",
+      "name": "String",
+      "key": "str",
+      "sub": "algo"
+    },
+    {
+      "id": "2",
+      "name": "Array",
+      "key": "arr",
+      "sub": "algo"
+    },
+    {
+      "id": "3",
+      "name": "Object|Hash|Mapping",
+      "key": "obj",
+      "sub": "algo"
+    },
+    {
+      "id": "4",
+      "name": "Search",
+      "key": "search",
+      "sub": "algo"
+    },
+    {
+      "id": "5",
+      "name": "Sorting",
+      "key": "sort",
+      "sub": "algo"
+    },
+    {
+      "id": "51",
+      "name": "Logarithms",
+      "key": "log",
+      "sub": "algo"
+    },
+    {
+      "id": "6",
+      "name": "Greedy",
+      "key": "greed",
+      "sub": "algo"
+    },
+    {
+      "id": "61",
+      "name": "Dynamic",
+      "key": "dynamic",
+      "sub": "algo"
+    },
+    {
+      "id": "62",
+      "name": "Recursion",
+      "key": "recursion",
+      "sub": "algo"
+    },
+    {
+      "id": "7",
+      "name": "Tree",
+      "key": "tree",
+      "sub": "algo"
+    },
+    {
+      "id": "8",
+      "name": "Date & Time",
+      "key": "datetime",
+      "sub": "algo"
+    },
+    {
+      "id": "9",
+      "name": "Queue & Stack",
+      "key": "queueStack",
+      "sub": "algo"
+    },
+    {
+      "id": "10",
+      "name": "Syllabus",
+      "key": "syllabus",
+      "sub": "algo"
+    },
+    {
+      "id": "11",
+      "name": "Disk",
+      "key": "disk",
+      "sub": "shell"
+    }
+  ],
   "algo": [
     {
       "subject": "algo",
@@ -713,6 +793,16 @@
       "id": 34
     }
   ],
+  "js": [],
+  "es6": [],
+  "ts": [],
+  "html": [],
+  "css": [],
+  "ng": [],
+  "react": [],
+  "redux": [],
+  "performance": [],
+  "sd": [],
   "shell": [
     {
       "subject": "shell",
@@ -739,5 +829,10 @@
       ],
       "id": 1
     }
-  ]
+  ],
+  "git": [],
+  "py": [],
+  "java": [
+  ],
+  "oth": []
 }

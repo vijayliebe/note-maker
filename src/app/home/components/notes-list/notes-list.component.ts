@@ -89,7 +89,8 @@ export class NotesListComponent implements OnInit {
         }
         console.log("getCategories ::", data);
         this.allCategories = data;
-        this.categories = this.allCategories[this.subjectName];
+        //this.categories = this.allCategories[this.subjectName];
+        this.categories = this.allCategories.filter((cat) => {  if(cat.sub == this.subjectName) {return cat} });
       });
   }
 
@@ -154,6 +155,7 @@ export class NotesListComponent implements OnInit {
     console.log("addEditBtnClk :: ev ::", ev);
     this.editNoteData = null;
     this.addNoteFlag = false;
+    this.getCategories();
     this.getNoteList();
   }
 
@@ -268,6 +270,7 @@ export class NotesListComponent implements OnInit {
   }
 
   displayCate(categories){
+    //console.log("displayCate :: categories ::", categories);
     return categories.join(' | ');
   }
 

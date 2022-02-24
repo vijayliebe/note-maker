@@ -7,12 +7,15 @@ import { CommonNotificationService } from "src/app/shared/services/common-notifi
 import {MatAutocompleteSelectedEvent} from '@angular/material/autocomplete';
 import {Observable} from 'rxjs';
 import {map, startWith} from 'rxjs/operators';
+import { forkJoin } from 'rxjs';
+
 @Component({
   selector: "app-add-notes",
   templateUrl: "./add-notes.component.html",
   styleUrls: ["./add-notes.component.scss"],
 })
 export class AddNotesComponent implements OnInit {
+  @Input() subjectName: any;
   @Input() editNoteData: any; 
   @Input() uniqueTags: any; 
   @Output() closeBtnClk = new EventEmitter<any>();
@@ -26,7 +29,8 @@ export class AddNotesComponent implements OnInit {
   answerText: any = "";
   tagControl = new FormControl();
   tagOptions: Observable<string[]>;
-
+  addCate: any = false;
+  newCateName: any = "";
   @ViewChild('tagInput') tagInput: ElementRef<HTMLInputElement>;
 
   constructor(private datacontextService: DatacontextService, private commonNotificationService: CommonNotificationService) {}
@@ -49,7 +53,7 @@ export class AddNotesComponent implements OnInit {
         }
         console.log("getCategories ::", data);
         this.allCategories = data;
-        this.categories = this.allCategories["algo"];
+        this.categories = this.allCategories.filter((cat) => {  if(cat.sub == this.subjectName) {return cat} });
       });
 
       this.tagOptions = this.tagControl.valueChanges.pipe(
@@ -82,7 +86,7 @@ export class AddNotesComponent implements OnInit {
       });
     } else {
       this.addNoteForm = new FormGroup({
-        subject: new FormControl("algo"),
+        subject: new FormControl(this.subjectName),
         title: new FormControl(""),
         ques: new FormControl(""),
         links: new FormControl(""),
@@ -111,8 +115,36 @@ export class AddNotesComponent implements OnInit {
     this.addNoteForm.controls.links.setValue(this.links);
     this.addNoteForm.controls.tags.setValue(this.tags);
     this.addNoteForm.controls.ans.setValue(this.answerText);
+    if(this.addCate && this.newCateName){
+      let newCate = this.newCateName.split(",").map((c)=>{return c.trim()});
+      this.addNewCategories(newCate);
+      this.addNoteForm.value.cate = [...(this.addNoteForm.value.cate || []), ...newCate];
+    }
     console.log("onNoteSubmit :: payload :: ", this.addNoteForm.value);
     this.editNoteData ? this.editNote() : this.addNewNote();
+  }
+
+  addNewCategories(newCate){
+    let httpCall = [];
+    const newCategories = newCate.map((c) => {
+      return {
+        "name": c,
+        "key": c.toLocaleLowerCase().replace(/\s/g, "_"),
+        "sub": this.subjectName
+      }
+    });
+
+    for(let nCate of newCategories){
+      let createCate = this.datacontextService.notesService.createCategory(nCate);
+      httpCall.push(createCate);
+    }
+
+    forkJoin(httpCall).subscribe((res)=>{
+      console.log("*** new category created succesfully");
+    }, (err) => {
+      console.error("Error during new category creation");
+    });
+    
   }
 
   addNewNote() {
@@ -169,7 +201,7 @@ export class AddNotesComponent implements OnInit {
   }
 
   onSubjectSelect(){
-    this.categories = this.allCategories[this.addNoteForm.value.subject];
+    this.categories = this.allCategories.filter((cat) => {  if(cat.sub == this.addNoteForm.value.subject) {return cat} });
   }
 
   onCloseClk(){

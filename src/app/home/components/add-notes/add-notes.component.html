@@ -3,7 +3,7 @@
     <i class="material-icons">close</i>
   </button>
   <mat-card style="padding-top:3em; padding-bottom:8em; height: calc(100vh - 3em); overflow-y: scroll;" *ngIf="addNoteForm">
-    <div  class="heading1" >{{editNoteData ? 'Edit' : 'Add'}}</div>
+    <div  class="heading1" >{{editNoteData ? 'Edit' : 'Add'}} {{subjectName}}</div>
 
     <form
       class="add-note-form"
@@ -128,8 +128,20 @@
           appearance="outline"
           [floatLabel]="'always'"
         >
+          <mat-slide-toggle class="mb-3"  style="background: #fff; margin-top: -2em; float: right; padding: 0 5px;"  [ngModelOptions]="{standalone: true}" [(ngModel)]="addCate">Add Category</mat-slide-toggle>
+
           <mat-label>Category</mat-label>
-          <mat-select formControlName="cate" multiple>
+
+          <input
+            matInput
+            *ngIf="addCate"
+            [(ngModel)]="newCateName"
+            [ngModelOptions]="{standalone: true}"
+            placeholder="New Category"
+            style="margin-bottom: 1em; border-radius: 5px; padding: 1.5em; border: 1px solid #eee;"
+          />
+
+          <mat-select formControlName="cate" multiple style="border-bottom: 1px solid #ccc; padding: 1em;">
             <!-- <mat-option value="">Select</mat-option> -->
             <mat-option *ngFor="let cat of categories" [value]="cat.key">{{
               cat.name
