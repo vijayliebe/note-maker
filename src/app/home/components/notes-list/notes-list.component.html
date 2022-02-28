@@ -105,7 +105,7 @@
 
       >
         <div class="note-action-btns">
-          <mat-slide-toggle class="mr-3"  style="vertical-align: top;" (change)="onClassicThemeChange($event, i)">Classic</mat-slide-toggle>
+          <mat-slide-toggle *ngIf="note.ans" class="mr-3"  style="vertical-align: top;" (change)="onClassicThemeChange($event, i)">Classic</mat-slide-toggle>
 
           <i
             class="material-icons cursor-pointer mr-1"
@@ -121,13 +121,18 @@
           >
         </div>
 
-        <div class="note-info">
+        <!-- <div class="note-info">
           <div class="info imp-level" *ngIf="note.imp">{{ note.imp }}</div>
-          <div class="info diff-level">{{ note.diff }}</div>
+          <div class="info diff-level ml-3">{{ note.diff }}</div>
+        </div> -->
+
+        <div class="cate-info">
+          <div class="info imp-level mb-2" *ngIf="note.imp">{{ note.imp }}</div>
+          <div class="info diff-level mb-2 ml-3">{{ note.diff }}</div>
           <div class="info note-cate" *ngIf="note.cate">{{ displayCate(note.cate) }}</div>
         </div>
 
-        <div class="note-links">
+        <div class="note-links" *ngIf="note.ans">
           <div class="mb-1" *ngFor="let link of note.links; index as i">
             <a href="{{ link.name }}" target="_blank" title="{{ link.name }}">Link {{ i+ 1 }}</a>
           </div>
@@ -141,7 +146,7 @@
             {{ note.ques }}
           </div>
 
-          <div class="col-12 mb-4">
+          <div class="col-12 mb-4" *ngIf="note.ans">
             <!-- <span class="text-bold">Ans. </span> -->
             <!-- [theme]="'eclipse'" -->
             
@@ -170,7 +175,18 @@
               <mat-chip color="primary" selected *ngFor="let tag of note.tags">{{ tag.name }}</mat-chip>
             </mat-chip-list>
             <!-- <div class="info note-tag" *ngFor="let tag of note.tags">{{ tag.name }}</div> -->
+
           </div>
+          
+          <!-- <div class="info note-cate" *ngIf="note.cate && !note.ans" style="margin-top: 1em !important; margin: inherit;">{{ displayCate(note.cate) }}</div> -->
+
+          <div class="col-12 mt-4" *ngIf="!note.ans">
+            <span class="text-bold">Links : </span>
+            <div class="mt-1 mr-4" style="display: inline-block;" *ngFor="let link of note.links; index as i">
+              <a href="{{ link.name }}" target="_blank" title="{{ link.name }}">Link {{ i+ 1 }}</a>
+            </div>
+          </div>
+
         </div>
       </mat-card>
     </div>

@@ -172,6 +172,42 @@
       "name": "Disk",
       "key": "disk",
       "sub": "shell"
+    },
+    {
+      "name": "Events",
+      "key": "events",
+      "sub": "js",
+      "id": "K8hwS7H"
+    },
+    {
+      "name": "General",
+      "key": "general",
+      "sub": "js",
+      "id": "fLxAGlD"
+    },
+    {
+      "name": "Async",
+      "key": "async",
+      "sub": "js",
+      "id": "CcPDpap"
+    },
+    {
+      "name": "DOM",
+      "key": "dom",
+      "sub": "js",
+      "id": "VcHWFpK"
+    },
+    {
+      "name": "Code Pattern",
+      "key": "code_pattern",
+      "sub": "js",
+      "id": "QkRqsfU"
+    },
+    {
+      "name": "OOPs",
+      "key": "oops",
+      "sub": "js",
+      "id": "S9Hc3Bu"
     }
   ],
   "algo": [
@@ -793,7 +829,269 @@
       "id": 34
     }
   ],
-  "js": [],
+  "js": [
+    {
+      "subject": "js",
+      "title": "Throttling and Debouncing in JavaScript",
+      "ques": "",
+      "links": [
+        {
+          "name": "https://codeburst.io/throttling-and-debouncing-in-javascript-b01cad5c8edf"
+        }
+      ],
+      "tags": [
+        {
+          "name": "Debouncing and Throttling"
+        }
+      ],
+      "ans": "-> Throttling and debouncing give us control over the rate at which a function is called. \n\n-> They are especially useful when we are dealing with event handler assignments. There are scenarios where we may invoke functions when it isn’t necessary.",
+      "diff": 4,
+      "imp": 4,
+      "cate": [
+        "Events"
+      ],
+      "id": 1
+    },
+    {
+      "subject": "js",
+      "title": "JS: Basics and Tricky Questions",
+      "ques": "",
+      "links": [
+        {
+          "name": "http://www.thatjsdude.com/interview/js2.html#nullVsUndefined"
+        }
+      ],
+      "tags": [
+        {
+          "name": "Basics & Tricky"
+        }
+      ],
+      "ans": "",
+      "diff": 1,
+      "imp": 1,
+      "cate": [
+        "General"
+      ],
+      "id": 2
+    },
+    {
+      "subject": "js",
+      "title": "Practical Uses for Closures",
+      "ques": "",
+      "links": [
+        {
+          "name": "https://medium.com/@dis_is_patrick/practical-uses-for-closures-c65640ae7304#.fva9ii8od"
+        }
+      ],
+      "tags": [
+        {
+          "name": "closures"
+        }
+      ],
+      "ans": "function pam() {\n    var name = \"Pam Beesly\";\n    function displayName() {\n        alert (name);\n    }\n    displayName(); \n}\npam();\n",
+      "diff": 3,
+      "imp": 4,
+      "cate": [
+        "general"
+      ],
+      "id": 3
+    },
+    {
+      "subject": "js",
+      "title": "JavaScript scope",
+      "ques": "Everything you wanted to know about JavaScript scope",
+      "links": [
+        {
+          "name": "https://ultimatecourses.com/blog/everything-you-wanted-to-know-about-javascript-scope"
+        }
+      ],
+      "tags": [
+        {
+          "name": "scoping"
+        }
+      ],
+      "ans": "",
+      "diff": 1,
+      "imp": 3,
+      "cate": [
+        "general"
+      ],
+      "id": 4
+    },
+    {
+      "subject": "js",
+      "title": "javaScript promises",
+      "ques": "",
+      "links": [
+        {
+          "name": "https://www.youtube.com/watch?v=s6SH72uAn3Q#t=6.819927&ab_channel=techsith"
+        },
+        {
+          "name": "https://www.youtube.com/watch?v=104J7_HyaG4&ab_channel=DecypherMedia"
+        }
+      ],
+      "tags": [
+        {
+          "name": "Promises"
+        }
+      ],
+      "ans": "",
+      "diff": 1,
+      "imp": 1,
+      "cate": [
+        "general",
+        "Async"
+      ],
+      "id": 5
+    },
+    {
+      "subject": "js",
+      "title": "How new operator works ?",
+      "ques": "",
+      "links": [
+        {
+          "name": "https://ianbicking.org/blog/2013/04/new-considered-harmful.html"
+        },
+        {
+          "name": "https://www.liip.ch/en/blog/why-i-dont-use-the-javascript-new-keyword"
+        }
+      ],
+      "tags": [
+        {
+          "name": "New operator"
+        }
+      ],
+      "ans": "\nfunction new_(constructor /* plus a variable number of arguments */) {\n  var newObject = Object.create(constructor.prototype);\n  // This gets the varargs after `constructor`:\n  var restArgs = Array.prototype.slice.call(arguments, 1);\n  var result = constructor.apply(newObject, restArgs);\n  if (typeof result == \"object\") {\n    // If the function returns something, ignore newObject\n    return result;\n  }\n  return newObject;\n}",
+      "diff": 1,
+      "imp": 3,
+      "cate": [
+        "general"
+      ],
+      "id": 6
+    },
+    {
+      "subject": "js",
+      "title": "Shadow Dom in HTML Introduction tutorial",
+      "ques": "",
+      "links": [
+        {
+          "name": "https://www.youtube.com/watch?v=SDs4xmMcVS4&ab_channel=techsith"
+        },
+        {
+          "name": "https://css-tricks.com/modular-future-web-components/"
+        }
+      ],
+      "tags": [
+        {
+          "name": "Shadow DOM"
+        }
+      ],
+      "ans": "",
+      "diff": 1,
+      "imp": 1,
+      "cate": [
+        "general",
+        "DOM"
+      ],
+      "id": 7
+    },
+    {
+      "subject": "js",
+      "title": "What is Functional Programming?",
+      "ques": "",
+      "links": [
+        {
+          "name": "https://medium.com/javascript-scene/master-the-javascript-interview-what-is-functional-programming-7f218c68b3a0"
+        }
+      ],
+      "tags": [
+        {
+          "name": "Functional Programming"
+        }
+      ],
+      "ans": "",
+      "diff": 1,
+      "imp": 3,
+      "cate": [
+        "general",
+        "Code Pattern"
+      ],
+      "id": 8
+    },
+    {
+      "subject": "js",
+      "title": "Js Eventloop",
+      "ques": "",
+      "links": [
+        {
+          "name": "https://blog.carbonfive.com/the-javascript-event-loop-explained/"
+        }
+      ],
+      "tags": [
+        {
+          "name": "Eventloop"
+        }
+      ],
+      "ans": "",
+      "diff": 1,
+      "imp": 4,
+      "cate": [
+        "general",
+        "async"
+      ],
+      "id": 9
+    },
+    {
+      "subject": "js",
+      "title": "JavaScript Design Patterns",
+      "ques": "",
+      "links": [
+        {
+          "name": "https://www.digitalocean.com/community/tutorial_series/javascript-design-patterns"
+        }
+      ],
+      "tags": [],
+      "ans": "",
+      "diff": 1,
+      "imp": 1,
+      "cate": [
+        "code_pattern"
+      ],
+      "id": 10
+    },
+    {
+      "subject": "js",
+      "title": "Javascript OOPs implementation",
+      "ques": "",
+      "links": [
+        {
+          "name": "https://www.educative.io/blog/object-oriented-programming"
+        },
+        {
+          "name": "https://www.youtube.com/watch?v=S1dWe3f2zm0&ab_channel=Telusko"
+        },
+        {
+          "name": "https://www.youtube.com/watch?v=vDJpGenyHaA&ab_channel=TraversyMedia"
+        },
+        {
+          "name": "https://www.youtube.com/watch?v=PFmuCDHHpwk&ab_channel=ProgrammingwithMosh"
+        }
+      ],
+      "tags": [
+        {
+          "name": "OOPs"
+        }
+      ],
+      "ans": "",
+      "diff": 1,
+      "imp": 4,
+      "cate": [
+        "general",
+        "oops"
+      ],
+      "id": 11
+    }
+  ],
   "es6": [],
   "ts": [],
   "html": [],
@@ -832,7 +1130,6 @@
   ],
   "git": [],
   "py": [],
-  "java": [
-  ],
+  "java": [],
   "oth": []
 }

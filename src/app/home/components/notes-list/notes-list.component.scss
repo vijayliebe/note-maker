@@ -19,13 +19,25 @@ $diff-bg:red;
 .note-action-btns{
     position: absolute;
     top: 1em;
-    right: 2em;
+    right: 1em;
     z-index: 2;
 }
 
 .note-info{
     position: absolute;
     top: 4.5em;
+    right: 3em;
+    z-index: 2;
+    text-align: center;
+
+    .info{
+        margin-bottom: 5px;
+    }
+}
+
+.cate-info{
+    position: absolute;
+    top: 3em;
     right: 3em;
     z-index: 2;
     text-align: center;
@@ -47,7 +59,8 @@ $diff-bg:red;
 }
 
 .diff-level{
-    margin: auto;
+    // margin: auto;
+    display: inline-block;
     font-size: 16px;
     font-weight: bold;
     border-radius: 50%;
@@ -60,7 +73,8 @@ $diff-bg:red;
 }
 
 .imp-level{
-    margin: auto;
+    // margin: auto;
+    display: inline-block;
     font-size: 16px;
     font-weight: bold;
     border-radius: 50%;
@@ -80,9 +94,9 @@ $diff-bg:red;
     text-align: center;
     // color: #fff;
     background: $cat-bg;
-    width: 80px;
+    min-width: 80px;
     // height: 30px;
-    padding: 5px;
+    padding: 5px 15px;
 }
 
 .note-tag{
