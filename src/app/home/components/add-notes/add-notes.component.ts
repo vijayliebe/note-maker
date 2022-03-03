@@ -118,7 +118,7 @@ export class AddNotesComponent implements OnInit {
     if(this.addCate && this.newCateName){
       let newCate = this.newCateName.split(",").map((c)=>{return c.trim()});
       this.addNewCategories(newCate);
-      this.addNoteForm.value.cate = [...(this.addNoteForm.value.cate || []), ...newCate];
+      this.addNoteForm.value.cate = [...(this.addNoteForm.value.cate || []), ...(newCate.toLocaleLowerCase().replace(/\s/g, "_"))];
     }
     console.log("onNoteSubmit :: payload :: ", this.addNoteForm.value);
     this.editNoteData ? this.editNote() : this.addNewNote();

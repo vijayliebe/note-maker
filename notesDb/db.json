@@ -208,6 +208,18 @@
       "key": "oops",
       "sub": "js",
       "id": "S9Hc3Bu"
+    },
+    {
+      "name": "Linked-list",
+      "key": "linked-list",
+      "sub": "algo",
+      "id": "O-ZdpST"
+    },
+    {
+      "name": "Tree",
+      "key": "tree",
+      "sub": "algo",
+      "id": "3Ss3hC0"
     }
   ],
   "algo": [
@@ -827,6 +839,42 @@
         "arr"
       ],
       "id": 34
+    },
+    {
+      "subject": "algo",
+      "title": "Doubly linked list - basics (ES5)",
+      "ques": "",
+      "links": [],
+      "tags": [
+        {
+          "name": "General"
+        }
+      ],
+      "ans": "\nfunction LinkedList() {\n  this.head = null;\n  this.tail = null;\n}\n \nfunction Node(value, next, prev) {\n  this.value = value;\n  this.next = next;\n  this.prev = prev;\n}\n \nLinkedList.prototype.addToHead = function(value) {\n  var newNode = new Node(value, this.head, null);\n  if (this.head) this.head.prev = newNode;\n  else this.tail = newNode;\n  this.head = newNode;\n};\n \nLinkedList.prototype.addToTail = function(value) {\n  var newNode = new Node(value, null, this.tail);\n  if (this.tail) this.tail.next = newNode;\n  else this.head = newNode;\n  this.tail = newNode;\n};\n \nLinkedList.prototype.removeHead = function() {\n  if (!this.head) return null;\n  var val = this.head.value;\n  this.head = this.head.next;\n  if (this.head) this.head.prev = null;\n  else this.tail = null;\n  return val;\n};\n \nLinkedList.prototype.removeTail = function() {\n  if (!this.tail) return null;\n  var val = this.tail.value;\n  this.tail = this.tail.prev;\n  if (this.tail) this.tail.next = null;\n  else this.head = null;\n  return val;\n};\n \nLinkedList.prototype.search = function(searchValue) {\n  var currentNode = this.head;\n  while (currentNode) {\n    if (currentNode.value === searchValue) return currentNode.value;\n    currentNode = currentNode.next;\n  } \n  return null;\n};\n \nLinkedList.prototype.indexOf = function(value) {\n  var indexes = [];\n  var currentIndex = 0;\n  var currentNode = this.head;\n  while(currentNode) {\n    if (currentNode.value === value) indexes.push(currentIndex);\n    currentNode = currentNode.next;\n    currentIndex++;\n  }\n  return indexes;\n};\n \n \nvar myLL = new LinkedList();\n \nmyLL.addToHead(123);\nmyLL.addToHead(70);\nmyLL.addToHead('hello');\nmyLL.addToTail(19);\nmyLL.addToTail('world');\nmyLL.addToTail(20);",
+      "diff": 1,
+      "imp": 1,
+      "cate": [
+        "linked-list"
+      ],
+      "id": 35
+    },
+    {
+      "subject": "algo",
+      "title": "Basic binary tree implementation (ES5)",
+      "ques": "",
+      "links": [],
+      "tags": [
+        {
+          "name": "General"
+        }
+      ],
+      "ans": "function BST(value) {\n  this.value = value;\n  this.right = null;\n  this.left = null;\n}\n \nBST.prototype.insert = function(value) {\n  if (value <= this.value) {\n    if (!this.left) this.left = new BST(value);\n    else this.left.insert(value);\n  }\n  else if (value > this.value) {\n    if (!this.right) this.right = new BST(value);\n    else this.right.insert(value);\n  }\n};\n \nBST.prototype.contains = function(value) {\n  if (this.value === value) return true;\n  if (value < this.value) {\n    if (!this.left) return false;\n    else return this.left.contains(value);\n  }\n  else if (value > this.value) {\n    if (!this.right) return false;\n    else return this.right.contains(value);\n  }\n};\n \nBST.prototype.depthFirstTraversal = function(iteratorFunc, order) {\n  if (order === 'pre-order') iteratorFunc(this.value);\n  if (this.left) this.left.depthFirstTraversal(iteratorFunc, order);\n  if (order === 'in-order') iteratorFunc(this.value);\n  if (this.right) this.right.depthFirstTraversal(iteratorFunc, order);\n  if (order === 'post-order') iteratorFunc(this.value);\n};\n \nBST.prototype.breadthFirstTraversal = function(iteratorFunc) {\n  var queue = [this];\n  while (queue.length) {\n    var treeNode = queue.shift();\n    iteratorFunc(treeNode);\n    if (treeNode.left) queue.push(treeNode.left);\n    if (treeNode.right) queue.push(treeNode.right);\n  }\n};\n \nfunction log(value) {\n    console.log(value);\n};\n \nBST.prototype.getMinVal = function() {\n  if (this.left) return this.left.getMinVal();\n  else return this.value;\n};\n \nBST.prototype.getMaxVal = function() {\n  if (this.right) return this.right.getMaxVal();\n  else return this.value;\n};\n \n \n \nvar bst = new BST(50);\n \nbst.insert(30);\nbst.insert(70);\nbst.insert(100);\nbst.insert(60);\nbst.insert(59);\nbst.insert(20);\nbst.insert(45);\nbst.insert(35);\nbst.insert(85);\nbst.insert(105);\nbst.insert(10);\n \nfunction log(node) {\n console.log(node.value);\n}\n \nbst.breadthFirstTraversal(log);",
+      "diff": 1,
+      "imp": 1,
+      "cate": [
+        "tree"
+      ],
+      "id": 36
     }
   ],
   "js": [
@@ -844,7 +892,7 @@
           "name": "Debouncing and Throttling"
         }
       ],
-      "ans": "-> Throttling and debouncing give us control over the rate at which a function is called. \n\n-> They are especially useful when we are dealing with event handler assignments. There are scenarios where we may invoke functions when it isn’t necessary.",
+      "ans": "\n-> Throttling and debouncing give us control over the rate at which a function is called. \n\n-> They are especially useful when we are dealing with event handler assignments. There are scenarios where we may invoke functions when it isn’t necessary.",
       "diff": 4,
       "imp": 4,
       "cate": [
