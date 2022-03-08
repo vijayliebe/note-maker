@@ -8,6 +8,16 @@ import { AddNotesComponent } from '../home/components/add-notes/add-notes.compon
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { NotesListComponent } from './components/notes-list/notes-list.component';
 import { AceEditorModule } from 'ng2-ace-editor';
+import { NotesListDesktopComponent } from './components/notes-list/notes-list-desktop/notes-list-desktop.component';
+import { NotesListMobileComponent } from './components/notes-list/notes-list-mobile/notes-list-mobile.component';
+import * as Hammer from 'hammerjs';
+import { HammerGestureConfig, HAMMER_GESTURE_CONFIG } from '@angular/platform-browser';
+
+export class MyHammerConfig extends HammerGestureConfig {
+  overrides = <any> {
+    swipe: { direction: Hammer.DIRECTION_ALL },
+  };
+}
 @NgModule({
   imports: [
     CommonModule,
@@ -18,6 +28,12 @@ import { AceEditorModule } from 'ng2-ace-editor';
     AceEditorModule,
     routing
   ],
-  declarations: [AddNotesComponent, DashboardComponent, NotesListComponent]
+  providers: [
+    {
+      provide: HAMMER_GESTURE_CONFIG,
+      useClass: MyHammerConfig,
+    },
+  ],
+  declarations: [AddNotesComponent, DashboardComponent, NotesListComponent, NotesListDesktopComponent, NotesListMobileComponent]
 })
 export class HomeModule { }

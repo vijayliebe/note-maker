@@ -220,11 +220,30 @@
       "key": "tree",
       "sub": "algo",
       "id": "3Ss3hC0"
+    },
+    {
+      "name": "Caching",
+      "key": "caching",
+      "sub": "sd",
+      "id": "0bEDgF0"
+    },
+    {
+      "name": "General",
+      "key": "general",
+      "sub": "sd",
+      "id": "-5xn9uI"
+    },
+    {
+      "name": "General",
+      "key": "general",
+      "sub": "es6",
+      "id": "vAzKM_l"
     }
   ],
   "algo": [
     {
       "subject": "algo",
+      "title": null,
       "ques": "First non repeating character in a string",
       "links": [
         {
@@ -236,7 +255,7 @@
           "name": "ideserve"
         }
       ],
-      "ans": "\nconst firstNonRepeat = (str) => {\n   let strMap = {};\n   for(let i = 0; i < str.length; i++){\n       let char = str[i];\n       if(char in strMap){\n           delete strMap[char];\n       } else {\n           strMap[char] = 1;\n       }\n   }\n   return Object.keys(strMap)[0];\n }\n \n const st = \"ADBCGHIEFKJLADTVDERFSWVGHQWCNOPENSMSJWIERTFB\";\n \n console.log(firstNonRepeat(st));",
+      "ans": "\n\nconst firstNonRepeat = (str) => {\n   let strMap = {};\n   for(let i = 0; i < str.length; i++){\n       let char = str[i];\n       if(char in strMap){\n           delete strMap[char];\n       } else {\n           strMap[char] = 1;\n       }\n   }\n   return Object.keys(strMap)[0];\n }\n \n const st = \"ADBCGHIEFKJLADTVDERFSWVGHQWCNOPENSMSJWIERTFB\";\n \n console.log(firstNonRepeat(st));",
       "diff": 2,
       "imp": 2,
       "cate": [
@@ -1140,7 +1159,30 @@
       "id": 11
     }
   ],
-  "es6": [],
+  "es6": [
+    {
+      "subject": "es6",
+      "title": "Hoisting in Modern JavaScript — let, const, and var",
+      "ques": "",
+      "links": [
+        {
+          "name": "https://blog.bitsrc.io/hoisting-in-modern-javascript-let-const-and-var-b290405adfda"
+        }
+      ],
+      "tags": [
+        {
+          "name": "medium.com"
+        }
+      ],
+      "ans": "\nTo avoid possible side effects of hoisting like undefined variables or reference error, \nalways try to declare the variables at the top of their respective scopes and also \nalways try to initialize variables when you declare them.",
+      "diff": 1,
+      "imp": 1,
+      "cate": [
+        "general"
+      ],
+      "id": 1
+    }
+  ],
   "ts": [],
   "html": [],
   "css": [],
@@ -1148,7 +1190,61 @@
   "react": [],
   "redux": [],
   "performance": [],
-  "sd": [],
+  "sd": [
+    {
+      "subject": "sd",
+      "title": "LRU cache implementation in Javascript",
+      "ques": "",
+      "links": [
+        {
+          "name": "https://stackoverflow.com/questions/996505/lru-cache-implementation-in-javascript"
+        },
+        {
+          "name": "https://medium.com/dsinjs/implementing-lru-cache-in-javascript-94ba6755cda9"
+        }
+      ],
+      "tags": [
+        {
+          "name": "iCloud-note"
+        },
+        {
+          "name": "medium.com"
+        }
+      ],
+      "ans": "\nclass LRU {\n    constructor(max = 10) {\n        this.max = max;\n        this.cache = new Map();\n    }\n\n    get(key) {\n        let item = this.cache.get(key);\n        if (item) {\n            // refresh key\n            this.cache.delete(key);\n            this.cache.set(key, item);\n        }\n        return item;\n    }\n\n    set(key, val) {\n        // refresh key\n        if (this.cache.has(key)) this.cache.delete(key);\n        // evict oldest\n        else if (this.cache.size == this.max) this.cache.delete(this.first());\n        this.cache.set(key, val);\n    }\n\n    first() {\n        return this.cache.keys().next().value;\n    }\n}",
+      "diff": 1,
+      "imp": 1,
+      "cate": [
+        "caching"
+      ],
+      "id": 1
+    },
+    {
+      "subject": "sd",
+      "title": "How do I create a URL shortener?",
+      "ques": "",
+      "links": [
+        {
+          "name": "https://stackoverflow.com/questions/742013/how-do-i-create-a-url-shortener"
+        }
+      ],
+      "tags": [
+        {
+          "name": "iCloud-note"
+        },
+        {
+          "name": "stackoverflow"
+        }
+      ],
+      "ans": "How to convert the ID to a shortened URL\n-----------------------------------------\nThink of an alphabet we want to use. In your case, that's [a-zA-Z0-9]. It contains 62 letters.\nTake an auto-generated, unique numerical key (the auto-incremented id of a MySQL table for example).\n\nFor this example, I will use 12510 (125 with a base of 10).\n\nNow you have to convert 12510 to X62 (base 62).\n\n12510 = 2×621 + 1×620 = [2,1]\n\nThis requires the use of integer division and modulo. A pseudo-code example:\n\ndigits = []\n\nwhile num > 0\n  remainder = modulo(num, 62)\n  digits.push(remainder)\n  num = divide(num, 62)\n\ndigits = digits.reverse\nNow map the indices 2 and 1 to your alphabet. This is how your mapping (with an array for example) could look like:\n\n0  → a\n1  → b\n...\n25 → z\n...\n52 → 0\n61 → 9\nWith 2 → c and 1 → b, you will receive cb62 as the shortened URL.\n\nhttp://shor.ty/cb\n\n\nHow to resolve a shortened URL to the initial ID\n---------------------------------------------------\nThe reverse is even easier. You just do a reverse lookup in your alphabet.\n\ne9a62 will be resolved to \"4th, 61st, and 0th letter in the alphabet\".\n\ne9a62 = [4,61,0] = 4×622 + 61×621 + 0×620 = 1915810\n\nNow find your database-record with WHERE id = 19158 and do the redirect.",
+      "diff": 1,
+      "imp": 1,
+      "cate": [
+        "general"
+      ],
+      "id": 2
+    }
+  ],
   "shell": [
     {
       "subject": "shell",

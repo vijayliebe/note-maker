@@ -1,0 +1,143 @@
+$tag-bg:#07abec;
+$cat-bg:#eee;
+$imp-bg:#26be1f;
+$diff-bg:red;
+.notes-list-cont{
+    position: relative;
+}
+.add-note-fix {
+    width: 50%;
+    height: calc(100vh - 3em);
+    top: 3em;
+    position: fixed;
+    right: -2em;
+}
+.noteListCont{
+    position: relative;
+    padding-bottom: 2em;
+}
+.note-action-btns{
+    position: absolute;
+    top: 1em;
+    right: 1em;
+    z-index: 2;
+}
+
+.note-info{
+    position: absolute;
+    top: 4.5em;
+    right: 3em;
+    z-index: 2;
+    text-align: center;
+
+    .info{
+        margin-bottom: 5px;
+    }
+}
+
+.cate-info{
+    position: absolute;
+    top: 3em;
+    right: 3em;
+    z-index: 2;
+    text-align: center;
+
+    .info{
+        margin-bottom: 5px;
+    }
+}
+.note-links{
+    position: absolute;
+    top: 12em;
+    right:4em;
+    z-index: 2;
+    text-align: center;
+
+    .info{
+        margin-bottom: 5px;
+    }
+}
+
+.diff-level{
+    // margin: auto;
+    display: inline-block;
+    font-size: 16px;
+    font-weight: bold;
+    border-radius: 50%;
+    text-align: center;
+    color: #fff;
+    background: $diff-bg;
+    width: 30px;
+    height: 30px;
+    padding: 5px;
+}
+
+.imp-level{
+    // margin: auto;
+    display: inline-block;
+    font-size: 16px;
+    font-weight: bold;
+    border-radius: 50%;
+    text-align: center;
+    color: #fff;
+    background: $imp-bg;
+    width: 30px;
+    height: 30px;
+    padding: 5px;
+}
+
+.note-cate{
+    margin: auto;
+    font-size: 16px;
+    font-weight: bold;
+    border-radius: 10px;
+    text-align: center;
+    // color: #fff;
+    background: $cat-bg;
+    min-width: 80px;
+    // height: 30px;
+    padding: 5px 15px;
+}
+
+.note-tag{
+    margin: auto;
+    font-size: 16px;
+    font-weight: bold;
+    border-radius: 10px;
+    text-align: center;
+    color: #fff;
+    background: $tag-bg;
+    width: 10em;
+    height: 30px;
+    padding: 5px;
+}
+
+.filters{
+    // left: 14%;
+    // top: 9.5%;
+    // position: fixed;
+    // width: 80%;
+    .filter{
+        display: inline-block;
+        margin-right: 10px;
+    }
+}
+
+.heading{
+
+}
+
+.note-content{
+    .note-ques{
+        .sn{
+            font-weight: bolder;
+        }
+        .title{
+            font-weight: bolder;
+        }
+        .ques{
+            font-weight: bold;
+            font-size: 13px;
+        }
+    }
+}

@@ -1,0 +1,204 @@
+<div class="notes-list-cont">
+
+  <mat-form-field appearance="fill" style="top: 0.5em; position: fixed; left: 7em;">
+    <mat-label>Subjects</mat-label>
+    <mat-select [formControl]="selectedSubjects">
+      <mat-option *ngFor="let subject of subjects" [value]="subject.key" (click)="onSubjectChange($event)">{{subject.name}}</mat-option>
+    </mat-select>
+  </mat-form-field>
+
+  <mat-slide-toggle class="mb-3"  style="right: 17em; top: -3em; position: absolute;"  [(ngModel)]="isclassicTheme">Classic</mat-slide-toggle>
+
+  <mat-slide-toggle class="mb-3"  style="right: 24em; top: -3em; position: absolute;"  [(ngModel)]="showFilters">Filters</mat-slide-toggle>
+
+  <button
+    class="app-primary-btn"
+    style="position: absolute; top: -4em; right: 8em"
+    mat-flat-button
+    color="primary"
+    (click)="getRandomNote()"
+  >
+    RANDOM
+  </button>
+
+  <div class="filters" *ngIf="showFilters">
+    <!-- <div class="filter subject-filter">
+      <mat-form-field appearance="fill">
+        <mat-label>Subjects</mat-label>
+        <mat-select [formControl]="selectedSubjects">
+          <mat-option *ngFor="let subject of subjects" [value]="subject.key" (click)="onSubjectChange($event)">{{subject.name}}</mat-option>
+        </mat-select>
+      </mat-form-field>
+    </div> -->
+
+    <div class="filter cate-filter">
+      <mat-form-field appearance="fill">
+        <mat-label>Categories</mat-label>
+        <mat-select [formControl]="selectedCate" multiple>
+          <mat-option *ngFor="let cate of categories" [value]="cate.key" (click)="onFilter($event)">{{cate.name}}</mat-option>
+        </mat-select>
+      </mat-form-field>
+    </div>
+
+    <div class="filter tag-filter">
+      <mat-form-field appearance="fill">
+        <mat-label>Tags</mat-label>
+        <mat-select [formControl]="selectedTags" multiple>
+          <mat-option *ngFor="let tag of uniqueTags" [value]="tag" (click)="onFilter($event)">{{tag}}</mat-option>
+        </mat-select>
+      </mat-form-field>
+    </div>
+
+    <div class="filter imp-filter">
+      <mat-form-field appearance="fill">
+        <mat-label>Importance Level</mat-label>
+        <mat-select [formControl]="selectedImp" multiple>
+          <mat-option *ngFor="let l of levels" [value]="l" (click)="onFilter($event)">{{l}}</mat-option>
+        </mat-select>
+      </mat-form-field>
+    </div>
+
+    <div class="filter diff-filter">
+      <mat-form-field appearance="fill">
+        <mat-label>Difficulty Level</mat-label>
+        <mat-select [formControl]="selectedDiff" multiple>
+          <mat-option *ngFor="let l of levels" [value]="l" (click)="onFilter($event)">{{l}}</mat-option>
+        </mat-select>
+      </mat-form-field>
+    </div>
+
+    <div class="filter sorting ml-5" >
+      <mat-form-field appearance="fill">
+        <mat-label>Sort By</mat-label>
+        <mat-select [formControl]="selectedSort">
+          <mat-option [value]="">Select</mat-option>
+          <mat-option *ngFor="let s of sorting" [value]="s.key" (click)="onFilter($event)">{{s.name}}</mat-option>
+        </mat-select>
+      </mat-form-field>
+    </div>
+
+  </div>
+
+
+
+
+  <button
+    class="app-primary-btn"
+    style="position: absolute; top: -4em; right: 0"
+    mat-flat-button
+    color="primary"
+    (click)="addNote()"
+  >
+    ADD
+  </button>
+
+  <div class="noteListCont col-12 row p-0 m-0">
+    <div
+      class=""
+      [ngClass]="{ 'col-6': addNoteFlag, 'col-12 p-0 m-0': !addNoteFlag }"
+      style="overflow-y: scroll; height: calc(100vh - 5em); padding-bottom: 15em !important;"
+    >
+      <mat-card
+        *ngFor="let note of notes; index as i"
+        style="margin-bottom: 1em; padding-bottom: 2em"
+        [ngStyle]="{'background': note.random ? note.color : '#fff'}"
+
+      >
+        <div class="note-action-btns">
+          <mat-slide-toggle *ngIf="note.ans" class="mr-3"  style="vertical-align: top;" (change)="onClassicThemeChange($event, i)">Classic</mat-slide-toggle>
+
+          <i
+            class="material-icons cursor-pointer mr-1"
+            (click)="editNote(note, i)"
+            matTooltip="Edit Note"
+            >edit</i
+          >
+          <i
+            class="material-icons cursor-pointer"
+            (click)="dltNote(note.id)"
+            matTooltip="Delete Note"
+            >delete</i
+          >
+        </div>
+
+        <!-- <div class="note-info">
+          <div class="info imp-level" *ngIf="note.imp">{{ note.imp }}</div>
+          <div class="info diff-level ml-3">{{ note.diff }}</div>
+        </div> -->
+
+        <div class="cate-info">
+          <div class="info imp-level mb-2" *ngIf="note.imp">{{ note.imp }}</div>
+          <div class="info diff-level mb-2 ml-3">{{ note.diff }}</div>
+          <div class="info note-cate" *ngIf="note.cate">{{ displayCate(note.cate) }}</div>
+        </div>
+
+        <div class="note-links" *ngIf="note.ans">
+          <div class="mb-1" *ngFor="let link of note.links; index as i">
+            <a href="{{ link.name }}" target="_blank" title="{{ link.name }}">Link {{ i+ 1 }}</a>
+          </div>
+          
+        </div>
+
+        <div class="col-10">
+          <div class="col-12 mb-4">
+            <span class="text-bold">{{ i + 1 }}. </span> 
+            <span class="text-bold" *ngIf="note.title">{{note.title}} : </span> 
+            {{ note.ques }}
+          </div>
+
+          <div class="col-12 mb-4" *ngIf="note.ans">
+            <!-- <span class="text-bold">Ans. </span> -->
+            <!-- [theme]="'eclipse'" -->
+            
+            <div
+              *ngIf="!note.classicTheme && !isclassicTheme"
+              ace-editor
+              [(text)]="note.ans"
+              [mode]="'javascript'"
+              [options]="options"
+              [readOnly]="true" 
+              [autoUpdateContent]="true"
+              [durationBeforeCallback]="1000"
+              (textChanged)="onChange($event)"
+              style="min-height: 250px; width: 100%; overflow-y: auto"
+            ></div>
+
+            <pre class="brush: js notranslate" *ngIf="note.classicTheme || isclassicTheme">
+            <code>{{note.ans}}</code>
+            </pre>
+
+          </div>
+
+          <div class="col-12 mb-4" *ngIf="note.tags && note.tags.length">
+            <span class="text-bold">Tags : </span>
+            <mat-chip-list style="display: inline-block;">
+              <mat-chip color="primary" selected *ngFor="let tag of note.tags">{{ tag.name }}</mat-chip>
+            </mat-chip-list>
+            <!-- <div class="info note-tag" *ngFor="let tag of note.tags">{{ tag.name }}</div> -->
+
+          </div>
+          
+          <!-- <div class="info note-cate" *ngIf="note.cate && !note.ans" style="margin-top: 1em !important; margin: inherit;">{{ displayCate(note.cate) }}</div> -->
+
+          <div class="col-12 mt-4" *ngIf="!note.ans">
+            <span class="text-bold">Links : </span>
+            <div class="mt-1 mr-4" style="display: inline-block;" *ngFor="let link of note.links; index as i">
+              <a href="{{ link.name }}" target="_blank" title="{{ link.name }}">Link {{ i+ 1 }}</a>
+            </div>
+          </div>
+
+        </div>
+      </mat-card>
+    </div>
+
+    <div class="add-note-fix" *ngIf="addNoteFlag">
+      <app-add-notes
+        [subjectName]="subjectName"
+        (closeBtnClk)="closeBtnClk($event)"
+        (addEditBtnClk)="addEditBtnClk($event)"
+        [editNoteData]="editNoteData"
+        [uniqueTags] = "uniqueTags"
+      ></app-add-notes>
+    </div>
+  </div>
+</div>
