@@ -281,7 +281,7 @@ export class NotesListDesktopComponent implements OnInit {
     this.randomNote.color = '#'+(Math.random().toString(16)+'00000').slice(2,8);
     this.notes.splice(0, (this.notes[0].random ? 1 : 0),this.randomNote);
   }
-
+  
 
 }
 

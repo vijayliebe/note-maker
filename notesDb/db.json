@@ -238,6 +238,12 @@
       "key": "general",
       "sub": "es6",
       "id": "vAzKM_l"
+    },
+    {
+      "name": "Numbers",
+      "key": "numbers",
+      "sub": "algo",
+      "id": "Pfw11Yu"
     }
   ],
   "algo": [
@@ -894,6 +900,201 @@
         "tree"
       ],
       "id": 36
+    },
+    {
+      "subject": "algo",
+      "title": "Queue implementation using linked list",
+      "ques": "",
+      "links": [],
+      "tags": [
+        {
+          "name": "General"
+        }
+      ],
+      "ans": "\n// queue is initially empty\nvar Queue = {front: null, back: null};\n\n// we will use a node to keep track of the elements\n// in the queue which is represented by a linked list\nfunction Node(data, next) {\n  this.data = data;\n  this.next = next;\n} \n\n// add elements to queue in O(1) time\nfunction Enqueue(element) {\n  var N = new Node(element, null);\n  if (Queue.back === null) {\n    Queue.front = N;\n    Queue.back = N; \n  } else { \n    Queue.back.next = N; \n    Queue.back = Queue.back.next;\n  } \n}\n\n// remove first element from queue in O(1) time\nfunction Dequeue() {\n  if (Queue.front !== null) { \n    var first = Queue.front;\n    Queue.front = Queue.front.next; \n    return first.data;\n  } else {\n    if (Queue.back !== null) { Queue.back = null; }\n    return 'Cannot dequeue because queue is empty';\n  }\n}\n\nEnqueue('a'); \nEnqueue('b'); \nEnqueue('c');\n\n\nconsole.log(\"Queue ::\", Queue)",
+      "diff": 1,
+      "imp": 1,
+      "cate": [
+        "queueStack",
+        "linked-list"
+      ],
+      "id": 37
+    },
+    {
+      "subject": "algo",
+      "title": "Maximum room required",
+      "ques": "",
+      "links": [],
+      "tags": [
+        {
+          "name": "General"
+        }
+      ],
+      "ans": "function maxRoom(A){\n         console.log(\"*** A ::\", A);\n         const dt = A.sort((a, b) => {\n             return a[0] - b[0]\n         });\n         console.log(\"### sorted A ::\", dt);\n         let another = [dt[0]]\n         let tot = 1;\n        for(let i=1, l=dt.length; i<l; i++){\n            let last = another[another.length - 1];\n            let current = dt[i];\n\n            if(current[0] <= last[1]){\n                //tot = tot + 1;\n                //another.push(current);\n                last[1] = Math.max(last[1], current[1]);\n            } else {\n                another.push(current);\n            }\n\n        }\n\n        return another;\n\n\t}\n\n\nlet test1 = [\n  [1, 18],\n  [18, 23],\n  [15, 29],\n  [4, 15],\n  [2, 11],\n  [5, 13]\n]\n\nlet test2 = [ [0, 30],\n            [5, 10],\n            [15, 20]\n         ];\nconsole.log(maxRoom(test1));",
+      "diff": 1,
+      "imp": 1,
+      "cate": [
+        "arr",
+        "sort"
+      ],
+      "id": 38
+    },
+    {
+      "subject": "algo",
+      "title": "Crop String message",
+      "ques": "Write a method(CropMessage) that will accept two arguments i.e. string message and size to be cropped. The final method will return a string in such a way that none of the words will be partially cropped",
+      "links": [],
+      "tags": [
+        {
+          "name": "Toptal"
+        }
+      ],
+      "ans": "/*\n CropMessage(\"Hello World\", 8) ==> \"Hello\"\n CropMessage(\"Hello World\", 11) ===> \"Hello World\"\n*/\n\n\nfunction cropMessage(message, K) {\n    // write your code in JavaScript (Node.js 8.9.4)\n    let croppedMessage = message.slice(0, K);\n    let lastChar = croppedMessage[croppedMessage.length - 1]\n    if(lastChar === \" \" || (message[croppedMessage.length] && message[croppedMessage.length] !== \" \") ){\n        let lastSpaceIndex = croppedMessage.lastIndexOf(\" \");\n        croppedMessage = croppedMessage.slice(0, lastSpaceIndex);\n    }\n\n    return croppedMessage;\n}\n\nconsole.log(cropMessage(\"Hello World\", 10))",
+      "diff": 1,
+      "imp": 1,
+      "cate": [
+        "str"
+      ],
+      "id": 39
+    },
+    {
+      "subject": "algo",
+      "title": "Minimum no. of cars",
+      "ques": "Write a method that accepts two arguments - totalSeatRequired and array of the car with no. of seats. It will return minimum no. of cars needed to accommodate all seats",
+      "links": [],
+      "tags": [
+        {
+          "name": "Toptal"
+        }
+      ],
+      "ans": "/*\n  getMinSeats(6, [1,5,1]). ==> 2\n*/\n\nfunction solution2(P, S) {\n    // write your code in JavaScript (Node.js 8.9.4)\n    function maxValue(arr){\n        return arr.reduce((max, val) => max > val ? max : val);\n    }\n\n    let totalSeatRequired = P.reduce((s, p) => { return p+s;}, 0);\n    let minCarNeeded = 0;\n    while(totalSeatRequired > 0){\n        let max = maxValue(S);\n        let maxIdx = S.indexOf(max);\n        minCarNeeded += 1;\n        totalSeatRequired -= max;\n        S.splice(maxIdx, 1);\n    }\n    return minCarNeeded;\n}\n\nconsole.log(solution2([1,4,1], [1,5,1]))",
+      "diff": 1,
+      "imp": 1,
+      "cate": [
+        "greed"
+      ],
+      "id": 40
+    },
+    {
+      "subject": "algo",
+      "title": "Minimum no of chimney filter",
+      "ques": "There is an array containing the amount of pollution released from each factory. Installing a filter will reduce the pollution by 50%. what will be minimum no. of filters required to reduce overall pollution by half",
+      "links": [],
+      "tags": [
+        {
+          "name": "Toptal"
+        }
+      ],
+      "ans": "/*\n    getMinFilters([5, 19, 8, 1]) ===> 3\n*/\n\nfunction getMinFilters(A) {\n    function findMax(ar){\n        let max = 0, idx = 0;\n        for(let i=0; i<ar.length;i++){\n            if(ar[i]>max){\n                max=ar[i];\n                idx = i;\n            }\n        }\n        return {\"v\" : max, \"idx\": idx}\n    }\n    let totalPollution = A.reduce((s, p) => { return p+s;}, 0);\n    let minPoll = totalPollution / 2;\n    let minFilter = 0;\n\n    while(totalPollution > minPoll){\n        let maxResult = findMax(A);\n        console.log(\"maxResult ::\", maxResult);\n        A.splice(maxResult.idx, 1, ((maxResult.v)/2));\n        minFilter += 1;\n        totalPollution -= (maxResult.v)/2\n    }\n    return minFilter;\n}\n\nconsole.log(getMinFilters([5, 19, 8, 1]));",
+      "diff": 1,
+      "imp": 1,
+      "cate": [
+        "greed"
+      ],
+      "id": 41
+    },
+    {
+      "subject": "algo",
+      "title": "Flatten a JSON object",
+      "ques": "",
+      "links": [],
+      "tags": [
+        {
+          "name": "General"
+        },
+        {
+          "name": "Goldman sachs"
+        }
+      ],
+      "ans": "//object 1\nvar d1 = {\n    name: 'test',\n    ar: [1,2, [3,4,[5,6, [7]]]],\n    config: { },\n    prev: { name: 'test1.1',\n        config: { },\n        prev: {\n            name: 'test1.1.1',\n            config: {  },\n            prev: { name: 'test1.1.1.1', config: { }, prev: undefined }\n        }\n    }\n};\n\nvar d2 = [1,2, [3,4,[5,6, [7]]]]\n\nfunction flattenObj(ob){\n    let finalObj = [];\n    let extractValue = (obj) => {\n        for(let p in obj){\n            if(typeof(obj[p]) == \"object\"){ // both array & object\n                extractValue(obj[p]);\n            } else {\n                if(Array.isArray(obj)){\n                   finalObj.push(obj[p]);\n                } else{\n                    let _ob = {};\n                   _ob[p] = obj[p]; \n                   finalObj.push(_ob); \n                }\n            }\n        }\n       \n    }\n\n    extractValue(ob);\n    return finalObj;\n}\n\nflattenObj(d1);",
+      "diff": 1,
+      "imp": 1,
+      "cate": [
+        "arr",
+        "obj"
+      ],
+      "id": 42
+    },
+    {
+      "subject": "algo",
+      "title": "Check if no. is prime",
+      "ques": "",
+      "links": [],
+      "tags": [
+        {
+          "name": "General"
+        }
+      ],
+      "ans": "const isPrime = num => {\n    for(let i = 2, s = Math.sqrt(num); i <= s; i++)\n        if(num % i === 0) return false; \n    return num > 1;\n}\n\nisPrime(11)",
+      "diff": 1,
+      "imp": 1,
+      "cate": [
+        "numbers"
+      ],
+      "id": 43
+    },
+    {
+      "subject": "algo",
+      "title": "Possible denominaions",
+      "ques": "",
+      "links": [],
+      "tags": [
+        {
+          "name": "Toptal"
+        }
+      ],
+      "ans": "// 1c, 5c, 10c, 25c, 50c, and $1\n\n\nconst getChange = (M, P) => {\n    const denominations = [1, 5, 10, 25, 50]; \n\n    let changeAmount = (M-P).toFixed(2).split(\".\");\n    //console.log(\"changeAmount ::\", changeAmount);\n    const dollarAmt = Number(changeAmount[0]);\n    const centAmt = Number(changeAmount[1]);\n\n    console.log(\"dollarAmt :: centAmt ::\", dollarAmt, \"::\",centAmt);\n    \n    let finalalDeno = [];\n    let centLeft = centAmt;\n\n//***************************************************\n\n\n    let idx = 4;\n    while(idx >= 0){\n       let deno = denominations[idx]\n       if(deno <= centLeft && centLeft > 0){\n            let qty = Math.floor(centLeft/deno);\n            centLeft = centLeft - (deno * qty);\n            finalalDeno.unshift(qty);\n       } else {\n            finalalDeno.unshift(0); \n       }\n       idx = idx - 1;\n    }\n\n\n//********************* OR ***********************\n\n\n//     for(let i=(denominations.length - 1); i >= 0; i--){\n//             let deno = denominations[i]\n//            if(deno <= centLeft && centLeft > 0){\n//                 let qty = Math.floor(centLeft/deno);\n//                 centLeft = centLeft - (deno * qty);\n//                 finalalDeno.unshift(qty);\n//            } else {\n//                 finalalDeno.unshift(0); \n//            }\n//     }\n\n\n//***************************************************\n\n    finalalDeno.push(dollarAmt)\n    console.log(\"*** finalalDeno *** ::\", finalalDeno);\n}\n\ngetChange(5, 0.99) // should return [1,0,0,0,0,4]\ngetChange(3.14, 1.99) // should return [0,1,1,0,0,1]\ngetChange(3, 0.01) // should return [4,0,2,1,1,2]\ngetChange(4, 3.14) // should return [1,0,1,1,1,0]\ngetChange(0.45, 0.34) // should return [1,0,1,0,0,0]",
+      "diff": 1,
+      "imp": 1,
+      "cate": [
+        "greed"
+      ],
+      "id": 44
+    },
+    {
+      "subject": "algo",
+      "title": "Given a number, find its corresponding Roman numeral",
+      "ques": "Converting Decimal Number lying between 1 to 3999 to Roman Numerals",
+      "links": [
+        {
+          "name": "https://www.geeksforgeeks.org/converting-decimal-number-lying-between-1-to-3999-to-roman-numerals/"
+        }
+      ],
+      "tags": [
+        {
+          "name": "Oracle"
+        }
+      ],
+      "ans": "/*\nint num[] = {1,4,5,9,10,40,50,90,100,400,500,900,1000};\nstring sym[] = {\"I\",\"IV\",\"V\",\"IX\",\"X\",\"XL\",\"L\",\"XC\",\"C\",\"CD\",\"D\",\"CM\",\"M\"};\n*/",
+      "diff": 1,
+      "imp": 1,
+      "cate": [
+        "arr",
+        "obj"
+      ],
+      "id": 45
+    },
+    {
+      "subject": "algo",
+      "title": "Trapping Rain Water between Towers Problem",
+      "ques": "We have an array where each element represents height of a tower. If it starts raining, what is the amount of water that can be collected between the towers? Assumption is that the width of every tower is 1.",
+      "links": [
+        {
+          "name": "https://www.youtube.com/watch?v=KV-Eq3wYjxI&ab_channel=IDeserve"
+        }
+      ],
+      "tags": [
+        {
+          "name": "Oracle"
+        }
+      ],
+      "ans": "/*\n[1,5,2,3,1,7,2] – then answer is 11 units.\n*/",
+      "diff": 5,
+      "imp": 1,
+      "cate": [
+        "arr"
+      ],
+      "id": 46
     }
   ],
   "js": [
@@ -948,6 +1149,9 @@
       "links": [
         {
           "name": "https://medium.com/@dis_is_patrick/practical-uses-for-closures-c65640ae7304#.fva9ii8od"
+        },
+        {
+          "name": "https://www.youtube.com/watch?v=-xqJo5VRP4A&ab_channel=techsith"
         }
       ],
       "tags": [
@@ -1157,6 +1361,87 @@
         "oops"
       ],
       "id": 11
+    },
+    {
+      "subject": "js",
+      "title": "JS Promised",
+      "ques": "",
+      "links": [],
+      "tags": [
+        {
+          "name": "Promises"
+        }
+      ],
+      "ans": "const getConfig1 = new Promise((resolve, reject) => {\n    let ser;\n    setTimeout(() => resolve(ser), 100)\n  });\n\n\nconst _f1 = () => {\n    const asyncPromise  = new Promise(async(resolve, reject) => {\n        try{\n           let data = await getConfig1;\n           resolve(data); \n        } catch(err){\n            reject(err);\n        }\n    });\n\n    return [asyncPromise];\n}\n\nconst f1 = () => {\n    const asyncPromise  = async() => {\n        try{\n           let data = 42; //await getConfig1;\n           return data; \n        } catch(err){\n            return err;\n        }\n    }\n    return [asyncPromise];\n}\n\nlet promises = _f1();\n\nPromise.all(promises).then((configPayloads)=>{\n    console.log(\"configPayloads ::\", configPayloads);\n}).catch((error)=>{\n    console.log(\"error ::\", error);\n})\n",
+      "diff": 1,
+      "imp": 1,
+      "cate": [
+        "general"
+      ],
+      "id": 12
+    },
+    {
+      "subject": "js",
+      "title": "Currying",
+      "ques": "",
+      "links": [],
+      "tags": [
+        {
+          "name": "Currying"
+        },
+        {
+          "name": "Walmart"
+        }
+      ],
+      "ans": "/*\nCase 1: add(1)(2)(3)\nIt’s basically a sequence of functions with single argument. \nSo our approach is to return a function which in turn returns another function to accept next argument.\n*/\nfunction add(a){\n return function(b){\n  return function(c){\n   return a+b+c\n  }\n }\n}\n\n\n/*\nCase 2: add(1)(2)(3)…(n)()\nIt’s basically a sequence of n+1 functions with single argument except the last one. \nSo our approach is to return a function which in turn returns another function to accept \nnext argument and so on till the last argument doesn’t exist.\n*/\nfunction add(a) {\n  return function(b){\n    if(b){\n      return add(a+b)\n    }\n    return a\n  }\n}\n\n//let res = add(1)(2)(3)(4)();\n//console.log(\"res ::\", res);\n\n\n/*\nCase 3: sum(1,2)(3,4)\nSo, this is similar as above just that we are accepting two arguments in single call. \nSo, we need to add the arguments. Let’s look at the code:\n*/\nfunction sum(a,b) {\n  return function(c,d){\n    return a+b+c+d\n  }\n}\n\n/*\nCase 4: add(1,2..n)(5,6…n)…(n)()\nNow in this case, everything is infinite. We already know infinite currying, let’s focus on infinite arguments.\n*/\nfunction add(...args) {\n  let a = args.reduce((a, b) => a + b, 0)\n  return function(...args){\n    let b = args.reduce((a, b) => a + b, 0)\n    if(b){\n      return add(a+b)\n    }\n    return a\n  }\n}",
+      "diff": 1,
+      "imp": 1,
+      "cate": [
+        "general",
+        "code_pattern"
+      ],
+      "id": 13
+    },
+    {
+      "subject": "js",
+      "title": "Predict Output",
+      "ques": "",
+      "links": [],
+      "tags": [
+        {
+          "name": "Basics & Tricky"
+        }
+      ],
+      "ans": "1.what will be the output?\nvar a = 10;\n\nfunction t(){\n    this.a = 20;\n    return a;\n}\n\nconsole.log(new t())\n\nOptions :-\nA. 10\nB. 20\nC. {a : 20}\nD. undefined\n\nAnswer - C\n---------------------------------------------------\n\n2.what will be the output?\nconsole.log(a);\nconsole.log(b);\nvar a=1;\nconst b=2;\n\n\noptions :-\nA. ReferenceError: a is not defined, ReferenceError: b is not defined\nB. undefined, ReferenceError: b is not defined\nC. 1, 2\nD. ReferenceError: a is not defined, undefined\n\nAnswer - B\n---------------------------------------------------\n\n3.what will be the output?\nlet i;\nfor(i=0; i<5; i++){\n    setTimeout(()=>{\n        console.log(i);\n    });\n}\n\noptions :-\nA. 4, 4, 4, 4, 4\nB. 5, 5, 5, 5, 5\nC. undefined\nD. 0, 1, 2, 3, 4\n\nAnswer - B\n---------------------------------------------------\n\n4.what will be output?\nconst length = 4;\nconst numbers = [];\nfor (var i = 0; i < length; i++);{\n  numbers.push(i + 1);\n}\nnumbers;\n\n\noptions :-\nA.[5]\nB.[0,1,2,3]\nC.[1,2,3,4]\nD.[]\n\nAnswer - A\n---------------------------------------------------\n\n5.What will be output?\nfunction foo() {\n  let a = b = 0;\n  a++;\n  return a;\n}\nfoo();\nconsole.log(typeof a); \nconsole.log(typeof b);\n\noptions :-\nA. undefined, number\nB. number, number\nC. boolean, boolean\nD. number, undefined\n\nAnswer - A\n\n\n\n\n",
+      "diff": 1,
+      "imp": 1,
+      "cate": [
+        "general"
+      ],
+      "id": 14
+    },
+    {
+      "subject": "js",
+      "title": "Factory Function vs. Constructor vs. Class",
+      "ques": "",
+      "links": [
+        {
+          "name": "https://www.youtube.com/watch?v=fbuyliXlDGI&ab_channel=ColorCode"
+        }
+      ],
+      "tags": [
+        {
+          "name": "Youtube"
+        }
+      ],
+      "ans": "",
+      "diff": 1,
+      "imp": 1,
+      "cate": [
+        "general",
+        "code_pattern"
+      ],
+      "id": 15
     }
   ],
   "es6": [
@@ -1181,6 +1466,24 @@
         "general"
       ],
       "id": 1
+    },
+    {
+      "subject": "es6",
+      "title": "Javascript set",
+      "ques": "",
+      "links": [],
+      "tags": [
+        {
+          "name": "set"
+        }
+      ],
+      "ans": "let s = new Set([1,2,3]);\n\nconsole.log(s);\ns.add(4);\nconsole.log(s);\ns.add(1);\nconsole.log(s);",
+      "diff": 1,
+      "imp": 1,
+      "cate": [
+        "general"
+      ],
+      "id": 2
     }
   ],
   "ts": [],

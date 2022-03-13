@@ -7,7 +7,7 @@ import { Component, OnInit, Input } from '@angular/core';
 })
 export class NotesListComponent implements OnInit {
   @Input() subjectName: any;
-  private isMobileResolution: boolean;
+  isMobileResolution: boolean;
 
   constructor(){
     if (window.innerWidth < 768) {

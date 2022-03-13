@@ -286,7 +286,7 @@ export class NotesListMobileComponent implements OnInit {
     let rIdx = Math.floor(Math.random() * this.originalData.length);
     this.randomNote = this.originalData[rIdx];
     this.randomNote.random = true;
-    this.randomNote.color = '#'+(Math.random().toString(16)+'00000').slice(2,8);
+    this.randomNote.color = '#'+(Math.random().toString(16)+'11111').slice(2,8);
     this.notes.splice(0, (this.notes[0].random ? 1 : 0),this.randomNote);
     this.noteCurrentIdx = 0;
   }

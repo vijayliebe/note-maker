@@ -57,15 +57,39 @@ export class NotesService {
 
   getNote(subject, params?){
     console.log("***getNote");
+    const getNewData = (__data) => {
+      let dataCopy = JSON.parse(JSON.stringify(__data));
+      delete dataCopy.users;
+      delete dataCopy.subjects;
+      delete dataCopy.categories;
+
+      let allNotes = [];
+      for(let sub in dataCopy){
+        let notes = dataCopy[sub];
+        allNotes = [...allNotes, ...notes];
+      }
+      return allNotes;
+    };
 
     if(this._data){
-      return of(this._data[subject]);
+      if(subject == "all"){
+        let newData = getNewData(this._data);
+        return of(newData);
+      } else {
+        return of(this._data[subject]);
+      }
     } else {
-      const url =  `/${subject}`;
+      const url =  `/${subject == 'all'? 'db' : subject}`;
       return this.http.get<any>(url, {'params': params}).pipe(
         map((res: Response) => {
-          const body = res;
-          return body || {};
+          if(subject == "all"){
+            const body = res;
+            let newData = getNewData(body || {});
+            return newData;
+          } else {
+            const body = res;
+            return body || {};
+          }
         })
       );
     }
