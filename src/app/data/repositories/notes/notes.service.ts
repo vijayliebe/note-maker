@@ -62,6 +62,7 @@ export class NotesService {
       delete dataCopy.users;
       delete dataCopy.subjects;
       delete dataCopy.categories;
+      delete dataCopy.algo;
 
       let allNotes = [];
       for(let sub in dataCopy){
