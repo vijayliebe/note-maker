@@ -893,7 +893,7 @@
           "name": "General"
         }
       ],
-      "ans": "function BST(value) {\n  this.value = value;\n  this.right = null;\n  this.left = null;\n}\n \nBST.prototype.insert = function(value) {\n  if (value <= this.value) {\n    if (!this.left) this.left = new BST(value);\n    else this.left.insert(value);\n  }\n  else if (value > this.value) {\n    if (!this.right) this.right = new BST(value);\n    else this.right.insert(value);\n  }\n};\n \nBST.prototype.contains = function(value) {\n  if (this.value === value) return true;\n  if (value < this.value) {\n    if (!this.left) return false;\n    else return this.left.contains(value);\n  }\n  else if (value > this.value) {\n    if (!this.right) return false;\n    else return this.right.contains(value);\n  }\n};\n \nBST.prototype.depthFirstTraversal = function(iteratorFunc, order) {\n  if (order === 'pre-order') iteratorFunc(this.value);\n  if (this.left) this.left.depthFirstTraversal(iteratorFunc, order);\n  if (order === 'in-order') iteratorFunc(this.value);\n  if (this.right) this.right.depthFirstTraversal(iteratorFunc, order);\n  if (order === 'post-order') iteratorFunc(this.value);\n};\n \nBST.prototype.breadthFirstTraversal = function(iteratorFunc) {\n  var queue = [this];\n  while (queue.length) {\n    var treeNode = queue.shift();\n    iteratorFunc(treeNode);\n    if (treeNode.left) queue.push(treeNode.left);\n    if (treeNode.right) queue.push(treeNode.right);\n  }\n};\n \nfunction log(value) {\n    console.log(value);\n};\n \nBST.prototype.getMinVal = function() {\n  if (this.left) return this.left.getMinVal();\n  else return this.value;\n};\n \nBST.prototype.getMaxVal = function() {\n  if (this.right) return this.right.getMaxVal();\n  else return this.value;\n};\n \n \n \nvar bst = new BST(50);\n \nbst.insert(30);\nbst.insert(70);\nbst.insert(100);\nbst.insert(60);\nbst.insert(59);\nbst.insert(20);\nbst.insert(45);\nbst.insert(35);\nbst.insert(85);\nbst.insert(105);\nbst.insert(10);\n \nfunction log(node) {\n console.log(node.value);\n}\n \nbst.breadthFirstTraversal(log);",
+      "ans": "\nfunction BST(value) {\n  this.value = value;\n  this.right = null;\n  this.left = null;\n}\n \nBST.prototype.insert = function(value) {\n  if (value <= this.value) {\n    if (!this.left) this.left = new BST(value);\n    else this.left.insert(value);\n  }\n  else if (value > this.value) {\n    if (!this.right) this.right = new BST(value);\n    else this.right.insert(value);\n  }\n};\n \nBST.prototype.contains = function(value) {\n  if (this.value === value) return true;\n  if (value < this.value) {\n    if (!this.left) return false;\n    else return this.left.contains(value);\n  }\n  else if (value > this.value) {\n    if (!this.right) return false;\n    else return this.right.contains(value);\n  }\n};\n \nBST.prototype.depthFirstTraversal = function(iteratorFunc, order) {\n  if (order === 'pre-order') iteratorFunc(this.value);\n  if (this.left) this.left.depthFirstTraversal(iteratorFunc, order);\n  if (order === 'in-order') iteratorFunc(this.value);\n  if (this.right) this.right.depthFirstTraversal(iteratorFunc, order);\n  if (order === 'post-order') iteratorFunc(this.value);\n};\n \nBST.prototype.breadthFirstTraversal = function(iteratorFunc) {\n  var queue = [this];\n  while (queue.length) {\n    var treeNode = queue.shift();\n    iteratorFunc(treeNode);\n    if (treeNode.left) queue.push(treeNode.left);\n    if (treeNode.right) queue.push(treeNode.right);\n  }\n};\n \nfunction log(value) {\n    console.log(value);\n};\n \nBST.prototype.getMinVal = function() {\n  if (this.left) return this.left.getMinVal();\n  else return this.value;\n};\n \nBST.prototype.getMaxVal = function() {\n  if (this.right) return this.right.getMaxVal();\n  else return this.value;\n};\n \n \n \nvar bst = new BST(50);\n \nbst.insert(30);\nbst.insert(70);\nbst.insert(100);\nbst.insert(60);\nbst.insert(59);\nbst.insert(20);\nbst.insert(45);\nbst.insert(35);\nbst.insert(85);\nbst.insert(105);\nbst.insert(10);\n \nfunction log(node) {\n console.log(node.value);\n}\n \nbst.breadthFirstTraversal(log);",
       "diff": 1,
       "imp": 1,
       "cate": [
@@ -1121,6 +1121,133 @@
         "queueStack"
       ],
       "id": 47
+    },
+    {
+      "subject": "algo",
+      "title": " Minimum Add to Make Parentheses Valid",
+      "ques": "A parentheses string is valid if and only if:\n\nIt is the empty string,\nIt can be written as AB (A concatenated with B), where A and B are valid strings, or\nIt can be written as (A), where A is a valid string.\nYou are given a parentheses string s. In one move, you can insert a parenthesis at any position of the string.\n\nFor example, if s = \"()))\", you can insert an opening parenthesis to be \"(()))\" or a closing parenthesis to be \"())))\".\nReturn the minimum number of moves required to make s valid.",
+      "links": [
+        {
+          "name": "https://leetcode.com/problems/minimum-add-to-make-parentheses-valid/"
+        }
+      ],
+      "tags": [
+        {
+          "name": "Microsoft"
+        },
+        {
+          "name": "Leetcode"
+        }
+      ],
+      "ans": "/*\nExample 1:\n\nInput: s = \"())\"\nOutput: 1\nExample 2:\n\nInput: s = \"(((\"\nOutput: 3\n*/\n\nvar minAddToMakeValid = function(s) {\n   let open = 0, close = 0;\n   for(let i=0; i<s.length; i++){\n       if(s[i] == \"(\"){\n          open = open + 1;\n        } else {\n            if(open > 0){\n                open = open - 1;\n            } else {\n                close = close + 1;\n            } \n        }\n   }\n    \n   return open + close;\n};",
+      "diff": 3,
+      "imp": 3,
+      "cate": [
+        "str",
+        "greed",
+        "queueStack"
+      ],
+      "id": 48
+    },
+    {
+      "subject": "algo",
+      "title": "Single linked list - basics (ES6) :",
+      "ques": "",
+      "links": [
+        {
+          "name": "https://medium.com/swlh/singly-linked-list-in-javascript-a0e58d045561"
+        },
+        {
+          "name": "https://codeburst.io/linked-lists-in-javascript-es6-code-part-1-6dd349c3dcc3"
+        }
+      ],
+      "tags": [
+        {
+          "name": "General"
+        }
+      ],
+      "ans": "\nclass LinkedList{\n\n  constructor(d){\n    this.data = d;\n    this.next = null\n  }\n\n  add(d){\n    let head = this;\n    while(head.next){\n      head = head.next;\n    }\n    head.next = new LinkedList(d);\n  }\n\n  remove(idx){\n    if(!idx){\n      let head = this.next;\n      this.data = head.data;\n      this.next = head.next;\n    } \n\n    if(idx){\n      let i=0;\n      let head = this;\n      while(i < (idx-1) && head.next){\n        head = head.next;\n        i = i + 1;\n      }\n\n      if(head && head.next){\n        if(idx > 0 ){\n          head.next = head.next.next; \n        } else{\n          head.next = head.next;\n        }\n      }\n            \n    }\n    \n  }\n\n  traverse(){\n    let idx = 0;\n    let head = this;\n    while(head.next){\n      console.log(idx +\" : \"+head.data);\n      head = head.next;\n      idx = idx + 1;\n    }\n    console.log(idx +\" : \"+head.data);\n  }\n}\n\nlet ll = new LinkedList(1);\nll.add(2);\nll.add(3);\nll.add(4);\nll.add(5);\nll.add(6);\n\n// ll.remove();\n// ll.remove();\nll.remove(2);\n\nll.traverse();\nconsole.log(ll);",
+      "diff": 1,
+      "imp": 1,
+      "cate": [
+        "linked-list"
+      ],
+      "id": 49
+    },
+    {
+      "subject": "algo",
+      "title": "Minimum Deletions to Make Character Frequencies Unique",
+      "ques": "A string s is called good if there are no two different characters in s that have the same frequency.\n\nGiven a string s, return the minimum number of characters you need to delete to make s good.\n\nThe frequency of a character in a string is the number of times it appears in the string. For example, in the string \"aab\", the frequency of 'a' is 2, while the frequency of 'b' is 1.",
+      "links": [
+        {
+          "name": "https://leetcode.com/problems/minimum-deletions-to-make-character-frequencies-unique/submissions/"
+        }
+      ],
+      "tags": [
+        {
+          "name": "Leetcode"
+        },
+        {
+          "name": "Microsoft"
+        }
+      ],
+      "ans": "/*\nExample 1:\n\nInput: s = \"aab\"\nOutput: 0\nExplanation: s is already good.\nExample 2:\n\nInput: s = \"aaabbbcc\"\nOutput: 2\nExplanation: You can delete two 'b's resulting in the good string \"aaabcc\".\nAnother way it to delete one 'b' and one 'c' resulting in the good string \"aaabbc\".\nExample 3:\n\nInput: s = \"ceabaacb\"\nOutput: 2\nExplanation: You can delete both 'c's resulting in the good string \"eabaab\".\nNote that we only care about characters that are still in the string at the end (i.e. frequency of 0 is ignored).\n*/\n\n\nvar minDeletions = function(s) {\n    console.log(\"s ::\", s); \n    let sMap = {};\n    for(let i=0; i<s.length; i++){\n        sMap[s[i]] = (s[i] in sMap) ? sMap[s[i]] + 1 :  1;\n    }\n    console.log(\"sMap ::\", sMap); \n    \n   let fMap = {}; \n   let count = 0;\n    \n   const recurse = () => {\n        let fMap = {};\n         for(let key in sMap){\n              let f = sMap[key];\n              if((f in fMap)){\n                  count = count + 1;\n                  if(sMap[key] > 1){\n                     sMap[key] = sMap[key] - 1;\n                  }else {\n                      delete sMap[key];\n                  }\n                  recurse();\n                  break;\n              } else {\n                  fMap[f] = 1;\n              }\n         }  \n   }\n   \n    \n  recurse();\n  return count;\n    \n};\n",
+      "diff": 1,
+      "imp": 1,
+      "cate": [
+        "str",
+        "sort"
+      ],
+      "id": 50
+    },
+    {
+      "subject": "algo",
+      "title": "Given an integer n, return any array containing n unique integers such that they add up to 0.",
+      "ques": "",
+      "links": [
+        {
+          "name": "https://leetcode.com/problems/find-n-unique-integers-sum-up-to-zero/"
+        }
+      ],
+      "tags": [
+        {
+          "name": "Microsoft"
+        },
+        {
+          "name": "Leetcode"
+        }
+      ],
+      "ans": "/*\nExample 1:\n\nInput: n = 5\nOutput: [-7,-1,1,3,4]\nExplanation: These arrays also are accepted [-5,-1,1,2,3] , [-3,-1,2,-2,4].\nExample 2:\n\nInput: n = 3\nOutput: [-1,0,1]\nExample 3:\n\nInput: n = 1\nOutput: [0]\n \n*/\n\nvar sumZero = function(n) {\n    let a = [];\n\n     a.push((n % 2 == 0) ? -1 : 0); \n    \n    for(let i=1; i<n; i++){\n        a.push((a[i-1] < 0 ) ? (-(a[i-1])) : -(a[i-1] + 1));\n    }\n    \n    return a;\n};",
+      "diff": 1,
+      "imp": 1,
+      "cate": [
+        "arr"
+      ],
+      "id": 51
+    },
+    {
+      "subject": "algo",
+      "title": " Median of Two Sorted Arrays",
+      "ques": "Given two sorted arrays nums1 and nums2 of size m and n respectively, return the median of the two sorted arrays.\nThe overall run time complexity should be O(log (m+n)).\n",
+      "links": [
+        {
+          "name": "https://leetcode.com/problems/median-of-two-sorted-arrays/"
+        }
+      ],
+      "tags": [
+        {
+          "name": "Leetcode"
+        }
+      ],
+      "ans": "/*\nExample 1:\n\nInput: nums1 = [1,3], nums2 = [2]\nOutput: 2.00000\nExplanation: merged array = [1,2,3] and median is 2.\nExample 2:\n\nInput: nums1 = [1,2], nums2 = [3,4]\nOutput: 2.50000\nExplanation: merged array = [1,2,3,4] and median is (2 + 3) / 2 = 2.5.\n*/\n\n/**\n * @param {number[]} nums1\n * @param {number[]} nums2\n * @return {number}\n */\nvar findMedianSortedArrays = function(nums1, nums2) {\n    console.log(\"nums1, nums2 ::\", nums1, \"::\",nums2);\n    let nums = [];\n    let idx1 = 0, idx2 = 0;\n    \n  while(idx1 < nums1.length || idx2 < nums2.length){\n        if(nums1[idx1] != undefined && nums2[idx2] == undefined){\n           nums.push(nums1[idx1]);\n           idx1 = idx1 + 1; \n        }\n        \n        if(nums1[idx1] == undefined && nums2[idx2] != undefined){\n           nums.push(nums2[idx2]);\n           idx2 = idx2 + 1; \n        }\n        \n        if(nums1[idx1] != undefined && nums2[idx2] != undefined){\n           if(nums1[idx1] < nums2[idx2]){\n              nums.push(nums1[idx1]);\n              idx1 = idx1 + 1; \n           } else {\n              nums.push(nums2[idx2]);\n              idx2 = idx2 + 1;  \n           }\n        }   \n    }\n    \n    console.log(\"nums ::\", nums);\n    \n    if(nums.length % 2 == 0){\n       let idx = nums.length/2;\n       return (nums[idx-1] + nums[idx])/2; \n    } else {\n        return nums[Math.floor(nums.length/2)];\n    }\n};",
+      "diff": 5,
+      "imp": 4,
+      "cate": [
+        "arr",
+        "search",
+        "sort"
+      ],
+      "id": 52
     }
   ],
   "js": [
@@ -1490,6 +1617,31 @@
         "general"
       ],
       "id": 16
+    },
+    {
+      "subject": "js",
+      "title": "Polyfill for Array methods: map(), filter() and reduce() ",
+      "ques": "",
+      "links": [
+        {
+          "name": "https://medium.com/nerd-for-tech/polyfill-for-array-map-filter-and-reduce-e3e637e0d73b"
+        }
+      ],
+      "tags": [
+        {
+          "name": "medium.com"
+        },
+        {
+          "name": "Adobe"
+        }
+      ],
+      "ans": "//MAP\nlet newArray = arr.map(callback(currentValue[, index[, array]]) {\n  // return element for newArray, after executing something\n});\n\n\nArray.prototype.myMap = function(callbackFn) {\n  var arr = [];              \n  for (var i = 0; i < this.length; i++) { \n     /* call the callback function for every value of this array and       push the returned value into our resulting array\n     */\n    arr.push(callbackFn(this[i], i, this));\n  }\n  return arr;\n}\n\n\n\n//FILTER\nlet newArray = arr.filter(callback(currentValue[, index[, array]]) {\n  // return element for newArray, if true\n});\n\nArray.prototype.myFilter = function(callbackFn) {\n  var arr = [];     \n  for (var i = 0; i < this.length; i++) {\n    if (callbackFn.call(this, this[i], i, this)) {\n      arr.push(this[i]);\n    }\n  }\n  return arr;\n}\n\n//REDUCE\narr.reduce(callback( accumulator, currentValue, [, index[, array]] )[, initialValue])\n\nArray.prototype.myReduce= function(callbackFn, initialValue) {\n  var accumulator = initialValue;\nfor (var i = 0; i < this.length; i++) {\n    if (accumulator !== undefined) {\n      accumulator = callbackFn.call(undefined, accumulator, this[i],   i, this);\n    } else {\n      accumulator = this[i];\n    }\n  }\n  return accumulator;\n}\n\n\n\n\n",
+      "diff": 1,
+      "imp": 1,
+      "cate": [
+        "general"
+      ],
+      "id": 17
     }
   ],
   "es6": [
@@ -1519,10 +1671,17 @@
       "subject": "es6",
       "title": "Javascript set",
       "ques": "",
-      "links": [],
+      "links": [
+        {
+          "name": "https://bretcameron.medium.com/how-to-make-your-code-faster-using-javascript-sets-b432457a4a77#:~:text=Because%20Set.,time%20of%20O(N)."
+        }
+      ],
       "tags": [
         {
           "name": "set"
+        },
+        {
+          "name": "Oracle"
         }
       ],
       "ans": "let s = new Set([1,2,3]);\n\nconsole.log(s);\ns.add(4);\nconsole.log(s);\ns.add(1);\nconsole.log(s);",
