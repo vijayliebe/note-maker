@@ -244,6 +244,12 @@
       "key": "numbers",
       "sub": "algo",
       "id": "Pfw11Yu"
+    },
+    {
+      "name": "General",
+      "key": "general",
+      "sub": "git",
+      "id": "i0w-jut"
     }
   ],
   "algo": [
@@ -1804,7 +1810,22 @@
       "id": 1
     }
   ],
-  "git": [],
+  "git": [
+    {
+      "subject": "git",
+      "title": "Git general commands",
+      "ques": "",
+      "links": [],
+      "tags": [],
+      "ans": "git remote -v\n\ngit push origin HEAD\n\ngit fetch --tags --force\n\ngit fetch -t\n\ngit tag\n\ngit checkout -b \"<branch_name>\" -t origin/master\n\ngit pull --rebase\n\ngit rebase -i HEAD~2 // Squash",
+      "diff": 3,
+      "imp": 3,
+      "cate": [
+        "general"
+      ],
+      "id": 1
+    }
+  ],
   "py": [],
   "java": [],
   "oth": []
