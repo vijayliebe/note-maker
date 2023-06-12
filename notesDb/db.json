@@ -23,6 +23,11 @@
       "key": "es6"
     },
     {
+      "id": 16,
+      "name": "Nodejs",
+      "key": "node"
+    },
+    {
       "id": 4,
       "name": "Typescript",
       "key": "ts"
@@ -250,6 +255,18 @@
       "key": "general",
       "sub": "git",
       "id": "i0w-jut"
+    },
+    {
+      "name": "Framework",
+      "key": "framework",
+      "sub": "node",
+      "id": "o8_tryU"
+    },
+    {
+      "name": "Node Core",
+      "key": "node_core",
+      "sub": "node",
+      "id": "CF6SBM8"
     }
   ],
   "algo": [
@@ -1648,6 +1665,72 @@
         "general"
       ],
       "id": 17
+    },
+    {
+      "subject": "js",
+      "title": "Web Components",
+      "ques": "What is web components in Js?",
+      "links": [
+        {
+          "name": "https://kinsta.com/blog/web-components/"
+        }
+      ],
+      "tags": [
+        {
+          "name": "web componet"
+        }
+      ],
+      "ans": "",
+      "diff": 1,
+      "imp": 1,
+      "cate": [
+        "general"
+      ],
+      "id": 18
+    },
+    {
+      "subject": "js",
+      "title": "What are web APIs?",
+      "ques": "",
+      "links": [
+        {
+          "name": "https://developer.mozilla.org/en-US/docs/Web/API"
+        }
+      ],
+      "tags": [
+        {
+          "name": "web API"
+        }
+      ],
+      "ans": "",
+      "diff": 1,
+      "imp": 1,
+      "cate": [
+        "general"
+      ],
+      "id": 19
+    },
+    {
+      "subject": "js",
+      "title": "What is the order of inline onclick vs addeventlistener and why?",
+      "ques": "",
+      "links": [
+        {
+          "name": "https://stackoverflow.com/questions/49805942/what-is-the-order-of-inline-onclick-vs-addeventlistener-and-why#:~:text=As%20we%20can%20see%20then,second%20listener%20set%20with%20addEventListener%20."
+        },
+        {
+          "name": "https://jsbin.com/xubajoradi/edit?html,js,console,output"
+        }
+      ],
+      "tags": [],
+      "ans": "",
+      "diff": 1,
+      "imp": 1,
+      "cate": [
+        "events",
+        "general"
+      ],
+      "id": 20
     }
   ],
   "es6": [
@@ -1828,5 +1911,82 @@
   ],
   "py": [],
   "java": [],
-  "oth": []
+  "oth": [],
+  "node": [
+    {
+      "subject": "node",
+      "title": "Express API references",
+      "ques": "",
+      "links": [
+        {
+          "name": "https://expressjs.com/en/4x/api.html"
+        }
+      ],
+      "tags": [
+        {
+          "name": "express"
+        }
+      ],
+      "ans": "",
+      "diff": 1,
+      "imp": 1,
+      "cate": [
+        "framework"
+      ],
+      "id": 1
+    },
+    {
+      "subject": "node",
+      "title": "Node.js buffer: A complete guide",
+      "ques": "",
+      "links": [
+        {
+          "name": "https://www.w3schools.com/nodejs/ref_buffer.asp"
+        },
+        {
+          "name": "https://blog.logrocket.com/node-js-buffer-complete-guide/"
+        }
+      ],
+      "tags": [
+        {
+          "name": "buffer"
+        }
+      ],
+      "ans": "",
+      "diff": 1,
+      "imp": 1,
+      "cate": [
+        "node_core"
+      ],
+      "id": 2
+    },
+    {
+      "subject": "node",
+      "title": "Node.js child process",
+      "ques": "",
+      "links": [
+        {
+          "name": "https://medium.com/@diego.coder/child-processes-in-node-js-37429fb54670"
+        },
+        {
+          "name": "https://blog.logrocket.com/node-js-child-process-launch-external-programs/"
+        },
+        {
+          "name": "https://www.freecodecamp.org/news/node-js-child-processes-everything-you-need-to-know-e69498fe970a/"
+        }
+      ],
+      "tags": [
+        {
+          "name": "child Process"
+        }
+      ],
+      "ans": "",
+      "diff": 1,
+      "imp": 1,
+      "cate": [
+        "node_core"
+      ],
+      "id": 3
+    }
+  ]
 }
