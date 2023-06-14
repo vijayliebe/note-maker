@@ -1287,6 +1287,9 @@
       "links": [
         {
           "name": "https://codeburst.io/throttling-and-debouncing-in-javascript-b01cad5c8edf"
+        },
+        {
+          "name": "https://stackblitz.com/edit/js-justrw?file=index.js"
         }
       ],
       "tags": [
@@ -1294,7 +1297,7 @@
           "name": "Debouncing and Throttling"
         }
       ],
-      "ans": "\n-> Throttling and debouncing give us control over the rate at which a function is called. \n\n-> They are especially useful when we are dealing with event handler assignments. There are scenarios where we may invoke functions when it isn’t necessary.",
+      "ans": "\n-> Throttling and debouncing give us control over the rate at which a function is called. \n\n-> They are especially useful when we are dealing with event handler assignments. There are scenarios where we may invoke functions when it isn’t necessary.\n\n\n\n==\n\n\n<input type=\"text\" id=\"search\" placeholder=\"search ..\"> <br/> <br/> <br/>\n<input type=\"text\" id=\"dsearch\" placeholder=\"Debounce Search ..\"> <br/> <br/> <br/>\n<input type=\"text\" id=\"tsearch\" placeholder=\"Throttle Search ..\">\n\n--------\n\nconst fn1 = (e) => { console.log(e.target.value); };\n\nconst debounce = (consFn, delay) => {\n  let timeout;\n  \n  return function(){\n    let context = this;\n    let args = arguments;\n    \n    clearTimeout(timeout);\n    timeout = setTimeout(() => {\n      consFn.apply(context, args);\n    }, delay);\n  }\n}\n\nconst throttle = (consFn, delay) => {\n  let inThrottle = true;\n  \n  return function(){\n    let context = this;\n    let args = arguments;\n    \n    if(inThrottle){\n      consFn.apply(context, args);\n      inThrottle = false;\n      setTimeout(() => {\n        inThrottle = true;\n      }, delay)\n    }\n  }\n}\n\ndocument.querySelector(\"#search\").addEventListener(\"keyup\", fn1);\n\ndocument.querySelector(\"#dsearch\").addEventListener(\"keyup\", debounce(fn1, 1000));\n\ndocument.querySelector(\"#tsearch\").addEventListener(\"keyup\", throttle(fn1, 1000));\n",
       "diff": 4,
       "imp": 4,
       "cate": [
@@ -1654,6 +1657,9 @@
       "links": [
         {
           "name": "https://medium.com/nerd-for-tech/polyfill-for-array-map-filter-and-reduce-e3e637e0d73b"
+        },
+        {
+          "name": "https://stackblitz.com/edit/js-ajcqxm?file=index.js"
         }
       ],
       "tags": [
