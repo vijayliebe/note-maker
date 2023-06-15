@@ -1384,6 +1384,9 @@
         },
         {
           "name": "https://www.youtube.com/watch?v=104J7_HyaG4&ab_channel=DecypherMedia"
+        },
+        {
+          "name": "https://stackblitz.com/edit/js-k4zgov?file=index.js,index.html"
         }
       ],
       "tags": [
@@ -1391,7 +1394,7 @@
           "name": "Promises"
         }
       ],
-      "ans": "",
+      "ans": "\nlet p1 = new Promise((resolve, reject) => {\n  // do async operation then resolve or reject\n  resolve(\"Wake Up\");\n});\n\nlet p2 = new Promise((resolve, reject) => {\n  resolve(\"office\");\n});\n\nlet p3 = new Promise((resolve, reject) => {\n  resolve(\"Sleep\");\n});\n\n\n// p1.then((result) => {\n//   console.log(\"p1 finshed :: result ::\", result);\n//   return p2;\n// }).then((result) => {\n//   console.log(\"p2 finshed :: result ::\", result);\n//   return p3;\n// }).then((result) => {\n//   console.log(\"p3 finshed :: result ::\", result);\n// });\n\n\nlet P1 = function(){\n  return new Promise((resolve, reject) => {\n    // do async operation then resolve or reject\n    resolve(\"Wake Up\");\n  });\n}\n\nlet P2 = function(res){\n  return new Promise((resolve, reject) => {\n    res ? resolve([res, \"Office\"]) : resolve(\"Office\");\n  });\n}\n\nlet P3 = function(res){\n  return new Promise((resolve, reject) => {\n    res ? resolve([...res, ...[\"Sleep\"]]) : resolve(\"Sleep\");\n  });\n}\n\nP1().then((result) => {\n  console.log(\"***P1 finshed :: result ::\", result);\n  return P2(result);\n}).then((result) => {\n  console.log(\"***P2 finshed :: result ::\", result);\n  return P3(result)\n}).then((result) => {\n  console.log(\"***P3 finshed :: result ::\", result);\n});\n\nPromise.all([P1(), P2(), P3()]).then((result) => {\n  console.log(\"Finsished all :: result ::\", result);\n});\n\nPromise.race([P1(), P2(), P3()]).then((result) => {\n  console.log(\"promise race - Finsished once :: result ::\", result);\n});\n\n",
       "diff": 1,
       "imp": 1,
       "cate": [
@@ -1481,6 +1484,9 @@
       "links": [
         {
           "name": "https://blog.carbonfive.com/the-javascript-event-loop-explained/"
+        },
+        {
+          "name": "https://www.youtube.com/watch?v=8aGhZQkoFbQ&ab_channel=JSConf"
         }
       ],
       "tags": [
@@ -1488,7 +1494,7 @@
           "name": "Eventloop"
         }
       ],
-      "ans": "",
+      "ans": "// callstack try to finish all exec then async process(cb part) is taking into consideration\nconsole.log(1);\nconsole.log(2)\n\nsetTimeout(() => {\n  console.log(3);  \n});\n\nconsole.log(4);\n\nsetTimeout(() => {\n  console.log(5)  \n});\n\nconsole.log(6);\nconsole.log(7);\nconsole.log(8);\n\n// output \neventLoop:2 1\neventLoop:3 2\neventLoop:9 4\neventLoop:15 6\neventLoop:16 7\neventLoop:17 8\n\neventLoop:6 3\neventLoop:12 5",
       "diff": 1,
       "imp": 4,
       "cate": [
@@ -1531,6 +1537,9 @@
         },
         {
           "name": "https://www.youtube.com/watch?v=PFmuCDHHpwk&ab_channel=ProgrammingwithMosh"
+        },
+        {
+          "name": "https://stackblitz.com/edit/js-ezmjoz?file=index.js"
         }
       ],
       "tags": [
@@ -1538,7 +1547,7 @@
           "name": "OOPs"
         }
       ],
-      "ans": "",
+      "ans": "Certainly! Here's a detailed explanation of Object-Oriented Programming (OOP) concepts in JavaScript using ES6 features:\n\n1. Objects and Classes:\n   - In ES6, classes were introduced as syntactic sugar over JavaScript's existing prototype-based inheritance system.\n   - Classes provide a more familiar syntax for defining objects and their behavior.\n   - The `class` keyword is used to define a class, and the `constructor` method is used to initialize the object.\n   - Here's an example of defining a class and creating objects from it:\n\n```javascript\nclass Person {\n  constructor(name, age) {\n    this.name = name;\n    this.age = age;\n  }\n\n  sayHello() {\n    console.log(`Hello, my name is ${this.name} and I am ${this.age} years old.`);\n  }\n}\n\nconst john = new Person(\"John\", 25);\njohn.sayHello(); // Output: Hello, my name is John and I am 25 years old.\n```\n\n2. Encapsulation:\n   - Encapsulation refers to the bundling of data and methods within an object, hiding the internal details and providing a public interface for interaction.\n   - ES6 introduces support for `get` and `set` keywords to define getter and setter methods for object properties.\n   - Getters allow accessing a property's value, while setters allow modifying the property value with validation or additional logic.\n   - Here's an example:\n\n```javascript\nclass BankAccount {\n  constructor(accountNumber, balance) {\n    this._accountNumber = accountNumber;\n    this._balance = balance;\n  }\n\n  get accountNumber() {\n    return this._accountNumber;\n  }\n\n  get balance() {\n    return this._balance;\n  }\n\n  set balance(newBalance) {\n    if (newBalance >= 0) {\n      this._balance = newBalance;\n    } else {\n      console.log(\"Invalid balance.\");\n    }\n  }\n}\n\nconst account = new BankAccount(\"1234567890\", 1000);\nconsole.log(account.accountNumber); // Output: 1234567890\nconsole.log(account.balance); // Output: 1000\naccount.balance = -500; // Output: Invalid balance.\naccount.balance = 2000;\nconsole.log(account.balance); // Output: 2000\n```\n\n3. Inheritance:\n   - Inheritance allows objects to inherit properties and methods from other objects, creating a hierarchical relationship.\n   - ES6 introduced the `extends` keyword to establish inheritance between classes.\n   - The `super` keyword is used to invoke the parent class's constructor or methods.\n   - Here's an example of inheritance:\n\n```javascript\nclass Animal {\n  constructor(name) {\n    this.name = name;\n  }\n\n  speak() {\n    console.log(`${this.name} makes a sound.`);\n  }\n}\n\nclass Dog extends Animal {\n  speak() {\n    console.log(`${this.name} barks.`);\n  }\n}\n\nconst dog = new Dog(\"Buddy\");\ndog.speak(); // Output: Buddy barks.\n```\n\n4. Polymorphism:\n   - Polymorphism allows objects of different classes to be treated as objects of a common superclass, enabling interchangeable usage.\n   - JavaScript achieves polymorphism through dynamic typing and duck typing.\n   - Duck typing focuses on the object's behavior rather than its type.\n   - Here's an example:\n\n```javascript\nclass Shape {\n  area() {\n    console.log(\"Calculating area of a shape.\");\n  }\n}\n\nclass Circle extends Shape {\n  constructor(radius) {\n    super();\n    this.radius = radius;\n  }\n\n  area() {\n    console.log(`Calculating area of a circle with radius ${this.radius}`);\n  }\n}\n\nclass Rectangle extends Shape {\n  constructor(length, width) {\n   \n\n super();\n    this.length = length;\n    this.width = width;\n  }\n\n  area() {\n    console.log(`Calculating area of a rectangle with length ${this.length} and width ${this.width}`);\n  }\n}\n\nconst shapes = [new Circle(5), new Rectangle(4, 6)];\n\nshapes.forEach(shape => shape.area());\n// Output:\n// Calculating area of a circle with radius 5\n// Calculating area of a rectangle with length 4 and width 6\n```\n\nThese are some of the key Object-Oriented Programming concepts in JavaScript using ES6 features. Understanding and applying these concepts can help you write more modular, reusable, and maintainable code.",
       "diff": 1,
       "imp": 4,
       "cate": [
@@ -1692,7 +1701,7 @@
           "name": "web componet"
         }
       ],
-      "ans": "",
+      "ans": "Certainly! Here's a detailed explanation of web component concepts in JavaScript with code examples:\n\n1. Custom Elements:\n   - Custom Elements allow you to define your own HTML elements with custom behaviors and functionality.\n   - Custom elements can encapsulate their own markup, style, and behavior, making them reusable and self-contained.\n   - To define a custom element, you need to extend the `HTMLElement` class and define the desired behavior.\n   - Here's an example of creating a custom `<my-button>` element:\n\n```javascript\nclass MyButton extends HTMLElement {\n  constructor() {\n    super();\n    this.attachShadow({ mode: 'open' });\n    this.shadowRoot.innerHTML = `\n      <style>\n        button {\n          background-color: blue;\n          color: white;\n        }\n      </style>\n      <button>Click me</button>\n    `;\n  }\n\n  connectedCallback() {\n    this.shadowRoot.querySelector('button').addEventListener('click', () => {\n      console.log('Button clicked!');\n    });\n  }\n}\n\ncustomElements.define('my-button', MyButton);\n```\n\n2. Shadow DOM:\n   - Shadow DOM provides encapsulation by creating an isolated DOM subtree within a custom element.\n   - It separates the styles and DOM of the custom element from the surrounding page's styles and DOM.\n   - The Shadow DOM can be attached to a custom element using the `attachShadow()` method.\n   - Here's an example of using the Shadow DOM in a custom element:\n\n```javascript\nclass MyCard extends HTMLElement {\n  constructor() {\n    super();\n    const shadow = this.attachShadow({ mode: 'open' });\n    shadow.innerHTML = `\n      <style>\n        .card {\n          border: 1px solid gray;\n          padding: 10px;\n        }\n      </style>\n      <div class=\"card\">\n        <slot></slot>\n      </div>\n    `;\n  }\n}\n\ncustomElements.define('my-card', MyCard);\n```\n\n3. HTML Templates:\n   - HTML Templates allow you to define reusable markup structures that can be cloned and used multiple times.\n   - Templates provide a way to define static markup without rendering it immediately.\n   - Templates can be used within custom elements or inserted dynamically in the document.\n   - Here's an example of using an HTML template within a custom element:\n\n```javascript\nconst template = document.createElement('template');\ntemplate.innerHTML = `\n  <style>\n    .my-alert {\n      background-color: yellow;\n      padding: 10px;\n      border: 1px solid black;\n    }\n  </style>\n  <div class=\"my-alert\">\n    <slot></slot>\n  </div>\n`;\n\nclass MyAlert extends HTMLElement {\n  constructor() {\n    super();\n    const shadow = this.attachShadow({ mode: 'open' });\n    shadow.appendChild(template.content.cloneNode(true));\n  }\n}\n\ncustomElements.define('my-alert', MyAlert);\n```\n\nThese examples demonstrate the core concepts of web components in JavaScript. Custom Elements, Shadow DOM, and HTML Templates allow you to create reusable and encapsulated components, providing modularity, encapsulation, and reusability in web development.",
       "diff": 1,
       "imp": 1,
       "cate": [
@@ -1789,6 +1798,62 @@
         "general"
       ],
       "id": 22
+    },
+    {
+      "subject": "js",
+      "title": "How could you use Math.max to find the max value in an array?",
+      "ques": "",
+      "links": [],
+      "tags": [],
+      "ans": "function getMax(arr){\n  return Math.max.apply(null, arr);  \n}",
+      "diff": 1,
+      "imp": 1,
+      "cate": "",
+      "id": 23
+    },
+    {
+      "subject": "js",
+      "title": "What the heck is this in JavaScript?",
+      "ques": "",
+      "links": [
+        {
+          "name": "https://www.youtube.com/watch?v=yuo8YqKDQ-M&ab_channel=ThatJSDude"
+        }
+      ],
+      "tags": [],
+      "ans": "At the time of execution of every function, JavaScript engine sets \na property to the function called this which refer to the current \nexecution context. this is always refer to an object and depends \non how function is called. \nThere are 7 different cases where the value of this varies :-\n\na. In the global context or inside a function this refers to the window object.\n\nb. Inside IIFE (immediate invoking function) if you use \"use strict\", value of this is undefined. To pass access window inside IIFE with \"use strict\", you have to pass this.\n\nc. While executing a function in the context of an object, the object becomes the value of this\n\nd. Inside a setTimeout function, the value of this is the window object.\n\ne. If you use a constructor (by using new keyword) to create an object, the value of this will refer to the newly created object.\n\nf. You can set the value of this to any arbitrary object by passing the object as the first parameter of bind, call or apply\n\ng. For dom event handler, value of this would be the element that fired the event",
+      "diff": 1,
+      "imp": 1,
+      "cate": "",
+      "id": 24
+    },
+    {
+      "subject": "js",
+      "title": "How could you implement moveLeft animation?",
+      "ques": "",
+      "links": [
+        {
+          "name": "https://stackblitz.com/edit/js-92mhcq?file=index.js,index.html"
+        }
+      ],
+      "tags": [],
+      "ans": "function moveDiv(margin, delay) {\n  // arrow function was creating issue with margin variable scoping so replaced with simple function\n  let clearMargin = setInterval(function(){\n    margin = margin + 10;\n    document.querySelector(\"#move\").style.cssText = `margin-left : ${margin}px;`; \n    if(margin == 100){\n      clearInterval(clearMargin);\n    }\n  }, delay)\n\n}\n\nmoveDiv(10, 1000);",
+      "diff": 1,
+      "imp": 1,
+      "cate": "",
+      "id": 25
+    },
+    {
+      "subject": "js",
+      "title": "Generate no between 5 and 8",
+      "ques": "",
+      "links": [],
+      "tags": [],
+      "ans": "min = 5\nmax = 8\n\nMath.floor(Math.random() *( (max - min) + 1) ) + min\n\nMath.floor(Math.random() *( (8 - 5) + 1) ) + 5\n\nMath.floor(Math.random() * 4) + 5",
+      "diff": 1,
+      "imp": 1,
+      "cate": "",
+      "id": 26
     }
   ],
   "es6": [
@@ -1806,7 +1871,7 @@
           "name": "medium.com"
         }
       ],
-      "ans": "\nTo avoid possible side effects of hoisting like undefined variables or reference error, \nalways try to declare the variables at the top of their respective scopes and also \nalways try to initialize variables when you declare them.",
+      "ans": "\nTo avoid possible side effects of hoisting like undefined variables or reference error, \nalways try to declare the variables at the top of their respective scopes and also \nalways try to initialize variables when you declare them.\n\n\nconsole.log(\"a ::\", a); // a :: undefined\nconsole.log(\"b ::\", b); // Uncaught ReferenceError: b is not defined\nconsole.log(\"c ::\", c); // VM1944 hoisting:3 Uncaught ReferenceError: c is not defined\n\nvar a = 10;\nlet b = 20;\nconst c = 30;",
       "diff": 1,
       "imp": 1,
       "cate": [
@@ -1844,7 +1909,103 @@
   "html": [],
   "css": [],
   "ng": [],
-  "react": [],
+  "react": [
+    {
+      "subject": "react",
+      "title": "Basic Difference between Angular and React",
+      "ques": "",
+      "links": [],
+      "tags": [],
+      "ans": "a. Code organigation\nb. Framework v/s lib\nc. Code bundling\nd. Features - \n     i. routes, \n     ii. formComponents, \n     iii. services, \n     iv. directives, \n     v. pipes, \n     vi. dependency injection",
+      "diff": 1,
+      "imp": 1,
+      "cate": "",
+      "id": 1
+    },
+    {
+      "subject": "react",
+      "title": "Bare minimum library needed in react?",
+      "ques": "",
+      "links": [],
+      "tags": [],
+      "ans": "a. react\nb. react-dom\nc. redux\nd. react-redux\ne. react-router\nf. axiom",
+      "diff": 1,
+      "imp": 1,
+      "cate": "",
+      "id": 2
+    },
+    {
+      "subject": "react",
+      "title": "React Lifecycle in functional component and class component",
+      "ques": "",
+      "links": [],
+      "tags": [],
+      "ans": "",
+      "diff": 1,
+      "imp": 1,
+      "cate": "",
+      "id": 3
+    },
+    {
+      "subject": "react",
+      "title": "Stateless v/s stateful component",
+      "ques": "",
+      "links": [],
+      "tags": [],
+      "ans": "",
+      "diff": 1,
+      "imp": 1,
+      "cate": "",
+      "id": 4
+    },
+    {
+      "subject": "react",
+      "title": "Smart v/s dumb component",
+      "ques": "",
+      "links": [],
+      "tags": [],
+      "ans": "",
+      "diff": 1,
+      "imp": 1,
+      "cate": "",
+      "id": 5
+    },
+    {
+      "subject": "react",
+      "title": "Class v/s functional component, code example",
+      "ques": "",
+      "links": [
+        {
+          "name": "https://stackblitz.com/edit/stackblitz-starters-v7hs8g?file=src%2FCustomer.tsx"
+        }
+      ],
+      "tags": [],
+      "ans": "",
+      "diff": 1,
+      "imp": 1,
+      "cate": "",
+      "id": 6
+    },
+    {
+      "subject": "react",
+      "title": "Redux example - claas v/s hooks",
+      "ques": "",
+      "links": [
+        {
+          "name": "https://jsbin.com/depavejudi/1/edit?js,output"
+        },
+        {
+          "name": "https://stackblitz.com/edit/react-6swqv4?file=src%2Fcomponents%2FHeader.js"
+        }
+      ],
+      "tags": [],
+      "ans": "",
+      "diff": 1,
+      "imp": 1,
+      "cate": "",
+      "id": 7
+    }
+  ],
   "redux": [],
   "performance": [],
   "sd": [
