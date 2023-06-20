@@ -1468,7 +1468,7 @@
           "name": "Functional Programming"
         }
       ],
-      "ans": "",
+      "ans": "Functional programming favors:\n\na. Pure functions instead of shared state & side effects\nb. Immutability over mutable data\nc. Function composition over imperative flow control\nd. Lots of generic, reusable utilities that use higher order functions to act on many data types instead of methods that only operate on their colocated data\ne. Declarative rather than imperative code (what to do, rather than how to do it)\nf. Expressions over statements\ng. Containers & higher order functions over ad-hoc polymorphism",
       "diff": 1,
       "imp": 3,
       "cate": [
@@ -1513,7 +1513,7 @@
         }
       ],
       "tags": [],
-      "ans": "",
+      "ans": "a. Factory\nb. Constructor\nb. Moduular & Revealing modular\nd. prototype\ne. Observer design pattern\nf. pub/sub\ng. singleton",
       "diff": 1,
       "imp": 1,
       "cate": [
@@ -1600,7 +1600,11 @@
       "subject": "js",
       "title": "Predict Output",
       "ques": "",
-      "links": [],
+      "links": [
+        {
+          "name": "https://stackblitz.com/edit/js-qxha7g?file=index.html,index.js"
+        }
+      ],
       "tags": [
         {
           "name": "Basics & Tricky"
@@ -1854,6 +1858,30 @@
       "imp": 1,
       "cate": "",
       "id": 26
+    },
+    {
+      "subject": "js",
+      "title": "why fat arrow don't read this context when declare new method on Array prototype?",
+      "ques": "",
+      "links": [],
+      "tags": [],
+      "ans": "The fat arrow (`=>`) function in JavaScript has lexical scoping for the `this` keyword. It means that the value of `this` inside a fat arrow function is determined by the surrounding context where the function is defined, and it does not have its own `this` binding.\n\nWhen you declare a new method on the Array prototype using a fat arrow function, the `this` inside that function will not refer to the array instance you are operating on. Instead, it will inherit the `this` value from the surrounding scope where the function is defined.\n\nHere's an example to illustrate this behavior:\n\n```javascript\nArray.prototype.myMethod = () => {\n  console.log(this); // 'this' will not refer to the array instance\n};\n\nconst myArray = [1, 2, 3];\nmyArray.myMethod(); // Output: undefined (referring to the surrounding scope)\n```\n\nIn this example, the `myMethod` is declared using a fat arrow function. When calling `myArray.myMethod()`, the `this` inside the fat arrow function will not refer to `myArray`. Instead, it will be determined by the surrounding scope, which in this case is the global scope (or the closest non-arrow function surrounding scope).\n\nTo access the correct `this` value inside the method, you should use a regular function declaration or a regular function expression. For example:\n\n```javascript\nArray.prototype.myMethod = function () {\n  console.log(this); // 'this' will refer to the array instance\n};\n\nconst myArray = [1, 2, 3];\nmyArray.myMethod(); // Output: [1, 2, 3] (referring to myArray)\n```\n\nUsing a regular function allows the method to have its own `this` binding, which will be set to the array instance on which the method is called.",
+      "diff": 1,
+      "imp": 1,
+      "cate": "",
+      "id": 27
+    },
+    {
+      "subject": "js",
+      "title": "can we create deep copyof object using spread operator?",
+      "ques": "",
+      "links": [],
+      "tags": [],
+      "ans": "No, using the spread operator (`...`) alone to create a shallow copy of an object. It does not create a deep copy. A shallow copy only creates a new object with the same top-level properties as the original object, but the nested objects and arrays inside the original object will still reference the same memory locations in both the original and copied objects.\n\nTo create a deep copy of an object, including all nested objects and arrays, you need to use other methods or techniques. Here are a few commonly used approaches:\n\n1. Using `JSON.parse()` and `JSON.stringify()`: You can serialize the object to a JSON string using `JSON.stringify()`, and then parse it back into a new object using `JSON.parse()`. This technique creates a deep copy but has limitations when dealing with functions, prototypes, or circular references.\n\n   ```javascript\n   const originalObject = { ... };\n   const deepCopy = JSON.parse(JSON.stringify(originalObject));\n   ```\n\n2. Using libraries or utility functions: There are several third-party libraries, such as Lodash or Underscore, that provide functions like `cloneDeep()` or `deepClone()` to create deep copies of objects.\n\n   ```javascript\n   const originalObject = { ... };\n   const deepCopy = _.cloneDeep(originalObject); // Using Lodash\n   ```\n\n3. Implementing a custom deep copy function: You can write a custom function that recursively traverses the object, creating new instances of nested objects and arrays.\n\n   ```javascript\n   function deepCopy(obj) {\n     if (typeof obj !== 'object' || obj === null) {\n       return obj;\n     }\n\n     const copy = Array.isArray(obj) ? [] : {};\n\n     for (let key in obj) {\n       if (obj.hasOwnProperty(key)) {\n         copy[key] = deepCopy(obj[key]);\n       }\n     }\n\n     return copy;\n   }\n\n   const originalObject = { ... };\n   const deepCopy = deepCopy(originalObject);\n   ```\n\nIt's important to note that deep copying large or complex objects can have performance implications, especially if the object contains circular references or deeply nested structures. Therefore, consider the specific requirements and constraints of your application when choosing the appropriate method for creating a deep copy.",
+      "diff": 1,
+      "imp": 1,
+      "cate": "",
+      "id": 28
     }
   ],
   "es6": [
@@ -1903,6 +1931,22 @@
         "general"
       ],
       "id": 2
+    },
+    {
+      "subject": "es6",
+      "title": "Javascript Private/public/static vars/methods",
+      "ques": "",
+      "links": [
+        {
+          "name": "https://stackblitz.com/edit/js-syltmu?file=index.html,index.js"
+        }
+      ],
+      "tags": [],
+      "ans": "class Employee{\n  #salary = \"10000\";\n  name = \"VJ\";\n\n  #getSalary () {\n    return this.#salary;\n  }\n\n  getEmpName() {\n    return this.name;\n  }\n\n}\nconst e1 = new Employee();\n// console.log(\"Employee class ::\", Employee);\nconsole.log(\"Employee class ::\", Employee);\n// console.log(\"Employee class obj ::\", e1);\n\n// console.log(\"Employee - private var salary ::\", e1.#salary());\n//console.log(\"Employee - private methid getSalary ::\", e1.#getSalary());\n\n\n\nfunction Developer(){\n  dev_name = \"VJ developer\";\n  dev_skill = \"FE\";\n\n  this.exp = 5; \n\n  function getDevName(){\n    return dev_name;\n  }\n\n  this.getExp = function(){\n    return \"*getExp\"\n  }\n}\n\nDeveloper.prototype.getDevDetails = function(){\n  return \"*getDevDetails\"\n};\n\nDeveloper.getDevSkill = function(){\n  return dev_skill;\n}\n\nconsole.log(\"static method getDevSkill ::\", Developer.getDevSkill() );\n\nconst d1 = new Developer();\n\nconsole.log(\"Developer obj ::\", d1);",
+      "diff": 1,
+      "imp": 1,
+      "cate": "",
+      "id": 3
     }
   ],
   "ts": [],
@@ -2236,6 +2280,18 @@
         "library"
       ],
       "id": 4
+    },
+    {
+      "subject": "node",
+      "title": "Create folder and write json",
+      "ques": "",
+      "links": [],
+      "tags": [],
+      "ans": "const fs = require('fs');\nconst path = require('path');\n\nfunction createFolderIfNotExists(folderPath) {\n  if (!fs.existsSync(folderPath)) {\n    fs.mkdirSync(folderPath);\n    console.log(`Folder created at ${folderPath}`);\n  } else {\n    console.log(`Folder already exists at ${folderPath}`);\n  }\n}\n\n// Example usage\nconst folderPath = path.join(__dirname, 'myFolder');\n\ncreateFolderIfNotExists(folderPath);\n\n\nconst fs = require('fs');\n\nconst data = {\n  name: 'John Doe',\n  age: 30,\n  email: 'johndoe@example.com'\n};\n\nconst jsonData = JSON.stringify(data, null, 2);\n\nfs.writeFile('data.json', jsonData, 'utf8', (err) => {\n  if (err) {\n    console.error('Error writing JSON file:', err);\n    return;\n  }\n  console.log('JSON file has been written successfully.');\n});",
+      "diff": 1,
+      "imp": 1,
+      "cate": "",
+      "id": 5
     }
   ]
 }
