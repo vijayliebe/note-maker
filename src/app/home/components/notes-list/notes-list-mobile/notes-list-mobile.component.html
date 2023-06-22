@@ -96,6 +96,12 @@
           <mat-chip color="primary" selected *ngFor="let tag of notes[noteCurrentIdx].tags">{{ tag.name }}</mat-chip>
         </mat-chip-list>
       </div>
+
+      <div class="links mt-2">
+        <div class="mt-1 mr-4" style="display: inline-block;" *ngFor="let link of notes[noteCurrentIdx].links; index as i">
+          <a href="{{ link.name }}" target="_blank" title="{{ link.name }}">Link {{ i+ 1 }}</a>
+        </div>
+      </div>
     
       <div class="note-ques mt-1">
           <span class="sn">{{noteCurrentIdx + 1}}. </span>
@@ -125,16 +131,12 @@
         </pre> -->
 
         <pre class="brush: js notranslate" style="height: 30em;">
-          <code>{{notes[noteCurrentIdx].ans}}</code>
+          <code style="white-space: pre-wrap;">{{notes[noteCurrentIdx].ans}}</code>
         </pre>
 
       </div>
 
-      <div class="links mt-2">
-        <div class="mt-1 mr-4" style="display: inline-block;" *ngFor="let link of notes[noteCurrentIdx].links; index as i">
-          <a href="{{ link.name }}" target="_blank" title="{{ link.name }}">Link {{ i+ 1 }}</a>
-        </div>
-      </div>
+      
 
     </div>
     
