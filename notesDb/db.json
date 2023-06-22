@@ -273,6 +273,12 @@
       "key": "library",
       "sub": "node",
       "id": "NZSriI4"
+    },
+    {
+      "name": "Javascript",
+      "key": "javascript",
+      "sub": "algo",
+      "id": "WCnWkkl"
     }
   ],
   "algo": [
@@ -1277,6 +1283,42 @@
         "sort"
       ],
       "id": 52
+    },
+    {
+      "subject": "algo",
+      "title": "how convert json to flat array and flat array to json in javascript?",
+      "ques": "",
+      "links": [],
+      "tags": [
+        {
+          "name": "JS"
+        }
+      ],
+      "ans": "To convert a JSON object to a flat array in JavaScript, you can use recursion to traverse the object and flatten it. Here's an example of how you can accomplish that:\n\n```javascript\nfunction flattenObject(obj) {\n  let result = [];\n\n  function flatten(obj, path = '') {\n    for (let key in obj) {\n      if (obj.hasOwnProperty(key)) {\n        let newPath = path ? `${path}.${key}` : key;\n        if (typeof obj[key] === 'object' && !Array.isArray(obj[key])) {\n          flatten(obj[key], newPath);\n        } else {\n          result.push({ key: newPath, value: obj[key] });\n        }\n      }\n    }\n  }\n\n  flatten(obj);\n  return result;\n}\n\n// Example usage:\nconst jsonObject = {\n  name: 'John Doe',\n  age: 30,\n  address: {\n    street: '123 Main St',\n    city: 'New York',\n    country: 'USA'\n  }\n};\n\nconst flatArray = flattenObject(jsonObject);\nconsole.log(flatArray);\n```\n\nThe `flattenObject` function takes a JSON object as input and recursively traverses it. It checks if a property's value is an object (but not an array) and recursively calls `flatten` with the updated path. When it encounters a non-object property, it pushes an object with `key` and `value` properties representing the flattened key-value pair into the `result` array.\n\nTo convert a flat array back to a JSON object, you can iterate over the array and reconstruct the object structure using the keys. Here's an example:\n\n```javascript\nfunction unflattenArray(flatArray) {\n  let result = {};\n\n  flatArray.forEach(item => {\n    const keys = item.key.split('.');\n    let tempObj = result;\n\n    keys.forEach((key, index) => {\n      if (!tempObj.hasOwnProperty(key)) {\n        tempObj[key] = {};\n      }\n\n      if (index === keys.length - 1) {\n        tempObj[key] = item.value;\n      } else {\n        tempObj = tempObj[key];\n      }\n    });\n  });\n\n  return result;\n}\n\n// Example usage:\nconst flatArray = [\n  { key: 'name', value: 'John Doe' },\n  { key: 'age', value: 30 },\n  { key: 'address.street', value: '123 Main St' },\n  { key: 'address.city', value: 'New York' },\n  { key: 'address.country', value: 'USA' }\n];\n\nconst jsonObject = unflattenArray(flatArray);\nconsole.log(jsonObject);\n```\n\nThe `unflattenArray` function iterates over each item in the flat array. It splits the key by dot (.) to get the nested structure. It then reconstructs the object hierarchy by creating nested objects as needed and assigns the value to the final key.\n\nNote that the above examples assume a simple JSON object structure without circular references or complex data types. Adjustments may be necessary depending on your specific use case.",
+      "diff": 1,
+      "imp": 1,
+      "cate": [
+        "javascript"
+      ],
+      "id": 53
+    },
+    {
+      "subject": "algo",
+      "title": "How to create deep copy of json in javascript?",
+      "ques": "",
+      "links": [],
+      "tags": [
+        {
+          "name": "JS"
+        }
+      ],
+      "ans": "To create a deep copy of an object in JavaScript, you can write a program from scratch using recursion to traverse the object and clone its properties and nested objects. Here's an example:\n\n```javascript\nfunction deepCopy(obj) {\n  if (obj === null || typeof obj !== 'object') {\n    return obj;\n  }\n\n  let clone = Array.isArray(obj) ? [] : {};\n\n  for (let key in obj) {\n    if (obj.hasOwnProperty(key)) {\n      clone[key] = deepCopy(obj[key]);\n    }\n  }\n\n  return clone;\n}\n\n// Example usage:\nconst originalObj = {\n  name: 'John Doe',\n  age: 30,\n  address: {\n    street: '123 Main St',\n    city: 'New York',\n    country: 'USA'\n  },\n  hobbies: ['reading', 'gaming']\n};\n\nconst copiedObj = deepCopy(originalObj);\nconsole.log(copiedObj);\n```\n\nIn the `deepCopy` function, we check if the input `obj` is null or not an object. If it's not an object (e.g., a primitive value), we return it as is. If it's an object, we create a new empty object (`clone`) or an empty array based on the original object's type.\n\nWe then iterate over the properties of the original object using a `for...in` loop. For each property, we recursively call `deepCopy` on the value to clone any nested objects or arrays.\n\nBy using recursion, the `deepCopy` function ensures that all levels of the object are cloned, resulting in a new object that is a deep copy of the original object.\n\nNote that this implementation assumes a simple object structure without circular references or complex data types. Adjustments may be necessary depending on your specific use case. Additionally, this implementation does not preserve any non-enumerable properties or prototype chains associated with the original object.",
+      "diff": 1,
+      "imp": 1,
+      "cate": [
+        "javascript"
+      ],
+      "id": 54
     }
   ],
   "js": [
