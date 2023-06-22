@@ -1306,7 +1306,11 @@
       "subject": "algo",
       "title": "How to create deep copy of json in javascript?",
       "ques": "",
-      "links": [],
+      "links": [
+        {
+          "name": "https://stackblitz.com/edit/js-5yxqbh?file=index.js,index.html"
+        }
+      ],
       "tags": [
         {
           "name": "JS"
