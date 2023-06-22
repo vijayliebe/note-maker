@@ -3,9 +3,9 @@
   "version": "0.0.0",
   "scripts": {
     "ng": "ng",
-    "start": "ng serve --proxy-config proxy.config.json --port=4400 --host 0.0.0.0 --disable-host-check",
-    "build": "ng build --prod",
-    "build:static": "git add . && git commit -am 'db and other changes' && git push origin HEAD && rm -rf dist && cp -f notesDb/db.json src/assets/db/. && ng build --prod && rm -rf ../static-note-maker/assets && rm -f ../static-note-maker/*.* && cp -r dist/notes-maker/. ../static-note-maker/. && cd ../static-note-maker && git add . && git commit -am 'changes' && git push && cd ../note-maker",
+    "start": "git pull origin HEAD && ng serve --proxy-config proxy.config.json --port=4400 --host 0.0.0.0 --disable-host-check",
+    "build": "git pull origin HEAD && ng build --prod",
+    "build:static": "git add . && git commit -am 'db and other changes' && git push origin HEAD && rm -rf dist && cp -f notesDb/db.json src/assets/db/. && ng build --prod && rm -rf ../static-note-maker/assets && rm -f ../static-note-maker/*.* && cp -r dist/notes-maker/. ../static-note-maker/. && cd ../static-note-maker && git pull origin HEAD && git add . && git commit -am 'changes' && git push && cd ../note-maker",
     "start:api": "json-server --watch notesDb/db.json --routes notesDb/routes.json --port=3001",
     "test": "ng test",
     "lint": "ng lint",
