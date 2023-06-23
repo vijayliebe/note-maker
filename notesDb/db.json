@@ -922,13 +922,17 @@
       "subject": "algo",
       "title": "Basic binary tree implementation (ES5)",
       "ques": "",
-      "links": [],
+      "links": [
+        {
+          "name": "https://faculty.cs.niu.edu/~mcmahon/CS241/Notes/Data_Structures/binary_tree_traversals.html"
+        }
+      ],
       "tags": [
         {
           "name": "General"
         }
       ],
-      "ans": "\nfunction BST(value) {\n  this.value = value;\n  this.right = null;\n  this.left = null;\n}\n \nBST.prototype.insert = function(value) {\n  if (value <= this.value) {\n    if (!this.left) this.left = new BST(value);\n    else this.left.insert(value);\n  }\n  else if (value > this.value) {\n    if (!this.right) this.right = new BST(value);\n    else this.right.insert(value);\n  }\n};\n \nBST.prototype.contains = function(value) {\n  if (this.value === value) return true;\n  if (value < this.value) {\n    if (!this.left) return false;\n    else return this.left.contains(value);\n  }\n  else if (value > this.value) {\n    if (!this.right) return false;\n    else return this.right.contains(value);\n  }\n};\n \nBST.prototype.depthFirstTraversal = function(iteratorFunc, order) {\n  if (order === 'pre-order') iteratorFunc(this.value);\n  if (this.left) this.left.depthFirstTraversal(iteratorFunc, order);\n  if (order === 'in-order') iteratorFunc(this.value);\n  if (this.right) this.right.depthFirstTraversal(iteratorFunc, order);\n  if (order === 'post-order') iteratorFunc(this.value);\n};\n \nBST.prototype.breadthFirstTraversal = function(iteratorFunc) {\n  var queue = [this];\n  while (queue.length) {\n    var treeNode = queue.shift();\n    iteratorFunc(treeNode);\n    if (treeNode.left) queue.push(treeNode.left);\n    if (treeNode.right) queue.push(treeNode.right);\n  }\n};\n \nfunction log(value) {\n    console.log(value);\n};\n \nBST.prototype.getMinVal = function() {\n  if (this.left) return this.left.getMinVal();\n  else return this.value;\n};\n \nBST.prototype.getMaxVal = function() {\n  if (this.right) return this.right.getMaxVal();\n  else return this.value;\n};\n \n \n \nvar bst = new BST(50);\n \nbst.insert(30);\nbst.insert(70);\nbst.insert(100);\nbst.insert(60);\nbst.insert(59);\nbst.insert(20);\nbst.insert(45);\nbst.insert(35);\nbst.insert(85);\nbst.insert(105);\nbst.insert(10);\n \nfunction log(node) {\n console.log(node.value);\n}\n \nbst.breadthFirstTraversal(log);",
+      "ans": "\nfunction BST(value) {\n  this.value = value;\n  this.right = null;\n  this.left = null;\n}\n \nBST.prototype.insert = function(value) {\n  if (value <= this.value) {\n    if (!this.left) this.left = new BST(value);\n    else this.left.insert(value);\n  }\n  else if (value > this.value) {\n    if (!this.right) this.right = new BST(value);\n    else this.right.insert(value);\n  }\n};\n \nBST.prototype.contains = function(value) {\n  if (this.value === value) return true;\n  if (value < this.value) {\n    if (!this.left) return false;\n    else return this.left.contains(value);\n  }\n  else if (value > this.value) {\n    if (!this.right) return false;\n    else return this.right.contains(value);\n  }\n};\n \nBST.prototype.depthFirstTraversal = function(iteratorFunc, order) {\n  if (order === 'pre-order') iteratorFunc(this.value);\n  if (this.left) this.left.depthFirstTraversal(iteratorFunc, order);\n  if (order === 'in-order') iteratorFunc(this.value);\n  if (this.right) this.right.depthFirstTraversal(iteratorFunc, order);\n  if (order === 'post-order') iteratorFunc(this.value);\n};\n \nBST.prototype.breadthFirstTraversal = function(iteratorFunc) { /*** IMP ***/\n  var queue = [this];\n  while (queue.length) {\n    var treeNode = queue.shift();  /*** IMP ***/\n    iteratorFunc(treeNode);\n    if (treeNode.left) queue.push(treeNode.left);\n    if (treeNode.right) queue.push(treeNode.right);\n  }\n};\n \nfunction log(value) {\n    console.log(value);\n};\n \nBST.prototype.getMinVal = function() {\n  if (this.left) return this.left.getMinVal();\n  else return this.value;\n};\n \nBST.prototype.getMaxVal = function() {\n  if (this.right) return this.right.getMaxVal();\n  else return this.value;\n};\n \n \n \nvar bst = new BST(50);\n \nbst.insert(30);\nbst.insert(70);\nbst.insert(100);\nbst.insert(60);\nbst.insert(59);\nbst.insert(20);\nbst.insert(45);\nbst.insert(35);\nbst.insert(85);\nbst.insert(105);\nbst.insert(10);\n \nfunction log(node) {\n console.log(node.value);\n}\n \nbst.breadthFirstTraversal(log);",
       "diff": 1,
       "imp": 1,
       "cate": [
@@ -1323,6 +1327,54 @@
         "javascript"
       ],
       "id": 54
+    },
+    {
+      "subject": "algo",
+      "title": "700. Search in a Binary Search Tree",
+      "ques": "",
+      "links": [
+        {
+          "name": "https://leetcode.com/problems/search-in-a-binary-search-tree/description/"
+        }
+      ],
+      "tags": [],
+      "ans": "",
+      "diff": 1,
+      "imp": 1,
+      "cate": "",
+      "id": 55
+    },
+    {
+      "subject": "algo",
+      "title": "42. Trapping Rain Water",
+      "ques": "",
+      "links": [
+        {
+          "name": "https://leetcode.com/problems/trapping-rain-water/description/"
+        }
+      ],
+      "tags": [],
+      "ans": "",
+      "diff": 1,
+      "imp": 1,
+      "cate": "",
+      "id": 56
+    },
+    {
+      "subject": "algo",
+      "title": "2096. Step-By-Step Directions From a Binary Tree Node to Another",
+      "ques": "",
+      "links": [
+        {
+          "name": "https://leetcode.com/problems/step-by-step-directions-from-a-binary-tree-node-to-another"
+        }
+      ],
+      "tags": [],
+      "ans": "",
+      "diff": 1,
+      "imp": 1,
+      "cate": "",
+      "id": 57
     }
   ],
   "js": [
