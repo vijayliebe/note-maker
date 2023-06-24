@@ -10,7 +10,7 @@ const routes: Routes = [
     component: LoginComponent
   },
   {
-    path: 'home',
+    path: '',
     canActivate: [],
     loadChildren: '../home/home.module#HomeModule'
   },
@@ -25,7 +25,7 @@ const routes: Routes = [
 //     component: OverviewComponent
   {
     path: '**',
-    redirectTo: 'home'
+    redirectTo: ''
   }
 ];
 

@@ -8,12 +8,12 @@ const routes: Routes = [
       pathMatch: 'full'
     },
     {
-        path: 'dashboard',
+        path: '',
         component: DashboardComponent
     },
     {
         path: '**',
-        redirectTo: 'dashboard'
+        redirectTo: ''
     }
 ];
 
