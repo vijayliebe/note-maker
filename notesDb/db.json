@@ -91,6 +91,16 @@
       "id": 15,
       "name": "Others",
       "key": "oth"
+    },
+    {
+      "id": 17,
+      "name": "English",
+      "key": "eng"
+    },
+    {
+      "id": 18,
+      "name": "Puzzles",
+      "key": "puz"
     }
   ],
   "categories": [
@@ -1120,11 +1130,17 @@
       "links": [
         {
           "name": "https://www.youtube.com/watch?v=KV-Eq3wYjxI&ab_channel=IDeserve"
+        },
+        {
+          "name": "https://leetcode.com/problems/trapping-rain-water/?envType=list&envId=9sk6s9xj"
         }
       ],
       "tags": [
         {
           "name": "Oracle"
+        },
+        {
+          "name": "Leetcode"
         }
       ],
       "ans": "/*\n[1,5,2,3,1,7,2] – then answer is 11 units.\n*/",
@@ -1241,8 +1257,8 @@
     },
     {
       "subject": "algo",
-      "title": "Given an integer n, return any array containing n unique integers such that they add up to 0.",
-      "ques": "",
+      "title": "1304. Find N Unique Integers Sum up to Zero",
+      "ques": "Given an integer n, return any array containing n unique integers such that they add up to 0.",
       "links": [
         {
           "name": "https://leetcode.com/problems/find-n-unique-integers-sum-up-to-zero/"
@@ -1375,6 +1391,406 @@
       "imp": 1,
       "cate": "",
       "id": 57
+    },
+    {
+      "subject": "algo",
+      "title": "Integer to Roman",
+      "ques": "",
+      "links": [
+        {
+          "name": "https://leetcode.com/problems/integer-to-roman/?envType=list&envId=9sk6s9xj"
+        }
+      ],
+      "tags": [
+        {
+          "name": "Leetcode"
+        }
+      ],
+      "ans": "",
+      "diff": 1,
+      "imp": 1,
+      "cate": "",
+      "id": 58
+    },
+    {
+      "subject": "algo",
+      "title": "Swap Nodes in Pairs",
+      "ques": "",
+      "links": [
+        {
+          "name": "https://leetcode.com/problems/swap-nodes-in-pairs/?envType=list&envId=9sk6s9xj"
+        }
+      ],
+      "tags": [
+        {
+          "name": "Leetcode"
+        }
+      ],
+      "ans": "",
+      "diff": 1,
+      "imp": 1,
+      "cate": "",
+      "id": 59
+    },
+    {
+      "subject": "algo",
+      "title": "Linked List Cycle",
+      "ques": "",
+      "links": [
+        {
+          "name": "https://leetcode.com/problems/linked-list-cycle/?envType=list&envId=9sk6s9xj"
+        }
+      ],
+      "tags": [
+        {
+          "name": "Leetcode"
+        }
+      ],
+      "ans": "",
+      "diff": 1,
+      "imp": 1,
+      "cate": "",
+      "id": 60
+    },
+    {
+      "subject": "algo",
+      "title": "Reverse Linked List",
+      "ques": "",
+      "links": [
+        {
+          "name": "https://leetcode.com/problems/reverse-linked-list/?envType=list&envId=9sk6s9xj"
+        }
+      ],
+      "tags": [
+        {
+          "name": "Leetcode"
+        }
+      ],
+      "ans": "",
+      "diff": 1,
+      "imp": 1,
+      "cate": "",
+      "id": 61
+    },
+    {
+      "subject": "algo",
+      "title": "Reverse String",
+      "ques": "",
+      "links": [
+        {
+          "name": "https://leetcode.com/problems/reverse-string/?envType=list&envId=9sk6s9xj"
+        }
+      ],
+      "tags": [
+        {
+          "name": "Leetcode"
+        }
+      ],
+      "ans": "",
+      "diff": 1,
+      "imp": 1,
+      "cate": "",
+      "id": 62
+    },
+    {
+      "subject": "algo",
+      "title": "415. Add Strings",
+      "ques": "",
+      "links": [
+        {
+          "name": "https://leetcode.com/problems/add-strings/?envType=list&envId=9sk6s9xj"
+        }
+      ],
+      "tags": [
+        {
+          "name": "Leetcode"
+        }
+      ],
+      "ans": "",
+      "diff": 1,
+      "imp": 1,
+      "cate": "",
+      "id": 63
+    },
+    {
+      "subject": "algo",
+      "title": "700. Search in a Binary Search Tree",
+      "ques": "",
+      "links": [
+        {
+          "name": "https://leetcode.com/problems/search-in-a-binary-search-tree/?envType=list&envId=9sk6s9xj"
+        }
+      ],
+      "tags": [
+        {
+          "name": "Leetcode"
+        }
+      ],
+      "ans": "",
+      "diff": 1,
+      "imp": 1,
+      "cate": "",
+      "id": 64
+    },
+    {
+      "subject": "algo",
+      "title": "202. Happy Number",
+      "ques": "",
+      "links": [
+        {
+          "name": "https://leetcode.com/problems/happy-number/?envType=list&envId=emyyi7m2"
+        }
+      ],
+      "tags": [
+        {
+          "name": "Leetcode"
+        }
+      ],
+      "ans": "",
+      "diff": 1,
+      "imp": 1,
+      "cate": "",
+      "id": 65
+    },
+    {
+      "subject": "algo",
+      "title": "700. Search in a Binary Search Tree",
+      "ques": "",
+      "links": [
+        {
+          "name": "https://leetcode.com/problems/search-in-a-binary-search-tree/?envType=list&envId=emyyi7m2"
+        }
+      ],
+      "tags": [
+        {
+          "name": "Leetcode"
+        }
+      ],
+      "ans": "",
+      "diff": 1,
+      "imp": 1,
+      "cate": "",
+      "id": 66
+    },
+    {
+      "subject": "algo",
+      "title": "1. Two Sum",
+      "ques": "",
+      "links": [
+        {
+          "name": "https://leetcode.com/problems/two-sum/?envType=list&envId=emyyi7m2"
+        }
+      ],
+      "tags": [
+        {
+          "name": "Leetcode"
+        }
+      ],
+      "ans": "",
+      "diff": 1,
+      "imp": 1,
+      "cate": "",
+      "id": 67
+    },
+    {
+      "subject": "algo",
+      "title": "319. Bulb Switcher",
+      "ques": "",
+      "links": [
+        {
+          "name": "https://leetcode.com/problems/bulb-switcher/?envType=list&envId=rosqqj7g"
+        }
+      ],
+      "tags": [
+        {
+          "name": "Leetcode"
+        }
+      ],
+      "ans": "",
+      "diff": 1,
+      "imp": 1,
+      "cate": "",
+      "id": 68
+    },
+    {
+      "subject": "algo",
+      "title": "5. Longest Palindromic Substring",
+      "ques": "",
+      "links": [
+        {
+          "name": "https://leetcode.com/problems/longest-palindromic-substring/?envType=list&envId=rozod5s3"
+        }
+      ],
+      "tags": [
+        {
+          "name": "Leetcode"
+        }
+      ],
+      "ans": "",
+      "diff": 1,
+      "imp": 1,
+      "cate": "",
+      "id": 69
+    },
+    {
+      "subject": "algo",
+      "title": "22. Generate Parentheses",
+      "ques": "",
+      "links": [
+        {
+          "name": "https://leetcode.com/problems/generate-parentheses/?envType=list&envId=rozod5s3"
+        }
+      ],
+      "tags": [
+        {
+          "name": "Leetcode"
+        }
+      ],
+      "ans": "",
+      "diff": 1,
+      "imp": 1,
+      "cate": "",
+      "id": 70
+    },
+    {
+      "subject": "algo",
+      "title": "53. Maximum Subarray",
+      "ques": "",
+      "links": [
+        {
+          "name": "https://leetcode.com/problems/maximum-subarray/?envType=list&envId=rozod5s3"
+        }
+      ],
+      "tags": [
+        {
+          "name": "Leetcode"
+        }
+      ],
+      "ans": "",
+      "diff": 1,
+      "imp": 1,
+      "cate": "",
+      "id": 71
+    },
+    {
+      "subject": "algo",
+      "title": "64. Minimum Path Sum",
+      "ques": "",
+      "links": [
+        {
+          "name": "https://leetcode.com/problems/minimum-path-sum/?envType=list&envId=rozod5s3"
+        }
+      ],
+      "tags": [
+        {
+          "name": "Leetcode"
+        }
+      ],
+      "ans": "",
+      "diff": 1,
+      "imp": 1,
+      "cate": "",
+      "id": 72
+    },
+    {
+      "subject": "algo",
+      "title": "91. Decode Ways",
+      "ques": "",
+      "links": [
+        {
+          "name": "https://leetcode.com/problems/decode-ways/?envType=list&envId=rozod5s3"
+        }
+      ],
+      "tags": [
+        {
+          "name": "Leetcode"
+        }
+      ],
+      "ans": "",
+      "diff": 1,
+      "imp": 1,
+      "cate": "",
+      "id": 73
+    },
+    {
+      "subject": "algo",
+      "title": "Letter Combinations of a Phone Number",
+      "ques": "",
+      "links": [
+        {
+          "name": "https://leetcode.com/problems/letter-combinations-of-a-phone-number/?envType=list&envId=od6fto9i"
+        }
+      ],
+      "tags": [
+        {
+          "name": "Leetcode"
+        }
+      ],
+      "ans": "",
+      "diff": 1,
+      "imp": 1,
+      "cate": "",
+      "id": 74
+    },
+    {
+      "subject": "algo",
+      "title": "41. First Missing Positive",
+      "ques": "",
+      "links": [
+        {
+          "name": "https://leetcode.com/problems/first-missing-positive/?envType=list&envId=or4pmjl5"
+        }
+      ],
+      "tags": [
+        {
+          "name": "Leetcode"
+        }
+      ],
+      "ans": "",
+      "diff": 1,
+      "imp": 1,
+      "cate": "",
+      "id": 75
+    },
+    {
+      "subject": "algo",
+      "title": "198. House Robber",
+      "ques": "",
+      "links": [
+        {
+          "name": "https://leetcode.com/problems/house-robber/?envType=list&envId=evmfrfbe"
+        }
+      ],
+      "tags": [
+        {
+          "name": "Leetcode"
+        }
+      ],
+      "ans": "",
+      "diff": 1,
+      "imp": 1,
+      "cate": "",
+      "id": 76
+    },
+    {
+      "subject": "algo",
+      "title": "746. Min Cost Climbing Stairs",
+      "ques": "",
+      "links": [
+        {
+          "name": "https://leetcode.com/problems/min-cost-climbing-stairs/?envType=list&envId=evmfrfbe"
+        }
+      ],
+      "tags": [
+        {
+          "name": "Leetcode"
+        }
+      ],
+      "ans": "",
+      "diff": 1,
+      "imp": 1,
+      "cate": "",
+      "id": 77
     }
   ],
   "js": [
@@ -2177,6 +2593,9 @@
         },
         {
           "name": "https://medium.com/dsinjs/implementing-lru-cache-in-javascript-94ba6755cda9"
+        },
+        {
+          "name": "https://leetcode.com/problems/lru-cache/?envType=list&envId=rel0rvfm"
         }
       ],
       "tags": [
@@ -2185,6 +2604,9 @@
         },
         {
           "name": "medium.com"
+        },
+        {
+          "name": "Leetcode"
         }
       ],
       "ans": "\nclass LRU {\n    constructor(max = 10) {\n        this.max = max;\n        this.cache = new Map();\n    }\n\n    get(key) {\n        let item = this.cache.get(key);\n        if (item) {\n            // refresh key\n            this.cache.delete(key);\n            this.cache.set(key, item);\n        }\n        return item;\n    }\n\n    set(key, val) {\n        // refresh key\n        if (this.cache.has(key)) this.cache.delete(key);\n        // evict oldest\n        else if (this.cache.size == this.max) this.cache.delete(this.first());\n        this.cache.set(key, val);\n    }\n\n    first() {\n        return this.cache.keys().next().value;\n    }\n}",
@@ -2253,6 +2675,86 @@
       "imp": 1,
       "cate": "",
       "id": 4
+    },
+    {
+      "subject": "sd",
+      "title": "460. LFU Cache",
+      "ques": "",
+      "links": [
+        {
+          "name": "https://leetcode.com/problems/lfu-cache/?envType=list&envId=rel0rvfm"
+        }
+      ],
+      "tags": [
+        {
+          "name": "Leetcode"
+        }
+      ],
+      "ans": "",
+      "diff": 1,
+      "imp": 1,
+      "cate": "",
+      "id": 5
+    },
+    {
+      "subject": "sd",
+      "title": "588. Design In-Memory File System",
+      "ques": "",
+      "links": [
+        {
+          "name": "https://leetcode.com/problems/design-in-memory-file-system/?envType=list&envId=rel0rvfm"
+        }
+      ],
+      "tags": [
+        {
+          "name": "Leetcode"
+        }
+      ],
+      "ans": "",
+      "diff": 1,
+      "imp": 1,
+      "cate": "",
+      "id": 6
+    },
+    {
+      "subject": "sd",
+      "title": "604. Design Compressed String Iterator",
+      "ques": "",
+      "links": [
+        {
+          "name": "https://leetcode.com/problems/design-compressed-string-iterator/?envType=list&envId=rel0rvfm"
+        }
+      ],
+      "tags": [
+        {
+          "name": "Leetcode"
+        }
+      ],
+      "ans": "",
+      "diff": 1,
+      "imp": 1,
+      "cate": "",
+      "id": 7
+    },
+    {
+      "subject": "sd",
+      "title": "635. Design Log Storage System",
+      "ques": "",
+      "links": [
+        {
+          "name": "https://leetcode.com/problems/design-log-storage-system/?envType=list&envId=rel0rvfm"
+        }
+      ],
+      "tags": [
+        {
+          "name": "Leetcode"
+        }
+      ],
+      "ans": "",
+      "diff": 1,
+      "imp": 1,
+      "cate": "",
+      "id": 8
     }
   ],
   "shell": [
@@ -2534,6 +3036,205 @@
       "imp": 1,
       "cate": "",
       "id": 15
+    },
+    {
+      "subject": "node",
+      "title": "How to create server in Nodejs",
+      "ques": "",
+      "links": [],
+      "tags": [],
+      "ans": "Express\n--------\n\nTo implement a simple Node.js server, you can follow these steps:\n\n1. Set up a new Node.js project: Create a new directory for your project and navigate to it in your terminal. Run `npm init` to initialize a new Node.js project and follow the prompts to set up your `package.json` file.\n\n2. Install dependencies: Install the `express` package, which is a popular framework for building web applications in Node.js. Run the following command in your project directory:\n\n   ```bash\n   npm install express\n   ```\n\n3. Create a new JavaScript file: Create a new file, such as `server.js`, in your project directory.\n\n4. Import the necessary modules: In your `server.js` file, import the required modules:\n\n   ```javascript\n   const express = require('express');\n   ```\n\n5. Create an instance of the Express application: Initialize an instance of the Express application:\n\n   ```javascript\n   const app = express();\n   ```\n\n6. Define routes and endpoints: Set up the routes and define the desired endpoints for your server. For example:\n\n   ```javascript\n   app.get('/', (req, res) => {\n     res.send('Hello, world!');\n   });\n   ```\n\n   In the above code snippet, we define a GET route for the root URL (`/`) and send a simple response of \"Hello, world!\".\n\n7. Start the server: Add the following code to start the server and listen on a specific port:\n\n   ```javascript\n   const port = 3000; // Specify the port number you want to use\n\n   app.listen(port, () => {\n     console.log(`Server is running on port ${port}`);\n   });\n   ```\n\n8. Start the server: In your terminal, run the following command to start the server:\n\n   ```bash\n   node server.js\n   ```\n\n   You should see the message \"Server is running on port 3000\" in the console.\n\n9. Test the server: Open your web browser and visit `http://localhost:3000` (or the specified port number). You should see the \"Hello, world!\" message displayed in your browser.\n\nThat's it! You have successfully implemented a simple Node.js server using Express. You can add more routes, middleware, and functionality as needed for your specific application.\n\n\nNodejs\n-------\n\nTo implement a simple Node.js server without using a framework like Express, you can utilize the built-in `http` module in Node.js. Here's a basic example:\n\n1. Create a new JavaScript file, such as `server.js`.\n\n2. Import the necessary modules:\n```javascript\nconst http = require('http');\n```\n\n3. Define the request handler function:\n```javascript\nconst requestHandler = (req, res) => {\n  res.writeHead(200, { 'Content-Type': 'text/plain' });\n  res.end('Hello, world!');\n};\n```\n\nIn the above code, we set the response status code to 200 and the content type to 'text/plain'. Then, we send the response with the message 'Hello, world!'.\n\n4. Create an HTTP server instance:\n```javascript\nconst server = http.createServer(requestHandler);\n```\n\nHere, we create an HTTP server instance using the `createServer` method and pass in the `requestHandler` function to handle incoming requests.\n\n5. Specify the port and start the server:\n```javascript\nconst port = 3000; // Specify the port number you want to use\n\nserver.listen(port, () => {\n  console.log(`Server is running on port ${port}`);\n});\n```\n\nWe specify the port number (e.g., 3000) on which the server should listen, and then start the server by calling the `listen` method.\n\n6. Start the server:\nIn your terminal, navigate to the project directory and run the following command:\n```bash\nnode server.js\n```\n\nYou should see the message \"Server is running on port 3000\" in the console.\n\n7. Test the server:\nOpen your web browser and visit `http://localhost:3000` (or the specified port number). You should see the \"Hello, world!\" message displayed in your browser.\n\nThat's it! You have implemented a basic Node.js server without using Express. You can extend this code to handle different routes, handle various HTTP methods, and add additional functionality as per your requirements.",
+      "diff": 1,
+      "imp": 1,
+      "cate": "",
+      "id": 16
+    },
+    {
+      "subject": "node",
+      "title": "what are different different http codes ?",
+      "ques": "",
+      "links": [],
+      "tags": [],
+      "ans": "HTTP status codes are three-digit numbers that are returned by a server in response to a client's request. They indicate the outcome of the request or provide information about the server's response. Here are some of the commonly encountered HTTP status codes along with their general categories:\n\n1xx - Informational\n- 100: Continue\n- 101: Switching Protocols\n- 102: Processing\n\n2xx - Success\n- 200: OK\n- 201: Created\n- 204: No Content\n- 206: Partial Content\n\n3xx - Redirection\n- 301: Moved Permanently\n- 302: Found\n- 304: Not Modified\n- 307: Temporary Redirect\n\n4xx - Client Errors\n- 400: Bad Request\n- 401: Unauthorized\n- 403: Forbidden\n- 404: Not Found\n- 405: Method Not Allowed\n- 409: Conflict\n- 429: Too Many Requests\n\n5xx - Server Errors\n- 500: Internal Server Error\n- 502: Bad Gateway\n- 503: Service Unavailable\n- 504: Gateway Timeout\n\nThese are just a few examples of the numerous HTTP status codes available. Each status code carries a specific meaning and provides information about the outcome of the request. It's important to handle these codes appropriately in your applications to provide meaningful responses to clients and handle errors gracefully.",
+      "diff": 1,
+      "imp": 1,
+      "cate": "",
+      "id": 17
+    },
+    {
+      "subject": "node",
+      "title": "Free API course",
+      "ques": "",
+      "links": [
+        {
+          "name": "https://www.linkedin.com/feed/update/urn:li:activity:7078408639631245312/"
+        }
+      ],
+      "tags": [],
+      "ans": "",
+      "diff": 1,
+      "imp": 1,
+      "cate": "",
+      "id": 18
     }
-  ]
+  ],
+  "eng": [
+    {
+      "subject": "eng",
+      "title": "",
+      "ques": "",
+      "links": [],
+      "tags": [
+        {
+          "name": "tech"
+        }
+      ],
+      "ans": "* strange bugs can creep into your software\n* data flow in your program is lossy\n* But frozen objects are only superficially immutable.\n* Declarative rather than imperative code (what to do, rather than how to do it)\n* If you keep your side effects separate from the rest of your program logic, your software will be much easier to extend, refactor, debug, test, and maintain.\n* key to writing bulletproof code and being a better developer",
+      "diff": 1,
+      "imp": 1,
+      "cate": "",
+      "id": 1
+    },
+    {
+      "subject": "eng",
+      "title": "",
+      "ques": "",
+      "links": [],
+      "tags": [
+        {
+          "name": "tongue-twister"
+        }
+      ],
+      "ans": "exponentially\ngazil- lion\nplanning horizon\nunbelievable\nstandardise\nbreathtakingly\nReasonably - ree·zuh·nuh·blee",
+      "diff": 1,
+      "imp": 1,
+      "cate": "",
+      "id": 2
+    },
+    {
+      "subject": "eng",
+      "title": "",
+      "ques": "",
+      "links": [],
+      "tags": [],
+      "ans": "- I have got things to show, that no one’s ever seen\n- I have got habits that are hard to break\n- I swear each morning, when I wake today,s the day, I am coming clean\n- I have got dreams that might not come to any kind of fruition\n",
+      "diff": 1,
+      "imp": 1,
+      "cate": "",
+      "id": 3
+    },
+    {
+      "subject": "eng",
+      "title": "",
+      "ques": "",
+      "links": [],
+      "tags": [],
+      "ans": "- I have got cracks in my facade, I may fall between \n- “To escape and sit quietly on the beach - that’s my idea of paradise.”\n- True friends say good things behind your back and bad things to your face. .. Friends like family\n- My Heart is filled with Love and Gratitude\n- I love it when you call me Señorita, I wish I could pretend I didn't need you\n",
+      "diff": 1,
+      "imp": 1,
+      "cate": "",
+      "id": 4
+    },
+    {
+      "subject": "eng",
+      "title": "",
+      "ques": "",
+      "links": [],
+      "tags": [],
+      "ans": "- “Body is not stiff. Mind is stiff.”\n- So here is the Gorgeous Niti Dancing with her Gang because where is the fun without the bride \n- What should I ROB next? All your hearts are already mine\n- Beyond the crowds and city lights!\n- I had the pleasure of visiting #NYC with the spark of my fire, the light of my life, the wind under my wings and the one and only ‘Senorita’ of my love story. We also found a city in the far far west that resonated with us in so many levels.  A glimpse of us in the U.S of A!\n",
+      "diff": 1,
+      "imp": 1,
+      "cate": "",
+      "id": 5
+    },
+    {
+      "subject": "eng",
+      "title": "",
+      "ques": "",
+      "links": [],
+      "tags": [],
+      "ans": "- A lil party never hurt anybody. Except our parties are not lil.\n- The joy of getting back on the field. Been a long time\n- It’s a wrap! What a fun ride this has been. Much love and ounces of gratitude to the whole team of\n- A tsunami of flavours in your mouth\n- The farthest distance in the world is between how it is and how you thought it was gonna be ",
+      "diff": 1,
+      "imp": 1,
+      "cate": "",
+      "id": 6
+    },
+    {
+      "subject": "eng",
+      "title": "",
+      "ques": "",
+      "links": [],
+      "tags": [],
+      "ans": "1.Now thanks fully, we are the much less intimidating \n2.the accelerated velocity of terminological inexactitude.\nWhich is just my obnoxious way of saying that lies travel fast\n3.depraved behaviour \n4.indecency\n5.I hope for your sake that God has a sense of humor,\nOh I have 17 year’s worth of anecdotal proof he does\n",
+      "diff": 1,
+      "imp": 1,
+      "cate": "",
+      "id": 7
+    },
+    {
+      "subject": "eng",
+      "title": "",
+      "ques": "",
+      "links": [],
+      "tags": [],
+      "ans": "6.I am not nearly as smart as I think I am\n7.Great, now i an a tramp\n8.I am gonna have to get a lower back tattoo\n   and pierce something not on my face.\n9.you would testify to that?\n10.It’s a little low on grist\n",
+      "diff": 1,
+      "imp": 1,
+      "cate": "",
+      "id": 8
+    },
+    {
+      "subject": "eng",
+      "title": "",
+      "ques": "",
+      "links": [],
+      "tags": [],
+      "ans": "11.clever wordplay \n12.ten-story building \n13.it could find me if i was dressed as a crack on a sidewalk\n14.people hear you had sex once and, bam, you’re a bimbo\n15.but I gotta admit, I kind of liked being on the map\n",
+      "diff": 1,
+      "imp": 1,
+      "cate": "",
+      "id": 9
+    },
+    {
+      "subject": "eng",
+      "title": "",
+      "ques": "",
+      "links": [],
+      "tags": [],
+      "ans": "16.I am gonna throw some rhymes\n     Anson, drop me a beat\n17.big, hulking black guy\n18.is besmirched and made to wear a red A for “adulterer”\n19.perhaps you should embroider a red A on your wardrobe, abominable tramp\nPerhaps you should get a wardrobe, you abominable twat\n20.it was provocative enough to land me in the principal office\n21.A snide comment from a snotty girl in my class\n22.From the blood I saw gushing out of your nose, I thought you were bullied",
+      "diff": 1,
+      "imp": 1,
+      "cate": "",
+      "id": 10
+    },
+    {
+      "subject": "eng",
+      "title": "",
+      "ques": "",
+      "links": [
+        {
+          "name": "https://www.youtube.com/watch?v=h3U5TX19tXA"
+        }
+      ],
+      "tags": [],
+      "ans": "\n*MTP - Medium Term Plan\n\n*Moonshot - meant \"long shot,\" it's increasingly being used to describe a monumental effort and a lofty goal—in other words, a \"giant leap.\"\n\n*jarvis - ust A Rather Very Intelligent System\n\n*UBI - Universal Basic Income\n\n*obscure - Unclear\n\n*chaotic - in a state of complete confusion and disorder.\n\n*dystopian - relating to or denoting an imagined state or society where there is great suffering or injustice\n\n*humanoid - having an appearance or character resembling that of a human.\n\n*Technological signularity - The technological singularity is the point at which artificial intelligence will surpass human intelligence, leading to a future in which machines can learn and innovate on their own. Some experts believe that this could happen within the next few decades, while others believe it is still centuries away",
+      "diff": 1,
+      "imp": 1,
+      "cate": "",
+      "id": 11
+    },
+    {
+      "subject": "eng",
+      "title": "",
+      "ques": "",
+      "links": [],
+      "tags": [],
+      "ans": "\n*Vertical v/s horizontal business\n\n*discrete business problem\n\n*GBU - Global Business Unit\n\n*\n\n",
+      "diff": 1,
+      "imp": 1,
+      "cate": "",
+      "id": 12
+    }
+  ],
+  "puz": []
 }
