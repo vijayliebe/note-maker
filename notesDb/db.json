@@ -101,6 +101,11 @@
       "id": 18,
       "name": "Puzzles",
       "key": "puz"
+    },
+    {
+      "id": 18,
+      "name": "Managerial",
+      "key": "man"
     }
   ],
   "categories": [
@@ -2569,7 +2574,7 @@
       "ques": "",
       "links": [
         {
-          "name": "https://stackblitz.com/edit/stackblitz-starters-tz5tyg?description=React%20%20%20TypeScript%20starter%20project&file=src%2FApp.tsx&title=React%20Starter"
+          "name": "https://stackblitz.com/edit/stackblitz-starters-ydskrn"
         }
       ],
       "tags": [],
@@ -3236,5 +3241,6 @@
       "id": 12
     }
   ],
-  "puz": []
+  "puz": [],
+  "man": []
 }
