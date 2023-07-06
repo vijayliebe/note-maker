@@ -1796,6 +1796,32 @@
       "imp": 1,
       "cate": "",
       "id": 77
+    },
+    {
+      "subject": "algo",
+      "title": "Matching Pairs",
+      "ques": "\"\"\"\nYou are given a 0-indexed string array words.\n\nTwo strings are similar if they consist of the same characters.\n\nFor example, \"abca\" and \"cba\" are similar since both consist of characters 'a', 'b', and 'c'.\nHowever, \"abacba\" and \"bcfd\" are not similar since they do not consist of the same characters.\nReturn the number of pairs (i, j) such that 0 <= i < j <= word.length - 1 and the two strings words[i] and words[j] are similar.\n\n \n\nExample 1:\n\nInput: words = [\"aba\",\"aabb\",\"abcd\",\"bac\",\"aabc\"]\nOutput: 2\nExplanation: There are 2 pairs that satisfy the conditions:\n- i = 0 and j = 1 : both words[0] and words[1] only consist of characters 'a' and 'b'. \n- i = 3 and j = 4 : both words[3] and words[4] only consist of characters 'a', 'b', and 'c'. \nExample 2:\n\nInput: words = [\"aabb\",\"ab\",\"ba\"]  -- [\"aabb\",\"ab\",\"ba\", \"abac\",\"aabbc\"]\nOutput: 3\nExplanation: There are 3 pairs that satisfy the conditions:\n- i = 0 and j = 1 : both words[0] and words[1] only consist of characters 'a' and 'b'. \n- i = 0 and j = 2 : both words[0] and words[2] only consist of characters 'a' and 'b'.\n- i = 1 and j = 2 : both words[1] and words[2] only consist of characters 'a' and 'b'.\nExample 3:\n\nInput: words = [\"nba\",\"cba\",\"dba\"]\nOutput: 0\nExplanation: Since there does not exist any pair that satisfies the conditions, we return 0.\n \n\nConstraints:\n\n1 <= words.length <= 100\n1 <= words[i].length <= 100\nwords[i] consist of only lowercase English letters.\n\"\"\"\n\n\ndef similarPairs(words: list) -> int:\n    pass\n        \n    \nprint(similarPairs([\"aba\",\"aabb\",\"abcd\",\"bac\",\"aabc\"]))",
+      "links": [
+        {
+          "name": "https://onecompiler.com/python/3z9my8vpq"
+        },
+        {
+          "name": "https://onecompiler.com/javascript/3zdqtpyk4"
+        }
+      ],
+      "tags": [
+        {
+          "name": "cisco"
+        }
+      ],
+      "ans": "",
+      "diff": 1,
+      "imp": 1,
+      "cate": [
+        "str",
+        "arr"
+      ],
+      "id": 78
     }
   ],
   "js": [
