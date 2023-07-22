@@ -2427,6 +2427,42 @@
       "imp": 1,
       "cate": "",
       "id": 28
+    },
+    {
+      "subject": "js",
+      "title": "how to make script executed after page load finshes using inline attribute",
+      "ques": "",
+      "links": [],
+      "tags": [],
+      "ans": "To execute a script after the page has finished loading using the inline attribute, you can use the `onload` event directly in the HTML tag. The `onload` event is triggered when the entire web page (including all images, styles, and scripts) has loaded.\n\nHere's an example of how to do it:\n\n```html\n<!DOCTYPE html>\n<html>\n<head>\n  <title>Page with Inline Script</title>\n</head>\n<body>\n  <h1>Hello, world!</h1>\n  \n  <!-- Your content goes here -->\n\n  <script>\n    // Your script goes here\n    window.onload = function() {\n      // This function will be executed after the page finishes loading\n      alert('Page has finished loading!');\n    };\n  </script>\n</body>\n</html>\n```\n\nIn the above example, the `<script>` tag contains the JavaScript code that is executed when the page finishes loading. The `window.onload` function sets an event handler, and when the `onload` event occurs (i.e., when the page finishes loading), the specified function is called.\n\nThe `onload` event is often used to ensure that JavaScript code runs after the DOM (Document Object Model) is fully constructed and all the resources on the page, like images and stylesheets, have been loaded. This way, you can be sure that your script will have access to all the elements on the page without any issues.\n\nHowever, using inline scripts is generally not recommended for larger projects, as it can make the HTML code harder to manage and maintain. In larger projects, it's more common to place JavaScript in separate files and use modern JavaScript practices like event listeners or the `defer` attribute on the `<script>` tag to handle script execution.",
+      "diff": 1,
+      "imp": 1,
+      "cate": "",
+      "id": 29
+    },
+    {
+      "subject": "js",
+      "title": "What if multiple same eventListener implement in different files in javascript, then what will be the order of execution?",
+      "ques": "",
+      "links": [],
+      "tags": [],
+      "ans": "In JavaScript, if you attach the same event listener function to the same event in different files, the order of execution will depend on the order in which the files are loaded or executed in your application.\n\nJavaScript files are usually loaded and executed in the order they are included in the HTML page (in the case of browser-based JavaScript) or the order in which they are required in the main Node.js application (in the case of server-side JavaScript).\n\nLet's consider the following scenario:\n\nFile 1: `listener1.js`\n\n```javascript\n// listener1.js\nconst button = document.querySelector('#myButton');\n\nfunction handleClick() {\n  console.log('Listener 1: Button clicked!');\n}\n\nbutton.addEventListener('click', handleClick);\n```\n\nFile 2: `listener2.js`\n\n```javascript\n// listener2.js\nconst button = document.querySelector('#myButton');\n\nfunction handleClick() {\n  console.log('Listener 2: Button clicked!');\n}\n\nbutton.addEventListener('click', handleClick);\n```\n\nIf you include these files in the HTML page like this:\n\n```html\n<!DOCTYPE html>\n<html>\n<head>\n  <title>Multiple Event Listeners</title>\n</head>\n<body>\n  <button id=\"myButton\">Click Me</button>\n\n  <script src=\"listener1.js\"></script>\n  <script src=\"listener2.js\"></script>\n</body>\n</html>\n```\n\nThen, the order of execution will be as follows:\n\n1. `listener1.js` will be loaded and executed first.\n2. It will attach the event listener `handleClick` to the button click event.\n3. `listener2.js` will be loaded and executed next.\n4. It will also try to attach the event listener `handleClick` to the same button click event.\n\nIn this case, the event listener attached by `listener2.js` will overwrite the event listener attached by `listener1.js`. As a result, only the event listener from `listener2.js` will be executed when the button is clicked.\n\nThe order of execution is determined by the order in which the files are loaded and executed. If you need to control the order of execution for event listeners or other parts of your JavaScript code, make sure to manage the dependencies and include the files in the desired order.",
+      "diff": 1,
+      "imp": 1,
+      "cate": "",
+      "id": 30
+    },
+    {
+      "subject": "js",
+      "title": "How to implement global exception handling in JavaScript?",
+      "ques": "",
+      "links": [],
+      "tags": [],
+      "ans": "In JavaScript, you can implement global exception handling by attaching event listeners for the `uncaughtException` and `unhandledRejection` events on the `process` object (in Node.js) or the `window` object (in the browser). These events will capture unhandled exceptions and unhandled promise rejections, respectively.\n\nHere's how you can implement global exception handling in JavaScript:\n\n1. For Node.js:\n\nCreate a new file (e.g., `globalExceptionHandler.js`) to define the global exception handling logic.\n\n```javascript\n// globalExceptionHandler.js\n\n// Function to handle uncaught exceptions\nfunction handleUncaughtException(error) {\n  console.error('Uncaught Exception:', error.stack || error.message || error);\n  // Add any additional error handling logic or cleanup operations here\n  process.exit(1); // Optional: Gracefully exit the Node.js process with a non-zero exit code\n}\n\n// Function to handle unhandled promise rejections\nfunction handleUnhandledRejection(reason) {\n  console.error('Unhandled Rejection:', reason instanceof Error ? reason.stack : reason);\n  // Add any additional error handling logic or cleanup operations here\n}\n\n// Attach event listeners for uncaught exceptions and unhandled promise rejections\nprocess.on('uncaughtException', handleUncaughtException);\nprocess.on('unhandledRejection', handleUnhandledRejection);\n```\n\nIn your main Node.js application file (e.g., `app.js`), require the `globalExceptionHandler.js` file to set up the global exception handling.\n\n```javascript\n// app.js\nrequire('./globalExceptionHandler');\n\n// Your main application code here...\n// Any uncaught exceptions or unhandled promise rejections will be caught by the global exception handler\n```\n\n2. For the Browser:\n\nIn your main HTML file, include a `<script>` tag to load a JavaScript file (e.g., `globalExceptionHandler.js`) that defines the global exception handling logic.\n\n```html\n<!-- index.html -->\n<!DOCTYPE html>\n<html>\n<head>\n  <title>Global Exception Handling</title>\n</head>\n<body>\n  <!-- Your HTML content here -->\n  <script src=\"globalExceptionHandler.js\"></script>\n</body>\n</html>\n```\n\nIn the `globalExceptionHandler.js` file, attach event listeners for the `unhandledrejection` and `error` events on the `window` object.\n\n```javascript\n// globalExceptionHandler.js\n\n// Function to handle uncaught exceptions and unhandled promise rejections\nfunction handleGlobalError(event) {\n  const message = event.message || 'Unknown error';\n  const stack = event.error && event.error.stack ? event.error.stack : 'No stack trace available';\n  console.error(`Global Error: ${message}\\nStack Trace: ${stack}`);\n  // Add any additional error handling logic or cleanup operations here\n}\n\n// Attach event listeners for uncaught exceptions and unhandled promise rejections\nwindow.addEventListener('error', handleGlobalError);\nwindow.addEventListener('unhandledrejection', handleGlobalError);\n```\n\nWith these implementations, you have set up global exception handling in JavaScript. Any uncaught exceptions or unhandled promise rejections that occur during the execution of your application will be caught by the respective global event listeners. You can then log the errors, perform any necessary cleanup, and take appropriate action based on the specific scenario.",
+      "diff": 1,
+      "imp": 1,
+      "cate": "",
+      "id": 31
     }
   ],
   "es6": [
@@ -2609,6 +2645,208 @@
       "imp": 1,
       "cate": "",
       "id": 8
+    },
+    {
+      "subject": "react",
+      "title": "How to use useSelector in react, explain with code example",
+      "ques": "",
+      "links": [],
+      "tags": [],
+      "ans": "In React, `useSelector` is a hook provided by the `react-redux` library that allows you to access the Redux store's state in your functional components. Redux is a state management library commonly used with React applications.\n\nTo use `useSelector`, you need to have a Redux store set up in your application, and you should have wrapped your main component tree with the `Provider` from `react-redux`. The `Provider` makes the Redux store available to all the components in your application.\n\nHere's a step-by-step guide on how to use `useSelector` in a React functional component:\n\nStep 1: Install Dependencies\nMake sure you have installed `react-redux` and `redux` in your project by running:\n\n```bash\nnpm install react-redux redux\n```\n\nStep 2: Create a Redux Store\nCreate a Redux store with reducers, actions, and middleware as needed for your application. For simplicity, let's assume we have a basic store with a single reducer managing a list of items.\n\n```jsx\n// store.js\n\nimport { createStore } from 'redux';\n\nconst initialState = {\n  items: [],\n};\n\nconst itemReducer = (state = initialState, action) => {\n  switch (action.type) {\n    case 'ADD_ITEM':\n      return {\n        ...state,\n        items: [...state.items, action.payload],\n      };\n    default:\n      return state;\n  }\n};\n\nconst store = createStore(itemReducer);\n\nexport default store;\n```\n\nStep 3: Wrap your Component with `Provider`\nWrap your main component tree with the `Provider` component, passing the `store` as a prop.\n\n```jsx\n// index.js (or wherever you render your app)\n\nimport React from 'react';\nimport ReactDOM from 'react-dom';\nimport { Provider } from 'react-redux';\nimport store from './store';\nimport App from './App';\n\nReactDOM.render(\n  <Provider store={store}>\n    <App />\n  </Provider>,\n  document.getElementById('root')\n);\n```\n\nStep 4: Use `useSelector` in your Component\nNow, you can use the `useSelector` hook in your functional component to access the state from the Redux store.\n\n```jsx\n// App.js\n\nimport React from 'react';\nimport { useSelector } from 'react-redux';\n\nconst App = () => {\n  // Using the useSelector hook to access the 'items' state from the Redux store\n  const items = useSelector((state) => state.items);\n\n  const renderItems = () => {\n    return items.map((item, index) => <li key={index}>{item}</li>);\n  };\n\n  return (\n    <div>\n      <h1>Items List</h1>\n      <ul>{renderItems()}</ul>\n    </div>\n  );\n};\n\nexport default App;\n```\n\nIn this example, the `useSelector` hook is used to extract the `items` state from the Redux store. The `items` array can now be used within the `App` component to render a list of items.\n\nRemember that the `useSelector` hook automatically subscribes to the Redux store and updates the component whenever the state it depends on changes. This allows your component to stay in sync with the global state managed by Redux without having to manually subscribe or unsubscribe to the store.",
+      "diff": 1,
+      "imp": 1,
+      "cate": "",
+      "id": 9
+    },
+    {
+      "subject": "react",
+      "title": "what are different hooks in reacts, explain each one in simple words and code example",
+      "ques": "",
+      "links": [
+        {
+          "name": "https://www.smashingmagazine.com/2021/11/useful-react-hooks/"
+        },
+        {
+          "name": "https://dev.to/abhisheknaiidu/10-react-hooks-explained-3ino"
+        },
+        {
+          "name": "https://betterprogramming.pub/rundown-of-the-most-important-react-hooks-5c9ec4cac5a2"
+        }
+      ],
+      "tags": [],
+      "ans": "As of my knowledge cutoff date in September 2021, React provides several built-in hooks to add state and lifecycle features to functional components. Here are some commonly used React hooks along with simple explanations and code examples for each:\n\n1. `useState`:\n\nExplanation: `useState` is a hook used for managing state in functional components. It allows you to declare state variables and provides a function to update the state, which triggers a re-render of the component with the updated state.\n\nCode Example:\n\n```jsx\nimport React, { useState } from 'react';\n\nconst Counter = () => {\n  const [count, setCount] = useState(0);\n\n  const increment = () => {\n    setCount(count + 1);\n  };\n\n  return (\n    <div>\n      <p>Count: {count}</p>\n      <button onClick={increment}>Increment</button>\n    </div>\n  );\n};\n\nexport default Counter;\n```\n\n2. `useEffect`:\n\nExplanation: `useEffect` is a hook used for handling side effects in functional components. It allows you to perform actions after the component renders, such as fetching data, subscribing to events, or cleaning up resources.\n\nCode Example:\n\n```jsx\nimport React, { useState, useEffect } from 'react';\n\nconst DataFetcher = () => {\n  const [data, setData] = useState([]);\n\n  useEffect(() => {\n    // Fetch data from an API after the component renders\n    fetch('https://api.example.com/data')\n      .then(response => response.json())\n      .then(data => setData(data))\n      .catch(error => console.error(error));\n\n    // Clean up resources (optional)\n    return () => {\n      // Do cleanup here (e.g., canceling subscriptions, closing connections)\n    };\n  }, []);\n\n  return (\n    <div>\n      {data.map(item => (\n        <p key={item.id}>{item.name}</p>\n      ))}\n    </div>\n  );\n};\n\nexport default DataFetcher;\n```\n\n3. `useContext`:\n\nExplanation: `useContext` is a hook used for consuming data from a React context. It allows you to access data provided by a parent component without having to pass props through intermediary components. This is useful for sharing data across a component tree without manually passing it down through every level.\n\nCode Example:\n\n```jsx\nimport React, { useContext } from 'react';\n\nconst UserContext = React.createContext();\n\nconst Profile = () => {\n  const user = useContext(UserContext);\n\n  return (\n    <div>\n      <h1>{user.name}</h1>\n      <p>Email: {user.email}</p>\n    </div>\n  );\n};\n\nconst App = () => {\n  const user = {\n    name: 'John Doe',\n    email: 'john.doe@example.com',\n  };\n\n  return (\n    <UserContext.Provider value={user}>\n      <Profile />\n    </UserContext.Provider>\n  );\n};\n\nexport default App;\n```\n\n4. `useReducer`:\n\nExplanation: `useReducer` is a hook used for more complex state management. It is an alternative to `useState` when state changes depend on the previous state or when the state logic is more complex.\n\nCode Example:\n\n```jsx\nimport React, { useReducer } from 'react';\n\nconst initialState = { count: 0 };\n\nconst reducer = (state, action) => {\n  switch (action.type) {\n    case 'increment':\n      return { count: state.count + 1 };\n    case 'decrement':\n      return { count: state.count - 1 };\n    default:\n      return state;\n  }\n};\n\nconst Counter = () => {\n  const [state, dispatch] = useReducer(reducer, initialState);\n\n  return (\n    <div>\n      <p>Count: {state.count}</p>\n      <button onClick={() => dispatch({ type: 'increment' })}>Increment</button>\n      <button onClick={() => dispatch({ type: 'decrement' })}>Decrement</button>\n    </div>\n  );\n};\n\nexport default Counter;\n```\n\n5. `useMemo`:\n\nExplanation: `useMemo` is a hook used for memoizing expensive computations. It allows you to memoize the result of a computation and prevent unnecessary re-computation on every render.\n\nCode Example:\n\n```jsx\nimport React, { useState, useMemo } from 'react';\n\nconst ExpensiveComponent = () => {\n  // Some expensive computation here\n  const expensiveValue = useMemo(() => {\n    console.log('Expensive computation...');\n    return 10 + 20;\n  }, []);\n\n  return <div>Expensive Value: {expensiveValue}</div>;\n};\n\nexport default ExpensiveComponent;\n```\n\nIn this example, the expensive computation (10 + 20) will only be performed once, and the memoized value (30) will be reused in subsequent renders.\n\n6. `useCallback`:\n\nExplanation: `useCallback` is a hook used for memoizing event handlers or functions to prevent unnecessary re-creation of functions on every render. It is especially useful when passing functions as props to child components.\n\nCode Example:\n\n```jsx\nimport React, { useState, useCallback } from 'react';\n\nconst ClickButton = ({ onClick }) => {\n  console.log('Button rendered');\n  return <button onClick={onClick}>Click Me</button>;\n};\n\nconst ParentComponent = () => {\n  const [count, setCount] = useState(0);\n\n  // The handleButtonClick function is memoized using useCallback\n  const handleButtonClick = useCallback(() => {\n    console.log('Button clicked');\n    setCount(count + 1);\n  }, [count]);\n\n  return (\n    <div>\n      <p>Count: {count}</p>\n      <ClickButton onClick={handleButtonClick} />\n    </div>\n  );\n};\n\nexport default ParentComponent;\n```\n\nIn this example, the `handleButtonClick` function is memoized using `useCallback`. It prevents the `handleButtonClick` function from being re-created on every render of the `ParentComponent`. This is useful to avoid unnecessary re-renders of the `ClickButton` component since the `handleButtonClick` prop remains the same as long as the `count` state does not change.\n\nThese are some of the widely used React hooks along with simple explanations and code examples for each. Please note that the availability and usage of hooks may change in newer versions of React, and there might be additional hooks introduced in\n\n the future. Always refer to the official React documentation for the most up-to-date information and best practices on using React hooks.",
+      "diff": 1,
+      "imp": 1,
+      "cate": "",
+      "id": 10
+    },
+    {
+      "subject": "react",
+      "title": "Merge state in react using \"state\" method?",
+      "ques": "",
+      "links": [],
+      "tags": [],
+      "ans": "Yes, you can use the `state` method to merge state in React class components. In React class components, the `state` property holds the current state of the component, and you can directly access and modify it using `this.state`.\n\nTo update the state and merge new values into the existing state, you should not directly modify the state object, as directly modifying `this.state` will not trigger a re-render of the component. Instead, you should use the `setState` method provided by React's component class to update the state and trigger a re-render.\n\nHere's an example of how to use the `setState` method to merge state in a React class component:\n\n```jsx\nimport React, { Component } from 'react';\n\nclass MyComponent extends Component {\n  constructor(props) {\n    super(props);\n    this.state = {\n      count: 0,\n      name: 'John',\n    };\n  }\n\n  handleIncrement = () => {\n    // Using setState to merge new state into the existing state\n    this.setState({ count: this.state.count + 1 });\n  };\n\n  handleNameChange = () => {\n    // Using setState to merge new state into the existing state\n    this.setState({ name: 'Alice' });\n  };\n\n  render() {\n    return (\n      <div>\n        <p>Count: {this.state.count}</p>\n        <p>Name: {this.state.name}</p>\n        <button onClick={this.handleIncrement}>Increment</button>\n        <button onClick={this.handleNameChange}>Change Name</button>\n      </div>\n    );\n  }\n}\n\nexport default MyComponent;\n```\n\nIn this example, we use the `setState` method to update the state and merge new values into the existing state. This will trigger a re-render of the component with the updated state values.\n\nKeep in mind that if you are using functional components with React Hooks, you should use the `useState` hook to manage state instead of using the `state` method in class components. Functional components with Hooks provide a more modern and cleaner way to handle state management in React.",
+      "diff": 1,
+      "imp": 1,
+      "cate": "",
+      "id": 11
+    },
+    {
+      "subject": "react",
+      "title": "does findDOMNode belong to react-dom?",
+      "ques": "",
+      "links": [],
+      "tags": [],
+      "ans": "Yes, you are correct. The `findDOMNode()` function belongs to the `react-dom` package in React.\n\n`ReactDOM.findDOMNode()` is a method provided by the `react-dom` package, and it is used to get a reference to the underlying DOM node of a mounted React component. This function is primarily used in class components to access the actual DOM element that the component renders.\n\nHere's an example of how to use `ReactDOM.findDOMNode()`:\n\n```jsx\nimport React from 'react';\nimport ReactDOM from 'react-dom';\n\nclass MyComponent extends React.Component {\n  componentDidMount() {\n    const domNode = ReactDOM.findDOMNode(this);\n    // Now, you can use domNode to interact with the underlying DOM element.\n  }\n\n  render() {\n    return <div>Hello, World!</div>;\n  }\n}\n\nexport default MyComponent;\n```\n\nIn this example, the `componentDidMount()` lifecycle method is used to get the underlying DOM node of the `MyComponent` instance using `ReactDOM.findDOMNode(this)`.\n\nIt's important to note that `findDOMNode()` is considered a legacy API, and its usage is discouraged in modern React applications, especially in functional components. Instead, React provides better alternatives like using `ref` with `createRef()` or the `useRef()` hook to access DOM nodes in functional components.\n\nFor class components, you can still use `ref` with the callback approach to get a reference to the DOM node without using `findDOMNode()`. For example:\n\n```jsx\nclass MyComponent extends React.Component {\n  constructor(props) {\n    super(props);\n    this.myRef = React.createRef();\n  }\n\n  componentDidMount() {\n    const domNode = this.myRef.current;\n    // Now, you can use domNode to interact with the underlying DOM element.\n  }\n\n  render() {\n    return <div ref={this.myRef}>Hello, World!</div>;\n  }\n}\n```\n\nUsing `ref` with the `createRef()` or `useRef()` approach is the recommended way to access DOM nodes in modern React applications, as it is more in line with React's declarative and unidirectional data flow principles.",
+      "diff": 1,
+      "imp": 1,
+      "cate": "",
+      "id": 12
+    },
+    {
+      "subject": "react",
+      "title": "does mountCOmponentAtReact belong to react-dom?",
+      "ques": "",
+      "links": [],
+      "tags": [],
+      "ans": "I apologize for the confusion in my previous response. There was a mistake in the method name. The correct method is `unmountComponentAtNode`, not `mountComponentAtReact`.\n\nYes, `unmountComponentAtNode()` is indeed part of the `react-dom` package in React.\n\n`ReactDOM.unmountComponentAtNode()` is a method provided by the `react-dom` package, and it is used to unmount a mounted React component from a specified DOM container. When you call this method with the DOM container as an argument, it will remove the mounted React component from the container, effectively cleaning up the component and its associated event listeners.\n\nHere's the correct usage of `unmountComponentAtNode()`:\n\n```jsx\nimport React from 'react';\nimport ReactDOM from 'react-dom';\n\nconst App = () => {\n  const container = document.getElementById('root');\n\n  // Mount the component in the container\n  ReactDOM.render(<MyComponent />, container);\n\n  // Unmount the component from the container\n  ReactDOM.unmountComponentAtNode(container);\n\n  return null; // This component doesn't render anything, so return null\n};\n\nexport default App;\n```\n\nIn the above example, we first use `ReactDOM.render()` to mount the `MyComponent` into the `container` DOM element. Then, we call `ReactDOM.unmountComponentAtNode()` to unmount the component from the same `container`.\n\nAgain, I apologize for the oversight in my previous response. `unmountComponentAtNode()` is the correct method related to unmounting components in React using the `react-dom` package.",
+      "diff": 1,
+      "imp": 1,
+      "cate": "",
+      "id": 13
+    },
+    {
+      "subject": "react",
+      "title": "which are methods of react-dom package?",
+      "ques": "",
+      "links": [],
+      "tags": [],
+      "ans": "As of my knowledge cutoff date in September 2021, the `react-dom` package provides the following methods:\n\n1. `render()`: This method is used to render a React element into the DOM. It takes a React element and a DOM container as arguments and mounts the element into the container. For example:\n\n```jsx\nimport React from 'react';\nimport ReactDOM from 'react-dom';\n\nconst element = <h1>Hello, World!</h1>;\nconst container = document.getElementById('root');\n\nReactDOM.render(element, container);\n```\n\n2. `hydrate()`: This method is similar to `render()`, but it is specifically used for server-side rendered content. It takes a React element and a DOM container as arguments and hydrates the container with the element, preserving the server-rendered content. For example:\n\n```jsx\nimport React from 'react';\nimport ReactDOM from 'react-dom';\n\nconst element = <h1>Hello, World!</h1>;\nconst container = document.getElementById('root');\n\nReactDOM.hydrate(element, container);\n```\n\n3. `unmountComponentAtNode()`: This method is used to unmount a mounted React component from a DOM container. It takes the DOM container as an argument and removes the mounted component from the container. For example:\n\n```jsx\nimport React from 'react';\nimport ReactDOM from 'react-dom';\n\nconst container = document.getElementById('root');\n\n// Mount a component in the container\nReactDOM.render(<App />, container);\n\n// Unmount the component from the container\nReactDOM.unmountComponentAtNode(container);\n```\n\n4. `createPortal()`: This method is used to render a React component's children into a different DOM node outside of its parent component's normal hierarchy. It takes the children to render and a DOM container as arguments and returns a portal element that represents the rendered content. For example:\n\n```jsx\nimport React from 'react';\nimport ReactDOM from 'react-dom';\n\nconst Modal = ({ children }) => {\n  const modalRoot = document.getElementById('modal-root');\n  return ReactDOM.createPortal(\n    <div className=\"modal\">\n      {children}\n    </div>,\n    modalRoot\n  );\n};\n```\n\nThese are the main methods provided by the `react-dom` package. Keep in mind that there might be additional methods or changes in the package's API in newer versions of React. Always refer to the official React documentation for the most up-to-date information and usage details.",
+      "diff": 1,
+      "imp": 1,
+      "cate": "",
+      "id": 14
+    },
+    {
+      "subject": "react",
+      "title": "which all pointer Events supported in React?",
+      "ques": "",
+      "links": [],
+      "tags": [],
+      "ans": "As of my knowledge cutoff date in September 2021, React supports the following pointer events:\n\n1. `onPointerDown`: This event is fired when a pointing device (e.g., mouse, touchscreen) is pressed down on an element.\n\n2. `onPointerMove`: This event is fired when a pointing device is moved while over an element.\n\n3. `onPointerUp`: This event is fired when a pointing device is released after being pressed down on an element.\n\n4. `onPointerEnter`: This event is fired when a pointing device enters the hit test boundaries of an element.\n\n5. `onPointerLeave`: This event is fired when a pointing device leaves the hit test boundaries of an element.\n\n6. `onPointerOver`: This event is fired when a pointing device is moved onto an element or one of its child elements.\n\n7. `onPointerOut`: This event is fired when a pointing device is moved off an element or one of its child elements.\n\n8. `onPointerCancel`: This event is fired when a pointer event is canceled.\n\nThese pointer events provide a way to handle user interactions with elements using different pointing devices, such as a mouse, touchscreen, or pen. They are part of the Pointer Events API, which is supported by modern web browsers.\n\nIt's important to note that browser support for pointer events may vary, and some older browsers may not fully support all of these events. As always, it's recommended to check the compatibility of pointer events with the target browsers or consider using fallbacks or alternative event handling methods when necessary. Additionally, be sure to check the latest documentation and updates from React and browser vendors for any changes or additions to the supported pointer events.",
+      "diff": 1,
+      "imp": 1,
+      "cate": "",
+      "id": 15
+    },
+    {
+      "subject": "react",
+      "title": "what are good use cases of HOCs in react?",
+      "ques": "",
+      "links": [],
+      "tags": [],
+      "ans": "Higher-Order Components (HOCs) are a powerful pattern in React that allows you to enhance or modify the behavior of components. HOCs are functions that take a component as input and return a new component with additional props or behavior. They can be used for a wide range of use cases in React. Here are some good use cases for Higher-Order Components:\n\n1. Reusability: HOCs enable you to encapsulate certain behavior or logic in a separate function and apply it to multiple components. This promotes code reusability, reducing duplication across your codebase.\n\n2. Code Separation: HOCs help you separate concerns and keep your components focused on their primary responsibilities. By moving shared logic into HOCs, your components can stay clean and easier to maintain.\n\n3. Authentication and Authorization: HOCs can be used to enforce authentication and authorization checks before rendering certain components. For example, you can create an HOC that checks if a user is logged in and then renders the protected component.\n\n4. Data Fetching: HOCs can handle data fetching and loading states for components. They can abstract the API calls and provide the fetched data to the wrapped component as props.\n\n5. Injecting Context: HOCs can inject specific context data into components, making it available as props. This allows components to access data from a context without needing to be direct consumers of the context API.\n\n6. Performance Optimization: HOCs can be used to optimize performance by implementing memoization or caching. This can prevent unnecessary re-renders and improve the overall efficiency of your components.\n\n7. Theming and Styling: HOCs can provide components with theme or styling information. For instance, you can create an HOC that injects a theme object into components, allowing them to style themselves based on the provided theme.\n\n8. Error Handling: HOCs can be used to wrap components and handle error scenarios. For instance, you can create an HOC that catches errors in the wrapped component and displays a fallback UI or logs the errors for debugging.\n\n9. Redux Integration: HOCs can be used to connect components to a Redux store, abstracting away the details of Redux integration and providing the necessary state and dispatch functions as props.\n\n10. Debugging and Logging: HOCs can be used to add logging or debugging capabilities to components. This can be helpful during development to gain insights into component behavior.\n\nOverall, Higher-Order Components are a versatile pattern in React that can be used to enhance components in various ways, promoting code reusability, separation of concerns, and better maintainability. However, with the introduction of React Hooks and other patterns, it's essential to consider other alternatives like render props and custom hooks when choosing the best approach for a particular use case.",
+      "diff": 1,
+      "imp": 1,
+      "cate": "",
+      "id": 16
+    },
+    {
+      "subject": "react",
+      "title": "when it is recomended to pass this.setState as function instead of object in react?",
+      "ques": "",
+      "links": [],
+      "tags": [],
+      "ans": "In React, there are certain scenarios where it is recommended to pass `this.setState` as a function instead of an object. The primary reason for doing this is to ensure that the state updates are based on the previous state correctly, especially when dealing with asynchronous updates or when state updates depend on the current state.\n\nWhen using `this.setState` as a function, the function receives the previous state and props as arguments, and it returns an object representing the new state based on the previous state and props. This helps avoid issues with stale state and ensures that state updates are correctly based on the previous values.\n\nHere's an example to illustrate the recommended usage of `this.setState` as a function:\n\n```jsx\nimport React, { Component } from 'react';\n\nclass Counter extends Component {\n  constructor(props) {\n    super(props);\n    this.state = {\n      count: 0,\n    };\n  }\n\n  handleIncrement = () => {\n    // Using setState as a function, ensuring correct updates based on the previous state\n    this.setState((prevState) => ({ count: prevState.count + 1 }));\n  };\n\n  handleDoubleIncrement = () => {\n    // If you need to perform multiple state updates, use the function form to ensure they are batched correctly\n    this.setState((prevState) => ({ count: prevState.count + 1 }));\n    this.setState((prevState) => ({ count: prevState.count + 1 }));\n  };\n\n  render() {\n    return (\n      <div>\n        <p>Count: {this.state.count}</p>\n        <button onClick={this.handleIncrement}>Increment</button>\n        <button onClick={this.handleDoubleIncrement}>Double Increment</button>\n      </div>\n    );\n  }\n}\n\nexport default Counter;\n```\n\nIn the above example, we use `this.setState` as a function in the `handleIncrement` method. This ensures that the new state is based on the previous state, and multiple consecutive updates will be correctly batched together.\n\nIt is recommended to use the function form of `this.setState` in the following scenarios:\n\n1. When the new state depends on the previous state.\n2. When performing multiple consecutive updates to the state, as it ensures that they are correctly batched together.\n\nUsing the function form of `this.setState` helps avoid issues related to stale state and can lead to more predictable behavior in your React components.",
+      "diff": 1,
+      "imp": 1,
+      "cate": "",
+      "id": 17
+    },
+    {
+      "subject": "react",
+      "title": "does keys for list of element should be unique in the DOM or siblings only?",
+      "ques": "",
+      "links": [],
+      "tags": [],
+      "ans": "In React, the keys for a list of elements should be unique among their siblings. They are used to help React identify individual elements when rendering lists and to efficiently update the DOM when the list changes.\n\nWhen you create a list of elements in React using the `map()` function or any other method that generates an array of elements, React needs a way to distinguish between elements and keep track of their identities. That's where the `key` prop comes into play.\n\nThe `key` prop should be unique among the siblings of a particular list. This uniqueness is necessary for React's reconciliation process to work correctly and optimize DOM updates. When a list changes (e.g., elements are added, removed, or reordered), React uses the keys to efficiently update only the elements that have changed, rather than re-rendering the entire list.\n\nKeys don't have to be globally unique across the entire application or the entire DOM. They only need to be unique among siblings in the specific list that you are rendering.\n\nHere's an example of how to use the `key` prop in a list of elements:\n\n```jsx\nconst MyListComponent = () => {\n  const data = ['apple', 'banana', 'orange'];\n\n  return (\n    <ul>\n      {data.map((item, index) => (\n        <li key={index}>{item}</li>\n      ))}\n    </ul>\n  );\n};\n```\n\nIn this example, we're rendering a list of fruits (`data` array) as list items (`<li>` elements). The `key` prop is set to the `index` of each item in the array. While using the array index as keys is convenient in some cases, it's generally better to use unique IDs or other stable values when possible, especially if the list items can be reordered or change dynamically.\n\nRemember, when rendering lists in React, always ensure that the `key` prop is unique among the siblings within the list to ensure proper rendering and efficient updates.",
+      "diff": 1,
+      "imp": 1,
+      "cate": "",
+      "id": 18
+    },
+    {
+      "subject": "react",
+      "title": "does react.lazy support named export only?",
+      "ques": "",
+      "links": [],
+      "tags": [],
+      "ans": "As of my knowledge cutoff date in September 2021, React's `React.lazy` function does not directly support named exports. Instead, it is designed to work with default exports. This means that when you use `React.lazy`, you can only dynamically import components that have been exported as the default export in the module.\n\nHere's an example of how you would use `React.lazy` with a default export:\n\n```jsx\nconst MyLazyComponent = React.lazy(() => import('./MyLazyComponent'));\n```\n\nIn this example, `MyLazyComponent` is the default export from the `'./MyLazyComponent'` module.\n\nHowever, if you have a component with named exports, you can still use `React.lazy` indirectly by creating a separate file that imports the named exports and then exports them as a default export.\n\nFor example, if you have a component with named exports like this:\n\n```jsx\n// MyNamedComponent.js\nexport const ComponentA = () => {\n  return <div>Component A</div>;\n};\n\nexport const ComponentB = () => {\n  return <div>Component B</div>;\n};\n```\n\nYou can create a separate file to export them as a default export like this:\n\n```jsx\n// LazyComponents.js\nexport { ComponentA, ComponentB } from './MyNamedComponent';\n```\n\nThen, you can use `React.lazy` with the default export from the `LazyComponents.js` file:\n\n```jsx\nconst LazyComponentA = React.lazy(() => import('./LazyComponents').then(module => ({ default: module.ComponentA })));\nconst LazyComponentB = React.lazy(() => import('./LazyComponents').then(module => ({ default: module.ComponentB })));\n```\n\nKeep in mind that this workaround may become unnecessary in future versions of React as the library evolves and introduces new features. Always refer to the official React documentation for the latest information and updates on React features and API changes.",
+      "diff": 1,
+      "imp": 1,
+      "cate": "",
+      "id": 19
+    },
+    {
+      "subject": "react",
+      "title": "which methods define default value of props from these getPropsValue, getInitialState, GetInitialProps, getDefaultprops?",
+      "ques": "",
+      "links": [],
+      "tags": [],
+      "ans": "In React, the method that defines the default value of props is `getDefaultProps`. The other methods you mentioned (`getPropsValue`, `getInitialState`, and `getInitialProps`) are not standard React component methods for setting default props.\n\n1. `getDefaultProps`: This is a method used in class components to define the default values for props. It allows you to set default props for the component, which will be used if the parent component does not provide those props when rendering the child component. However, note that the use of `getDefaultProps` is mainly relevant for React class components, and it is not used in modern React functional components.\n\nExample of using `getDefaultProps` in a class component:\n\n```jsx\nimport React from 'react';\n\nclass MyComponent extends React.Component {\n  // Define default props using getDefaultProps method\n  static defaultProps = {\n    name: 'John',\n    age: 30,\n  };\n\n  render() {\n    return (\n      <div>\n        <p>Name: {this.props.name}</p>\n        <p>Age: {this.props.age}</p>\n      </div>\n    );\n  }\n}\n\nexport default MyComponent;\n```\n\n2. `getPropsValue`, `getInitialState`, and `getInitialProps`: These methods are not part of the standard React component API, and you generally won't find them in official React documentation or examples. The standard ways to work with props and state in React components are through `props`, `state`, and lifecycle methods like `constructor`, `render`, `componentDidMount`, and others. Additionally, `getInitialProps` is specific to Next.js, which is a framework for server-rendered React applications, and it is used in Next.js pages, not in standard React components.",
+      "diff": 1,
+      "imp": 1,
+      "cate": "",
+      "id": 20
+    },
+    {
+      "subject": "react",
+      "title": "is \"hydrate()\" part of react-dom?",
+      "ques": "",
+      "links": [],
+      "tags": [],
+      "ans": "Yes, you are correct. The `hydrate()` function is part of the `react-dom` package in React.\n\nIn React, `hydrate()` is used to render a React application into the DOM. It is similar to the `render()` function provided by `react-dom`, but it is specifically designed",
+      "diff": 1,
+      "imp": 1,
+      "cate": "",
+      "id": 21
+    },
+    {
+      "subject": "react",
+      "title": "is \"findDOMNode()\" part of react-dom?",
+      "ques": "",
+      "links": [],
+      "tags": [],
+      "ans": "Yes, `findDOMNode()` is a method provided by the `react-dom` package in React.\n\n`react-dom` is a separate package from the main `react` package and is used specifically for rendering React components into the DOM (Document Object Model). It provides additional functionalities related to interacting with the DOM, such as finding and manipulating DOM elements that correspond to React components.\n\nThe `findDOMNode()` method was introduced in React as a way to access the DOM node of a mounted React component. It allows you to get a reference to the actual DOM element that a React component is rendering. This can be useful in certain situations, especially when you need to interact directly with the DOM, use third-party libraries that require DOM elements, or when working with legacy code.\n\nHowever, it's important to note that `findDOMNode()` is considered to be legacy API, and the React team recommends using other approaches, such as using React's `ref` system or the hooks API (`useRef()` hook), to interact with the DOM in modern React applications. The main reason for this recommendation is that direct manipulation of the DOM can bypass React's virtual DOM, potentially leading to performance issues and other problems.\n\nHere's an example of how you might use `findDOMNode()`:\n\n```jsx\nimport React from 'react';\nimport ReactDOM from 'react-dom';\n\nclass MyComponent extends React.Component {\n  componentDidMount() {\n    const domNode = ReactDOM.findDOMNode(this);\n    // Now, you can use domNode to interact with the underlying DOM element.\n    // However, it's recommended to use the `ref` system or hooks instead.\n  }\n\n  render() {\n    return <div>Hello, World!</div>;\n  }\n}\n\nexport default MyComponent;\n```\n\nIn this example, `findDOMNode()` is called inside the `componentDidMount()` lifecycle method to get a reference to the DOM node of the `MyComponent` instance. As mentioned earlier, while this method can be used, it is not the preferred way to interact with the DOM in modern React applications.",
+      "diff": 1,
+      "imp": 1,
+      "cate": "",
+      "id": 22
+    },
+    {
+      "subject": "react",
+      "title": "is babel also compiler",
+      "ques": "",
+      "links": [],
+      "tags": [],
+      "ans": "Yes, you are correct. Babel is indeed a compiler, but more specifically, it is a JavaScript compiler that is commonly referred to as a \"transpiler.\"\n\nAs I explained earlier, a transpiler, or \"source-to-source compiler,\" takes source code written in one language and converts it into another language of the same or similar level of abstraction. In the case of Babel, it takes modern JavaScript code, often using the latest ECMAScript features, and transpiles it into an older version of JavaScript that is compatible with a broader range of browsers and environments.\n\nSo, while Babel is a type of compiler (specifically, a transpiler), it is essential to note that it doesn't produce lower-level machine code like some traditional compilers do. Instead, it produces JavaScript code that is more widely supported and can be executed in various JavaScript environments, including older browsers.\n\nIn summary, Babel is a JavaScript transpiler, and its primary purpose is to convert modern JavaScript code into an older, more compatible version of JavaScript, enabling developers to use the latest language features while ensuring cross-browser compatibility.",
+      "diff": 1,
+      "imp": 1,
+      "cate": "",
+      "id": 23
+    },
+    {
+      "subject": "react",
+      "title": "How to use useSelector in react, explain with code example",
+      "ques": "",
+      "links": [],
+      "tags": [],
+      "ans": "In React, `useSelector` is a hook provided by the `react-redux` library that allows you to access the Redux store's state in your functional components. Redux is a state management library commonly used with React applications.\n\nTo use `useSelector`, you need to have a Redux store set up in your application, and you should have wrapped your main component tree with the `Provider` from `react-redux`. The `Provider` makes the Redux store available to all the components in your application.\n\nHere's a step-by-step guide on how to use `useSelector` in a React functional component:\n\nStep 1: Install Dependencies\nMake sure you have installed `react-redux` and `redux` in your project by running:\n\n```bash\nnpm install react-redux redux\n```\n\nStep 2: Create a Redux Store\nCreate a Redux store with reducers, actions, and middleware as needed for your application. For simplicity, let's assume we have a basic store with a single reducer managing a list of items.\n\n```jsx\n// store.js\n\nimport { createStore } from 'redux';\n\nconst initialState = {\n  items: [],\n};\n\nconst itemReducer = (state = initialState, action) => {\n  switch (action.type) {\n    case 'ADD_ITEM':\n      return {\n        ...state,\n        items: [...state.items, action.payload],\n      };\n    default:\n      return state;\n  }\n};\n\nconst store = createStore(itemReducer);\n\nexport default store;\n```\n\nStep 3: Wrap your Component with `Provider`\nWrap your main component tree with the `Provider` component, passing the `store` as a prop.\n\n```jsx\n// index.js (or wherever you render your app)\n\nimport React from 'react';\nimport ReactDOM from 'react-dom';\nimport { Provider } from 'react-redux';\nimport store from './store';\nimport App from './App';\n\nReactDOM.render(\n  <Provider store={store}>\n    <App />\n  </Provider>,\n  document.getElementById('root')\n);\n```\n\nStep 4: Use `useSelector` in your Component\nNow, you can use the `useSelector` hook in your functional component to access the state from the Redux store.\n\n```jsx\n// App.js\n\nimport React from 'react';\nimport { useSelector } from 'react-redux';\n\nconst App = () => {\n  // Using the useSelector hook to access the 'items' state from the Redux store\n  const items = useSelector((state) => state.items);\n\n  const renderItems = () => {\n    return items.map((item, index) => <li key={index}>{item}</li>);\n  };\n\n  return (\n    <div>\n      <h1>Items List</h1>\n      <ul>{renderItems()}</ul>\n    </div>\n  );\n};\n\nexport default App;\n```\n\nIn this example, the `useSelector` hook is used to extract the `items` state from the Redux store. The `items` array can now be used within the `App` component to render a list of items.\n\nRemember that the `useSelector` hook automatically subscribes to the Redux store and updates the component whenever the state it depends on changes. This allows your component to stay in sync with the global state managed by Redux without having to manually subscribe or unsubscribe to the store.",
+      "diff": 1,
+      "imp": 1,
+      "cate": "",
+      "id": 24
     }
   ],
   "redux": [],
@@ -2939,6 +3177,54 @@
       "imp": 1,
       "cate": "",
       "id": 1
+    },
+    {
+      "subject": "py",
+      "title": "how to implement custom exception in python?",
+      "ques": "",
+      "links": [],
+      "tags": [],
+      "ans": "In Python, you can implement a custom exception by creating a new class that inherits from one of the existing exception classes provided by Python, such as `Exception`, `ValueError`, or `RuntimeError`. By creating a custom exception class, you can define your own exception type with specific attributes and behavior that suit your application's needs.\n\nHere's a step-by-step guide to implementing a custom exception in Python:\n\n1. Define a new class for your custom exception:\n   - You can choose to inherit from the base `Exception` class or any other relevant built-in exception class, depending on the nature of your custom exception.\n\n2. Optionally, add any additional attributes or methods to your custom exception class:\n   - You may want to include specific attributes or methods to provide additional information about the exception or customize its behavior.\n\n3. Raise your custom exception when needed:\n   - In your code, use the `raise` statement to raise an instance of your custom exception when a specific error condition occurs.\n\nHere's an example of how to implement a custom exception in Python:\n\n```python\n# Step 1: Define a new class for the custom exception\nclass MyCustomException(Exception):\n    def __init__(self, message=\"An error occurred.\"):\n        super().__init__(message)\n        self.additional_info = \"Additional information about the error.\"\n\n# Step 2: Optionally, add attributes or methods to the custom exception class\n\n# Step 3: Raise your custom exception when needed\ndef divide(a, b):\n    if b == 0:\n        raise MyCustomException(\"Division by zero is not allowed.\")\n    return a / b\n\ntry:\n    result = divide(10, 0)\nexcept MyCustomException as ex:\n    print(f\"Custom Exception caught: {ex}\")\n    print(ex.additional_info)\n```\n\nIn this example, we define a custom exception class `MyCustomException` that inherits from the base `Exception` class. The `MyCustomException` class has an optional `message` argument, which allows you to provide a custom error message when raising the exception.\n\nIn the `divide(a, b)` function, we check if the value of `b` is `0`. If it is, we raise an instance of the `MyCustomException` with a specific error message.\n\nWhen we call the `divide(10, 0)` function inside the `try` block, it raises the `MyCustomException`, and the code inside the corresponding `except` block will be executed. The `except` block catches the `MyCustomException` and prints the custom error message along with the additional information provided by the `additional_info` attribute.\n\nBy creating custom exceptions, you can make your error handling more informative and tailored to your application's requirements.",
+      "diff": 1,
+      "imp": 1,
+      "cate": "",
+      "id": 2
+    },
+    {
+      "subject": "py",
+      "title": "how to handle exception in python? explain with raise",
+      "ques": "",
+      "links": [],
+      "tags": [],
+      "ans": "In Python, you can handle exceptions using the `try`, `except` block. The `try` block is used to wrap the code that may raise an exception, and the `except` block is used to catch and handle the exception if it occurs.\n\nHere's a simple explanation of how to handle exceptions using the `try` and `except` block, along with an example using the `raise` statement to raise a custom exception:\n\n```python\ntry:\n    # Code that may raise an exception\n    result = 10 / 0  # Division by zero to intentionally raise an exception\nexcept Exception as e:\n    # Exception handling code\n    print(f\"An error occurred: {e}\")\n```\n\nIn the above code example, we have a `try` block that contains a division operation `10 / 0`. Since dividing by zero is not allowed in Python and will raise a `ZeroDivisionError`, the code inside the `except` block will be executed.\n\nWhen an exception occurs inside the `try` block, the code execution will immediately jump to the corresponding `except` block. In this case, the `except` block will catch the `ZeroDivisionError` and print an error message indicating that an error occurred.\n\nYou can also use the `raise` statement to raise custom exceptions to indicate specific error conditions in your code. Here's an example of how to raise a custom exception:\n\n```python\ndef divide(a, b):\n    if b == 0:\n        raise ValueError(\"Division by zero is not allowed.\")\n    return a / b\n\ntry:\n    result = divide(10, 0)\nexcept ValueError as ve:\n    print(f\"An error occurred: {ve}\")\n```\n\nIn this example, we define a function `divide(a, b)` that takes two arguments and performs division. If the value of `b` is `0`, the function raises a `ValueError` with a custom error message.\n\nWhen we call the `divide(10, 0)` function inside the `try` block, it will raise a `ValueError`, and the code inside the corresponding `except` block will be executed. The `except` block will catch the `ValueError` and print the custom error message.\n\nUsing `try`, `except`, and `raise` allows you to gracefully handle exceptions and provide appropriate error messages or take specific actions based on the type of exception that occurred in your Python code.",
+      "diff": 1,
+      "imp": 1,
+      "cate": "",
+      "id": 3
+    },
+    {
+      "subject": "py",
+      "title": "",
+      "ques": "explain this code -\n[\n with pytest.raises(\n            Exception,\n            match=r'.*Content Source *'  \n            ):\n            self.exec_work()   \n]",
+      "links": [],
+      "tags": [],
+      "ans": "The code you provided appears to be written in Python and uses the `pytest` library to write tests. Let's break down the code step by step:\n\n1. `pytest.raises(Exception, match=r'.*Content Source *'):`: This part of the code is using the `pytest.raises()` context manager. It is used to test that a specific exception is raised when a certain piece of code is executed. In this case, it is checking if an exception of type `Exception` is raised during the execution of the code block inside the context manager.\n\n2. `match=r'.*Content Source *'`: The `match` argument in `pytest.raises()` is used to specify a regular expression pattern. The test will pass if the exception message matches this regular expression pattern. In this case, the pattern is `' .*Content Source *'`, which means it will match any string that contains the substring \"Content Source\" with possible leading and trailing spaces.\n\n3. `self.exec_work()`: This line of code is calling the `exec_work()` method on the current object (usually a test class instance). It is the code that is being tested to see if it raises the expected exception.\n\nPutting it all together, the code snippet is essentially a test case using `pytest` to check if calling the `self.exec_work()` method raises an exception of type `Exception` with a message that contains the substring \"Content Source\". If the exception is raised with the expected message, the test case will pass; otherwise, it will fail.\n\nKeep in mind that this explanation assumes the presence of the appropriate imports and the definition of the `exec_work()` method elsewhere in the test code or the class being tested. Also, the actual behavior of the test case depends on the implementation details of the `exec_work()` method and how it may raise the `Exception` and its message.",
+      "diff": 1,
+      "imp": 1,
+      "cate": "",
+      "id": 4
+    },
+    {
+      "subject": "py",
+      "title": "What is inbuilt exceptions in python?",
+      "ques": "",
+      "links": [],
+      "tags": [],
+      "ans": "In Python, there are several built-in exceptions (also known as standard exceptions) provided by the language to handle common error scenarios. These exceptions represent different types of errors that can occur during the execution of a Python program. When an exceptional situation occurs, Python will raise the corresponding built-in exception, which can be caught and handled using try-except blocks.\n\nHere are some of the commonly used built-in exceptions in Python:\n\n1. `ZeroDivisionError`: Raised when dividing by zero.\n\n2. `TypeError`: Raised when an operation or function is applied to an object of an inappropriate type.\n\n3. `ValueError`: Raised when a built-in operation or function receives an argument of the correct type but an inappropriate value.\n\n4. `IndexError`: Raised when a sequence subscript is out of range.\n\n5. `KeyError`: Raised when a dictionary key is not found.\n\n6. `NameError`: Raised when a local or global name is not found.\n\n7. `FileNotFoundError`: Raised when a file or directory is requested but cannot be found.\n\n8. `IOError`: Raised when an I/O operation (e.g., reading/writing a file) fails.\n\n9. `AssertionError`: Raised when an `assert` statement fails.\n\n10. `ImportError`: Raised when an import statement cannot find the specified module.\n\n11. `OverflowError`: Raised when the result of an arithmetic operation is too large to be expressed.\n\n12. `RuntimeError`: Raised when an error does not fall under any other category.\n\n13. `Exception`: The base class for all built-in exceptions. It is generally not recommended to catch this exception explicitly, as it can catch unintended errors.\n\nThese are just a few examples of the many built-in exceptions provided by Python. Each of these exceptions is designed to provide specific information about the error, making it easier to identify and handle exceptional cases in your code.\n\nHere's an example of how you can use try-except blocks to catch and handle a `ZeroDivisionError`:\n\n```python\ntry:\n    result = 10 / 0\nexcept ZeroDivisionError as e:\n    print(\"Error:\", e)\n    # Handle the exception here\n```\n\nIn this example, if the code inside the `try` block encounters a division by zero, it will raise a `ZeroDivisionError`. The `except` block will catch the exception and print an error message.",
+      "diff": 1,
+      "imp": 1,
+      "cate": "",
+      "id": 5
     }
   ],
   "java": [],
@@ -3361,6 +3647,54 @@
       "imp": 1,
       "cate": "",
       "id": 23
+    },
+    {
+      "subject": "node",
+      "title": "How to implement zero division exception in nodejs?",
+      "ques": "",
+      "links": [],
+      "tags": [],
+      "ans": "In Node.js, you can implement a custom zero division exception by creating a custom error class that extends the built-in `Error` class. This custom exception will be thrown when a division by zero occurs in your code. Here's how you can do it:\n\n1. Create a new file for your custom exception:\n\nStart by creating a new JavaScript file (e.g., `customExceptions.js`) to define your custom exceptions.\n\n2. Define your custom exception class:\n\nIn the `customExceptions.js` file, define your custom zero division exception class by extending the built-in `Error` class.\n\n```javascript\n// customExceptions.js\nclass ZeroDivisionException extends Error {\n  constructor(message) {\n    super(message);\n    this.name = 'ZeroDivisionException'; // Set the name of the exception for easier identification\n  }\n}\n\nmodule.exports = {\n  ZeroDivisionException,\n};\n```\n\n3. Use the custom exception in your application:\n\nIn your main application file, or wherever you want to handle the custom zero division exception, require the `customExceptions.js` file and use the `ZeroDivisionException` class.\n\n```javascript\nconst { ZeroDivisionException } = require('./customExceptions.js');\n\nfunction divide(a, b) {\n  if (b === 0) {\n    throw new ZeroDivisionException('Division by zero is not allowed.');\n  }\n  return a / b;\n}\n\ntry {\n  const result = divide(10, 0);\n  console.log(\"Result:\", result);\n} catch (error) {\n  if (error instanceof ZeroDivisionException) {\n    console.error('ZeroDivisionException occurred:', error.message);\n    // Handle the custom zero division exception accordingly\n  } else {\n    // Handle other types of exceptions or rethrow the unknown error\n    throw error;\n  }\n}\n```\n\nIn this example, the `divide` function checks if the divisor `b` is zero. If it is, the function throws a new instance of the `ZeroDivisionException` class with a custom error message. The `try...catch` block is used to handle this custom zero division exception. If the exception occurs within the `try` block, it will be caught in the `catch` block, and the error message will be printed to the console.\n\nBy following these steps, you have successfully implemented a custom zero division exception in Node.js using a custom error class. Now, when a division by zero occurs in your code, the `ZeroDivisionException` will be thrown and can be caught and handled appropriately in the `try...catch` block.",
+      "diff": 1,
+      "imp": 1,
+      "cate": "",
+      "id": 24
+    },
+    {
+      "subject": "node",
+      "title": "What is inbuilt exceptions in nodejs?",
+      "ques": "",
+      "links": [],
+      "tags": [],
+      "ans": "In Node.js, the built-in exceptions are not as standardized and organized as in Python. Node.js primarily uses the built-in JavaScript `Error` object and its subclasses to handle exceptions. JavaScript's `Error` object is the base class for all built-in exceptions and user-defined exceptions in Node.js.\n\nHere are some commonly used built-in exceptions in Node.js:\n\n1. `Error`: The base class for all errors. You can create custom error objects by extending this class.\n\n2. `TypeError`: Raised when an operation or function is applied to an object of an inappropriate type.\n\n3. `SyntaxError`: Raised when there is a syntax error in the code.\n\n4. `ReferenceError`: Raised when an invalid reference is used, such as trying to access an undefined variable.\n\n5. `RangeError`: Raised when a numeric variable or parameter is outside its valid range.\n\n6. `EvalError`: Raised when an error occurs during the `eval()` function execution.\n\n7. `URIError`: Raised when a global function, such as `decodeURI()` or `decodeURIComponent()`, is used incorrectly.\n\n8. `SystemError`: This error is not a standard JavaScript error, but it is sometimes used in Node.js to indicate a generic system-level error.\n\nNode.js also provides additional error types beyond the standard JavaScript errors. For example, when working with streams or network-related operations, you might encounter exceptions specific to those APIs.\n\nNode.js often uses the `Error` object and its subclasses to create error objects with more context, such as `SyntaxError`, `TypeError`, etc. When an exception occurs, an error object is thrown, and you can use `try...catch` blocks to handle these exceptions, just like in the Python examples mentioned earlier.\n\nHere's an example of how to use try-catch to handle an exception in Node.js:\n\n```javascript\ntry {\n  // Some code that may throw an exception\n  throw new TypeError('This is a custom TypeError.');\n} catch (error) {\n  console.error('An exception occurred:', error.message);\n  // Handle the exception here\n}\n```\n\nIn this example, we are explicitly throwing a `TypeError`, and the `catch` block will catch the exception and print an error message. You can replace `TypeError` with any other built-in error type or create your own custom error classes to handle specific use cases.",
+      "diff": 1,
+      "imp": 1,
+      "cate": "",
+      "id": 25
+    },
+    {
+      "subject": "node",
+      "title": "How to raise exception in nodejs?",
+      "ques": "",
+      "links": [],
+      "tags": [],
+      "ans": "In Node.js, you can raise (also known as throwing) an exception using the `throw` keyword. When you encounter an error or an exceptional situation in your code, you can use the `throw` statement to signal that an exception has occurred and halt the normal flow of execution. This allows you to handle errors or exceptional cases gracefully using `try...catch` blocks.\n\nHere's how you can raise an exception in Node.js:\n\n```javascript\nfunction divide(a, b) {\n  if (b === 0) {\n    throw new Error(\"Division by zero is not allowed.\");\n  }\n  return a / b;\n}\n\ntry {\n  const result = divide(10, 0);\n  console.log(\"Result:\", result);\n} catch (error) {\n  console.error(\"An exception occurred:\", error.message);\n  // Handle the exception here\n}\n```\n\nIn this example, the `divide` function checks if the divisor `b` is zero. If it is, the function throws a new instance of the built-in `Error` class with a custom error message. The `try...catch` block is used to handle this exception. If an exception occurs within the `try` block, it will be caught in the `catch` block, and the error message will be printed to the console.\n\nYou can also create and throw custom exceptions, as discussed in the previous answer, to add more context and information to your error handling.",
+      "diff": 1,
+      "imp": 1,
+      "cate": "",
+      "id": 26
+    },
+    {
+      "subject": "node",
+      "title": "How to implement custom exceptions in nodejs?",
+      "ques": "",
+      "links": [],
+      "tags": [],
+      "ans": "",
+      "diff": 1,
+      "imp": 1,
+      "cate": "",
+      "id": 27
     }
   ],
   "eng": [
@@ -3535,6 +3869,18 @@
       "imp": 1,
       "cate": "",
       "id": 13
+    },
+    {
+      "subject": "eng",
+      "title": "Is procrastination good or bad?",
+      "ques": "",
+      "links": [],
+      "tags": [],
+      "ans": "Ladies and gentlemen, boys and girls,\n\nToday, I want to talk about something that we all might have experienced at some point, and it's called procrastination. But what exactly is procrastination? Well, it's when we delay or put off doing something we need to do. It's like when you have homework to complete, but you decide to play games or watch cartoons instead.\n\nNow, you might be wondering, is procrastination good or bad? Well, let me explain. Procrastination can be both good and bad, and I'll tell you why.\n\nFirst, let's talk about the not-so-good part of procrastination. When we keep delaying things, it can sometimes make us feel stressed and worried. Imagine having to prepare for a test, and you keep putting it off until the last minute. Then, you might not have enough time to study well, and that could lead to a lower grade. So, in such cases, procrastination is not helpful.\n\nBut, believe it or not, there can also be some good things about procrastination. Sometimes, when we take short breaks and do something fun, it helps us feel refreshed and more motivated. It's like taking a little rest before going back to our tasks. Also, during those breaks, our brains can come up with new and creative ideas that might actually help us do the task better.\n\nThe key is to find a balance. We can take small breaks, but we also need to make sure we get our important tasks done on time. If we keep delaying everything, it might lead to problems later on.\n\nSo, what can we do about procrastination? Well, we can try to make a schedule or a to-do list. By doing this, we can see what needs to be done and when. It can help us stay on track and finish our tasks without too much delay.\n\nRemember, it's okay to take breaks and have fun, but we also need to be responsible and get our important work done on time.\n\nIn conclusion, procrastination can be both good and bad. Taking short breaks and having fun is fine, but we should also try to complete our tasks on time. By finding a balance, we can make sure that procrastination doesn't become a big problem for us.\n\nThank you for listening, and I hope you all have a great day!",
+      "diff": 1,
+      "imp": 1,
+      "cate": "",
+      "id": 14
     }
   ],
   "puz": [],
