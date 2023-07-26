@@ -922,7 +922,11 @@
       "subject": "algo",
       "title": "Doubly linked list - basics (ES5)",
       "ques": "",
-      "links": [],
+      "links": [
+        {
+          "name": "https://stackblitz.com/edit/js-dx5fk1?file=index.js"
+        }
+      ],
       "tags": [
         {
           "name": "General"
@@ -960,11 +964,14 @@
     },
     {
       "subject": "algo",
-      "title": "Queue implementation using linked list",
+      "title": "Queue and stack implementation using linked list",
       "ques": "",
       "links": [
         {
           "name": "https://stackblitz.com/edit/js-z2hzaf?file=index.js"
+        },
+        {
+          "name": "https://stackblitz.com/edit/js-yhu5el?file=index.js"
         }
       ],
       "tags": [
@@ -972,7 +979,7 @@
           "name": "General"
         }
       ],
-      "ans": "\n// queue is initially empty\nvar Queue = {front: null, back: null};\n\n// we will use a node to keep track of the elements\n// in the queue which is represented by a linked list\nfunction Node(data, next) {\n  this.data = data;\n  this.next = next;\n} \n\n// add elements to queue in O(1) time\nfunction Enqueue(element) {\n  var N = new Node(element, null);\n  if (Queue.back === null) {\n    Queue.front = N;\n    Queue.back = N; \n  } else { \n    Queue.back.next = N; \n    Queue.back = Queue.back.next;\n  } \n}\n\n// remove first element from queue in O(1) time\nfunction Dequeue() {\n  if (Queue.front !== null) { \n    var first = Queue.front;\n    Queue.front = Queue.front.next; \n    return first.data;\n  } else {\n    if (Queue.back !== null) { Queue.back = null; }\n    return 'Cannot dequeue because queue is empty';\n  }\n}\n\nEnqueue('a'); \nEnqueue('b'); \nEnqueue('c');\n\n\nconsole.log(\"Queue ::\", Queue)",
+      "ans": "\n// queue is initially empty\nvar Queue = {front: null, back: null};\n\n// we will use a node to keep track of the elements\n// in the queue which is represented by a linked list\nfunction Node(data, next) {\n  this.data = data;\n  this.next = next;\n} \n\n// add elements to queue in O(1) time\nfunction Enqueue(element) {\n  var N = new Node(element, null);\n  if (Queue.back === null) {\n    Queue.front = N;\n    Queue.back = N; \n  } else { \n    Queue.back.next = N; \n    Queue.back = Queue.back.next;\n  } \n}\n\n// remove first element from queue in O(1) time\nfunction Dequeue() {\n  if (Queue.front !== null) { \n    var first = Queue.front;\n    Queue.front = Queue.front.next; \n    return first.data;\n  } else {\n    if (Queue.back !== null) { Queue.back = null; }\n    return 'Cannot dequeue because queue is empty';\n  }\n}\n\nEnqueue('a'); \nEnqueue('b'); \nEnqueue('c');\n\n\nconsole.log(\"Queue ::\", Queue)\n\n=====\n\nclass queueNode{\n  constructor(v){\n    this.value = v;\n    this.next = null;\n  }\n}\n\nclass customQueue{\n  queue = {\"front\": null, \"back\": null};\n\n  enqueue(v){\n    let n = new queueNode(v);\n    if(this.queue.back == null){\n      this.queue.front = n;\n      this.queue.back = n;\n    } else {\n      this.queue.back.next = n;\n      this.queue.back = this.queue.back.next;\n    }\n  }\n\n  dequeue(){\n    if(this.queue.front){\n      let first = this.queue.front.next;\n      this.queue.front = first;\n      return first.value;\n    } else {\n      if(this.queue.back) this.queue.back = null;\n      return \"Not having any value to dequeue\"\n    }\n  }\n}\n\n// let q = new customQueue();\n// q.enqueue(1);\n// q.enqueue(2);\n// q.enqueue(3);\n// q.dequeue();\n// q.enqueue(4);\n// q.dequeue();\n// q.enqueue(5);\n\n// console.log(\"q.queue ::\", q.queue)\n\n\nconsole.log(\"========== STACK ==============\");\n\nclass stackNode{\n  constructor(v, next){\n    this.value = v;\n    this.next = next || null;\n  }\n}\n\nclass customStack{\n  stack = {\"head\": null, \"tail\": null};\n\n  push(v){\n    // let n = new stackNode(v);\n    // or\n    let n = new stackNode(v, this.stack.head);\n    \n\n    if(this.stack.tail == null){\n      this.stack.head = n;\n      this.stack.tail = n;\n    } else {\n      // let currentHead = this.stack.head;\n      // n.next = currentHead;\n      // this.stack.head = n;\n\n      // or \n      this.stack.head = n;\n    }\n  }\n\n  pop(){\n    if(this.stack.head){\n      let current = this.stack.head.value;\n      let first = this.stack.head.next;\n      this.stack.head = first;\n      return current;\n    } else {\n      if(this.stack.tail) this.stack.tail = null;\n      return \"Not having any value to pop\"\n    }\n  }\n\n  get(){\n    let res = [];\n    let head = this.stack && this.stack.head;\n    while(head){\n      res.push(head.value);\n      head = head.next\n    }\n    return res;\n  }\n}\n\nlet st = new customStack();\n\nst.push(1);\nst.push(2);\nst.push(3);\nconsole.log(\"pop ::\", st.pop());\nst.push(4);\nst.push(5);\n\nconsole.log(\"st ::\", st);\n\nconsole.log(\"stack ::\", st.get());",
       "diff": 1,
       "imp": 1,
       "cate": [
