@@ -1,5 +1,16 @@
 .dash-cont {
-    padding: 2em 2em;
+    @media (max-width: 767px) {
+        /* Styles specific to mobile devices */
+        /* Add your CSS rules here */
+        #pageHeading{
+            display: none;
+        }
+    }
+
+    @media screen and (min-width: 768px) {
+       padding: 2em 2em;
+    }
+
 
     #pageHeading {
         margin-bottom: 1em;
