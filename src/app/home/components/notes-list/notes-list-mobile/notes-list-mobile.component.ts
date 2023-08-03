@@ -1,5 +1,6 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { FormGroup, FormControl } from "@angular/forms";
+import { ActivatedRoute, Router } from '@angular/router';
 import { DatacontextService } from "src/app/data/datacontext.service";
 import { AddNotesComponent } from '../../add-notes/add-notes.component';
 import { ConfirmDialogComponent } from '../../../../shared/components/confirm-dialog/confirm-dialog.component';
@@ -19,6 +20,7 @@ import { CommonNotificationService } from "src/app/shared/services/common-notifi
 export class NotesListMobileComponent implements OnInit {
   /* Mobile logic - start */
   @Input() subjectName: any;
+  noteId: any;
   eventText = '';
   noteCurrentIdx;
 
@@ -41,33 +43,49 @@ export class NotesListMobileComponent implements OnInit {
   //selectedSubjects = new FormControl();
   selectedSubjects = new FormControl("algo");
   selectedCate = new FormControl();
-  
+
   uniqueTags: any = [];
   addNoteFlag : boolean = false;
   notes: any = [];
   editNoteData: any;
   randomNote: any;
-  constructor(private datacontextService: DatacontextService, 
+  constructor(private datacontextService: DatacontextService,
     private commonNotificationService: CommonNotificationService,
+    private router: Router,
+    private route: ActivatedRoute,
     public dialog: MatDialog) { }
 
   ngOnInit() {
-   this.datacontextService.notesService.fetchDbData().subscribe((res: any) => {
-    this.getNoteList();
-    this.getSubjects();
-    this.getCategories();
-   });
+    this.route.params.subscribe(params => {
+      // Access the route variable by its name (e.g., 'id')
+      const id = params['id'];
+      const sub = params['subject'];
+      console.log('Route variable "id":', id, sub);
+      if(sub) {
+        this.subjectName = sub;
+        this.selectedSubjects = new FormControl(sub);
+      }
+      if(id) this.noteId = id;
+
+      this.datacontextService.notesService.fetchDbData().subscribe((res: any) => {
+        this.getNoteList();
+        this.getSubjects();
+        this.getCategories();
+      });
+
+    });
   }
 
   onSubjectChange(){
     this.subjectName = this.selectedSubjects.value;
-    this.ngOnInit();
+    this.router.navigate([`/${this.subjectName}`]);
+    //this.ngOnInit();
   }
-  
+
   getNoteList(){
-    this.datacontextService.notesService.getNote(this.subjectName).subscribe((res)=>{
+    this.datacontextService.notesService.getNote(this.subjectName, this.noteId).subscribe((res)=>{
       console.log("getNote ::", res);
-      this.notes = res;
+      this.notes = Array.isArray(res) ? res : [res];
       this.originalData = JSON.parse(JSON.stringify(this.notes));
       this.prepareNoteMap(this.originalData || []);
       this.prepareUniqueTags(this.originalData || []);
@@ -75,7 +93,7 @@ export class NotesListMobileComponent implements OnInit {
       this.noteCurrentIdx = 0;
 
       if(this.isFilterApplied) this.onFilter();
-    }); 
+    });
   }
 
   getSubjects(){
@@ -118,7 +136,7 @@ export class NotesListMobileComponent implements OnInit {
       let diff = note['diff'];
       let cate = note['cate'];
       let sub = note['subject'];
-      
+
       for(let j=0; j< tags.length; j++){
         let tag = tags[j]['name'];
         (map['tag'][tag] && tag in map['tag']) ? map['tag'][tag].push(note) : map['tag'][tag] = [note];
@@ -151,6 +169,15 @@ export class NotesListMobileComponent implements OnInit {
       this.editNoteData = noteData;
       this.addNoteFlag = true;
     }, 200);
+  }
+  copyNoteLink(noteData) {
+    navigator.clipboard.writeText(`${window.location.hostname}/${noteData.subject}/${noteData.id}`)
+      .then(() => {
+        console.log('Text copied to clipboard: ');
+      })
+      .catch((error) => {
+        console.error('Failed to copy text: ', error);
+      });
   }
 
   closeBtnClk(ev){
@@ -195,21 +222,21 @@ export class NotesListMobileComponent implements OnInit {
     const selectedImp = this.selectedImp.value;
     const selectedDiff = this.selectedDiff.value;
     const selectedSort = this.selectedSort.value;
-    
+
 
     let dataCopy = JSON.parse(JSON.stringify(this.originalData));
 
-    /* 
+    /*
       if(selectedSubjects && selectedSubjects.length){
-        // update categories as per subject selected - start 
+        // update categories as per subject selected - start
         this.categories = this.allCategories[selectedSubjects];
-        // update categories as per subject selected - end 
+        // update categories as per subject selected - end
         dataCopy = dataCopy.filter((data)=>{
           if(selectedSubjects.includes(data.subject)){
             return data;
           }
         });
-      } 
+      }
     */
 
     if(selectedCate && selectedCate.length){
@@ -260,15 +287,15 @@ export class NotesListMobileComponent implements OnInit {
       });
     }
 
-    
+
     this.notes = dataCopy;
-  
+
     if(selectedSort){
       let copyNotes = JSON.parse(JSON.stringify(this.notes));
 
       this.notes = copyNotes.sort((a, b)=>{
         return a[selectedSort] - b[selectedSort];
-      });      
+      });
     }
   }
 
@@ -307,7 +334,7 @@ export class NotesListMobileComponent implements OnInit {
       "left": "onSwipeLeft"
     };
     this[eventMethods[this.eventText]]();
-    
+
   }
 
   onSwipeUp(){

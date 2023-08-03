@@ -52,10 +52,10 @@ export class NotesService {
         })
       );
     }
-    
+
   }
 
-  getNote(subject, params?){
+  getNote(subject, noteId, params?){
     console.log("***getNote");
     const getNewData = (__data) => {
       let dataCopy = JSON.parse(JSON.stringify(__data));
@@ -77,10 +77,19 @@ export class NotesService {
         let newData = getNewData(this._data);
         return of(newData);
       } else {
-        return of(this._data[subject]);
+        const notes = this._data[subject];
+        if(noteId){
+          let filteredNotes = notes.filter((note)=>{
+            if(note.id == Number(noteId)) return note;
+          })
+          return of(filteredNotes);
+        } else {
+          return of(notes);
+        }
       }
     } else {
-      const url =  `/${subject == 'all'? 'db' : subject}`;
+      let url =  `/${subject == 'all'? 'db' : subject}`;
+      if (noteId) url = url + "/" + noteId;
       return this.http.get<any>(url, {'params': params}).pipe(
         map((res: Response) => {
           if(subject == "all"){
@@ -95,7 +104,7 @@ export class NotesService {
       );
     }
 
-    
+
   }
 
   createCategory(payload){

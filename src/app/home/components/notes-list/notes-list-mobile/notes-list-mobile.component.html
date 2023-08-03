@@ -31,10 +31,10 @@
     </div>
 
     <div class="filters mt-5" *ngIf="showFilters">
-    
+
 
       <mat-slide-toggle class="mb-3"  style="right: 2em; top: 6em; position: absolute;"  [(ngModel)]="showFilters">Filters</mat-slide-toggle>
-  
+
       <div class="filter cate-filter">
         <mat-form-field appearance="fill">
           <mat-label>Categories</mat-label>
@@ -43,7 +43,7 @@
           </mat-select>
         </mat-form-field>
       </div>
-  
+
       <div class="filter tag-filter">
         <mat-form-field appearance="fill">
           <mat-label>Tags</mat-label>
@@ -52,7 +52,7 @@
           </mat-select>
         </mat-form-field>
       </div>
-  
+
       <div class="filter imp-filter">
         <mat-form-field appearance="fill">
           <mat-label>Importance Level</mat-label>
@@ -61,7 +61,7 @@
           </mat-select>
         </mat-form-field>
       </div>
-  
+
       <div class="filter diff-filter">
         <mat-form-field appearance="fill">
           <mat-label>Difficulty Level</mat-label>
@@ -70,7 +70,7 @@
           </mat-select>
         </mat-form-field>
       </div>
-  
+
       <div class="filter sorting " >
         <mat-form-field appearance="fill">
           <mat-label>Sort By</mat-label>
@@ -80,7 +80,7 @@
           </mat-select>
         </mat-form-field>
       </div>
-  
+
     </div>
 
     <div class="note-content" style="margin-top: 3em" *ngIf="!showFilters">
@@ -97,29 +97,39 @@
         </mat-chip-list>
       </div>
 
+      <i
+          class="material-icons cursor-pointer mr-3"
+          (click)="copyNoteLink(notes[noteCurrentIdx])"
+          matTooltip="Copy Note"
+          >content_copy</i>
+
+          <span class="note-id-link" style="margin-right: 1em;">
+            <a href="/{{notes[noteCurrentIdx].subject}}/{{ notes[noteCurrentIdx].id }}" target="_blank" style="color: crimson;">/{{notes[noteCurrentIdx].subject}}/{{ notes[noteCurrentIdx].id }}</a>
+          </span>
+
       <div class="links mt-2">
         <div class="mt-1 mr-4" style="display: inline-block;" *ngFor="let link of notes[noteCurrentIdx].links; index as i">
           <a href="{{ link.name }}" target="_blank" title="{{ link.name }}">Link {{ i+ 1 }}</a>
         </div>
       </div>
-    
+
       <div class="note-ques mt-1">
           <span class="sn">{{noteCurrentIdx + 1}}. </span>
           <span class="title" *ngIf="notes[noteCurrentIdx]['title']">{{ notes[noteCurrentIdx]["title"] }} : </span>
           <span class="ques">{{ notes[noteCurrentIdx]["ques"] }}</span>
-          
+
       </div>
 
 
       <div class="note-ans mt-3" *ngIf="notes[noteCurrentIdx].ans">
-        
+
         <!-- <div
           *ngIf="!notes[noteCurrentIdx].classicTheme && !isclassicTheme"
           ace-editor
           [(text)]="notes[noteCurrentIdx].ans"
           [mode]="'javascript'"
           [options]="options"
-          [readOnly]="true" 
+          [readOnly]="true"
           [autoUpdateContent]="true"
           [durationBeforeCallback]="1000"
           (textChanged)="onChange($event)"
@@ -136,9 +146,9 @@
 
       </div>
 
-      
+
 
     </div>
-    
+
   </mat-card>
 </div>

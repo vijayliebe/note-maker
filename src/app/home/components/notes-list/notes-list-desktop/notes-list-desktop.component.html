@@ -106,6 +106,17 @@
 
       >
         <div class="note-action-btns">
+
+          <i
+          class="material-icons cursor-pointer mr-3"
+          (click)="copyNoteLink(note)"
+          matTooltip="Copy Note"
+          >content_copy</i>
+
+          <span class="note-id-link" style="margin-right: 1em;">
+            <a href="/{{note.subject}}/{{ note.id }}" target="_blank" style="color: crimson;">/{{note.subject}}/{{ note.id }}</a>
+          </span>
+
           <mat-slide-toggle *ngIf="note.ans" class="mr-3"  style="vertical-align: top;" (change)="onClassicThemeChange($event, i)">Classic</mat-slide-toggle>
 
           <i
@@ -114,6 +125,7 @@
             matTooltip="Edit Note"
             >edit</i
           >
+
           <i
             class="material-icons cursor-pointer"
             (click)="dltNote(note.id)"
@@ -137,27 +149,27 @@
           <div class="mb-1" *ngFor="let link of note.links; index as i">
             <a href="{{ link.name }}" target="_blank" title="{{ link.name }}">Link {{ i+ 1 }}</a>
           </div>
-          
+
         </div>
 
         <div class="col-10">
           <div class="col-12 mb-4">
-            <span class="text-bold">{{ i + 1 }}. </span> 
-            <span class="text-bold" *ngIf="note.title">{{note.title}} : </span> 
+            <span class="text-bold">{{ i + 1 }}. </span>
+            <span class="text-bold" *ngIf="note.title">{{note.title}} : </span>
             {{ note.ques }}
           </div>
 
           <div class="col-12 mb-4" *ngIf="note.ans">
             <!-- <span class="text-bold">Ans. </span> -->
             <!-- [theme]="'eclipse'" -->
-            
+
             <div
               *ngIf="!note.classicTheme && !isclassicTheme"
               ace-editor
               [(text)]="note.ans"
               [mode]="'javascript'"
               [options]="options"
-              [readOnly]="true" 
+              [readOnly]="true"
               [autoUpdateContent]="true"
               [durationBeforeCallback]="1000"
               (textChanged)="onChange($event)"
@@ -178,7 +190,7 @@
             <!-- <div class="info note-tag" *ngFor="let tag of note.tags">{{ tag.name }}</div> -->
 
           </div>
-          
+
           <!-- <div class="info note-cate" *ngIf="note.cate && !note.ans" style="margin-top: 1em !important; margin: inherit;">{{ displayCate(note.cate) }}</div> -->
 
           <div class="col-12 mt-4" *ngIf="!note.ans">
