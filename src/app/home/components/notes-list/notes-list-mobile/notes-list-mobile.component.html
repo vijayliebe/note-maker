@@ -15,7 +15,7 @@
     <div class="heading">
       <mat-form-field
         appearance="fill"
-        style="top: 0; position: fixed; left: 0; width: 100vw;"
+        style="top: 0; position: fixed; left: 0; width: 70vw;"
       >
         <mat-label>Subjects</mat-label>
         <mat-select [formControl]="selectedSubjects">
@@ -28,6 +28,16 @@
           >
         </mat-select>
       </mat-form-field>
+
+      <button
+        class=""
+        style="top: 0; position: fixed; right: 0; width: 30vw; height: 9.2vh; background: #26be1f; border: none;"
+        color="primary"
+        (click)="getRandomNote()"
+      >
+        RANDOM
+      </button>
+
     </div>
 
     <div class="filters mt-5" *ngIf="showFilters">
@@ -91,21 +101,23 @@
         <div class="info diff-level ml-2">{{ notes[noteCurrentIdx].diff }}</div>
       </div>
 
+      <div>
+        <i
+        class="material-icons cursor-pointer ml-4 mr-3 mt-2"
+        (click)="copyNoteLink(notes[noteCurrentIdx])"
+        matTooltip="Copy Note"
+        >content_copy</i>
+
+        <span class="note-id-link" style="margin-right: 1em;">
+          <a href="/{{notes[noteCurrentIdx].subject}}/{{ notes[noteCurrentIdx].id }}" target="_blank" style="color: crimson;">/{{notes[noteCurrentIdx].subject}}/{{ notes[noteCurrentIdx].id }}</a>
+        </span>
+      </div>
+
       <div class="mt-2">
         <mat-chip-list>
           <mat-chip color="primary" selected *ngFor="let tag of notes[noteCurrentIdx].tags">{{ tag.name }}</mat-chip>
         </mat-chip-list>
       </div>
-
-      <i
-          class="material-icons cursor-pointer mr-3"
-          (click)="copyNoteLink(notes[noteCurrentIdx])"
-          matTooltip="Copy Note"
-          >content_copy</i>
-
-          <span class="note-id-link" style="margin-right: 1em;">
-            <a href="/{{notes[noteCurrentIdx].subject}}/{{ notes[noteCurrentIdx].id }}" target="_blank" style="color: crimson;">/{{notes[noteCurrentIdx].subject}}/{{ notes[noteCurrentIdx].id }}</a>
-          </span>
 
       <div class="links mt-2">
         <div class="mt-1 mr-4" style="display: inline-block;" *ngFor="let link of notes[noteCurrentIdx].links; index as i">
@@ -140,7 +152,7 @@
           <code>{{notes[noteCurrentIdx].ans}}</code>
         </pre> -->
 
-        <pre class="brush: js notranslate" style="height: 30em;">
+        <pre class="brush: js notranslate" style="height: 63vh;">
           <code style="white-space: pre-wrap;">{{notes[noteCurrentIdx].ans}}</code>
         </pre>
 
