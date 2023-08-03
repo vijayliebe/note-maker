@@ -25,7 +25,7 @@
             "assets": [
               "src/favicon.ico",
               "src/assets",
-              "_redirects",
+              { "glob": "_redirects", "input": "src", "output": "/" },
               { "glob": "worker-json.js", "input": "./node_modules/ace-builds/src-min/", "output": "/" }
             ],
             "styles": [
