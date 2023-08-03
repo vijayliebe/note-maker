@@ -171,7 +171,7 @@ export class NotesListMobileComponent implements OnInit {
     }, 200);
   }
   copyNoteLink(noteData) {
-    (navigator as any).clipboard.writeText(`${window.location.protocol}://${window.location.hostname}/${noteData.subject}/${noteData.id}`)
+    (navigator as any).clipboard.writeText(`${window.location.protocol}//${window.location.hostname}/${noteData.subject}/${noteData.id}`)
       .then(() => {
         console.log('Text copied to clipboard: ');
       })
