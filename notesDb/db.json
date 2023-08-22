@@ -1849,6 +1849,9 @@
         },
         {
           "name": "https://stackblitz.com/edit/js-justrw?file=index.js"
+        },
+        {
+          "name": "https://stackblitz.com/edit/stackblitz-starters-i9judn"
         }
       ],
       "tags": [
@@ -2020,6 +2023,9 @@
       "links": [
         {
           "name": "https://medium.com/javascript-scene/master-the-javascript-interview-what-is-functional-programming-7f218c68b3a0"
+        },
+        {
+          "name": "https://www.dropbox.com/scl/fi/j9xepv67cqnn4aup30ek9/Master-the-JavaScript-Interview-What-is-Functional-Programming-by-Eric-Elliott-JavaScript-Scene-Medium.pdf?rlkey=n5tkosre3kja1wuuceclf5fi8&dl=0"
         }
       ],
       "tags": [
@@ -2969,6 +2975,32 @@
       "imp": 1,
       "cate": "",
       "id": 27
+    },
+    {
+      "subject": "react",
+      "title": "React Performance",
+      "ques": "",
+      "links": [
+        {
+          "name": "https://www.dropbox.com/scl/fi/cdw5h5l2zybipq6zgqhlp/8-Performance-Optimization-Techniques-You-Should-Know-in-React-by-a-layan-Yan-ko-lu-Jotform-Tech.pdf?rlkey=zegymcnrve7ispszmc333kcgc&dl=0"
+        },
+        {
+          "name": "https://www.dropbox.com/scl/fi/eqlx5ekt0gislvqcfxzf8/The-Key-to-Performance-Replacing-useEffect-with-Key-Changes-in-React-No-Seriously-by-Harry-Bloch-Medium.pdf?rlkey=jf1vi1zbsg9ukj2jefdm15pku&dl=0"
+        },
+        {
+          "name": "https://www.dropbox.com/scl/fi/1wh4ehx7cut31hxjnf9k0/Use-Infinite-Scroll-in-React-Like-a-Pro-by-a-layan-Yan-ko-lu-Jotform-Tech.pdf?rlkey=ia7d9m3zexketdrq6qcxrk5u4&dl=0"
+        }
+      ],
+      "tags": [
+        {
+          "name": "medium.com"
+        }
+      ],
+      "ans": "",
+      "diff": 1,
+      "imp": 1,
+      "cate": "",
+      "id": 28
     }
   ],
   "redux": [],
@@ -3810,7 +3842,17 @@
       "subject": "node",
       "title": "why use ORM in nodejs? explain with code example",
       "ques": "",
-      "links": [],
+      "links": [
+        {
+          "name": "https://www.youtube.com/watch?v=Crk_5Xy8GMA&list=WL&index=15"
+        },
+        {
+          "name": "https://www.youtube.com/watch?v=bQA8GO_pJPo"
+        },
+        {
+          "name": "https://www.youtube.com/watch?v=eY7MttZ0gPU"
+        }
+      ],
       "tags": [],
       "ans": "ORM (Object-Relational Mapping) in Node.js is a technique that allows developers to interact with a relational database using an object-oriented approach. It provides a higher-level abstraction over database operations, making it easier to perform CRUD (Create, Read, Update, Delete) operations and manage database relationships.\n\nThere are several advantages to using ORM in Node.js:\n\n1. Simplified Database Interactions: ORM simplifies the process of interacting with databases by abstracting away low-level SQL queries. Instead, developers can use JavaScript code and ORM methods to perform database operations.\n\n2. Database Portability: ORM allows you to switch between different database systems (such as MySQL, PostgreSQL, SQLite) without having to change your code significantly. This portability enables flexibility and reduces the dependency on a specific database.\n\n3. Object-Oriented Approach: ORM maps database tables to JavaScript objects, allowing developers to work with data in a more familiar and intuitive way. This abstraction improves code readability and maintainability.\n\n4. Query Building and Optimization: ORM frameworks provide query builders that simplify the construction of complex SQL queries. These query builders offer methods to compose queries programmatically, helping developers avoid manual string concatenation and SQL injection vulnerabilities. Additionally, ORM frameworks often optimize the queries they generate for better performance.\n\nHere's an example using the popular ORM framework Sequelize in Node.js:\n\n```javascript\nconst { Sequelize, DataTypes } = require('sequelize');\n\n// Connect to the database\nconst sequelize = new Sequelize('database', 'username', 'password', {\n  host: 'localhost',\n  dialect: 'mysql',\n});\n\n// Define a model\nconst User = sequelize.define('User', {\n  firstName: {\n    type: DataTypes.STRING,\n    allowNull: false,\n  },\n  lastName: {\n    type: DataTypes.STRING,\n    allowNull: false,\n  },\n  email: {\n    type: DataTypes.STRING,\n    allowNull: false,\n    unique: true,\n    validate: {\n      isEmail: true,\n    },\n  },\n});\n\n// Create a new user\nasync function createUser(firstName, lastName, email) {\n  try {\n    const user = await User.create({ firstName, lastName, email });\n    console.log('User created:', user.toJSON());\n  } catch (error) {\n    console.error('Error creating user:', error);\n  }\n}\n\n// Query users\nasync function getUsers() {\n  try {\n    const users = await User.findAll();\n    console.log('Users:', users.map(user => user.toJSON()));\n  } catch (error) {\n    console.error('Error querying users:', error);\n  }\n}\n\n// Update a user\nasync function updateUser(id, firstName) {\n  try {\n    const user = await User.findByPk(id);\n    if (user) {\n      user.firstName = firstName;\n      await user.save();\n      console.log('User updated:', user.toJSON());\n    } else {\n      console.log('User not found.');\n    }\n  } catch (error) {\n    console.error('Error updating user:', error);\n  }\n}\n\n// Delete a user\nasync function deleteUser(id) {\n  try {\n    const user = await User.findByPk(id);\n    if (user) {\n      await user.destroy();\n      console.log('User deleted.');\n    } else {\n      console.log('User not found.');\n    }\n  } catch (error) {\n    console.error('Error deleting user:', error);\n  }\n}\n\n// Usage\ncreateUser('John', 'Doe', 'john.doe@example.com');\ngetUsers();\nupdateUser(1, 'Jane');\ndeleteUser(1);\n```\n\nIn the above example, Sequelize is used to define a User model and perform CRUD operations. The ORM abstracts away the SQL queries, allowing developers to focus on working with JavaScript objects. This results in cleaner and more maintainable code.\n\nOverall, using ORM in Node.js simplifies database interactions, enhances code readability, improves portability, and provides query optimization, making it a valuable tool for developers working with relational databases.",
       "diff": 1,
@@ -3848,7 +3890,7 @@
       "ques": "",
       "links": [],
       "tags": [],
-      "ans": "Sequelize is a popular Object-Relational Mapping (ORM) library for Node.js that provides several benefits compared to other ORM options. Here are some key advantages of using Sequelize:\n\n1. Wide Database Support: Sequelize supports multiple databases, including PostgreSQL, MySQL, SQLite, and MSSQL. This flexibility allows you to work with different database systems without significant code changes, making it suitable for projects that require database portability or migration.\n\n2. Comprehensive Feature Set: Sequelize offers a comprehensive set of features for managing database interactions. It provides support for data modeling, schema migrations, data validation, query building, associations between models, transactions, and more. This feature-rich nature of Sequelize simplifies many common database-related tasks and reduces the need for writing low-level SQL queries.\n\n3. Object-Oriented Approach: Sequelize maps database tables to JavaScript objects, enabling developers to work with data using familiar object-oriented paradigms. This abstraction improves code readability and maintainability, as developers can interact with data using methods and properties rather than dealing with raw SQL statements.\n\n4. Query Building and Optimization: Sequelize provides a query builder that simplifies the construction of complex SQL queries. The query builder offers a fluent API for composing queries programmatically, which reduces the risk of SQL injection vulnerabilities and improves code robustness. Additionally, Sequelize optimizes the generated queries to improve performance by minimizing redundant database operations.\n\n5. Middleware and Hooks: Sequelize allows you to define middleware functions and hooks at various stages of the database interaction lifecycle. This feature enables you to execute custom logic before or after certain database operations, such as data validation, encryption, or logging. Middleware and hooks enhance the extensibility and customization capabilities of Sequelize.\n\n6. Active Community and Documentation: Sequelize has a vibrant community with active development and maintenance. It is widely adopted and well-documented, providing extensive resources, tutorials, and examples. The active community ensures regular updates, bug fixes, and feature enhancements, making Sequelize a reliable choice for long-term projects.\n\nWhile Sequelize offers many advantages, it's essential to consider the specific requirements of your project and evaluate alternative ORM libraries based on factors like performance, compatibility with specific databases, and community support. Some other popular ORM options in the Node.js ecosystem include TypeORM, Bookshelf.js, and Knex.js.",
+      "ans": "Sequelize is a popular Object-Relational Mapping (ORM) library for Node.js that provides several benefits compared to other ORM options. Here are some key advantages of using Sequelize:\n\n1. Wide Database Support: Sequelize supports multiple databases, including PostgreSQL, MySQL, SQLite, and MSSQL. This flexibility allows you to work with different database systems without significant code changes, making it suitable for projects that require database portability or migration.\n\n2. Comprehensive Feature Set: Sequelize offers a comprehensive set of features for managing database interactions. It provides support for data modeling, schema migrations, data validation, query building, associations between models, transactions, and more. This feature-rich nature of Sequelize simplifies many common database-related tasks and reduces the need for writing low-level SQL queries.\n\n3. Object-Oriented Approach: Sequelize maps database tables to JavaScript objects, enabling developers to work with data using familiar object-oriented paradigms. This abstraction improves code readability and maintainability, as developers can interact with data using methods and properties rather than dealing with raw SQL statements.\n\n4. Query Building and Optimization: Sequelize provides a query builder that simplifies the construction of complex SQL queries. The query builder offers a fluent API for composing queries programmatically, which reduces the risk of SQL injection vulnerabilities and improves code robustness. Additionally, Sequelize optimizes the generated queries to improve performance by minimizing redundant database operations.\n\n5. Middleware and Hooks: Sequelize allows you to define middleware functions and hooks at various stages of the database interaction lifecycle. This feature enables you to execute custom logic before or after certain database operations, such as data validation, encryption, or logging. Middleware and hooks enhance the extensibility and customization capabilities of Sequelize.\n\n6. Active Community and Documentation: Sequelize has a vibrant community with active development and maintenance. It is widely adopted and well-documented, providing extensive resources, tutorials, and examples. The active community ensures regular updates, bug fixes, and feature enhancements, making Sequelize a reliable choice for long-term projects.\n\nWhile Sequelize offers many advantages, it's essential to consider the specific requirements of your project and evaluate alternative ORM libraries based on factors like performance, compatibility with specific databases, and community support. Some other popular ORM options in the Node.js ecosystem include TypeORM, Bookshelf.js, and Knex.js.\n\n\n\n\n==========>\n\n\nIn Sequelize, you can create migrations for all models using the Sequelize CLI (`sequelize-cli`). The CLI provides a convenient way to generate migration files for each model you have defined in your application. Here's how you can create migrations for all models:\n\n1. **Install Sequelize CLI:**\n   Make sure you have Sequelize CLI installed globally in your project. If not, you can install it using the following command:\n\n   ```bash\n   npm install -g sequelize-cli\n   ```\n\n2. **Generate Migrations for Models:**\n   You can use the Sequelize CLI to automatically generate migration files for all models. The `model:generate` command generates migration files for all models defined in your application.\n\n   ```bash\n   sequelize-cli model:generate --name user --attributes firstName:string,lastName:string,email:string\n   sequelize-cli model:generate --name post --attributes title:string,content:text\n   # Add more model:generate commands for each of your models\n   ```\n\n   Replace `user` and `post` with the names of your models, and specify the attributes for each model.\n\n3. **Edit Generated Migration Files:**\n   After generating the migration files, navigate to the `migrations` folder in your project directory. You will find individual migration files for each model you specified in the previous step.\n\n   Open each migration file and review the generated code. The generated migration files contain the `up` and `down` functions that define the changes to be made to the database schema. You might need to customize these functions based on your specific requirements.\n\n4. **Run Migrations:**\n   Once you have reviewed and customized the migration files as needed, you can run the migrations to apply the changes to the database:\n\n   ```bash\n   sequelize-cli db:migrate\n   ```\n\n   This command will execute all pending migrations in the order they were created.\n\nRemember that automating the generation of migration files is helpful, but it's important to review and customize the generated migration files to ensure they accurately reflect the changes you want to make to your database schema. Additionally, always make sure to create backups of your database before running migrations, especially in production environments.\n\n\n\n\n",
       "diff": 1,
       "imp": 1,
       "cate": "",
