@@ -23,89 +23,109 @@
       "key": "es6"
     },
     {
-      "id": 16,
+      "id": 4,
       "name": "Nodejs",
       "key": "node"
     },
     {
-      "id": 4,
+      "id": 5,
       "name": "Typescript",
       "key": "ts"
     },
     {
-      "id": 5,
+      "id": 6,
       "name": "HTML",
       "key": "html"
     },
     {
-      "id": 6,
+      "id": 7,
       "name": "CSS",
       "key": "css"
     },
     {
-      "id": 7,
+      "id": 8,
       "name": "Angular",
       "key": "ng"
     },
     {
-      "id": 8,
+      "id": 9,
       "name": "React",
       "key": "react"
     },
     {
-      "id": 9,
+      "id": 10,
       "name": "Redux",
       "key": "redux"
     },
     {
-      "id": 10,
+      "id": 11,
       "name": "Performance",
       "key": "performance"
     },
     {
-      "id": 11,
+      "id": 12,
       "name": "System Design",
       "key": "sd"
     },
     {
-      "id": 12,
+      "id": 13,
       "name": "Shell Scripting",
       "key": "shell"
     },
     {
-      "id": 13,
+      "id": 14,
       "name": "GIT",
       "key": "git"
     },
     {
-      "id": 14,
+      "id": 15,
       "name": "Python",
       "key": "py"
     },
     {
-      "id": 13,
+      "id": 16,
       "name": "Java",
       "key": "java"
     },
     {
-      "id": 15,
+      "id": 17,
       "name": "Others",
       "key": "oth"
     },
     {
-      "id": 17,
+      "id": 18,
       "name": "English",
       "key": "eng"
     },
     {
-      "id": 18,
+      "id": 19,
       "name": "Puzzles",
       "key": "puz"
     },
     {
-      "id": 18,
+      "id": 20,
       "name": "Managerial",
       "key": "man"
+    },
+    {
+      "id": 21,
+      "name": "Networking",
+      "key": "networking"
+    },
+    {
+      "id": 22,
+      "name": "Data Science",
+      "key": "ds"
+    },
+    {
+      "id": 23,
+      "name": "Statistics",
+      "key": "stat"
+    },
+    {
+      "id": 24,
+      "name": "Probability",
+      "key": "prob"
     }
   ],
   "categories": [
@@ -2629,6 +2649,22 @@
       "imp": 1,
       "cate": "",
       "id": 1
+    },
+    {
+      "subject": "ng",
+      "title": "what is dependency injection in Angular, what are benefits of it. And How can we achieve the same in reactjs?",
+      "ques": "",
+      "links": [
+        {
+          "name": "https://chat.openai.com/c/fded0484-12c8-4f59-acb9-252afd4bf137"
+        }
+      ],
+      "tags": [],
+      "ans": "Dependency injection (DI) is a design pattern commonly used in software development to manage the dependencies of an application. In the context of Angular, which is a popular JavaScript framework for building web applications, dependency injection is a core concept.\n\n**Dependency Injection in Angular:**\n\nIn Angular, dependency injection is a mechanism that allows you to provide the dependent services or objects that a class or component needs rather than having the class create them itself. This separation of concerns makes code more modular, testable, and maintainable. Here's how it works:\n\n1. **Service Providers**: In Angular, you define services that encapsulate specific functionality. These services are essentially classes that provide some functionality or data.\n\n2. **Dependency Injection Container**: Angular has a built-in dependency injection container that manages the instantiation and sharing of these services.\n\n3. **Injection**: When a component or another service needs to use a particular service, it specifies its dependency in the constructor. Angular's dependency injection container then provides an instance of the required service to the component or service.\n\n**Benefits of Dependency Injection in Angular:**\n\n1. **Modularity**: It promotes modularity by allowing you to separate concerns and manage dependencies independently.\n\n2. **Testability**: Code that relies on dependency injection is easier to test because you can provide mock or fake implementations of services during testing.\n\n3. **Reusability**: Services can be reused across different components or services, reducing code duplication.\n\n4. **Maintainability**: Changes to a service's implementation can be done without affecting the components that depend on it.\n\n5. **Flexibility**: It makes it easier to switch out implementations or dependencies without affecting the consuming code.\n\n**Dependency Injection in React:**\n\nReact is a different JavaScript library than Angular, and it does not have a built-in dependency injection system like Angular does. However, you can achieve similar benefits in React by following some best practices:\n\n1. **Props**: In React, you can pass data and functions down the component tree via props. This is similar to dependency injection because you're providing dependencies to child components.\n\n2. **Context API**: React provides a Context API that allows you to share data and functions across components without explicitly passing them through props.\n\n3. **Third-Party Libraries**: You can also use third-party libraries like Redux or Mobx to manage the state and dependencies of your React application. These libraries provide a way to centralize and inject dependencies.\n\n4. **Custom Dependency Injection**: You can implement your own dependency injection mechanism in React by creating a custom context or using a third-party library designed for dependency injection.\n\nWhile React doesn't have dependency injection built in, you can achieve many of the same benefits by following best practices and using appropriate libraries and patterns to manage dependencies and state in your application.",
+      "diff": 1,
+      "imp": 1,
+      "cate": "",
+      "id": 2
     }
   ],
   "react": [
@@ -3025,6 +3061,18 @@
       "imp": 1,
       "cate": "",
       "id": 29
+    },
+    {
+      "subject": "react",
+      "title": "Explain each and every reason and aspects to choose between Reactjs and Angular. Explain in detail with proper code examples",
+      "ques": "",
+      "links": [],
+      "tags": [],
+      "ans": "Choosing between React.js and Angular depends on various factors, including project requirements, team expertise, and personal preferences. Below, I'll provide a detailed comparison of both, highlighting reasons and aspects to consider when making a decision.\n\n**1. Learning Curve:**\n\n- **React:** React has a relatively lower learning curve compared to Angular. It's easier for developers familiar with JavaScript and HTML to get started quickly.\n\n```jsx\n// React Example\nimport React from 'react';\n\nfunction MyComponent() {\n  return <div>Hello, React!</div>;\n}\n```\n\n- **Angular:** Angular has a steeper learning curve, as it relies heavily on TypeScript and introduces concepts like decorators and modules.\n\n```typescript\n// Angular Example\nimport { Component } from '@angular/core';\n\n@Component({\n  selector: 'app-my-component',\n  template: '<div>Hello, Angular!</div>',\n})\nexport class MyComponent {}\n```\n\n**2. Architecture:**\n\n- **React:** React is a library for building user interfaces. It focuses on the \"View\" part of the application. Developers have the flexibility to choose other libraries and tools (e.g., Redux for state management).\n\n```jsx\n// React with Redux for state management\nimport React from 'react';\nimport { connect } from 'react-redux';\n\nfunction MyComponent(props) {\n  return <div>{props.message}</div>;\n}\n\nconst mapStateToProps = (state) => ({\n  message: state.message,\n});\n\nexport default connect(mapStateToProps)(MyComponent);\n```\n\n- **Angular:** Angular is a full-fledged framework that provides a more opinionated architecture. It includes modules, components, services, and a powerful dependency injection system.\n\n```typescript\n// Angular Example with Dependency Injection\nimport { Component } from '@angular/core';\nimport { MyService } from './my.service';\n\n@Component({\n  selector: 'app-my-component',\n  template: '<div>{{ message }}</div>',\n})\nexport class MyComponent {\n  message: string;\n\n  constructor(private myService: MyService) {\n    this.message = myService.getMessage();\n  }\n}\n```\n\n**3. State Management:**\n\n- **React:** React leaves state management up to developers. You can use React's built-in state management or opt for external libraries like Redux, Mobx, or Recoil.\n\n```jsx\n// React Example with React's useState\nimport React, { useState } from 'react';\n\nfunction MyComponent() {\n  const [message, setMessage] = useState('Hello, React!');\n  return <div>{message}</div>;\n}\n```\n\n- **Angular:** Angular provides services and RxJS for state management, which allows you to manage application-wide state more easily.\n\n```typescript\n// Angular Example with RxJS\nimport { Component } from '@angular/core';\nimport { MyService } from './my.service';\n\n@Component({\n  selector: 'app-my-component',\n  template: '<div>{{ message }}</div>',\n})\nexport class MyComponent {\n  message: string;\n\n  constructor(private myService: MyService) {\n    this.myService.getMessage().subscribe((message) => {\n      this.message = message;\n    });\n  }\n}\n```\n\n**4. Community and Ecosystem:**\n\n- **React:** React has a large and active community, resulting in a vast ecosystem of libraries and tools, making it easier to find solutions and resources.\n\n- **Angular:** Angular also has a strong community, and it provides a more opinionated ecosystem with many official libraries and tools developed by Google.\n\n**5. Performance:**\n\n- **React:** React is known for its performance optimization through features like the Virtual DOM, which reduces the number of DOM manipulations.\n\n- **Angular:** Angular's change detection system and Ahead-of-Time (AOT) compilation can also lead to good performance. However, it may have a steeper learning curve when optimizing for performance.\n\n**6. Tooling:**\n\n- **React:** React has a simpler tooling setup, often relying on Create React App or other boilerplate projects for quick setup.\n\n- **Angular:** Angular offers its CLI (Command Line Interface), providing an extensive set of tools for generating code, running tests, and building projects.\n\n**7. Use Cases:**\n\n- **React:** React is versatile and suitable for a wide range of applications, from single-page applications (SPAs) to mobile app development (React Native).\n\n- **Angular:** Angular is well-suited for enterprise-level applications, large-scale projects, and projects that require strict adherence to architectural guidelines.\n\nUltimately, the choice between React and Angular depends on your project's requirements, your team's expertise, and your personal preferences. Both have their strengths and weaknesses, and there is no one-size-fits-all answer. It's essential to evaluate your specific needs and constraints when making a decision.",
+      "diff": 1,
+      "imp": 1,
+      "cate": "",
+      "id": 30
     }
   ],
   "redux": [],
@@ -4196,5 +4244,45 @@
     }
   ],
   "puz": [],
-  "man": []
+  "man": [],
+  "networking": [
+    {
+      "subject": "networking",
+      "title": "OSI Model",
+      "ques": "",
+      "links": [
+        {
+          "name": "https://www.youtube.com/watch?v=vv4y_uOneC0"
+        }
+      ],
+      "tags": [],
+      "ans": "The OSI (Open Systems Interconnection) model is a conceptual framework used to understand and describe how different parts of a computer network communicate with each other. It breaks down network communication into seven distinct layers, each responsible for specific tasks. Let's explore these layers with simple real-life examples:\n\n1. **Physical Layer (Layer 1):**\n   - **Description:** The Physical Layer deals with the physical connections and transmission of raw data bits over a physical medium, such as cables or wireless signals.\n   - **Real-Life Example:** Think of this as the electrical wiring in your house. It ensures that electricity can flow from one place to another reliably and without interference.\n\n2. **Data Link Layer (Layer 2):**\n   - **Description:** The Data Link Layer manages the flow of data frames between devices on the same network. It provides error detection and correction.\n   - **Real-Life Example:** Imagine sending a letter through the postal service. The Data Link Layer is like the postal service, ensuring that your letter is correctly addressed, packaged, and sent without errors.\n\n3. **Network Layer (Layer 3):**\n   - **Description:** The Network Layer is responsible for routing data between different networks, such as the internet. It uses logical addresses (like IP addresses) to make decisions about where data should go.\n   - **Real-Life Example:** When you send a package via a courier service, the Network Layer is like the courier company's routing system, deciding which route to take to deliver your package to its destination.\n\n4. **Transport Layer (Layer 4):**\n   - **Description:** The Transport Layer ensures end-to-end communication, reliability, and data segmentation. It manages data flow between two devices and handles error recovery.\n   - **Real-Life Example:** Think of this as a conversation over the phone. The Transport Layer makes sure that both parties can talk to each other, and if a word is not understood, it asks for clarification.\n\n5. **Session Layer (Layer 5):**\n   - **Description:** The Session Layer manages and establishes sessions or connections between devices. It controls the flow of data, manages sessions, and handles synchronization.\n   - **Real-Life Example:** In a video call, the Session Layer is like the software that establishes the call, maintains it, and ensures that both participants are in sync.\n\n6. **Presentation Layer (Layer 6):**\n   - **Description:** The Presentation Layer deals with data translation, encryption, and compression. It ensures that data sent by one device can be understood by another.\n   - **Real-Life Example:** When you send an email with an attachment, the Presentation Layer is responsible for encoding the attachment in a way that the recipient's email client can decode and display.\n\n7. **Application Layer (Layer 7):**\n   - **Description:** The Application Layer is where users interact with network services and applications. It provides an interface for software to access network services.\n   - **Real-Life Example:** The Application Layer is like the various applications and programs on your computer or smartphone, such as web browsers, email clients, or social media apps.\n\nIn summary, the OSI model provides a structured way to understand how information flows through a network, from the physical cables and hardware to the software applications we use every day. Each layer has a specific role, just like different components of a real-life communication system work together to ensure that messages are delivered accurately and reliably.",
+      "diff": 1,
+      "imp": 1,
+      "cate": "",
+      "id": 1
+    },
+    {
+      "subject": "networking",
+      "title": "Devnet Sessions and docs",
+      "ques": "",
+      "links": [
+        {
+          "name": "https://drive.google.com/drive/folders/1zxj7endkENvDKK_dE-XbCW55eJpimOLm?usp=sharing_eip&ts=5f09db80"
+        },
+        {
+          "name": "https://docs.google.com/document/d/1bsYarTjWPQDJUS7rNa1R5ep2mY8MSUl7/edit?usp=sharing&ouid=107951970104877310273&rtpof=true&sd=true"
+        }
+      ],
+      "tags": [],
+      "ans": "",
+      "diff": 1,
+      "imp": 1,
+      "cate": "",
+      "id": 2
+    }
+  ],
+  "ds": [],
+  "stat": [],
+  "prob": []
 }
