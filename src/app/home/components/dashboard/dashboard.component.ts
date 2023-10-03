@@ -15,12 +15,11 @@ export class DashboardComponent implements OnInit {
 
   ngOnInit() {
     this.appNames = Object.keys(this.apps);
-
     // this.datacontextService.userManagement.getUsers()
     //   .subscribe((data: any) => {
     //     if (!data.is_error) {
     //     }
-    //   });  
+    //   });
   }
 
 }
