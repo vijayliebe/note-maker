@@ -164,7 +164,9 @@ export class NotesListDesktopComponent implements OnInit {
   }
 
   copyNoteLink(noteData) {
-    (navigator as any).clipboard.writeText(`${window.location.protocol}//${window.location.hostname}/${noteData.subject}/${noteData.id}`)
+    const netfyUrl = "https://angry-cray-8dfb24.netlify.app";
+    //(navigator as any).clipboard.writeText(`${window.location.protocol}//${window.location.hostname}/${noteData.subject}/${noteData.id}`)
+    (navigator as any).clipboard.writeText(`${netfyUrl}/${noteData.subject}/${noteData.id}`)
       .then(() => {
         console.log('Text copied to clipboard: ');
       })
