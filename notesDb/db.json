@@ -331,7 +331,7 @@
           "name": "ideserve"
         }
       ],
-      "ans": "\nconst firstNonRepeat = (str) => {\n   let strMap = {};\n   for(let i = 0; i < str.length; i++){\n       let char = str[i];\n       if(char in strMap){\n           delete strMap[char];\n       } else {\n           strMap[char] = 1;\n       }\n   }\n   return Object.keys(strMap)[0];\n }\n \n const st = \"ADBCGHIEFKJLADTVDERFSWVGHQWCNOPENSMSJWIERTFB\";\n \n console.log(firstNonRepeat(st));",
+      "ans": "\nconst firstNonRepeat = (str) => {\n   let strMap = {};\n   for(let i = 0; i < str.length; i++){\n       let char = str[i];\n       if(char in strMap){\n           delete strMap[char];\n       } else {\n           strMap[char] = 1;\n       }\n   }\n   return Object.keys(strMap)[0];\n }\n \n const st = \"ADBCGHIEFKJLADTVDERFSWVGHQWCNOPENSMSJWIERTFB\";\n \n console.log(firstNonRepeat(st));\n ",
       "diff": 2,
       "imp": 2,
       "cate": [
