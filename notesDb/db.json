@@ -2567,6 +2567,18 @@
       "imp": 1,
       "cate": "",
       "id": 35
+    },
+    {
+      "subject": "js",
+      "title": "Explain left shift operator",
+      "ques": "",
+      "links": [],
+      "tags": [],
+      "ans": "hash << 5: This is a bitwise left shift operation. \nIt shifts the bits in hash 5 positions to the left, \nwhich is equivalent to multiplying hash by 2^5 (or 32). \n\nThis operation aims to mix the bits of the hash value to \nensure a good distribution of hash values for different \nstrings.",
+      "diff": 1,
+      "imp": 1,
+      "cate": "",
+      "id": 36
     }
   ],
   "es6": [
@@ -3711,6 +3723,30 @@
       "imp": 1,
       "cate": "",
       "id": 36
+    },
+    {
+      "subject": "sd",
+      "title": "Bloom Filters",
+      "ques": "",
+      "links": [],
+      "tags": [],
+      "ans": "A Bloom filter is a probabilistic data structure used for testing whether an element is a member of a set. It is efficient in terms of memory usage and can quickly tell you if an element is \"possibly in the set\" or \"definitely not in the set.\" However, it can produce false positives (indicating an element is in the set when it's not) but not false negatives.\n\nHere's a simple implementation of a Bloom filter in Node.js:\n\n```javascript\nclass BloomFilter {\n  constructor(size, hashFunctions) {\n    this.size = size; // Size of the Bloom filter bit array\n    this.bitArray = new Array(size).fill(false); // Initialize all bits to false\n    this.hashFunctions = hashFunctions; // Array of hash functions\n  }\n\n  // Add an element to the Bloom filter\n  add(element) {\n    this.hashFunctions.forEach((hashFunction) => {\n      const hash = hashFunction(element) % this.size;\n      this.bitArray[hash] = true;\n    });\n  }\n\n  // Check if an element is possibly in the set\n  contains(element) {\n    return this.hashFunctions.every((hashFunction) => {\n      const hash = hashFunction(element) % this.size;\n      return this.bitArray[hash];\n    });\n  }\n}\n\n// Example usage:\n\n// Define some hash functions (for simplicity, we use basic string hash functions)\nconst hashFunctions = [\n  (str) => {\n    let hash = 0;\n    for (let i = 0; i < str.length; i++) {\n      hash += str.charCodeAt(i);\n    }\n    return hash;\n  },\n  (str) => {\n    let hash = 0;\n    for (let i = 0; i < str.length; i++) {\n      hash = (hash << 5) - hash + str.charCodeAt(i);\n    }\n    return hash;\n  },\n];\n\n// Create a Bloom filter with a bit array of size 100 and the defined hash functions\nconst bloomFilter = new BloomFilter(100, hashFunctions);\n\n// Add some elements to the filter\nbloomFilter.add(\"apple\");\nbloomFilter.add(\"banana\");\nbloomFilter.add(\"cherry\");\n\n// Check if elements are possibly in the set\nconsole.log(bloomFilter.contains(\"apple\")); // true (possible)\nconsole.log(bloomFilter.contains(\"banana\")); // true (possible)\nconsole.log(bloomFilter.contains(\"grape\")); // false (definitely not)\n```\n\nPlease note that the choice of hash functions and the size of the bit array can affect the performance and accuracy of the Bloom filter. In practice, you might need to fine-tune these parameters based on your specific use case. Additionally, Bloom filters are not suitable for situations where false positives are unacceptable, so use them with caution.",
+      "diff": 1,
+      "imp": 1,
+      "cate": "",
+      "id": 37
+    },
+    {
+      "subject": "sd",
+      "title": "Hash functions in Javascript",
+      "ques": "",
+      "links": [],
+      "tags": [],
+      "ans": "Sure, here are five different hashing functions implemented in JavaScript, each with a brief explanation of how they work:\n\n1. **Basic String Hash (Additive Hash):**\n   ```javascript\n   function basicStringHash(str) {\n     let hash = 0;\n     for (let i = 0; i < str.length; i++) {\n       hash += str.charCodeAt(i);\n     }\n     return hash;\n   }\n   ```\n   Explanation: This basic hash function computes the hash by summing the character codes of each character in the string. It's simple but not suitable for cryptographic purposes.\n\n2. **DJB2 Hash:**\n   ```javascript\n   function djb2Hash(str) {\n     let hash = 5381;\n     for (let i = 0; i < str.length; i++) {\n       hash = (hash * 33) ^ str.charCodeAt(i);\n     }\n     return hash >>> 0; // Ensure a positive integer\n   }\n   ```\n   Explanation: The DJB2 hash is a simple and fast non-cryptographic hash function. It uses bitwise operations and multiplication to compute the hash.\n\n3. **SHA-256 Hash (CryptoJS Library):**\n   ```javascript\n   const crypto = require('crypto-js');\n\n   function sha256Hash(str) {\n     return crypto.SHA256(str).toString();\n   }\n   ```\n   Explanation: This example uses the CryptoJS library to compute the SHA-256 hash of a string. SHA-256 is a cryptographic hash function widely used for secure hashing.\n\n4. **MD5 Hash (Node.js Built-in):**\n   ```javascript\n   const crypto = require('crypto');\n\n   function md5Hash(str) {\n     return crypto.createHash('md5').update(str).digest('hex');\n   }\n   ```\n   Explanation: Node.js provides built-in support for hashing, including MD5. The code above uses the built-in `crypto` module to compute the MD5 hash.\n\n5. **Custom Hash Function (FNV-1a):**\n   ```javascript\n   function customHash(str) {\n     let hash = 2166136261; // FNV offset basis\n     for (let i = 0; i < str.length; i++) {\n       hash ^= str.charCodeAt(i);\n       hash *= 16777619; // FNV prime\n     }\n     return hash >>> 0; // Ensure a positive integer\n   }\n   ```\n   Explanation: This custom hash function uses the FNV-1a algorithm, a non-cryptographic hash function known for its good distribution and low collision rate.\n\nRemember that the choice of hashing function depends on your specific use case. Cryptographic hashing functions (like SHA-256) are suitable for security-related applications, while non-cryptographic hashes (like DJB2) are often used for data structures like hash tables and caches.",
+      "diff": 1,
+      "imp": 1,
+      "cate": "",
+      "id": 38
     }
   ],
   "shell": [
