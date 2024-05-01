@@ -2646,7 +2646,20 @@
       "id": 3
     }
   ],
-  "ts": [],
+  "ts": [
+    {
+      "subject": "ts",
+      "title": "Why Typescript?",
+      "ques": "",
+      "links": [],
+      "tags": [],
+      "ans": "Q. why someone start using Typescript instead of Javascript with ES6 features?\n==> There are several reasons why someone might choose to use TypeScript instead of JavaScript with ES6 features:\n\n1. **Static Typing**: TypeScript introduces static typing to JavaScript, allowing developers to define types for variables, function parameters, and return values. This helps catch type-related errors during development and provides better tooling support, such as autocompletion and type checking.\n\n2. **Enhanced Tooling**: TypeScript provides a rich set of tools and features, including code navigation, refactoring support, and intelligent code completion. These features can significantly improve developer productivity and code quality.\n\n3. **Better Scalability**: TypeScript supports features like classes, interfaces, and modules, which are not natively available in JavaScript. These language constructs enable developers to write more structured and maintainable code, making it easier to scale and collaborate on larger projects.\n\n4. **Early Error Detection**: TypeScript performs static type checking at compile-time, which helps catch potential errors before the code is executed. This can save time and effort by reducing the number of runtime errors encountered during development and testing.\n\n5. **Compatibility with JavaScript**: TypeScript is a superset of JavaScript, meaning that any valid JavaScript code is also valid TypeScript code. This allows developers to gradually adopt TypeScript in existing JavaScript projects without the need for a complete rewrite.\n\n6. **Strong Community Support**: TypeScript has gained significant popularity and has a large and active community. This means there are plenty of resources, libraries, and frameworks available to support TypeScript development.\n\nHere's an example of TypeScript code that demonstrates some of its features:\n\n```typescript\ninterface Person {\n  name: string;\n  age: number;\n}\n\nclass Greeter {\n  private greeting: string;\n\n  constructor(message: string) {\n    this.greeting = message;\n  }\n\n  greet(person: Person) {\n    return `Hello, ${person.name}! You are ${person.age} years old.`;\n  }\n}\n\nconst greeter = new Greeter('Welcome');\nconst person: Person = { name: 'John', age: 25 };\nconsole.log(greeter.greet(person));\n```\n\nIn this example, we define an interface `Person` to represent a person object with `name` and `age` properties. We then define a `Greeter` class with a `greet` method that takes a `Person` object as a parameter. TypeScript's static typing ensures that we pass the correct type of object to the `greet` method.",
+      "diff": 1,
+      "imp": 1,
+      "cate": "",
+      "id": 1
+    }
+  ],
   "html": [],
   "css": [
     {
