@@ -5271,6 +5271,22 @@
       "imp": 1,
       "cate": "",
       "id": 96
+    },
+    {
+      "subject": "sd3",
+      "title": "useful rules",
+      "ques": "",
+      "links": [
+        {
+          "name": "https://www.linkedin.com/feed/update/urn:li:activity:7251807784747323392?updateEntityUrn=urn%3Ali%3Afs_updateV2%3A%28urn%3Ali%3Aactivity%3A7251807784747323392%2CFEED_DETAIL%2CEMPTY%2CDEFAULT%2Cfalse%29"
+        }
+      ],
+      "tags": [],
+      "ans": "\n1. For a Read-Heavy System - Consider using a Cache.\n2. For a Write-Heavy System - Use Message Queues for async processing\n3. For a Low Latency Requirement - Consider using a Cache and CDN.\n4. Need 𝐀tomicity, 𝐂onsistency, 𝐈solation, 𝐃urability Compliant DB - Go for RDBMS/SQL Database.\n5. Have unstructured data - Go for NoSQL Database.\n6. Have Complex Data (Videos, Images, Files) - Go for Blob/Object storage.\n7. Complex Pre-computation - Use Message Queue & Cache.\n8. High-Volume Data Search - Consider search index, tries or search engine.\n9. Scaling SQL Database - Implement Database Sharding.\n10. High Availability, Performance, & Throughput - Use a Load Balancer.\n11. Global Data Delivery - Consider using a CDN.\n12. Graph Data (data with nodes, edges, and relationships) - Utilize Graph Database.\n13. Scaling Various Components - Implement Horizontal Scaling.\n14. High-Performing Database Queries - Use Database Indexes.\n15. Bulk Job Processing - Consider Batch Processing & Message Queues.\n16. Server Load Management & Preventing DOS Attacks- Use a Rate Limiter.\n17. Microservices Architecture - Use an API Gateway.\n18. For Single Point of Failure - Implement Redundancy.\n19. For Fault-Tolerance and Durability - Implement Data Replication.\n20. For User-to-User fast communication - Use Websockets.\n21. Failure Detection in Distributed Systems - Implement a Heartbeat.\n22. Data Integrity - Use Checksum Algorithm.\n23. Efficient Server Scaling - Implement Consistent Hashing.\n24. Decentralized Data Transfer - Consider Gossip Protocol.\n25. Location-Based Functionality - Use Quadtree, Geohash, etc.\n26. Avoid Specific Technology Names - Use generic terms.\n27. High Availability and Consistency Trade-Off - Eventual Consistency.\n28. For IP resolution & Domain Name Query - Mention DNS.\n29. Handling Large Data in Network Requests - Implement Pagination.\n30. Cache Eviction Policy - Preferred is LRU (Least Recently Used) Cache.\n31. To handle traffic spikes: Implement Autoscaling to manage resources dynamically by\n32. Need analytics and audit trails - Consider using data lakes or append-only databases\n33. Handling Large-Scale Simultaneous Connections - Use Connection Pooling and consider using Protobuf to minimize data payload",
+      "diff": 1,
+      "imp": 1,
+      "cate": "",
+      "id": 97
     }
   ],
   "algo2": [],
