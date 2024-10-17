@@ -5289,7 +5289,674 @@
       "id": 97
     }
   ],
-  "algo2": [],
+  "algo2": [
+    {
+      "subject": "algo2",
+      "title": "Min cost climbing",
+      "ques": "",
+      "links": [
+        {
+          "name": "https://leetcode.com/problems/min-cost-climbing-stairs/description/?envType=list&envId=evmfrfbe"
+        }
+      ],
+      "tags": [
+        {
+          "name": "Recursion"
+        }
+      ],
+      "ans": "",
+      "diff": 1,
+      "imp": 1,
+      "cate": "",
+      "id": 1
+    },
+    {
+      "subject": "algo2",
+      "title": "House Robber",
+      "ques": "",
+      "links": [
+        {
+          "name": "https://leetcode.com/problems/house-robber/?envType=list&envId=evmfrfbe"
+        }
+      ],
+      "tags": [
+        {
+          "name": "Recursion"
+        }
+      ],
+      "ans": "",
+      "diff": 1,
+      "imp": 1,
+      "cate": "",
+      "id": 2
+    },
+    {
+      "subject": "algo2",
+      "title": "Letter combination of phone number",
+      "ques": "",
+      "links": [
+        {
+          "name": "https://leetcode.com/problems/letter-combinations-of-a-phone-number/?envType=list&envId=od6fto9i"
+        }
+      ],
+      "tags": [
+        {
+          "name": "Recursion"
+        }
+      ],
+      "ans": "",
+      "diff": 1,
+      "imp": 1,
+      "cate": "",
+      "id": 3
+    },
+    {
+      "subject": "algo2",
+      "title": "Deep copy obj JS",
+      "ques": "",
+      "links": [
+        {
+          "name": "https://angry-cray-8dfb24.netlify.app/algo/54"
+        }
+      ],
+      "tags": [
+        {
+          "name": "Recursion"
+        }
+      ],
+      "ans": "",
+      "diff": 1,
+      "imp": 1,
+      "cate": "",
+      "id": 4
+    },
+    {
+      "subject": "algo2",
+      "title": "Flat Array",
+      "ques": "",
+      "links": [
+        {
+          "name": "https://angry-cray-8dfb24.netlify.app/algo/53"
+        }
+      ],
+      "tags": [
+        {
+          "name": "Recursion"
+        }
+      ],
+      "ans": "",
+      "diff": 1,
+      "imp": 1,
+      "cate": "",
+      "id": 5
+    },
+    {
+      "subject": "algo2",
+      "title": "Grid : DFS & BFS",
+      "ques": "",
+      "links": [
+        {
+          "name": "https://www.youtube.com/watch?v=wtiU8TNmFIo&list=PLFKexf2NBjmNhzkaz-RDu1GLaCOkeNoH3"
+        },
+        {
+          "name": "https://chatgpt.com/c/e53d9aa5-10aa-4759-88a6-3f5cb3c33886"
+        }
+      ],
+      "tags": [
+        {
+          "name": "Grid"
+        },
+        {
+          "name": "Recursion"
+        }
+      ],
+      "ans": "",
+      "diff": 1,
+      "imp": 1,
+      "cate": "",
+      "id": 6
+    },
+    {
+      "subject": "algo2",
+      "title": "decode-ways",
+      "ques": "",
+      "links": [
+        {
+          "name": "1. https://leetcode.com/problems/decode-ways/description/?envType=list&envId=rozod5s3"
+        }
+      ],
+      "tags": [
+        {
+          "name": "DP"
+        }
+      ],
+      "ans": "",
+      "diff": 1,
+      "imp": 1,
+      "cate": "",
+      "id": 7
+    },
+    {
+      "subject": "algo2",
+      "title": "trapping-rain-water",
+      "ques": "",
+      "links": [
+        {
+          "name": "2. https://leetcode.com/problems/trapping-rain-water/?envType=list&envId=9sk6s9xj"
+        }
+      ],
+      "tags": [
+        {
+          "name": "DP"
+        }
+      ],
+      "ans": "",
+      "diff": 1,
+      "imp": 1,
+      "cate": "",
+      "id": 8
+    },
+    {
+      "subject": "algo2",
+      "title": "Longest pallindromic String",
+      "ques": "",
+      "links": [
+        {
+          "name": "https://leetcode.com/problems/longest-palindromic-substring/?envType=list&envId=rozod5s3"
+        }
+      ],
+      "tags": [
+        {
+          "name": "DP"
+        }
+      ],
+      "ans": "",
+      "diff": 1,
+      "imp": 1,
+      "cate": "",
+      "id": 9
+    },
+    {
+      "subject": "algo2",
+      "title": "generate-parentheses",
+      "ques": "",
+      "links": [
+        {
+          "name": "https://leetcode.com/problems/generate-parentheses/?envType=list&envId=rozod5s3"
+        }
+      ],
+      "tags": [
+        {
+          "name": "DP"
+        }
+      ],
+      "ans": "",
+      "diff": 1,
+      "imp": 1,
+      "cate": "",
+      "id": 10
+    },
+    {
+      "subject": "algo2",
+      "title": "maximum-subarray",
+      "ques": "",
+      "links": [
+        {
+          "name": "https://leetcode.com/problems/maximum-subarray/?envType=list&envId=rozod5s3"
+        }
+      ],
+      "tags": [
+        {
+          "name": "DP"
+        }
+      ],
+      "ans": "",
+      "diff": 1,
+      "imp": 1,
+      "cate": "",
+      "id": 11
+    },
+    {
+      "subject": "algo2",
+      "title": "minimum-path-sum",
+      "ques": "",
+      "links": [
+        {
+          "name": "https://leetcode.com/problems/minimum-path-sum/?envType=list&envId=rozod5s3"
+        }
+      ],
+      "tags": [
+        {
+          "name": "DP"
+        }
+      ],
+      "ans": "",
+      "diff": 1,
+      "imp": 1,
+      "cate": "",
+      "id": 12
+    },
+    {
+      "subject": "algo2",
+      "title": "Possible denominaions",
+      "ques": "",
+      "links": [
+        {
+          "name": "https://angry-cray-8dfb24.netlify.app/algo/44"
+        }
+      ],
+      "tags": [
+        {
+          "name": "DP"
+        }
+      ],
+      "ans": "",
+      "diff": 1,
+      "imp": 1,
+      "cate": "",
+      "id": 13
+    },
+    {
+      "subject": "algo2",
+      "title": "Minimum no of chimney filter",
+      "ques": "",
+      "links": [
+        {
+          "name": "https://angry-cray-8dfb24.netlify.app/algo/41"
+        }
+      ],
+      "tags": [
+        {
+          "name": "Greedy"
+        }
+      ],
+      "ans": "",
+      "diff": 1,
+      "imp": 1,
+      "cate": "",
+      "id": 14
+    },
+    {
+      "subject": "algo2",
+      "title": "Circular gas station",
+      "ques": "",
+      "links": [
+        {
+          "name": "https://leetcode.com/problems/gas-station/description/"
+        }
+      ],
+      "tags": [
+        {
+          "name": "Greedy"
+        }
+      ],
+      "ans": "",
+      "diff": 1,
+      "imp": 1,
+      "cate": "",
+      "id": 15
+    },
+    {
+      "subject": "algo2",
+      "title": "Apple Stocks",
+      "ques": "",
+      "links": [
+        {
+          "name": "https://angry-cray-8dfb24.netlify.app/algo/17"
+        }
+      ],
+      "tags": [
+        {
+          "name": "Greedy"
+        }
+      ],
+      "ans": "",
+      "diff": 1,
+      "imp": 1,
+      "cate": "",
+      "id": 16
+    },
+    {
+      "subject": "algo2",
+      "title": "minimum-deletions-to-make-character-frequencies-unique",
+      "ques": "",
+      "links": [
+        {
+          "name": "https://leetcode.com/problems/minimum-deletions-to-make-character-frequencies-unique/?envType=list&envId=e262sl5e"
+        }
+      ],
+      "tags": [
+        {
+          "name": "Greedy"
+        }
+      ],
+      "ans": "",
+      "diff": 1,
+      "imp": 1,
+      "cate": "",
+      "id": 17
+    },
+    {
+      "subject": "algo2",
+      "title": "swap-nodes-in-pairs",
+      "ques": "",
+      "links": [
+        {
+          "name": "https://leetcode.com/problems/swap-nodes-in-pairs/?envType=list&envId=9sk6s9xj"
+        }
+      ],
+      "tags": [
+        {
+          "name": "LL"
+        }
+      ],
+      "ans": "",
+      "diff": 1,
+      "imp": 1,
+      "cate": "",
+      "id": 18
+    },
+    {
+      "subject": "algo2",
+      "title": "linked-list-cycle",
+      "ques": "",
+      "links": [
+        {
+          "name": "https://leetcode.com/problems/linked-list-cycle/?envType=list&envId=9sk6s9xj"
+        }
+      ],
+      "tags": [
+        {
+          "name": "LL"
+        }
+      ],
+      "ans": "",
+      "diff": 1,
+      "imp": 1,
+      "cate": "",
+      "id": 19
+    },
+    {
+      "subject": "algo2",
+      "title": "reverse-linked-list",
+      "ques": "",
+      "links": [
+        {
+          "name": "https://leetcode.com/problems/reverse-linked-list/?envType=list&envId=9sk6s9xj"
+        }
+      ],
+      "tags": [
+        {
+          "name": "LL"
+        }
+      ],
+      "ans": "",
+      "diff": 1,
+      "imp": 1,
+      "cate": "",
+      "id": 20
+    },
+    {
+      "subject": "algo2",
+      "title": "lru-cache",
+      "ques": "",
+      "links": [
+        {
+          "name": "https://leetcode.com/problems/lru-cache/?envType=list&envId=rel0rvfm"
+        }
+      ],
+      "tags": [
+        {
+          "name": "LL"
+        }
+      ],
+      "ans": "",
+      "diff": 1,
+      "imp": 1,
+      "cate": "",
+      "id": 21
+    },
+    {
+      "subject": "algo2",
+      "title": "Double LL in Js",
+      "ques": "",
+      "links": [
+        {
+          "name": "https://angry-cray-8dfb24.netlify.app/algo/35"
+        }
+      ],
+      "tags": [
+        {
+          "name": "LL"
+        }
+      ],
+      "ans": "",
+      "diff": 1,
+      "imp": 1,
+      "cate": "",
+      "id": 22
+    },
+    {
+      "subject": "algo2",
+      "title": "Queue & Stack using LL",
+      "ques": "",
+      "links": [
+        {
+          "name": "https://angry-cray-8dfb24.netlify.app/algo/37"
+        }
+      ],
+      "tags": [
+        {
+          "name": "LL"
+        }
+      ],
+      "ans": "",
+      "diff": 1,
+      "imp": 1,
+      "cate": "",
+      "id": 23
+    },
+    {
+      "subject": "algo2",
+      "title": "Single LL in Js",
+      "ques": "",
+      "links": [
+        {
+          "name": "https://angry-cray-8dfb24.netlify.app/algo/49"
+        }
+      ],
+      "tags": [
+        {
+          "name": "LL"
+        }
+      ],
+      "ans": "",
+      "diff": 1,
+      "imp": 1,
+      "cate": "",
+      "id": 24
+    },
+    {
+      "subject": "algo2",
+      "title": "search-in-a-binary-search-tree",
+      "ques": "",
+      "links": [
+        {
+          "name": "https://leetcode.com/problems/search-in-a-binary-search-tree/?envType=list&envId=emyyi7m2"
+        }
+      ],
+      "tags": [
+        {
+          "name": "Tree"
+        }
+      ],
+      "ans": "",
+      "diff": 1,
+      "imp": 1,
+      "cate": "",
+      "id": 25
+    },
+    {
+      "subject": "algo2",
+      "title": "find-leaves-of-binary-tree",
+      "ques": "",
+      "links": [
+        {
+          "name": "https://leetcode.com/problems/find-leaves-of-binary-tree/?envType=list&envId=e262sl5e"
+        }
+      ],
+      "tags": [
+        {
+          "name": "Tree"
+        }
+      ],
+      "ans": "",
+      "diff": 1,
+      "imp": 1,
+      "cate": "",
+      "id": 26
+    },
+    {
+      "subject": "algo2",
+      "title": "step-by-step-directions-from-a-binary-tree-node-to-another",
+      "ques": "",
+      "links": [
+        {
+          "name": "https://leetcode.com/problems/step-by-step-directions-from-a-binary-tree-node-to-another/?envType=list&envId=e262sl5e"
+        }
+      ],
+      "tags": [
+        {
+          "name": "Tree"
+        }
+      ],
+      "ans": "",
+      "diff": 1,
+      "imp": 1,
+      "cate": "",
+      "id": 27
+    },
+    {
+      "subject": "algo2",
+      "title": "Basic Binary Tree implementation",
+      "ques": "",
+      "links": [
+        {
+          "name": "https://angry-cray-8dfb24.netlify.app/algo/36"
+        }
+      ],
+      "tags": [
+        {
+          "name": "Tree"
+        }
+      ],
+      "ans": "",
+      "diff": 1,
+      "imp": 1,
+      "cate": "",
+      "id": 28
+    },
+    {
+      "subject": "algo2",
+      "title": "Tries",
+      "ques": "",
+      "links": [
+        {
+          "name": "https://www.youtube.com/watch?v=3CbFFVHQrk4"
+        }
+      ],
+      "tags": [
+        {
+          "name": "Tree"
+        }
+      ],
+      "ans": "",
+      "diff": 1,
+      "imp": 1,
+      "cate": "",
+      "id": 29
+    },
+    {
+      "subject": "algo2",
+      "title": "integer-to-roman",
+      "ques": "",
+      "links": [
+        {
+          "name": "https://leetcode.com/problems/integer-to-roman/?envType=list&envId=9sk6s9xj"
+        }
+      ],
+      "tags": [
+        {
+          "name": "Map"
+        }
+      ],
+      "ans": "",
+      "diff": 1,
+      "imp": 1,
+      "cate": "",
+      "id": 30
+    },
+    {
+      "subject": "algo2",
+      "title": "search-in-a-binary-search-tree",
+      "ques": "",
+      "links": [
+        {
+          "name": "https://leetcode.com/problems/search-in-a-binary-search-tree/?envType=list&envId=9sk6s9xj"
+        }
+      ],
+      "tags": [
+        {
+          "name": "Map"
+        }
+      ],
+      "ans": "",
+      "diff": 1,
+      "imp": 1,
+      "cate": "",
+      "id": 31
+    },
+    {
+      "subject": "algo2",
+      "title": "happy-number",
+      "ques": "",
+      "links": [
+        {
+          "name": "https://leetcode.com/problems/happy-number/?envType=list&envId=emyyi7m2"
+        }
+      ],
+      "tags": [
+        {
+          "name": "Map"
+        }
+      ],
+      "ans": "",
+      "diff": 1,
+      "imp": 1,
+      "cate": "",
+      "id": 32
+    },
+    {
+      "subject": "algo2",
+      "title": "find-all-possible-recipes-from-given-supplies",
+      "ques": "",
+      "links": [
+        {
+          "name": "https://leetcode.com/problems/find-all-possible-recipes-from-given-supplies/?envType=list&envId=e262sl5e"
+        }
+      ],
+      "tags": [
+        {
+          "name": "Map"
+        }
+      ],
+      "ans": "",
+      "diff": 1,
+      "imp": 1,
+      "cate": "",
+      "id": 33
+    }
+  ],
   "dp": [],
   "micser": {},
   "micfront": {},
