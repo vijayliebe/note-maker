@@ -88,14 +88,29 @@
       "key": "dp"
     },
     {
-      "id": 28,
+      "id": 29,
       "name": "Micro Service",
       "key": "micser"
     },
     {
-      "id": 28,
+      "id": 30,
       "name": "Micro Frontend",
       "key": "micfront"
+    },
+    {
+      "id": 31,
+      "name": "System Design Algo",
+      "key": "sdAlgo"
+    },
+    {
+      "id": 32,
+      "name": "Interview Algo",
+      "key": "interviewAlgo"
+    },
+    {
+      "id": 33,
+      "name": "Interview All Ques",
+      "key": "interviewAllQues"
     },
     {
       "id": 13,
@@ -5955,8 +5970,696 @@
       "imp": 1,
       "cate": "",
       "id": 33
+    },
+    {
+      "subject": "algo2",
+      "title": "reverse-string",
+      "ques": "",
+      "links": [
+        {
+          "name": "https://leetcode.com/problems/reverse-string/?envType=list&envId=9sk6s9xj"
+        }
+      ],
+      "tags": [
+        {
+          "name": "string"
+        }
+      ],
+      "ans": "",
+      "diff": 1,
+      "imp": 1,
+      "cate": "",
+      "id": 34
+    },
+    {
+      "subject": "algo2",
+      "title": "add-strings",
+      "ques": "",
+      "links": [
+        {
+          "name": "https://leetcode.com/problems/add-strings/?envType=list&envId=9sk6s9xj"
+        }
+      ],
+      "tags": [
+        {
+          "name": "string"
+        }
+      ],
+      "ans": "",
+      "diff": 1,
+      "imp": 1,
+      "cate": "",
+      "id": 35
+    },
+    {
+      "subject": "algo2",
+      "title": "minimum-add-to-make-parentheses-valid",
+      "ques": "",
+      "links": [
+        {
+          "name": "https://leetcode.com/problems/minimum-add-to-make-parentheses-valid/?envType=list&envId=emyyi7m2"
+        }
+      ],
+      "tags": [
+        {
+          "name": "string"
+        }
+      ],
+      "ans": "",
+      "diff": 1,
+      "imp": 1,
+      "cate": "",
+      "id": 36
+    },
+    {
+      "subject": "algo2",
+      "title": "Bracket Validator ",
+      "ques": "",
+      "links": [
+        {
+          "name": "https://angry-cray-8dfb24.netlify.app/algo/9"
+        }
+      ],
+      "tags": [
+        {
+          "name": "string"
+        }
+      ],
+      "ans": "",
+      "diff": 1,
+      "imp": 1,
+      "cate": "",
+      "id": 37
+    },
+    {
+      "subject": "algo2",
+      "title": "Rearrange characters in a string such that no two adjacent are same",
+      "ques": "",
+      "links": [
+        {
+          "name": "https://angry-cray-8dfb24.netlify.app/algo/26"
+        }
+      ],
+      "tags": [
+        {
+          "name": "string"
+        }
+      ],
+      "ans": "",
+      "diff": 1,
+      "imp": 1,
+      "cate": "",
+      "id": 38
+    },
+    {
+      "subject": "algo2",
+      "title": "Check if no. is prime",
+      "ques": "",
+      "links": [
+        {
+          "name": "https://angry-cray-8dfb24.netlify.app/algo/43"
+        }
+      ],
+      "tags": [
+        {
+          "name": "string"
+        }
+      ],
+      "ans": "",
+      "diff": 1,
+      "imp": 1,
+      "cate": "",
+      "id": 39
+    },
+    {
+      "subject": "algo2",
+      "title": "Matching Pairs",
+      "ques": "",
+      "links": [
+        {
+          "name": "https://angry-cray-8dfb24.netlify.app/algo/78"
+        }
+      ],
+      "tags": [
+        {
+          "name": "string"
+        }
+      ],
+      "ans": "",
+      "diff": 1,
+      "imp": 1,
+      "cate": "",
+      "id": 40
+    },
+    {
+      "subject": "algo2",
+      "title": "buildings-with-an-ocean-view",
+      "ques": "",
+      "links": [
+        {
+          "name": "https://leetcode.com/problems/buildings-with-an-ocean-view/?envType=list&envId=9sk6s9xj"
+        }
+      ],
+      "tags": [
+        {
+          "name": "Array"
+        }
+      ],
+      "ans": "",
+      "diff": 1,
+      "imp": 1,
+      "cate": "",
+      "id": 41
+    },
+    {
+      "subject": "algo2",
+      "title": "flatten-deeply-nested-array",
+      "ques": "",
+      "links": [
+        {
+          "name": "https://leetcode.com/problems/flatten-deeply-nested-array/?envType=list&envId=9sk6s9xj"
+        }
+      ],
+      "tags": [
+        {
+          "name": "Array"
+        }
+      ],
+      "ans": "",
+      "diff": 1,
+      "imp": 1,
+      "cate": "",
+      "id": 42
+    },
+    {
+      "subject": "algo2",
+      "title": "two-sum",
+      "ques": "",
+      "links": [
+        {
+          "name": "https://leetcode.com/problems/two-sum/?envType=list&envId=emyyi7m2"
+        }
+      ],
+      "tags": [
+        {
+          "name": "Array"
+        }
+      ],
+      "ans": "",
+      "diff": 1,
+      "imp": 1,
+      "cate": "",
+      "id": 43
+    },
+    {
+      "subject": "algo2",
+      "title": "median-of-two-sorted-arrays",
+      "ques": "",
+      "links": [
+        {
+          "name": "https://leetcode.com/problems/median-of-two-sorted-arrays/?envType=list&envId=emyyi7m2"
+        }
+      ],
+      "tags": [
+        {
+          "name": "Array"
+        }
+      ],
+      "ans": "",
+      "diff": 1,
+      "imp": 1,
+      "cate": "",
+      "id": 44
+    },
+    {
+      "subject": "algo2",
+      "title": "find-n-unique-integers-sum-up-to-zero",
+      "ques": "",
+      "links": [
+        {
+          "name": "https://leetcode.com/problems/find-n-unique-integers-sum-up-to-zero/?envType=list&envId=evmjjza3"
+        }
+      ],
+      "tags": [
+        {
+          "name": "Array"
+        }
+      ],
+      "ans": "",
+      "diff": 1,
+      "imp": 1,
+      "cate": "",
+      "id": 45
+    },
+    {
+      "subject": "algo2",
+      "title": "Segregate 0's, 1's and 2's - [R]",
+      "ques": "",
+      "links": [
+        {
+          "name": "https://angry-cray-8dfb24.netlify.app/algo/32"
+        }
+      ],
+      "tags": [
+        {
+          "name": "Array"
+        }
+      ],
+      "ans": "",
+      "diff": 1,
+      "imp": 1,
+      "cate": "",
+      "id": 46
+    },
+    {
+      "subject": "algo2",
+      "title": "Random reorder",
+      "ques": "",
+      "links": [
+        {
+          "name": "https://angry-cray-8dfb24.netlify.app/algo/7"
+        }
+      ],
+      "tags": [
+        {
+          "name": "Array"
+        }
+      ],
+      "ans": "",
+      "diff": 1,
+      "imp": 1,
+      "cate": "",
+      "id": 47
+    },
+    {
+      "subject": "algo2",
+      "title": "Inflight Entertainment",
+      "ques": "",
+      "links": [
+        {
+          "name": "https://angry-cray-8dfb24.netlify.app/algo/15"
+        }
+      ],
+      "tags": [
+        {
+          "name": "Array"
+        }
+      ],
+      "ans": "",
+      "diff": 1,
+      "imp": 1,
+      "cate": "",
+      "id": 48
+    },
+    {
+      "subject": "algo2",
+      "title": "Highest Product of 3",
+      "ques": "",
+      "links": [
+        {
+          "name": "https://angry-cray-8dfb24.netlify.app/algo/18"
+        }
+      ],
+      "tags": [
+        {
+          "name": "Array"
+        }
+      ],
+      "ans": "",
+      "diff": 1,
+      "imp": 1,
+      "cate": "",
+      "id": 49
+    },
+    {
+      "subject": "algo2",
+      "title": "Product of All Other Numbers",
+      "ques": "",
+      "links": [
+        {
+          "name": "https://angry-cray-8dfb24.netlify.app/algo/19"
+        }
+      ],
+      "tags": [
+        {
+          "name": "Array"
+        }
+      ],
+      "ans": "",
+      "diff": 1,
+      "imp": 1,
+      "cate": "",
+      "id": 50
+    },
+    {
+      "subject": "algo2",
+      "title": "Merging Meeting Times",
+      "ques": "",
+      "links": [
+        {
+          "name": "https://angry-cray-8dfb24.netlify.app/algo/20"
+        }
+      ],
+      "tags": [
+        {
+          "name": "Array"
+        }
+      ],
+      "ans": "",
+      "diff": 1,
+      "imp": 1,
+      "cate": "",
+      "id": 51
+    },
+    {
+      "subject": "algo2",
+      "title": "Find Rotation Point",
+      "ques": "",
+      "links": [
+        {
+          "name": "https://angry-cray-8dfb24.netlify.app/algo/21"
+        }
+      ],
+      "tags": [
+        {
+          "name": "Array"
+        }
+      ],
+      "ans": "",
+      "diff": 1,
+      "imp": 1,
+      "cate": "",
+      "id": 52
+    },
+    {
+      "subject": "algo2",
+      "title": "Types of array",
+      "ques": "",
+      "links": [
+        {
+          "name": "https://angry-cray-8dfb24.netlify.app/algo/25"
+        }
+      ],
+      "tags": [
+        {
+          "name": "Array"
+        }
+      ],
+      "ans": "",
+      "diff": 1,
+      "imp": 1,
+      "cate": "",
+      "id": 53
+    },
+    {
+      "subject": "algo2",
+      "title": "Merge sort",
+      "ques": "",
+      "links": [
+        {
+          "name": "https://angry-cray-8dfb24.netlify.app/algo/29"
+        }
+      ],
+      "tags": [
+        {
+          "name": "Array"
+        }
+      ],
+      "ans": "",
+      "diff": 1,
+      "imp": 1,
+      "cate": "",
+      "id": 54
+    },
+    {
+      "subject": "algo2",
+      "title": "All possible permutation of number",
+      "ques": "",
+      "links": [
+        {
+          "name": "https://angry-cray-8dfb24.netlify.app/algo/30"
+        }
+      ],
+      "tags": [
+        {
+          "name": "Array"
+        }
+      ],
+      "ans": "",
+      "diff": 1,
+      "imp": 1,
+      "cate": "",
+      "id": 55
+    },
+    {
+      "subject": "algo2",
+      "title": "Array Rotation",
+      "ques": "",
+      "links": [
+        {
+          "name": "https://angry-cray-8dfb24.netlify.app/algo/31"
+        }
+      ],
+      "tags": [
+        {
+          "name": "Array"
+        }
+      ],
+      "ans": "",
+      "diff": 1,
+      "imp": 1,
+      "cate": "",
+      "id": 56
+    },
+    {
+      "subject": "algo2",
+      "title": "Max room required",
+      "ques": "",
+      "links": [
+        {
+          "name": "https://angry-cray-8dfb24.netlify.app/algo/38"
+        }
+      ],
+      "tags": [
+        {
+          "name": "Array"
+        }
+      ],
+      "ans": "",
+      "diff": 1,
+      "imp": 1,
+      "cate": "",
+      "id": 57
+    },
+    {
+      "subject": "algo2",
+      "title": "Left shift operator",
+      "ques": "",
+      "links": [
+        {
+          "name": "https://angry-cray-8dfb24.netlify.app/js/36"
+        }
+      ],
+      "tags": [
+        {
+          "name": "Array"
+        }
+      ],
+      "ans": "",
+      "diff": 1,
+      "imp": 1,
+      "cate": "",
+      "id": 58
+    },
+    {
+      "subject": "algo2",
+      "title": "spiral-matrix",
+      "ques": "",
+      "links": [
+        {
+          "name": "https://leetcode.com/problems/spiral-matrix/?envType=list&envId=e262sl5e"
+        }
+      ],
+      "tags": [
+        {
+          "name": "Array"
+        }
+      ],
+      "ans": "",
+      "diff": 1,
+      "imp": 1,
+      "cate": "",
+      "id": 59
+    },
+    {
+      "subject": "algo2",
+      "title": "remove-all-ones-with-row-and-column-flips",
+      "ques": "",
+      "links": [
+        {
+          "name": "https://leetcode.com/problems/remove-all-ones-with-row-and-column-flips/?envType=list&envId=e262sl5e"
+        }
+      ],
+      "tags": [
+        {
+          "name": "Array"
+        }
+      ],
+      "ans": "",
+      "diff": 1,
+      "imp": 1,
+      "cate": "",
+      "id": 60
+    },
+    {
+      "subject": "algo2",
+      "title": "Binary Search all Prob",
+      "ques": "",
+      "links": [
+        {
+          "name": "https://leetcode.com/list?selectedList=oow5upnr"
+        }
+      ],
+      "tags": [
+        {
+          "name": "Binary Search"
+        }
+      ],
+      "ans": "",
+      "diff": 1,
+      "imp": 1,
+      "cate": "",
+      "id": 61
+    },
+    {
+      "subject": "algo2",
+      "title": "Find the missing number in the increasing sequence",
+      "ques": "",
+      "links": [
+        {
+          "name": "https://angry-cray-8dfb24.netlify.app/algo/33"
+        }
+      ],
+      "tags": [
+        {
+          "name": "Binary Search"
+        }
+      ],
+      "ans": "",
+      "diff": 1,
+      "imp": 1,
+      "cate": "",
+      "id": 62
+    },
+    {
+      "subject": "algo2",
+      "title": "All Cyclic Sorting Prob",
+      "ques": "",
+      "links": [
+        {
+          "name": "https://leetcode.com/list?selectedList=or4pmjl5"
+        }
+      ],
+      "tags": [
+        {
+          "name": "sorting"
+        }
+      ],
+      "ans": "",
+      "diff": 1,
+      "imp": 1,
+      "cate": "",
+      "id": 63
+    },
+    {
+      "subject": "algo2",
+      "title": "Remove duplicate in Array in single loop",
+      "ques": "",
+      "links": [
+        {
+          "name": "https://angry-cray-8dfb24.netlify.app/algo/34"
+        }
+      ],
+      "tags": [
+        {
+          "name": "sorting"
+        }
+      ],
+      "ans": "",
+      "diff": 1,
+      "imp": 1,
+      "cate": "",
+      "id": 64
     }
   ],
+  "sdAlgo": [
+    {
+      "subject": "sdAlgo",
+      "title": "Bloom Filters",
+      "ques": "",
+      "links": [
+        {
+          "name": "https://angry-cray-8dfb24.netlify.app/sd/37"
+        }
+      ],
+      "tags": [],
+      "ans": "",
+      "diff": 1,
+      "imp": 1,
+      "cate": "",
+      "id": 1
+    },
+    {
+      "subject": "sdAlgo",
+      "title": "Rate limiter",
+      "ques": "",
+      "links": [
+        {
+          "name": "https://angry-cray-8dfb24.netlify.app/sd/34"
+        }
+      ],
+      "tags": [],
+      "ans": "",
+      "diff": 1,
+      "imp": 1,
+      "cate": "",
+      "id": 2
+    },
+    {
+      "subject": "sdAlgo",
+      "title": "Jitter Backoff algo",
+      "ques": "",
+      "links": [
+        {
+          "name": "https://angry-cray-8dfb24.netlify.app/sd/35"
+        }
+      ],
+      "tags": [],
+      "ans": "",
+      "diff": 1,
+      "imp": 1,
+      "cate": "",
+      "id": 3
+    },
+    {
+      "subject": "sdAlgo",
+      "title": "Hash functions",
+      "ques": "",
+      "links": [
+        {
+          "name": "https://angry-cray-8dfb24.netlify.app/sd/38"
+        }
+      ],
+      "tags": [],
+      "ans": "",
+      "diff": 1,
+      "imp": 1,
+      "cate": "",
+      "id": 4
+    }
+  ],
+  "interviewAlgo": [],
+  "interviewAllQues": [],
   "dp": [],
   "micser": {},
   "micfront": {},
