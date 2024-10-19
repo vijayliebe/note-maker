@@ -112,6 +112,17 @@
         </mat-chip-list>
       </div>
 
+      <div>
+          <button
+          class=""
+          style="top: 2em; width: 4em; height: 2em; position: fixed; right: 0; z-index:999;"
+          color="primary"
+          (click)="toggleFullScreen()"
+        >
+          FS
+        </button>
+      </div>
+
       <div class="links mt-2">
         <div class="mt-1 mr-4" style="display: inline-block;" *ngFor="let link of notes[noteCurrentIdx].links; index as i">
           <a href="{{ link.name }}" target="_blank" title="{{ link.name }}">Link {{ i+ 1 }}</a>
@@ -126,7 +137,7 @@
       </div>
 
 
-      <div class="note-ans mt-3" *ngIf="notes[noteCurrentIdx].ans">
+      <div class="note-ans mt-3" *ngIf="notes[noteCurrentIdx].ans" [ngClass]="{'full-screen': isFullscreen}">
 
         <!-- <div
           *ngIf="!notes[noteCurrentIdx].classicTheme && !isclassicTheme"

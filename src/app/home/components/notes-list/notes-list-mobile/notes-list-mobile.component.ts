@@ -20,6 +20,7 @@ import { CommonNotificationService } from "src/app/shared/services/common-notifi
 export class NotesListMobileComponent implements OnInit {
   /* Mobile logic - start */
   @Input() subjectName: any;
+  isFullscreen: boolean = false;
   noteId: any;
   eventText = '';
   noteCurrentIdx;
@@ -74,6 +75,10 @@ export class NotesListMobileComponent implements OnInit {
       });
 
     });
+  }
+
+  toggleFullScreen(){
+    this.isFullscreen = !this.isFullscreen;
   }
 
   onSubjectChange(){
