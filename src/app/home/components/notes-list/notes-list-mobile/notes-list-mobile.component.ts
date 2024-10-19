@@ -80,7 +80,7 @@ export class NotesListMobileComponent implements OnInit {
 
   toggleFullScreen(){
     this.isFullscreen = !this.isFullscreen;
-    this.goFullScreen();
+    // this.goFullScreen();
   }
 
   goFullScreen() {
