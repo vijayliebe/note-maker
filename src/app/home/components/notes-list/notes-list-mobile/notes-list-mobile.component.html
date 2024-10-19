@@ -137,7 +137,7 @@
       </div>
 
 
-      <div class="note-ans mt-3" *ngIf="notes[noteCurrentIdx].ans" [ngClass]="{'full-screen': isFullscreen}">
+      <div class="note-ans mt-3" *ngIf="notes[noteCurrentIdx].ans" [ngClass]="{'full-screen': isFullscreen}" #fullscreenElement>
 
         <!-- <div
           *ngIf="!notes[noteCurrentIdx].classicTheme && !isclassicTheme"

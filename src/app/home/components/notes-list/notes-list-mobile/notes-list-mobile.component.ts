@@ -1,4 +1,4 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit, Input, ElementRef, ViewChild } from '@angular/core';
 import { FormGroup, FormControl } from "@angular/forms";
 import { ActivatedRoute, Router } from '@angular/router';
 import { DatacontextService } from "src/app/data/datacontext.service";
@@ -18,6 +18,7 @@ import { CommonNotificationService } from "src/app/shared/services/common-notifi
   styleUrls: ['./notes-list-mobile.component.scss']
 })
 export class NotesListMobileComponent implements OnInit {
+  @ViewChild('fullscreenElement') fullscreenElement!: ElementRef;
   /* Mobile logic - start */
   @Input() subjectName: any;
   isFullscreen: boolean = false;
@@ -79,6 +80,20 @@ export class NotesListMobileComponent implements OnInit {
 
   toggleFullScreen(){
     this.isFullscreen = !this.isFullscreen;
+    this.goFullScreen();
+  }
+
+  goFullScreen() {
+    const elem = this.fullscreenElement.nativeElement;
+    if (elem.requestFullscreen) {
+      elem.requestFullscreen();
+    } else if (elem.mozRequestFullScreen) { // Firefox
+      elem.mozRequestFullScreen();
+    } else if (elem.webkitRequestFullscreen) { // Safari
+      elem.webkitRequestFullscreen();
+    } else if (elem.msRequestFullscreen) { // IE/Edge
+      elem.msRequestFullscreen();
+    }
   }
 
   onSubjectChange(){
