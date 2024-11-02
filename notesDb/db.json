@@ -69,47 +69,57 @@
     },
     {
       "id": 25,
-      "name": "New System Design-2",
+      "name": "v_New System Design-2",
       "key": "sd2"
     },
     {
       "id": 26,
-      "name": "New System Design-3",
+      "name": "v_New System Design-3",
       "key": "sd3"
     },
     {
       "id": 27,
-      "name": "New Algo",
+      "name": "v_New Algo",
       "key": "algo2"
     },
     {
+      "id": 36,
+      "name": "v_New FE",
+      "key": "newfe"
+    },
+    {
+      "id": 37,
+      "name": "v_New BE",
+      "key": "newbe"
+    },
+    {
       "id": 28,
-      "name": "Design Pattern",
+      "name": "v_Design Pattern",
       "key": "dp"
     },
     {
       "id": 29,
-      "name": "Micro Service",
+      "name": "v_Micro Service",
       "key": "micser"
     },
     {
       "id": 30,
-      "name": "Micro Frontend",
+      "name": "v_Micro Frontend",
       "key": "micfront"
     },
     {
       "id": 31,
-      "name": "System Design Algo",
+      "name": "v_System Design Algo",
       "key": "sdAlgo"
     },
     {
       "id": 32,
-      "name": "Interview Algo",
+      "name": "v_Interview Algo",
       "key": "interviewAlgo"
     },
     {
       "id": 33,
-      "name": "Interview All Ques",
+      "name": "v_Interview All Ques",
       "key": "interviewAllQues"
     },
     {
@@ -119,7 +129,7 @@
     },
     {
       "id": 35,
-      "name": "Tech Word Power",
+      "name": "v_Tech Word Power",
       "key": "techRrdpow"
     },
     {
@@ -3913,6 +3923,40 @@
       "imp": 1,
       "cate": "",
       "id": 7
+    },
+    {
+      "subject": "sd2",
+      "title": "Video streaming",
+      "ques": "",
+      "links": [
+        {
+          "name": "https://www.youtube.com/watch?v=64LJJhT6Ybo"
+        },
+        {
+          "name": "https://www.youtube.com/watch?v=br8VB99qPzE"
+        },
+        {
+          "name": "https://www.youtube.com/watch?v=0LYXkL0pr1M"
+        },
+        {
+          "name": "https://www.youtube.com/watch?v=RXk9tndVOAg"
+        },
+        {
+          "name": "https://www.youtube.com/watch?v=JwZiO5p-NAE&t=261s"
+        },
+        {
+          "name": "https://www.youtube.com/watch?v=Hn0uZwjghng"
+        },
+        {
+          "name": "https://www.youtube.com/watch?v=6JTV4PwisoQ"
+        }
+      ],
+      "tags": [],
+      "ans": "",
+      "diff": 1,
+      "imp": 1,
+      "cate": "",
+      "id": 8
     }
   ],
   "sd3": [
@@ -6602,6 +6646,312 @@
       "id": 64
     }
   ],
+  "newfe": [
+    {
+      "subject": "newfe",
+      "title": "Explain this line - <script async src=\"https://ga.jspm.io/npm:es-module-shims@1.7.0/dist/es-module-shims.js\"></script>",
+      "ques": "",
+      "links": [],
+      "tags": [],
+      "ans": "\nThe line \"Once the script has loaded, it will execute immediately, potentially before the HTML parsing is complete\" refers to how the `async` attribute affects the loading and execution of a script.\n\nHere’s a breakdown of what this means:\n\n1. **Asynchronous Loading**:\n   - When a script is marked with the `async` attribute, it loads in the background, separate from the main HTML parsing process. This means that the browser doesn’t have to wait for the script to download before continuing to parse the HTML.\n   - Instead, the HTML document and the script are loaded in parallel, speeding up the page load time.\n\n2. **Execution Timing**:\n   - When the script finishes downloading, it will execute right away, regardless of whether the browser has finished parsing the HTML. So, if the script completes loading *before* the HTML parsing is done, the browser will pause HTML parsing to run the script.\n   - This can sometimes lead to issues if the script depends on elements that are not yet parsed or rendered in the HTML. For example, if a script tries to access an element that hasn’t been parsed yet, it could fail because the element doesn’t exist in the DOM at that moment.\n\n3. **Impact on Page Behavior**:\n   - Since the script is executed as soon as it finishes loading, its execution timing can vary depending on network speed and the size of the script. This makes `async` scripts less predictable in their order of execution compared to other scripts.\n\n### Example of Potential Issue\nIf you have:\n```html\n<p id=\"example\">Hello, World!</p>\n<script async src=\"example.js\"></script>\n```\nAnd in `example.js`, you try to access the `<p id=\"example\">` element:\n```javascript\ndocument.getElementById(\"example\").innerText = \"Changed text!\";\n```\nThis code might throw an error if the script loads and runs before the browser has parsed the `<p id=\"example\">` element.\n\n### When to Use `async`\n`async` is best for scripts that:\n- Don’t rely on or manipulate the HTML structure (like analytics or external libraries).\n- Don’t need to execute in a specific order relative to other scripts on the page.\n\nIn summary, the phrase means that with `async`, the script loads and executes independently, which can lead to it running before the entire HTML is fully parsed and ready.",
+      "diff": 1,
+      "imp": 1,
+      "cate": "",
+      "id": 1
+    },
+    {
+      "subject": "newfe",
+      "title": "Rendering Process",
+      "ques": "",
+      "links": [
+        {
+          "name": "https://docs.google.com/presentation/d/15c06HVoCaOEul1kq3N9i6_rpV7oBCJcAbHutBmMw-bg/edit#slide=id.p"
+        }
+      ],
+      "tags": [],
+      "ans": "\n- layout \n- Render tree\n- painting\n- reflow & repaint",
+      "diff": 1,
+      "imp": 1,
+      "cate": "",
+      "id": 2
+    },
+    {
+      "subject": "newfe",
+      "title": "Client & Server side rendering",
+      "ques": "",
+      "links": [
+        {
+          "name": "https://leetcode.com/problems/minimum-path-sum/?envType=list&envId=rozod5s3"
+        }
+      ],
+      "tags": [],
+      "ans": "",
+      "diff": 1,
+      "imp": 1,
+      "cate": "",
+      "id": 3
+    },
+    {
+      "subject": "newfe",
+      "title": "Yarn v/s npm",
+      "ques": "",
+      "links": [
+        {
+          "name": "https://leetcode.com/problems/minimum-path-sum/?envType=list&envId=rozod5s3"
+        },
+        {
+          "name": "https://leetcode.com/problems/minimum-path-sum/?envType=list&envId=rozod5s3"
+        }
+      ],
+      "tags": [],
+      "ans": "",
+      "diff": 1,
+      "imp": 1,
+      "cate": "",
+      "id": 4
+    },
+    {
+      "subject": "newfe",
+      "title": "package lock",
+      "ques": "",
+      "links": [
+        {
+          "name": "https://leetcode.com/problems/minimum-path-sum/?envType=list&envId=rozod5s3"
+        }
+      ],
+      "tags": [],
+      "ans": "",
+      "diff": 1,
+      "imp": 1,
+      "cate": "",
+      "id": 5
+    },
+    {
+      "subject": "newfe",
+      "title": "Cookie & Session",
+      "ques": "",
+      "links": [
+        {
+          "name": "https://angry-cray-8dfb24.netlify.app/sd/21"
+        },
+        {
+          "name": "https://youtu.be/VtJcd5JXjio?si=3vpS3awk5e1gPo5C"
+        },
+        {
+          "name": "https://www.youtube.com/watch?v=80S8h5hEwTY"
+        },
+        {
+          "name": "https://www.dropbox.com/scl/fi/jlk2yqrg5p1sy3y1b6hqe/How-session-and-cookies-works-.-In-the-world-of-web-development-by-HENDEL-Ramzy-Medium.pdf?rlkey=hust48x6utjmpr2clre0s2zs1&dl=0"
+        },
+        {
+          "name": "https://www.dropbox.com/scl/fi/r9vz1r7eied3qf6jkgf4w/Cookies-Missing-in-Request-Headers-Troubleshooting-Guide-The-Startup.pdf?rlkey=adjjt1ki28alrf8bppllw5zvs&dl=0"
+        }
+      ],
+      "tags": [],
+      "ans": "",
+      "diff": 1,
+      "imp": 1,
+      "cate": "",
+      "id": 6
+    }
+  ],
+  "newbe": [
+    {
+      "subject": "newbe",
+      "title": "Revise Database",
+      "ques": "",
+      "links": [
+        {
+          "name": "https://docs.google.com/document/d/1A1RmO3y7Bro0BXgUUShG6K8F8rFPGGUkzzTFjfBzy7w/edit"
+        }
+      ],
+      "tags": [],
+      "ans": "",
+      "diff": 1,
+      "imp": 1,
+      "cate": "",
+      "id": 1
+    },
+    {
+      "subject": "newbe",
+      "title": "Lambda",
+      "ques": "",
+      "links": [
+        {
+          "name": "https://www.youtube.com/watch?v=6cTObKzpLUA"
+        }
+      ],
+      "tags": [],
+      "ans": "",
+      "diff": 1,
+      "imp": 1,
+      "cate": "",
+      "id": 2
+    },
+    {
+      "subject": "newbe",
+      "title": "Database joins",
+      "ques": "",
+      "links": [
+        {
+          "name": "https://www.w3schools.com/sql/sql_join_full.asp"
+        }
+      ],
+      "tags": [],
+      "ans": "",
+      "diff": 1,
+      "imp": 1,
+      "cate": "",
+      "id": 3
+    },
+    {
+      "subject": "newbe",
+      "title": "Nodejs charset and encoding",
+      "ques": "",
+      "links": [
+        {
+          "name": "https://www.youtube.com/watch?v=0LYXkL0pr1M"
+        }
+      ],
+      "tags": [],
+      "ans": "",
+      "diff": 1,
+      "imp": 1,
+      "cate": "",
+      "id": 4
+    },
+    {
+      "subject": "newbe",
+      "title": "Typescript setup",
+      "ques": "",
+      "links": [
+        {
+          "name": "https://www.youtube.com/watch?v=HvxYkugp55A"
+        }
+      ],
+      "tags": [],
+      "ans": "",
+      "diff": 1,
+      "imp": 1,
+      "cate": "",
+      "id": 5
+    },
+    {
+      "subject": "newbe",
+      "title": "Video call ",
+      "ques": "",
+      "links": [
+        {
+          "name": "https://www.youtube.com/watch?v=WmR9IMUD_CY"
+        }
+      ],
+      "tags": [],
+      "ans": "",
+      "diff": 1,
+      "imp": 1,
+      "cate": "",
+      "id": 6
+    },
+    {
+      "subject": "newbe",
+      "title": "Curl req Get/Post",
+      "ques": "",
+      "links": [
+        {
+          "name": "https://angry-cray-8dfb24.netlify.app/node/32"
+        }
+      ],
+      "tags": [],
+      "ans": "",
+      "diff": 1,
+      "imp": 1,
+      "cate": "",
+      "id": 7
+    },
+    {
+      "subject": "newbe",
+      "title": "File upload ",
+      "ques": "",
+      "links": [
+        {
+          "name": "https://angry-cray-8dfb24.netlify.app/node/33"
+        }
+      ],
+      "tags": [],
+      "ans": "",
+      "diff": 1,
+      "imp": 1,
+      "cate": "",
+      "id": 8
+    },
+    {
+      "subject": "newbe",
+      "title": "Web socket",
+      "ques": "",
+      "links": [
+        {
+          "name": "https://angry-cray-8dfb24.netlify.app/node/9"
+        }
+      ],
+      "tags": [],
+      "ans": "",
+      "diff": 1,
+      "imp": 1,
+      "cate": "",
+      "id": 9
+    },
+    {
+      "subject": "newbe",
+      "title": "EventEmiiter",
+      "ques": "",
+      "links": [
+        {
+          "name": "https://angry-cray-8dfb24.netlify.app/node/31"
+        }
+      ],
+      "tags": [],
+      "ans": "",
+      "diff": 1,
+      "imp": 1,
+      "cate": "",
+      "id": 10
+    },
+    {
+      "subject": "newbe",
+      "title": "Rest Error Codes",
+      "ques": "",
+      "links": [
+        {
+          "name": "https://angry-cray-8dfb24.netlify.app/node/17"
+        },
+        {
+          "name": "https://angry-cray-8dfb24.netlify.app/sd/17"
+        }
+      ],
+      "tags": [],
+      "ans": "",
+      "diff": 1,
+      "imp": 1,
+      "cate": "",
+      "id": 11
+    },
+    {
+      "subject": "newbe",
+      "title": "Diff passport v/s JWT",
+      "ques": "",
+      "links": [
+        {
+          "name": "https://www.youtube.com/watch?v=7Q17ubqLfaM&ab_channel=WebDevSimplified"
+        }
+      ],
+      "tags": [],
+      "ans": "",
+      "diff": 1,
+      "imp": 1,
+      "cate": "",
+      "id": 12
+    }
+  ],
   "sdAlgo": [
     {
       "subject": "sdAlgo",
@@ -6669,7 +7019,24 @@
     }
   ],
   "interviewAlgo": [],
-  "interviewAllQues": [],
+  "interviewAllQues": [
+    {
+      "subject": "interviewAllQues",
+      "title": "Practice Interview",
+      "ques": "",
+      "links": [
+        {
+          "name": "https://docs.google.com/document/d/15l_cVWvOc4-Cr7SmqB7Om4vwhoTYqxpaVa5fCUmRQso/edit"
+        }
+      ],
+      "tags": [],
+      "ans": "1. Explain one the production issue you encountered and steps to reproduce and resolve/report it\n\n2. Explain about the typical system design architecture as used in your projects\n\n3. How to do you interact with Project manager/owner? How interactive the discussion? how to you contribute in the discussion? Explain one example where you feedback really proved to be beneficial for project and organization",
+      "diff": 1,
+      "imp": 1,
+      "cate": "",
+      "id": 1
+    }
+  ],
   "wrdpow": [
     {
       "subject": "wrdpow",
@@ -6689,7 +7056,7 @@
       "ques": "",
       "links": [],
       "tags": [],
-      "ans": "Procreation refers to the process of conceiving and bearing offspring. It is a fundamental biological process, involving sexual or asexual reproduction, through which many species, including humans, generate new individuals. In a human context, it usually refers to the act of sexual reproduction.",
+      "ans": "`Sure! Let's explore the word **\"Procreation\"** following the structure you've provided.\\n` +\n      '\\n' +\n      '---\\n' +\n      '\\n' +\n      '### a. **Explanation in Simple Words**\\n' +\n      '\\n' +\n      '- **English:**\\n' +\n      '\\n' +\n      '  \"Procreation\" refers to the process of producing new living beings; having children.\\n' +\n      '\\n' +\n      '- **Hindi:**\\n' +\n      '\\n' +\n      '  \"Procreation\" का मतलब है नए जीवों का उत्पादन करना; बच्चे पैदा करना।\\n' +\n      '\\n' +\n      '### b. **Simple Example**\\n' +\n      '\\n' +\n      '- **English Example:**\\n' +\n      '\\n' +\n      '  Many animals rely on procreation to ensure their species continues.\\n' +\n      '\\n' +\n      '- **हिंदी उदाहरण:**\\n' +\n      '\\n' +\n      '  कई जानवर अपनी प्रजाति को बनाए रखने के लिए संतान उत्पन्न पर निर्भर करते हैं।\\n' +\n      '\\n' +\n      '### c. **Song to Remember It**\\n' +\n      '\\n' +\n      '*(To the tune of \"Twinkle Twinkle Little Star\")*\\n' +\n      '\\n' +\n      '🎵  \\n' +\n      'Procreation, life begins,  \\n' +\n      'New adventures, new kin.  \\n' +\n      'Bringing forth the young ones bright,  \\n' +\n      'Growing family, pure delight.  \\n' +\n      'Procreation, life begins,  \\n' +\n      'Helping species to take flight.  \\n' +\n      '🎵\\n' +\n      '\\n' +\n      '---\\n' +\n      '\\n' +\n      \"Feel free to share more words, phrases, or sentences you'd like to explore!\"",
       "diff": 1,
       "imp": 1,
       "cate": "",
