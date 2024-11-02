@@ -6753,6 +6753,159 @@
       "imp": 1,
       "cate": "",
       "id": 6
+    },
+    {
+      "subject": "newfe",
+      "title": "Web component ",
+      "ques": "",
+      "links": [
+        {
+          "name": "https://angry-cray-8dfb24.netlify.app/js/18"
+        },
+        {
+          "name": "https://youtu.be/2I7uX8m0Ta0?si=b4DAA-veJwMvR1VU"
+        }
+      ],
+      "tags": [],
+      "ans": "",
+      "diff": 1,
+      "imp": 1,
+      "cate": "",
+      "id": 7
+    },
+    {
+      "subject": "newfe",
+      "title": "Global exception",
+      "ques": "",
+      "links": [
+        {
+          "name": "https://angry-cray-8dfb24.netlify.app/js/31"
+        }
+      ],
+      "tags": [],
+      "ans": "",
+      "diff": 1,
+      "imp": 1,
+      "cate": "",
+      "id": 8
+    },
+    {
+      "subject": "newfe",
+      "title": "Infinite Scroll",
+      "ques": "",
+      "links": [
+        {
+          "name": "https://angry-cray-8dfb24.netlify.app/js/35"
+        }
+      ],
+      "tags": [],
+      "ans": "",
+      "diff": 1,
+      "imp": 1,
+      "cate": "",
+      "id": 9
+    },
+    {
+      "subject": "newfe",
+      "title": "Eventlistener order",
+      "ques": "",
+      "links": [
+        {
+          "name": "https://angry-cray-8dfb24.netlify.app/js/20"
+        }
+      ],
+      "tags": [],
+      "ans": "",
+      "diff": 1,
+      "imp": 1,
+      "cate": "",
+      "id": 10
+    },
+    {
+      "subject": "newfe",
+      "title": "Scaling front end application ",
+      "ques": "",
+      "links": [
+        {
+          "name": "https://www.dropbox.com/scl/fi/ihik05evhrxpu31gm12xd/Scaling-Frontend-Applications-in-2023-Bits-and-Pieces.pdf?rlkey=aje5o0hk7fwiar8f824y10t2o&dl=0"
+        }
+      ],
+      "tags": [],
+      "ans": "",
+      "diff": 1,
+      "imp": 1,
+      "cate": "",
+      "id": 11
+    },
+    {
+      "subject": "newfe",
+      "title": "Custom map, filter, reduce",
+      "ques": "",
+      "links": [
+        {
+          "name": "https://stackblitz.com/edit/stackblitz-starters-8ewmum"
+        }
+      ],
+      "tags": [],
+      "ans": "",
+      "diff": 1,
+      "imp": 1,
+      "cate": "",
+      "id": 12
+    },
+    {
+      "subject": "newfe",
+      "title": "Object prop override using spread operator, Map, filter, reduce",
+      "ques": "",
+      "links": [
+        {
+          "name": "https://stackblitz.com/edit/stackblitz-starters-poiymv"
+        }
+      ],
+      "tags": [],
+      "ans": "",
+      "diff": 1,
+      "imp": 1,
+      "cate": "",
+      "id": 13
+    },
+    {
+      "subject": "newfe",
+      "title": "Promises",
+      "ques": "",
+      "links": [
+        {
+          "name": "https://angry-cray-8dfb24.netlify.app/js/5"
+        },
+        {
+          "name": "https://angry-cray-8dfb24.netlify.app/js/12"
+        }
+      ],
+      "tags": [],
+      "ans": "",
+      "diff": 1,
+      "imp": 1,
+      "cate": "",
+      "id": 14
+    },
+    {
+      "subject": "newfe",
+      "title": "Debounce",
+      "ques": "",
+      "links": [
+        {
+          "name": "https://angry-cray-8dfb24.netlify.app/js/1"
+        },
+        {
+          "name": "https://stackblitz.com/edit/stackblitz-starters-i9judn?file=src%2FApp.tsx"
+        }
+      ],
+      "tags": [],
+      "ans": "",
+      "diff": 1,
+      "imp": 1,
+      "cate": "",
+      "id": 15
     }
   ],
   "newbe": [
